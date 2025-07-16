@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "localization": {
@@ -668,12 +677,6 @@
   "categories": {
     "roman": "Roman",
     "sachbuch": "Sachbuch",
-    "krimi_and_thriller": "Krimis & Thriller",
-    "fantasy_and_science_fiction": "Fantasy & Science Fiction",
-    "biografie_and_memoiren": "Biografie & Memoiren", 
-    "fachbuch": "Fachbuch",
-    "reiseführer": "Reiseführer",
-    "kochbuch": "Kochbuch",
     "krimi": "Krimi & Thriller",
     "fantasy": "Fantasy & Science Fiction",
     "kinderbuch": "Kinderbuch",

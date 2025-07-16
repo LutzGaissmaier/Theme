@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
       {
   "type": "header",
   "name": "Header Group",
@@ -33,16 +42,6 @@
         "text_color": "#ffffff",
         "text_type_scale": "small",
         "read_time": 8
-      }
-    },
-    "zweitliebe_header": {
-      "type": "zweitliebe-trust-header", 
-      "settings": {
-        "search_placeholder": "ISBN, Titel, Autor oder Kategorie...",
-        "trust_message_1": "Kostenloser Versand ab 10€",
-        "trust_message_2": "36 Monate Garantie", 
-        "trust_message_3": "4.8/5 Kundenbewertung",
-        "trust_message_4": "180.000+ Bücher verfügbar"
       }
     },
     "header": {
@@ -198,6 +197,9 @@
     }
   },
   "order": [
-    "zweitliebe_header"
+    "announcement",
+    "header",
+    "433b6b0d-810b-4d34-902a-c5760d80945a",
+    "883c3065-1506-4c0c-af62-4e0f6bc49c84"
   ]
 }
