@@ -1,0 +1,334 @@
+/* Zweitliebe Book Product Card Styles */
+
+.book-card {
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  max-width: 100%;
+}
+
+.book-card:hover {
+  border-color: var(--zweitliebe-green);
+  transform: translateY(-2px);
+}
+
+.book-card__image {
+  position: relative;
+  overflow: hidden;
+}
+
+.book-card__image a:hover .book-card__image-main {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.book-card__image-main {
+  transition: transform 0.3s ease;
+}
+
+/* Labels und Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.badge--condition {
+  background-color: var(--zweitliebe-green);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.badge--savings {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Produktinformationen */
+.book-card__author {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.book-card__title a {
+  text-decoration: none;
+  display: block;
+  line-height: 1.3;
+}
+
+.book-card__title a:hover {
+  color: var(--zweitliebe-green) !important;
+}
+
+.book-card__details {
+  background: rgba(143, 188, 143, 0.03);
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(143, 188, 143, 0.1);
+}
+
+.book-card__details > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.book-card__details span:first-child {
+  color: #374151;
+  min-width: 4rem;
+  flex-shrink: 0;
+}
+
+/* Zustandsbewertung */
+.book-card__condition-rating {
+  background: #f9fafb;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+}
+
+.condition-stars {
+  gap: 0.125rem;
+}
+
+.condition-star {
+  font-size: 1rem;
+  color: #d1d5db;
+  transition: color 0.2s ease;
+}
+
+.condition-star.filled {
+  color: inherit;
+}
+
+/* Bewertungen */
+.book-card__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Beschreibung */
+.book-card__description {
+  border-left: 3px solid var(--zweitliebe-green);
+  padding-left: 0.75rem;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Preisbereich */
+.book-card__price {
+  background: linear-gradient(135deg, rgba(143, 188, 143, 0.05), rgba(143, 188, 143, 0.1));
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(143, 188, 143, 0.2);
+}
+
+.original-price {
+  position: relative;
+}
+
+.current-price {
+  color: var(--zweitliebe-green);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.savings {
+  color: #059669;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* Lagerbestand-Indikatoren */
+.stock-indicator {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.stock-available {
+  background: rgba(16, 185, 129, 0.1);
+  color: #065f46;
+}
+
+.stock-low {
+  background: rgba(245, 158, 11, 0.1);
+  color: #92400e;
+}
+
+.stock-out {
+  background: rgba(239, 68, 68, 0.1);
+  color: #991b1b;
+}
+
+/* Garantie-Hinweis */
+.book-card__guarantee {
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+/* Action Buttons */
+.book-card__actions .btn {
+  border-radius: 0.375rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.book-card__actions .btn--primary {
+  background: var(--zweitliebe-green);
+  color: white;
+}
+
+.book-card__actions .btn--primary:hover {
+  background: #7aaa7a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(143, 188, 143, 0.3);
+}
+
+.book-card__actions .btn--secondary {
+  background: transparent;
+  color: var(--zweitliebe-green);
+  border-color: var(--zweitliebe-green);
+}
+
+.book-card__actions .btn--secondary:hover {
+  background: var(--zweitliebe-green);
+  color: white;
+}
+
+.book-card__actions .btn:disabled {
+  background: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Vergleichsfunktion */
+.book-card__compare {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.book-card:hover .book-card__compare {
+  opacity: 1;
+}
+
+.book-card__compare label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.book-card__compare input:checked + label {
+  background: var(--zweitliebe-green);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .book-card__details {
+    padding: 0.5rem;
+  }
+  
+  .book-card__details > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  
+  .book-card__details span:first-child {
+    min-width: auto;
+  }
+  
+  .book-card__actions .btn {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .current-price {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .book-card {
+    max-width: 320px;
+  }
+}
+
+/* Custom Zweitliebe Colors */
+.text-zweitliebe-green {
+  color: var(--zweitliebe-green);
+}
+
+.bg-zweitliebe-green {
+  background-color: var(--zweitliebe-green);
+}
+
+.border-zweitliebe-green {
+  border-color: var(--zweitliebe-green);
+}
+
+/* Loading States */
+.book-card.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.book-card.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Focus States */
+.book-card__title a:focus,
+.book-card__actions .btn:focus {
+  outline: 2px solid var(--zweitliebe-green);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .book-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .book-card__compare,
+  .book-card__actions {
+    display: none;
+  }
+} 

@@ -44,7 +44,30 @@
       "articles": "Artikel",
       "view_all": "Alle Suchergebnisse anzeigen",
       "all_product_types": "Alle",
-      "all_products": "Alle Bücher"
+      "all_products": "Alle Bücher",
+      "quick_search": "Schnellsuche",
+      "advanced_search": "Erweiterte Suche",
+      "isbn_search": "ISBN-Suche",
+      "search_books": "Bücher suchen",
+      "placeholder_books": "Titel, Autor, ISBN oder Stichwort eingeben...",
+      "book_title": "Buchtitel",
+      "placeholder_title": "z.B. Der Herr der Ringe",
+      "author": "Autor",
+      "placeholder_author": "z.B. J.R.R. Tolkien",
+      "publisher": "Verlag",
+      "placeholder_publisher": "z.B. Klett-Cotta",
+      "category": "Kategorie",
+      "all_categories": "Alle Kategorien",
+      "condition": "Zustand",
+      "all_conditions": "Alle Zustände",
+      "price_range": "Preisbereich",
+      "price_from": "Von",
+      "price_to": "Bis",
+      "availability": "Verfügbarkeit",
+      "all_availability": "Alle Verfügbarkeiten",
+      "isbn_number": "ISBN-Nummer",
+      "placeholder_isbn": "z.B. 978-3-608-93835-4",
+      "isbn_help": "Geben Sie eine 10- oder 13-stellige ISBN ein (mit oder ohne Bindestriche)"
     },
     "slider": {
       "next": "Nächste",
@@ -73,6 +96,64 @@
       "show_products_one": "{{ quantity }} Produkt anzeigen",
       "show_products_other": "Zeige {{ quantity }} produkte"
     }
+  },
+  "categories": {
+    "roman": "Roman",
+    "sachbuch": "Sachbuch",
+    "krimi": "Krimi & Thriller",
+    "fantasy": "Fantasy & Science Fiction",
+    "kinderbuch": "Kinderbuch",
+    "ratgeber": "Ratgeber",
+    "biografie": "Biografie & Memoiren"
+  },
+  "condition": {
+    "new": "Neu",
+    "very_good": "Sehr gut",
+    "good": "Gut",
+    "acceptable": "Akzeptabel"
+  },
+  "availability": {
+    "available": "Verfügbar",
+    "low_stock": "Geringe Stückzahl"
+  },
+  "stock": {
+    "available": "Verfügbar",
+    "low_stock": "Nur noch wenige verfügbar",
+    "out_of_stock": "Ausverkauft",
+    "remaining": "übrig"
+  },
+  "guarantee": {
+    "three_years": "36 Monate Garantie"
+  },
+  "nav": {
+    "all_books": "Alle Bücher",
+    "book_categories": "Buchkategorien",
+    "popular_categories": "Beliebte Kategorien",
+    "view_all_books": "Alle Bücher anzeigen",
+    "my_account": "Mein Konto",
+    "cart": "Warenkorb",
+    "menu": "Menü",
+    "search_placeholder": "Buchtitel, Autor oder ISBN...",
+    "quick_filters": "Schnellfilter",
+    "free_shipping": "Kostenloser Versand",
+    "guarantee": "36 Monate Garantie",
+    "sustainability": "Nachhaltigkeit"
+  },
+  "filter": {
+    "condition": "Zustand",
+    "price": "Preis",
+    "publisher": "Verlag",
+    "sort": "Sortieren",
+    "under_5": "Unter 5€",
+    "over_50": "Über 50€",
+    "all_publishers": "Alle Verlage anzeigen"
+  },
+  "sort": {
+    "relevance": "Relevanz",
+    "price_low_high": "Preis: niedrig zu hoch",
+    "price_high_low": "Preis: hoch zu niedrig",
+    "title_a_z": "Titel: A-Z",
+    "newest": "Neueste zuerst"
   },
   "accessibility": {
     "skip_to_content": "Direkt zum Inhalt",
@@ -544,6 +625,64 @@
       "max_characters": "Maximal {{ max_chars }} Zeichens",
       "send_on_label": "Senden an"
     }
+  },
+  "search": {
+    "quick_search": "Schnellsuche",
+    "advanced_search": "Erweiterte Suche", 
+    "isbn_search": "ISBN-Suche",
+    "search_books": "Bücher suchen",
+    "placeholder_books": "Titel, Autor, ISBN...",
+    "book_title": "Buchtitel",
+    "placeholder_title": "z.B. Der kleine Prinz",
+    "author": "Autor",
+    "placeholder_author": "z.B. Antoine de Saint-Exupéry",
+    "publisher": "Verlag",
+    "placeholder_publisher": "z.B. Rowohlt",
+    "category": "Kategorie",
+    "all_categories": "Alle Kategorien",
+    "condition": "Zustand",
+    "all_conditions": "Alle Zustände",
+    "price_range": "Preisspanne",
+    "price_from": "von",
+    "price_to": "bis",
+    "availability": "Verfügbarkeit",
+    "all_availability": "Alle",
+    "isbn_number": "ISBN-Nummer",
+    "placeholder_isbn": "z.B. 978-3-499-21457-2",
+    "isbn_help": "10- oder 13-stellige ISBN-Nummer"
+  },
+  "nav": {
+    "all_books": "Alle Bücher",
+    "book_categories": "Buchkategorien",
+    "popular_categories": "Beliebte Kategorien", 
+    "view_all_books": "Alle Bücher ansehen",
+    "my_account": "Mein Konto",
+    "cart": "Warenkorb",
+    "quick_filters": "Schnellfilter",
+    "free_shipping": "Kostenloser Versand ab 10€",
+    "guarantee": "36 Monate Garantie",
+    "sustainability": "Nachhaltigkeit",
+    "menu": "Menü",
+    "search_placeholder": "Suche nach Büchern..."
+  },
+  "categories": {
+    "roman": "Roman",
+    "sachbuch": "Sachbuch",
+    "krimi": "Krimi & Thriller",
+    "fantasy": "Fantasy & Science Fiction",
+    "kinderbuch": "Kinderbuch",
+    "ratgeber": "Ratgeber",
+    "biografie": "Biografie & Memoiren"
+  },
+  "condition": {
+    "new": "Neu",
+    "very_good": "Sehr gut",
+    "good": "Gut", 
+    "acceptable": "Akzeptabel"
+  },
+  "availability": {
+    "available": "Verfügbar",
+    "low_stock": "Wenige verfügbar"
   },
   "onboarding": {
     "article": {

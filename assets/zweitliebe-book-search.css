@@ -1,0 +1,166 @@
+/* Zweitliebe Advanced Book Search Styles */
+
+.advanced-book-search {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.advanced-book-search__tabs {
+  margin-bottom: 1rem;
+}
+
+.tabs-nav {
+  border-bottom: 2px solid var(--zweitliebe-green);
+  background: rgba(143, 188, 143, 0.05);
+  border-radius: 8px 8px 0 0;
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgba(143, 188, 143, 0.7);
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.tab-btn:hover {
+  background: rgba(143, 188, 143, 0.1);
+  color: var(--zweitliebe-green);
+}
+
+.tab-btn.active {
+  background: var(--zweitliebe-green);
+  color: white;
+  box-shadow: 0 2px 4px rgba(143, 188, 143, 0.3);
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-field-group {
+  margin-bottom: 1rem;
+}
+
+.search-field-group .label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.advanced-book-search .search__input {
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.advanced-book-search .search__input:focus {
+  border-color: var(--zweitliebe-green);
+  box-shadow: 0 0 0 3px rgba(143, 188, 143, 0.1);
+  outline: none;
+}
+
+.advanced-book-search .search__input::placeholder {
+  color: #9ca3af;
+}
+
+.search-filters {
+  background: rgba(143, 188, 143, 0.02);
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.advanced-book-search .btn--primary {
+  background: var(--zweitliebe-green);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+.advanced-book-search .btn--primary:hover {
+  background: #7aaa7a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(143, 188, 143, 0.3);
+}
+
+.search__submit {
+  background: transparent;
+  border: none;
+  color: var(--zweitliebe-green);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.search__submit:hover {
+  color: #7aaa7a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .advanced-book-search {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .tabs-nav {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .tab-btn {
+    text-align: center;
+    padding: 0.75rem 1rem;
+  }
+  
+  .search-filters {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Success/Error States */
+.search-field-group.success .search__input {
+  border-color: #10b981;
+}
+
+.search-field-group.error .search__input {
+  border-color: #ef4444;
+}
+
+.search-error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+} 

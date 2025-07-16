@@ -1,0 +1,313 @@
+{%- comment -%}
+  Book Product Card für Zweitliebe - Speziell für gebrauchte Bücher
+  
+  Parameters:
+  - product {Object} - Produkt-Objekt.
+  - collection {Object} - Sammlung-Objekt (optional).
+  - image_ratio {Number} - Seitenverhältnis für das Bild.
+  - show_compare {Boolean} - Zeigt Vergleichsfunktion an.
+  - show_quick_add {Boolean} - Zeigt Quick-Add Button an.
+  
+  Usage:
+  {% render 'book-product-card', product: product, image_ratio: 1.4 %}
+{%- endcomment -%}
+
+<link rel="stylesheet" href="{{ 'zweitliebe-book-card.css' | asset_url }}" media="print" onload="this.media='all'">
+
+{%- liquid
+  if collection and settings.card_url_within_coll and product.collections contains collection
+    assign product_url = product.url | within: collection
+  else
+    assign product_url = product.url
+  endif
+
+  assign current_variant = product.selected_or_first_available_variant
+  assign product_images = product.media | where: 'media_type', 'image'
+
+  # Buchspezifische Metafelder
+  assign book_author = product.metafields.book.author | default: product.vendor
+  assign book_isbn = product.metafields.book.isbn
+  assign book_publisher = product.metafields.book.publisher | default: product.vendor
+  assign book_year = product.metafields.book.year
+  assign book_pages = product.metafields.book.pages
+  assign book_language = product.metafields.book.language | default: 'Deutsch'
+  assign book_binding = product.metafields.book.binding | default: 'Taschenbuch'
+  assign book_condition = product.metafields.book.condition | default: 'gut'
+  assign book_description = product.metafields.book.description | default: product.description
+  assign original_price = product.metafields.book.original_price
+  
+  # Bewertungen
+  assign rating_value = product.metafields.reviews.rating.value
+  assign rating_count = product.metafields.reviews.rating_count | default: 0
+  
+  # Zustandsbewertung
+  assign condition_score = 0
+  case book_condition
+    when 'neu'
+      assign condition_score = 5
+      assign condition_color = '#10b981'
+    when 'sehr-gut'
+      assign condition_score = 4
+      assign condition_color = '#10b981'
+    when 'gut'
+      assign condition_score = 3
+      assign condition_color = '#f59e0b'
+    when 'akzeptabel'
+      assign condition_score = 2
+      assign condition_color = '#ef4444'
+    else
+      assign condition_score = 3
+      assign condition_color = '#f59e0b'
+  endcase
+  
+  # Lagerbestand
+  assign stock_level = 'available'
+  if current_variant.inventory_quantity <= 3 and current_variant.inventory_quantity > 0
+    assign stock_level = 'low'
+  elsif current_variant.inventory_quantity <= 0
+    assign stock_level = 'out_of_stock'
+  endif
+-%}
+
+{%- if product and product != empty -%}
+  <book-product-card class="book-card card h-full relative flex flex-col bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300"
+                     data-product-id="{{ product.id }}"
+                     data-book-condition="{{ book_condition }}"
+                     data-book-author="{{ book_author | escape }}">
+
+    {%- if show_compare -%}
+      <div class="book-card__compare absolute top-2 right-2 z-10">
+        <input type="checkbox" class="checkbox checkbox--compare js-compare-checkbox" id="compare-{{ product.id }}"
+               data-product-id="{{ product.id }}" data-product-url="{{ product_url }}">
+        <label for="compare-{{ product.id }}" class="bg-white rounded-full p-2 shadow-sm">
+          {% render 'icon-check' %}
+        </label>
+      </div>
+    {%- endif -%}
+
+    <!-- Produktbild mit Labels -->
+    <div class="book-card__image relative">
+      <a href="{{ product_url }}" class="block relative overflow-hidden rounded-t-lg">
+        {%- if product.featured_media -%}
+          <div class="media block relative" style="padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;">
+            {% render 'image',
+              image: product.featured_media.preview_image,
+              widths: '280, 360, 540, 720',
+              src_width: 360,
+              sizes: '(max-width: 640px) 280px, (max-width: 1024px) 360px, 540px',
+              class: 'img-fit book-card__image-main',
+              loading: 'lazy'
+            %}
+          </div>
+        {%- else -%}
+          <div class="media block relative bg-gray-100" style="padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;">
+            {{ 'image' | placeholder_svg_tag: 'media__placeholder img-fit' }}
+          </div>
+        {%- endif -%}
+        
+        <!-- Zustandslabel -->
+        <div class="book-card__condition absolute top-2 left-2">
+          <span class="badge badge--condition" style="background-color: {{ condition_color }};">
+            {{ 'condition.' | append: book_condition | t }}
+          </span>
+        </div>
+        
+        <!-- Preis-Ersparnis -->
+        {%- if original_price and original_price > current_variant.price -%}
+          {%- assign savings_percent = original_price | minus: current_variant.price | times: 100.0 | divided_by: original_price | round -%}
+          <div class="book-card__savings absolute bottom-2 right-2">
+            <span class="badge badge--savings">-{{ savings_percent }}%</span>
+          </div>
+        {%- endif -%}
+      </a>
+    </div>
+
+    <!-- Produktinformationen -->
+    <div class="book-card__info p-4 flex flex-col flex-grow">
+      
+      <!-- Autor und Verlag -->
+      {%- if book_author -%}
+        <p class="book-card__author text-sm text-theme-light mb-1">
+          {{ book_author }}
+        </p>
+      {%- endif -%}
+      
+      <!-- Titel -->
+      <h3 class="book-card__title text-lg font-semibold mb-2 leading-tight">
+        <a href="{{ product_url }}" class="text-theme-text hover:text-zweitliebe-green">
+          {{ product.title | escape }}
+        </a>
+      </h3>
+      
+      <!-- Buchdetails -->
+      <div class="book-card__details text-xs text-theme-light mb-3">
+        {%- if book_publisher -%}
+          <div class="flex items-center">
+            <span class="font-medium w-16">Verlag:</span>
+            <span>{{ book_publisher }}</span>
+          </div>
+        {%- endif -%}
+        
+        {%- if book_year -%}
+          <div class="flex items-center">
+            <span class="font-medium w-16">Jahr:</span>
+            <span>{{ book_year }}</span>
+          </div>
+        {%- endif -%}
+        
+        {%- if book_pages -%}
+          <div class="flex items-center">
+            <span class="font-medium w-16">Seiten:</span>
+            <span>{{ book_pages }}</span>
+          </div>
+        {%- endif -%}
+        
+        <div class="flex items-center">
+          <span class="font-medium w-16">Sprache:</span>
+          <span>{{ book_language }}</span>
+        </div>
+        
+        <div class="flex items-center">
+          <span class="font-medium w-16">Einband:</span>
+          <span>{{ book_binding }}</span>
+        </div>
+        
+        {%- if book_isbn -%}
+          <div class="flex items-center">
+            <span class="font-medium w-16">ISBN:</span>
+            <span class="font-mono text-xs">{{ book_isbn }}</span>
+          </div>
+        {%- endif -%}
+      </div>
+      
+      <!-- Zustandsbewertung -->
+      <div class="book-card__condition-rating mb-3">
+        <div class="flex items-center justify-between mb-1">
+          <span class="text-sm font-medium">Zustand:</span>
+          <span class="text-sm" style="color: {{ condition_color }};">
+            {{ 'condition.' | append: book_condition | t }}
+          </span>
+        </div>
+        <div class="condition-stars flex">
+          {%- for i in (1..5) -%}
+            <span class="condition-star {% if i <= condition_score %}filled{% endif %}" style="color: {{ condition_color }};">★</span>
+          {%- endfor -%}
+        </div>
+      </div>
+      
+      <!-- Kundenbewertungen -->
+      {%- if rating_value and rating_value > 0 -%}
+        <div class="book-card__rating mb-3">
+          {% render 'rating', rating_value: rating_value, rating_count: rating_count, show_text: true %}
+        </div>
+      {%- endif -%}
+      
+      <!-- Kurzbeschreibung -->
+      {%- if book_description and book_description != blank -%}
+        <div class="book-card__description mb-3">
+          <p class="text-sm text-gray-600 line-clamp-2">
+            {{ book_description | strip_html | truncatewords: 20 }}
+          </p>
+        </div>
+      {%- endif -%}
+      
+      <!-- Preisbereich -->
+      <div class="book-card__price mb-3 mt-auto">
+        <div class="flex items-center justify-between">
+          {%- if original_price and original_price > current_variant.price -%}
+            <div class="original-price text-sm text-gray-400 line-through">
+              {{ original_price | money }}
+            </div>
+          {%- endif -%}
+          <div class="current-price text-lg font-bold text-zweitliebe-green">
+            {{ current_variant.price | money }}
+          </div>
+        </div>
+        
+        {%- if original_price and original_price > current_variant.price -%}
+          <div class="savings text-sm text-green-600 font-medium">
+            Sparen Sie {{ original_price | minus: current_variant.price | money }}
+          </div>
+        {%- endif -%}
+      </div>
+      
+      <!-- Lagerbestand -->
+      <div class="book-card__stock mb-3">
+        {%- case stock_level -%}
+          {%- when 'available' -%}
+            <div class="stock-indicator stock-available flex items-center text-sm">
+              <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+              {{ 'stock.available' | t }}
+            </div>
+          {%- when 'low' -%}
+            <div class="stock-indicator stock-low flex items-center text-sm">
+              <span class="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+              {{ 'stock.low_stock' | t }}
+              {%- if current_variant.inventory_quantity > 0 -%}
+                ({{ current_variant.inventory_quantity }} {{ 'stock.remaining' | t }})
+              {%- endif -%}
+            </div>
+          {%- when 'out_of_stock' -%}
+            <div class="stock-indicator stock-out flex items-center text-sm">
+              <span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+              {{ 'stock.out_of_stock' | t }}
+            </div>
+        {%- endcase -%}
+      </div>
+      
+      <!-- Garantie-Hinweis -->
+      <div class="book-card__guarantee mb-4">
+        <div class="text-xs text-gray-500 flex items-center">
+          {% render 'icon-check' %}
+          <span class="ml-1">{{ 'guarantee.three_years' | t }}</span>
+        </div>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="book-card__actions">
+        {%- if current_variant.available -%}
+          {%- if show_quick_add and settings.enable_quick_add -%}
+            <div class="flex gap-2">
+              <button type="button" 
+                      class="btn btn--primary flex-1 js-quick-add"
+                      data-product-url="{{ product_url }}"
+                      data-product-id="{{ product.id }}">
+                {{ 'products.product.add_to_cart' | t }}
+              </button>
+              <a href="{{ product_url }}" class="btn btn--secondary">
+                {{ 'products.product.view_details' | t }}
+              </a>
+            </div>
+          {%- else -%}
+            <a href="{{ product_url }}" class="btn btn--primary w-full">
+              {{ 'products.product.view_details' | t }}
+            </a>
+          {%- endif -%}
+        {%- else -%}
+          <button type="button" class="btn btn--secondary w-full" disabled>
+            {{ 'products.product.sold_out' | t }}
+          </button>
+        {%- endif -%}
+      </div>
+    </div>
+  </book-product-card>
+{%- else -%}
+  <!-- Placeholder für leere Produkte -->
+  <div class="book-card card h-full bg-white rounded-lg shadow-sm">
+    <div class="book-card__image relative">
+      <div class="media block relative bg-gray-100" style="padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;">
+        {{ 'image' | placeholder_svg_tag: 'media__placeholder img-fit' }}
+      </div>
+    </div>
+    <div class="book-card__info p-4">
+      <h3 class="book-card__title text-lg font-semibold mb-2">
+        {{ 'onboarding.product.title' | t }}
+      </h3>
+      <div class="book-card__price">
+        <div class="current-price text-lg font-bold text-zweitliebe-green">
+          {{ 1234 | money }}
+        </div>
+      </div>
+    </div>
+  </div>
+{%- endif -%} 

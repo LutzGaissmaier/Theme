@@ -1,0 +1,410 @@
+/* Zweitliebe Book Shop Navigation Styles */
+
+.book-shop-navigation {
+  background: white;
+  border-bottom: 2px solid var(--zweitliebe-green);
+  position: relative;
+  z-index: 50;
+}
+
+/* Logo Styling */
+.logo-image {
+  height: 2rem;
+  width: auto;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--zweitliebe-green);
+  margin-left: 0.5rem;
+}
+
+.text-zweitliebe-green {
+  color: var(--zweitliebe-green) !important;
+}
+
+.hover\:text-zweitliebe-green:hover {
+  color: var(--zweitliebe-green) !important;
+}
+
+/* Navigation Icons */
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: #374151;
+  transition: color 0.3s ease;
+}
+
+.nav-icon:hover {
+  color: var(--zweitliebe-green);
+}
+
+.cart-count {
+  font-size: 0.75rem;
+  line-height: 1;
+  font-weight: 600;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.dropdown-toggle:hover {
+  background-color: rgba(143, 188, 143, 0.1);
+  color: var(--zweitliebe-green);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown.active .dropdown-menu,
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: #374151;
+  text-decoration: none;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(143, 188, 143, 0.05);
+  color: var(--zweitliebe-green);
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-divider {
+  height: 1px;
+  background-color: #e5e7eb;
+  margin: 0.5rem 0;
+}
+
+/* Main Categories Dropdown */
+#main-categories {
+  min-width: 400px;
+}
+
+#main-categories .grid {
+  gap: 2rem;
+}
+
+/* Filter Buttons */
+.filter-btn {
+  background: rgba(143, 188, 143, 0.1);
+  border: 1px solid rgba(143, 188, 143, 0.2);
+  color: #374151;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(143, 188, 143, 0.2);
+  border-color: var(--zweitliebe-green);
+  color: var(--zweitliebe-green);
+}
+
+/* Condition Badges */
+.condition-badge {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.condition-new {
+  background-color: #10b981;
+}
+
+.condition-very-good {
+  background-color: #059669;
+}
+
+.condition-good {
+  background-color: #f59e0b;
+}
+
+.condition-acceptable {
+  background-color: #ef4444;
+}
+
+/* Secondary Navigation */
+.book-nav-secondary {
+  background: rgba(143, 188, 143, 0.02);
+}
+
+/* Mobile Menu */
+.mobile-burger {
+  display: flex;
+  flex-direction: column;
+  width: 1.5rem;
+  height: 1.125rem;
+  justify-content: space-between;
+}
+
+.mobile-burger span {
+  display: block;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active .mobile-burger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active .mobile-burger span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active .mobile-burger span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.mobile-menu {
+  background: white;
+  border-top: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu.show {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .book-nav__categories {
+    display: none;
+  }
+  
+  .book-nav__search {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .book-nav-main {
+    display: none;
+  }
+  
+  .book-nav-secondary {
+    display: none;
+  }
+  
+  .book-nav-mobile {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .book-nav-mobile {
+    display: none;
+  }
+}
+
+/* Sticky Navigation */
+.book-shop-nav.sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Integration */
+.book-nav__search .advanced-book-search {
+  margin: 0;
+  padding: 0;
+  box-shadow: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+}
+
+.book-nav__search .tabs-nav {
+  display: none;
+}
+
+.book-nav__search .tab-content[data-tab="quick"] {
+  display: block !important;
+}
+
+.book-nav__search .tab-content[data-tab="advanced"],
+.book-nav__search .tab-content[data-tab="isbn"] {
+  display: none !important;
+}
+
+/* Animation */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-menu.animate {
+  animation: fadeInDown 0.3s ease;
+}
+
+/* Loading States */
+.book-shop-nav.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Focus States */
+.dropdown-toggle:focus,
+.filter-btn:focus,
+.nav-icon:focus {
+  outline: 2px solid var(--zweitliebe-green);
+  outline-offset: 2px;
+}
+
+/* Custom Scrollbar for Dropdowns */
+.dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: var(--zweitliebe-green);
+  border-radius: 3px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: #7aaa7a;
+}
+
+/* Utility Classes */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .book-shop-nav {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+  
+  .dropdown-menu {
+    background: #374151;
+    border-color: #4b5563;
+  }
+  
+  .dropdown-item {
+    color: #f9fafb;
+    border-color: #4b5563;
+  }
+  
+  .mobile-menu {
+    background: #1f2937;
+    border-color: #4b5563;
+  }
+} 
+
+/* Additional Custom Classes */
+.btn-categories {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-categories:hover {
+  background: rgba(143, 188, 143, 0.1);
+  border-radius: 0.375rem;
+}
+
+.filter-btn {
+  padding: 0.375rem 0.75rem;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--zweitliebe-green);
+  background: rgba(143, 188, 143, 0.05);
+}
+
+.dropdown-sm .filter-btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.mobile-menu-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+} 

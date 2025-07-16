@@ -1,0 +1,298 @@
+{%- comment -%}
+  Book Shop Navigation für Zweitliebe - Inspiriert von rebuy.de
+  
+  Parameters:
+  - show_search {Boolean} - Zeigt die Suchleiste an (optional, default: true).
+  - show_categories {Boolean} - Zeigt die Kategorien an (optional, default: true).
+  - show_filters {Boolean} - Zeigt die Filter an (optional, default: true).
+  
+  Usage:
+  {% render 'book-shop-navigation', show_search: true, show_categories: true %}
+{%- endcomment -%}
+
+<link rel="stylesheet" href="{{ 'zweitliebe-navigation.css' | asset_url }}" media="print" onload="this.media='all'">
+<script src="{{ 'zweitliebe-navigation.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  unless show_search == false
+    assign show_search = true
+  endunless
+  
+  unless show_categories == false
+    assign show_categories = true
+  endunless
+  
+  unless show_filters == false
+    assign show_filters = true
+  endunless
+  
+  # Buchkategorien
+  assign book_categories = 'Roman,Sachbuch,Krimi & Thriller,Fantasy & Science Fiction,Kinderbuch,Ratgeber,Biografie & Memoiren,Fachbuch,Reiseführer,Kochbuch' | split: ','
+  
+  # Beliebte Kategorien
+  assign popular_categories = 'Roman,Krimi & Thriller,Fantasy & Science Fiction,Ratgeber' | split: ','
+  
+  # Verlage
+  assign popular_publishers = 'Penguin Random House,Rowohlt,S. Fischer,dtv,Suhrkamp,Heyne,Goldmann,Knaur' | split: ','
+-%}
+
+<book-shop-navigation class="book-shop-nav bg-white border-b shadow-sm sticky top-0 z-40">
+  <div class="container">
+    
+    <!-- Haupt-Navigationsleiste -->
+    <div class="book-nav-main py-3">
+      <div class="flex items-center justify-between">
+        
+        <!-- Logo und Hauptkategorien -->
+        <div class="flex items-center gap-x-6">
+                      <div class="book-nav__logo">
+              <a href="{{ routes.root_url }}" class="flex items-center">
+                <img src="{{ 'zweitliebe_logo.png' | asset_url }}" alt="Zweitliebe" class="logo-image">
+                <span class="logo-text md:block hidden">Zweitliebe</span>
+            </a>
+          </div>
+          
+          {%- if show_categories -%}
+            <!-- Hauptkategorien -->
+            <nav class="book-nav__categories hidden lg:flex items-center gap-x-6" aria-label="Buchkategorien">
+              <div class="dropdown">
+                <button class="dropdown-toggle btn-categories flex items-center text-theme-text hover:text-zweitliebe-green" 
+                        type="button" 
+                        data-dropdown="main-categories">
+                  <span class="font-medium">{{ 'nav.all_books' | t }}</span>
+                  {% render 'icon-chevron-down' %}
+                </button>
+                
+                <div class="dropdown-menu" id="main-categories">
+                  <div class="grid grid-cols-2 gap-4 p-6">
+                    <div>
+                      <h3 class="text-sm font-semibold text-gray-900 mb-3">{{ 'nav.book_categories' | t }}</h3>
+                      <ul class="space-y-2">
+                        {%- for category in book_categories -%}
+                          <li>
+                            <a href="{{ routes.search_url }}?q=product_type:{{ category | url_encode }}" 
+                               class="block text-sm text-theme-text hover:text-zweitliebe-green">
+                              {{ 'categories.' | append: category | downcase | replace: ' ', '_' | replace: '&', 'and' | t }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 class="text-sm font-semibold text-gray-900 mb-3">{{ 'nav.popular_categories' | t }}</h3>
+                      <ul class="space-y-2">
+                        {%- for category in popular_categories -%}
+                          <li>
+                                                         <a href="{{ routes.search_url }}?q=product_type:{{ category | url_encode }}" 
+                                class="block text-sm text-theme-text hover:text-zweitliebe-green font-bold">
+                              {{ 'categories.' | append: category | downcase | replace: ' ', '_' | replace: '&', 'and' | t }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                      
+                      <div class="mt-4 pt-4 border-t border-gray-200">
+                        <a href="{{ routes.search_url }}" class="text-sm text-zweitliebe-green font-medium hover:underline">
+                          {{ 'nav.view_all_books' | t }} →
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Schnellkategorien -->
+              {%- for category in popular_categories limit: 4 -%}
+                                 <a href="{{ routes.search_url }}?q=product_type:{{ category | url_encode }}" 
+                   class="text-sm text-theme-text hover:text-zweitliebe-green font-bold">
+                  {{ 'categories.' | append: category | downcase | replace: ' ', '_' | replace: '&', 'and' | t }}
+                </a>
+              {%- endfor -%}
+            </nav>
+          {%- endif -%}
+        </div>
+        
+        <!-- Suchbereich und Icons -->
+        <div class="flex items-center space-x-4">
+          {%- if show_search -%}
+            <!-- Erweiterte Suchleiste -->
+            <div class="book-nav__search flex-1 max-w-2xl mx-4">
+              {% render 'advanced-book-search', id: 'nav-search' %}
+            </div>
+          {%- endif -%}
+          
+          <!-- Account und Warenkorb -->
+          <div class="flex items-center gap-3">
+            {%- if shop.customer_accounts_enabled -%}
+              <a href="{{ routes.account_url }}" class="nav-icon" title="{{ 'nav.my_account' | t }}">
+                {% render 'icon-customer' %}
+                <span class="sr-only">{{ 'nav.my_account' | t }}</span>
+              </a>
+            {%- endif -%}
+            
+            <a href="{{ routes.cart_url }}" class="nav-icon relative" title="{{ 'nav.cart' | t }}">
+              {% render 'icon-cart' %}
+              <span class="cart-count absolute -top-2 -right-2 bg-zweitliebe-green text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                {{ cart.item_count }}
+              </span>
+              <span class="sr-only">{{ 'nav.cart' | t }} ({{ cart.item_count }})</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    {%- if show_filters -%}
+      <!-- Sekundäre Navigationsleiste mit Filtern -->
+      <div class="book-nav-secondary py-2 border-t border-gray-100">
+        <div class="flex items-center justify-between">
+          
+          <!-- Schnellfilter -->
+          <div class="flex items-center space-x-4">
+            <span class="text-sm text-theme-light font-bold">{{ 'nav.quick_filters' | t }}:</span>
+            
+            <div class="flex items-center gap-3">
+              <!-- Zustandsfilter -->
+              <div class="dropdown dropdown-sm">
+                <button class="dropdown-toggle filter-btn" data-dropdown="condition-filter">
+                  {{ 'filter.condition' | t }}
+                  {% render 'icon-chevron-down' %}
+                </button>
+                <div class="dropdown-menu" id="condition-filter">
+                  <a href="{{ routes.search_url }}?q=condition:neu" class="dropdown-item">
+                    <span class="condition-badge condition-new"></span>
+                    {{ 'condition.new' | t }}
+                  </a>
+                  <a href="{{ routes.search_url }}?q=condition:sehr-gut" class="dropdown-item">
+                    <span class="condition-badge condition-very-good"></span>
+                    {{ 'condition.very_good' | t }}
+                  </a>
+                  <a href="{{ routes.search_url }}?q=condition:gut" class="dropdown-item">
+                    <span class="condition-badge condition-good"></span>
+                    {{ 'condition.good' | t }}
+                  </a>
+                  <a href="{{ routes.search_url }}?q=condition:akzeptabel" class="dropdown-item">
+                    <span class="condition-badge condition-acceptable"></span>
+                    {{ 'condition.acceptable' | t }}
+                  </a>
+                </div>
+              </div>
+              
+              <!-- Preisfilter -->
+              <div class="dropdown dropdown-sm">
+                <button class="dropdown-toggle filter-btn" data-dropdown="price-filter">
+                  {{ 'filter.price' | t }}
+                  {% render 'icon-chevron-down' %}
+                </button>
+                <div class="dropdown-menu" id="price-filter">
+                  <a href="{{ routes.search_url }}?q=price:<5" class="dropdown-item">{{ 'filter.under_5' | t }}</a>
+                  <a href="{{ routes.search_url }}?q=price:5-10" class="dropdown-item">5€ - 10€</a>
+                  <a href="{{ routes.search_url }}?q=price:10-20" class="dropdown-item">10€ - 20€</a>
+                  <a href="{{ routes.search_url }}?q=price:20-50" class="dropdown-item">20€ - 50€</a>
+                  <a href="{{ routes.search_url }}?q=price:>50" class="dropdown-item">{{ 'filter.over_50' | t }}</a>
+                </div>
+              </div>
+              
+              <!-- Verlagsfilter -->
+              <div class="dropdown dropdown-sm">
+                <button class="dropdown-toggle filter-btn" data-dropdown="publisher-filter">
+                  {{ 'filter.publisher' | t }}
+                  {% render 'icon-chevron-down' %}
+                </button>
+                <div class="dropdown-menu" id="publisher-filter">
+                  {%- for publisher in popular_publishers limit: 6 -%}
+                    <a href="{{ routes.search_url }}?q=vendor:{{ publisher | url_encode }}" class="dropdown-item">
+                      {{ publisher }}
+                    </a>
+                  {%- endfor -%}
+                  <div class="dropdown-divider"></div>
+                  <a href="{{ routes.search_url }}" class="dropdown-item text-zweitliebe-green">
+                    {{ 'filter.all_publishers' | t }}
+                  </a>
+                </div>
+              </div>
+              
+              <!-- Sortierung -->
+              <div class="dropdown dropdown-sm">
+                <button class="dropdown-toggle filter-btn" data-dropdown="sort-filter">
+                  {{ 'filter.sort' | t }}
+                  {% render 'icon-chevron-down' %}
+                </button>
+                <div class="dropdown-menu" id="sort-filter">
+                  <a href="{{ routes.search_url }}?sort_by=relevance" class="dropdown-item">{{ 'sort.relevance' | t }}</a>
+                  <a href="{{ routes.search_url }}?sort_by=price-ascending" class="dropdown-item">{{ 'sort.price_low_high' | t }}</a>
+                  <a href="{{ routes.search_url }}?sort_by=price-descending" class="dropdown-item">{{ 'sort.price_high_low' | t }}</a>
+                  <a href="{{ routes.search_url }}?sort_by=title-ascending" class="dropdown-item">{{ 'sort.title_a_z' | t }}</a>
+                  <a href="{{ routes.search_url }}?sort_by=created-descending" class="dropdown-item">{{ 'sort.newest' | t }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Service-Links -->
+          <div class="flex items-center gap-x-6 text-sm">
+                          <a href="/pages/versand" class="text-theme-text hover:text-zweitliebe-green">
+              📦 {{ 'nav.free_shipping' | t }}
+            </a>
+                          <a href="/pages/garantie" class="text-theme-text hover:text-zweitliebe-green">
+              ✅ {{ 'nav.guarantee' | t }}
+            </a>
+                          <a href="/pages/nachhaltigkeit" class="text-theme-text hover:text-zweitliebe-green">
+              🌱 {{ 'nav.sustainability' | t }}
+            </a>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+    
+    <!-- Mobile Menu -->
+    <div class="book-nav-mobile lg:hidden">
+      <div class="flex items-center justify-between py-3">
+        <button class="mobile-menu-toggle flex items-center text-theme-text" 
+                type="button" 
+                data-mobile-menu="main">
+          <div class="mobile-burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <span class="font-medium">{{ 'nav.menu' | t }}</span>
+        </button>
+        
+        <div class="flex-1 mx-4">
+          <div class="relative">
+            <input type="search" 
+                   class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm"
+                   placeholder="{{ 'nav.search_placeholder' | t }}">
+            <div class="absolute left-3 top-1/2 transform -translate-y-1/2">
+              {% render 'icon-search' %}
+            </div>
+          </div>
+        </div>
+        
+        <a href="{{ routes.cart_url }}" class="nav-icon relative">
+          {% render 'icon-cart' %}
+          <span class="cart-count absolute -top-2 -right-2 bg-zweitliebe-green text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+            {{ cart.item_count }}
+          </span>
+        </a>
+      </div>
+      
+      <!-- Mobile Dropdown Menu -->
+      <div class="mobile-menu hidden" id="mobile-menu-main">
+        <div class="border-t border-gray-200 py-4">
+          <h3 class="font-semibold text-gray-900 mb-3">{{ 'nav.book_categories' | t }}</h3>
+          <div class="space-y-2">
+            {%- for category in book_categories -%}
+              <a href="{{ routes.search_url }}?q=product_type:{{ category | url_encode }}" 
+                 class="block py-2 text-gray-600 hover:text-zweitliebe-green">
+                {{ 'categories.' | append: category | downcase | replace: ' ', '_' | replace: '&', 'and' | t }}
+              </a>
+            {%- endfor -%}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</book-shop-navigation> 

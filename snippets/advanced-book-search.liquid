@@ -1,0 +1,187 @@
+{%- comment -%}
+  Advanced Book Search Component für Zweitliebe
+  
+  Parameters:
+  - id {String} - Unique ID für die Suchkomponente.
+  - search_types {Array} [optional] - Array der verfügbaren Suchtypen.
+  
+  Usage:
+  {% render 'advanced-book-search', id: 'book-search' %}
+{%- endcomment -%}
+
+<link rel="stylesheet" href="{{ 'zweitliebe-book-search.css' | asset_url }}" media="print" onload="this.media='all'">
+<script src="{{ 'zweitliebe-book-search.js' | asset_url }}" defer="defer"></script>
+
+<advanced-book-search class="advanced-book-search block">
+  <form class="advanced-book-search__form" role="search" action="{{ routes.search_url }}" method="get">
+    <div class="advanced-book-search__tabs">
+      <div class="tabs-nav flex mb-4">
+        <button type="button" class="tab-btn active px-4 py-2 text-sm font-medium" data-tab="quick">
+          {{ 'search.quick_search' | t }}
+        </button>
+        <button type="button" class="tab-btn px-4 py-2 text-sm font-medium" data-tab="advanced">
+          {{ 'search.advanced_search' | t }}
+        </button>
+        <button type="button" class="tab-btn px-4 py-2 text-sm font-medium" data-tab="isbn">
+          {{ 'search.isbn_search' | t }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Quick Search Tab -->
+    <div class="tab-content active" data-tab="quick">
+      <div class="search-field-group">
+        <label class="label visually-hidden" for="{{ id }}-quick">
+          {{ 'search.search_books' | t }}
+        </label>
+        <div class="relative">
+          <input type="search"
+                 class="search__input w-full input h6"
+                 id="{{ id }}-quick"
+                 name="q"
+                 placeholder="{{ 'search.placeholder_books' | t }}"
+                 autocomplete="off">
+          <button type="submit" class="search__submit absolute right-0 top-0 h-full px-4">
+            {% render 'icon-search' %}
+            <span class="visually-hidden">{{ 'general.search.submit' | t }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advanced Search Tab -->
+    <div class="tab-content" data-tab="advanced">
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="search-field-group">
+          <label class="label text-sm font-medium mb-1" for="{{ id }}-title">
+            {{ 'search.book_title' | t }}
+          </label>
+          <input type="text"
+                 class="search__input w-full input"
+                 id="{{ id }}-title"
+                 name="title"
+                 placeholder="{{ 'search.placeholder_title' | t }}">
+        </div>
+
+        <div class="search-field-group">
+          <label class="label text-sm font-medium mb-1" for="{{ id }}-author">
+            {{ 'search.author' | t }}
+          </label>
+          <input type="text"
+                 class="search__input w-full input"
+                 id="{{ id }}-author"
+                 name="author"
+                 placeholder="{{ 'search.placeholder_author' | t }}">
+        </div>
+
+        <div class="search-field-group">
+          <label class="label text-sm font-medium mb-1" for="{{ id }}-publisher">
+            {{ 'search.publisher' | t }}
+          </label>
+          <input type="text"
+                 class="search__input w-full input"
+                 id="{{ id }}-publisher"
+                 name="vendor"
+                 placeholder="{{ 'search.placeholder_publisher' | t }}">
+        </div>
+
+        <div class="search-field-group">
+          <label class="label text-sm font-medium mb-1" for="{{ id }}-category">
+            {{ 'search.category' | t }}
+          </label>
+          <select class="search__input w-full input" id="{{ id }}-category" name="product_type">
+            <option value="">{{ 'search.all_categories' | t }}</option>
+            <option value="Roman">{{ 'categories.roman' | t }}</option>
+            <option value="Sachbuch">{{ 'categories.sachbuch' | t }}</option>
+            <option value="Krimi">{{ 'categories.krimi' | t }}</option>
+            <option value="Fantasy">{{ 'categories.fantasy' | t }}</option>
+            <option value="Kinderbuch">{{ 'categories.kinderbuch' | t }}</option>
+            <option value="Ratgeber">{{ 'categories.ratgeber' | t }}</option>
+            <option value="Biografie">{{ 'categories.biografie' | t }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="search-filters grid md:grid-cols-3 gap-4 mt-4 pt-4 border-t">
+        <div class="search-field-group">
+          <label class="label text-sm font-medium mb-1" for="{{ id }}-condition">
+            {{ 'search.condition' | t }}
+          </label>
+          <select class="search__input w-full input" id="{{ id }}-condition" name="condition">
+            <option value="">{{ 'search.all_conditions' | t }}</option>
+            <option value="neu">{{ 'condition.new' | t }}</option>
+            <option value="sehr-gut">{{ 'condition.very_good' | t }}</option>
+            <option value="gut">{{ 'condition.good' | t }}</option>
+            <option value="akzeptabel">{{ 'condition.acceptable' | t }}</option>
+          </select>
+        </div>
+
+        <div class="search-field-group">
+          <label class="label text-sm font-medium mb-1" for="{{ id }}-price-min">
+            {{ 'search.price_range' | t }}
+          </label>
+          <div class="flex gap-2 items-center">
+            <input type="number"
+                   class="search__input input"
+                   id="{{ id }}-price-min"
+                   name="price_min"
+                   placeholder="{{ 'search.price_from' | t }}"
+                   min="0"
+                   step="0.01">
+            <span class="text-sm">-</span>
+            <input type="number"
+                   class="search__input input"
+                   id="{{ id }}-price-max"
+                   name="price_max"
+                   placeholder="{{ 'search.price_to' | t }}"
+                   min="0"
+                   step="0.01">
+          </div>
+        </div>
+
+        <div class="search-field-group">
+          <label class="label text-sm font-medium mb-1" for="{{ id }}-availability">
+            {{ 'search.availability' | t }}
+          </label>
+          <select class="search__input w-full input" id="{{ id }}-availability" name="availability">
+            <option value="">{{ 'search.all_availability' | t }}</option>
+            <option value="available">{{ 'availability.available' | t }}</option>
+            <option value="low_stock">{{ 'availability.low_stock' | t }}</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn--primary w-full mt-4">
+        {{ 'search.search_books' | t }}
+      </button>
+    </div>
+
+    <!-- ISBN Search Tab -->
+    <div class="tab-content" data-tab="isbn">
+      <div class="search-field-group">
+        <label class="label text-sm font-medium mb-1" for="{{ id }}-isbn">
+          {{ 'search.isbn_number' | t }}
+        </label>
+        <div class="relative">
+          <input type="text"
+                 class="search__input w-full input h6"
+                 id="{{ id }}-isbn"
+                 name="isbn"
+                 placeholder="{{ 'search.placeholder_isbn' | t }}"
+                 pattern="[0-9-X]{10,17}"
+                 autocomplete="off">
+          <button type="submit" class="search__submit absolute right-0 top-0 h-full px-4">
+            {% render 'icon-search' %}
+            <span class="visually-hidden">{{ 'general.search.submit' | t }}</span>
+          </button>
+        </div>
+        <p class="text-xs text-theme-light mt-1">
+          {{ 'search.isbn_help' | t }}
+        </p>
+      </div>
+    </div>
+
+    <input type="hidden" name="options[prefix]" value="last">
+    <input type="hidden" name="type" value="product">
+  </form>
+</advanced-book-search> 
