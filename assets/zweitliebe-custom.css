@@ -1,0 +1,91 @@
+/* Zweitliebe Custom Styles */
+
+:root {
+  --zweitliebe-green: #8FBC8F;
+  --zweitliebe-red: #E63946;
+  --zweitliebe-blue: #B0C4DE;
+}
+
+.btn--primary {
+  background-color: var(--zweitliebe-green);
+  color: white;
+}
+
+.btn--primary:hover {
+  background-color: #7aaa7a;
+}
+
+.btn--secondary {
+  border-color: var(--zweitliebe-green);
+  color: var(--zweitliebe-green);
+}
+
+.btn--secondary:hover {
+  background-color: var(--zweitliebe-green);
+  color: white;
+}
+
+.header {
+  background-color: var(--zweitliebe-green);
+}
+
+.header .logo__text {
+  color: white;
+  font-weight: bold;
+}
+
+.header .nav__link {
+  color: white;
+}
+
+.header .nav__link:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.header__icon {
+  color: white;
+}
+
+.header__icon:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer {
+  background-color: var(--zweitliebe-green);
+  color: white;
+}
+
+.footer a {
+  color: white;
+}
+
+.footer a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Book-specific styles */
+.product-card__title {
+  font-weight: 600;
+}
+
+.product-card__vendor {
+  font-style: italic;
+  color: #666;
+}
+
+/* Custom book category styling */
+.collection-card__title {
+  font-weight: bold;
+  color: var(--zweitliebe-green);
+}
+
+/* Custom book search styling */
+.predictive-search__item-heading {
+  color: var(--zweitliebe-green);
+}
+
+/* Custom 404 page styling */
+.error-code {
+  color: var(--zweitliebe-green) !important;
+}
+
