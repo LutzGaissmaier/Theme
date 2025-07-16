@@ -1,750 +1,389 @@
-{%- if section.index > 2 -%}
-  <link rel="stylesheet" href="{{ 'slideshow.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'slideshow-quick-nav.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'text-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'quick-nav.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'quick-nav-large.css' | asset_url }}" media="print" onload="this.media='all'">
-{%- else -%}
-  {{ 'slideshow.css' | asset_url | stylesheet_tag }}
-  {{ 'slideshow-quick-nav.css' | asset_url | stylesheet_tag }}
-  {{ 'text-overlay.css' | asset_url | stylesheet_tag }}
-  {{ 'quick-nav.css' | asset_url | stylesheet_tag }}
-  {{ 'quick-nav-large.css' | asset_url | stylesheet_tag }}
-{%- endif -%}
+{% comment %}
+  ZWEITLIEBE HERO SLIDESHOW - REBUY.DE INSPIRED
+  Mit buchspezifischen Hintergrundbildern und Conversion-optimierten Slides
+  ÜBERSCHREIBT: navigation-slideshow.liquid für Live-Site Kompatibilität
+{% endcomment %}
 
-<script src="{{ 'quick-nav.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'custom-select.js' | asset_url }}" defer="defer"></script>
-
-{%- if section.settings.quick_nav_show_price -%}
-  <link rel="stylesheet" href="{{ 'quick-nav-price.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'price-range.css' | asset_url }}" media="print" onload="this.media='all'">
-  <script src="{{ 'price-range.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
-
-{%- if section.blocks.size > 1 -%}
-  <script src="{{ 'slideshow.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
-
-{%- liquid
-  # constants
-  assign gutter_lg = 64
-  assign breakpoint_sm = 600
-  assign breakpoint_page = settings.max_page_width | default: 1320 | plus: gutter_lg | plus: gutter_lg
-
-  assign color_scheme = section.settings.color_scheme
-  assign bg_color = false
-
-  if color_scheme == 'default'
-    assign bg_color = settings.bg_color
-  elsif color_scheme == '1'
-    assign bg_color = settings.color_scheme_1_bg_grad | default: settings.color_scheme_1_bg
-  elsif color_scheme == '2'
-    assign bg_color = settings.color_scheme_2_bg_grad | default: settings.color_scheme_2_bg
-  elsif color_scheme == '3'
-    assign bg_color = settings.color_scheme_3_bg_grad | default: settings.color_scheme_3_bg
-  endif
-
-  if bg_color
-    assign bg_alpha = bg_color | color_extract: 'alpha'
-    if bg_alpha == 0
-      assign bg_color = false
-    endif
-  endif
--%}
-
-{%- style -%}
-  #{{ section.id }} {
-    background: none;
-
-    {%- if section.settings.autoplay -%}
-      --duration: {{ section.settings.autoplay_speed }}s;
-      --play-state: paused;
-    {%- endif -%}
-  }
-
-  #{{ section.id }} .slideshow-ctrl {
-    --text-color: {{ section.settings.pagination_color.red }} {{ section.settings.pagination_color.green }} {{ section.settings.pagination_color.blue }};
-  }
-
-  {%- if section.settings.height_mode == 'fixed' -%}
-    #{{ section.id }} .image-banner { min-height: {{ section.settings.fixed_height_mobile }}px; }
-
-    @media (min-width: {{ breakpoint_sm }}px) {
-      #{{ section.id }} .image-banner {
-        min-height: {{ section.settings.fixed_height_desktop }}px;
-      }
-    }
-    @media (min-width: {{ breakpoint_page }}px) {
-      #{{ section.id }} .image-banner { min-height: {{ section.settings.fixed_height_desktop }}px; }
-    }
-  {%- elsif section.settings.height_mode == 'auto' -%}
-    {%- liquid
-      if section.blocks.first.settings.image_desktop != blank
-        assign img_padding = 1 | divided_by: section.blocks.first.settings.image_desktop.aspect_ratio | times: 100 | append: '%'
-      else
-        assign img_padding = '56.25%'
-      endif
-    -%}
-
-    #{{ section.id }} .image-banner::after,
-    #{{ section.id }} .media::after { content: ''; padding-top: {{ img_padding }}; }
-  {%- endif -%}
-
-  {%- if section.settings.tint_opacity > 0 -%}
-    #{{ section.id }} .media::after {
-      background-color: rgba({{ section.settings.tint_color.red }}, {{ section.settings.tint_color.green }}, {{ section.settings.tint_color.blue }}, {{ section.settings.tint_opacity | divided_by: 100.0 }});
-    }
-  {%- endif -%}
-
-  {%- if bg_color -%}
-    #{{ section.id }} .text-overlay { background: {{ bg_color }}; }
-  {%- endif -%}
-{%- endstyle -%}
-
-<div class="slideshow-section section relative {% if section.settings.full_width %}section--full-width{% else %}container{% endif %}" id="{{ section.id }}">
-  <slide-show class="block relative overflow-hidden" role="region" aria-roledescription="{{ 'sections.slideshow.carousel' | t }}" aria-label="{{ section.settings.accessibility_info | escape }}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.autoplay_speed }}" data-transition="{{ section.settings.transition }}" data-css-var-height=".quick-nav">
-    <div class="slideshow flex{% unless color_scheme == 'default' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}" id="slideshow-{{ section.id }}" aria-live="polite" aria-atomic="true">
-      {%- for block in section.blocks -%}
-        {%- liquid
-          assign img = block.settings.image_desktop
-          assign m_img = block.settings.image_mobile
-          assign lazy_load = true
-          assign fetchpriority = 'low'
-          if forloop.first
-            if section.index == 1 or section.settings.prevent_animation
-              assign lazy_load = false
-              assign fetchpriority = 'high'
-            endif
-          endif
-
-          if color_scheme == "white"
-            assign brightness = block.settings.transparent_content_color | color_brightness
-            assign alpha = block.settings.transparent_content_color | color_extract: 'alpha'
-            if brightness < 190 and alpha > 0
-              assign transparent_text_contrast = "255 255 255"
-              assign transparent_hover_color = block.settings.transparent_content_color | color_lighten: 10
-            else
-              assign transparent_text_contrast = "0 0 0"
-              assign transparent_hover_color = block.settings.transparent_content_color | color_darken: 10
-            endif
-          endif
-        -%}
-
-        {%- if color_scheme == "white" -%}
-          {%- capture style -%}
-            --color-scheme-white-text: {{ block.settings.transparent_content_color.red }} {{ block.settings.transparent_content_color.green }} {{ block.settings.transparent_content_color.blue }};
-            --color-scheme-white-hover: {{ transparent_hover_color.red }} {{ transparent_hover_color.green }} {{ transparent_hover_color.blue }};
-            --color-scheme-white-text-contrast: {{ transparent_text_contrast }};
-          {%- endcapture -%}
-        {%- endif -%}
-
-        <div class="slideshow__slide{% if forloop.first %} is-active{% endif %} image-banner flex w-full {{ section.settings.height_mode }}-height{% if color_scheme == "white" %} color-scheme color-scheme--white{% endif %}" id="{{ section.id }}_{{ forloop.index }}"
-             role="group" aria-roledescription="{{ 'sections.slideshow.slide' | t }}"
-             aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
-             {% if style %}style="{{ style }}"{% endif %}
-             {%- unless forloop.first %}tabindex="-1"{% endunless %}
-          {%- if request.design_mode %}data-index="{{ forloop.index0 }}"{% endif %}
-          {{ block.shopify_attributes }}>
-          <div class="image-banner__image media media--has-overlay absolute top-0 left-0 w-full h-full has-motion">
-            {%- if img != blank -%}
-              {%- liquid
-                if section.settings.full_width
-                  if section.settings.height_mode == 'screen'
-                    assign sizes = '(max-aspect-ratio: 1/2) 50vh, 100vw'
-                  endif
-                else
-                  capture sizes
-                    render 'sizes-attribute'
-                  endcapture
-                endif
-              -%}
-
-              {%- render 'image-desktop-and-mobile',
-                class: 'img-fit',
-                desktop_image: img,
-                mobile_image: m_img,
-                src_width_mobile: 980,
-                widths_mobile: '480, 980, 1200, 1400',
-                src_width_desktop: 1400,
-                widths_desktop: '480, 980, 1200, 1400, 1600, 1920, 2560, 3200',
-                lazy_load: lazy_load,
-                fetchpriority: fetchpriority,
-                sizes: sizes,
-                block: block
-              -%}
-            {%- else -%}
-              {{ 'lifestyle-2' | placeholder_svg_tag: 'media__placeholder dark img-fit' }}
-            {%- endif -%}
-          </div>
-
-          {%- if block.settings.heading != blank or block.settings.subheading != blank or block.settings.text != blank or block.settings.button_1_label != blank or block.settings.button_2_label != blank -%}
-            <div class="slideshow__text container flex justify-start items-center{% if block.settings.mob_center_text %} md-down:center{% endif %}{% unless bg_color %}{% if section.settings.full_width %} md-down:p-xl h-full md:h-auto{% endif %}{% endunless %}"{% if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false %} data-cc-animate{% endif %}>
-              <div class="text-overlay{% if bg_color %} text-overlay--bg{% endif %} {{ block.settings.overlay_text_align }}{% if block.settings.mob_center_text %} md-down:text-center{% endif %}{% if section.settings.color_scheme != "white" %}{% if section.settings.full_width %} md-down:p-xl h-full md:h-auto{% endif %}{% endif %} has-motion">
-                {%- if block.settings.subheading != blank -%}
-                  <p class="text-overlay__block subheading">
-                    {{- block.settings.subheading | escape -}}
-                  </p>
-                {%- endif -%}
-
-                {%- if block.settings.heading != blank -%}
-                  <{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %} class="text-overlay__heading {{ block.settings.heading_size }}">
-                    {% render 'multiline-text' with block.settings.heading %}
-                  </{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %}>
-                {%- endif -%}
-
-                {%- if block.settings.text != blank -%}
-                  <div class="text-overlay__block rte{% if block.settings.enlarge_text %} enlarge-text{% endif %}">
-                    {{ block.settings.text }}
+<section class="hero-slideshow" style="position: relative; overflow: hidden;">
+  
+  <!-- Slideshow Container -->
+  <div class="slideshow-container" style="position: relative; height: 80vh; min-height: 600px;">
+    
+    {% for block in section.blocks %}
+      {% if block.type == 'slide' %}
+        {% assign slide_index = forloop.index %}
+        <div class="slide" 
+             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                    background: {% if block.settings.background_image %}
+                                  linear-gradient(135deg, rgba(45, 90, 39, 0.7) 0%, rgba(107, 155, 106, 0.5) 100%), 
+                                  url('{{ block.settings.background_image | img_url: '1800x1200' }}') center/cover;
+                                {% elsif block.settings.image_desktop %}
+                                  linear-gradient(135deg, rgba(45, 90, 39, 0.7) 0%, rgba(107, 155, 106, 0.5) 100%), 
+                                  url('{{ block.settings.image_desktop | img_url: '1800x1200' }}') center/cover;
+                                {% else %}
+                                  {% case slide_index %}
+                                    {% when 1 %}
+                                      linear-gradient(135deg, rgba(45, 90, 39, 0.8) 0%, rgba(74, 124, 89, 0.6) 100%),
+                                      linear-gradient(45deg, #2D5A27 0%, #4A7C59 50%, #6B9B6A 100%),
+                                      url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImJvb2tzIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxyZWN0IHg9IjUiIHk9IjUiIHdpZHRoPSIzMCIgaGVpZ2h0PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLz48cmVjdCB4PSI1IiB5PSIxMCIgd2lkdGg9IjI1IiBoZWlnaHQ9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wOCkiLz48cmVjdCB4PSI1IiB5PSIxNSIgd2lkdGg9IjI4IiBoZWlnaHQ9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNikiLz48cmVjdCB4PSI1IiB5PSIyNSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjxyZWN0IHg9IjUiIHk9IjMwIiB3aWR0aD0iMjIiIGhlaWdodD0iNCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA4KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9InVybCgjYm9va3MpIi8+PC9zdmc+') repeat;
+                                    {% when 2 %}
+                                      linear-gradient(135deg, rgba(30, 64, 175, 0.8) 0%, rgba(45, 90, 39, 0.6) 100%),
+                                      linear-gradient(45deg, #1E40AF 0%, #2D5A27 50%, #4A7C59 100%),
+                                      url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9InN0YXJzIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwb2x5Z29uIHBvaW50cz0iMjAsNSAyMi41LDE1IDE3LjUsMTUiIGZpbGw9InJnYmEoMjU1LDIxNSw3NywwLjMpIi8+PHBvbHlnb24gcG9pbnRzPSIzNSwyNSAzNy41LDM1IDMyLjUsMzUiIGZpbGw9InJnYmEoMjU1LDIxNSw3NywwLjIpIi8+PHBvbHlnb24gcG9pbnRzPSIxMCwzMCAxMi41LDQwIDcuNSw0MCIgZmlsbD0icmdiYSgyNTUsMjE1LDc3LDAuMjUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0idXJsKCNzdGFycykiLz48L3N2Zz4=') repeat;
+                                    {% when 3 %}
+                                      linear-gradient(135deg, rgba(34, 197, 94, 0.8) 0%, rgba(45, 90, 39, 0.6) 100%),
+                                      linear-gradient(45deg, #22C55E 0%, #2D5A27 50%, #16A34A 100%),
+                                      url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9InNoaWVsZCIgeD0iMCIgeT0iMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNMjAgNUwyNSAxMEwyMCAyMEwxNSAxMFoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJ1cmwoI3NoaWVsZCkiLz48L3N2Zz4=') repeat;
+                                    {% else %}
+                                      linear-gradient(135deg, rgba(45, 90, 39, 0.8) 0%, rgba(107, 155, 106, 0.6) 100%);
+                                  {% endcase %}
+                                {% endif %}
+                    display: {{ forloop.first | default: false | ternary: 'flex', 'none' }}; 
+                    align-items: center; justify-content: center;
+                    animation: slideIn 0.8s ease-in-out;"
+             data-slide="{{ forloop.index }}">
+          
+          <!-- Buchspezifische Overlay-Elemente -->
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3);"></div>
+          
+          <!-- Schwebende Buchseiten (nur auf Slide 1) -->
+          {% if forloop.index == 1 %}
+            <div class="floating-books" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; opacity: 0.1;">
+              {% for i in (1..8) %}
+                <div class="book-page" 
+                     style="position: absolute; 
+                            width: 80px; height: 100px; 
+                            background: white; 
+                            border-radius: 4px; 
+                            top: {{ i | times: 12 | plus: 10 }}%; 
+                            left: {{ i | times: 11 | plus: 5 }}%;
+                            animation: float {{ i | plus: 3 }}s infinite ease-in-out;
+                            transform: rotate({{ i | times: 15 | minus: 30 }}deg);">
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          
+          <!-- Bestseller-Sterne (nur auf Slide 2) -->
+          {% if forloop.index == 2 %}
+            <div class="floating-stars" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; opacity: 0.2;">
+              {% for i in (1..6) %}
+                <div class="star" 
+                     style="position: absolute; 
+                            color: #FCD34D; 
+                            font-size: {{ i | times: 8 | plus: 20 }}px;
+                            top: {{ i | times: 15 | plus: 5 }}%; 
+                            left: {{ i | times: 12 | plus: 10 }}%;
+                            animation: sparkle {{ i | plus: 2 }}s infinite ease-in-out;">
+                  ⭐
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          
+          <!-- Garantie-Schilde (nur auf Slide 3) -->
+          {% if forloop.index == 3 %}
+            <div class="floating-shields" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; opacity: 0.15;">
+              {% for i in (1..5) %}
+                <div class="shield" 
+                     style="position: absolute; 
+                            color: white; 
+                            font-size: {{ i | times: 6 | plus: 24 }}px;
+                            top: {{ i | times: 18 | plus: 10 }}%; 
+                            left: {{ i | times: 15 | plus: 5 }}%;
+                            animation: glow {{ i | plus: 4 }}s infinite ease-in-out;">
+                  🛡️
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          
+          <!-- Content Container -->
+          <div class="zweitliebe-container" style="position: relative; z-index: 2;">
+            <div class="slide-content" style="text-align: {{ block.settings.text_alignment | default: block.settings.overlay_text_align | default: 'center' }}; color: white; max-width: 800px; margin: 0 auto;">
+              
+              <!-- Trust Badges oben -->
+              {% unless block.settings.show_trust_badges == false %}
+                <div style="margin-bottom: var(--space-lg); display: flex; justify-content: {{ block.settings.text_alignment | default: block.settings.overlay_text_align | default: 'center' }}; gap: var(--space-sm); flex-wrap: wrap;">
+                  <div class="trust-badge guarantee-badge">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    36 Monate Garantie
                   </div>
-                {%- endif -%}
-
-                {%- if block.settings.button_1_label != blank or block.settings.button_2_label != blank -%}
-                  <div class="text-overlay__buttons inline-flex flex-wrap items-start mt-4 {% if block.settings.overlay_text_align == 'text-start' %} justify-start{% elsif block.settings.overlay_text_align == 'text-end' %} justify-end{% else %} justify-center{% endif %}{% if block.settings.mob_center_text %} md-down:center{% endif %}">
-                    {%- if block.settings.button_1_label != blank -%}
-                      <a class="{{ block.settings.button_1_style }}" {% if block.settings.button_1_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ block.settings.button_1_link }}"{% endif %}>
-                        {{- block.settings.button_1_label | escape -}}
-                      </a>
-                    {%- endif -%}
-
-                    {%- if block.settings.button_2_label != blank -%}
-                      <a class="{{ block.settings.button_2_style }}" {% if block.settings.button_2_link == blank %}role="link" aria-disabled="true"{% else %}href="{{ block.settings.button_2_link }}"{% endif %}>
-                        {{- block.settings.button_2_label | escape -}}
-                      </a>
-                    {%- endif -%}
+                  
+                  <div class="trust-badge" style="background: var(--success-green);">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    4.8/5 Bewertung
                   </div>
-                {%- endif -%}
+                </div>
+              {% endunless %}
+
+              <!-- Hauptheadline -->
+              <h1 style="font-size: 56px; line-height: 1.1; margin-bottom: var(--space-lg); font-weight: var(--font-bold); text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                {% if block.settings.headline_highlight %}
+                  <span style="color: #86EFAC;">{{ block.settings.headline_highlight }}</span><br>
+                {% endif %}
+                {{ block.settings.heading | default: block.settings.headline }}
+              </h1>
+
+              <!-- Subheadline/Text -->
+              {% assign slide_text = block.settings.text | default: block.settings.subheading %}
+              {% if slide_text != blank %}
+                <div style="font-size: var(--text-xl); line-height: 1.6; margin-bottom: var(--space-2xl); opacity: 0.95; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
+                  {{ slide_text }}
+                </div>
+              {% endif %}
+
+              <!-- CTAs -->
+              <div style="display: flex; gap: var(--space-md); justify-content: {{ block.settings.text_alignment | default: block.settings.overlay_text_align | default: 'center' }}; flex-wrap: wrap;">
+                {% assign button_1_label = block.settings.button_1_label | default: block.settings.button_label %}
+                {% assign button_1_link = block.settings.button_1_link | default: block.settings.button_link %}
+                
+                {% if button_1_label != blank %}
+                  <a href="{{ button_1_link | default: '#' }}" 
+                     class="btn-primary" 
+                     style="padding: var(--space-lg) var(--space-2xl); font-size: var(--text-lg); font-weight: var(--font-bold); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                    {{ button_1_label }}
+                  </a>
+                {% endif %}
+                
+                {% if block.settings.button_2_label != blank %}
+                  <a href="{{ block.settings.button_2_link | default: '#' }}" 
+                     class="btn-secondary" 
+                     style="padding: var(--space-lg) var(--space-2xl); font-size: var(--text-lg); font-weight: var(--font-bold); background: rgba(255,255,255,0.15); border: 2px solid white; color: white; backdrop-filter: blur(10px);">
+                    {{ block.settings.button_2_label }}
+                  </a>
+                {% endif %}
               </div>
             </div>
-          {%- endif -%}
+          </div>
         </div>
-      {%- endfor -%}
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Slideshow Navigation -->
+  {% if section.blocks.size > 1 %}
+    <!-- Previous/Next Arrows -->
+    <button class="slide-arrow slide-prev" 
+            style="position: absolute; left: var(--space-xl); top: 50%; transform: translateY(-50%); 
+                   background: rgba(255,255,255,0.2); border: none; border-radius: 50%; 
+                   width: 60px; height: 60px; cursor: pointer; z-index: 10; 
+                   backdrop-filter: blur(10px); transition: all 0.3s ease;"
+            onclick="changeSlide(-1)">
+      <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+      </svg>
+    </button>
+    
+    <button class="slide-arrow slide-next" 
+            style="position: absolute; right: var(--space-xl); top: 50%; transform: translateY(-50%); 
+                   background: rgba(255,255,255,0.2); border: none; border-radius: 50%; 
+                   width: 60px; height: 60px; cursor: pointer; z-index: 10; 
+                   backdrop-filter: blur(10px); transition: all 0.3s ease;"
+            onclick="changeSlide(1)">
+      <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+        <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+      </svg>
+    </button>
+
+    <!-- Slide Indicators -->
+    <div class="slide-indicators" 
+         style="position: absolute; bottom: var(--space-xl); left: 50%; transform: translateX(-50%); 
+                display: flex; gap: var(--space-sm); z-index: 10;">
+      {% for block in section.blocks %}
+        {% if block.type == 'slide' %}
+          <button class="slide-indicator" 
+                  style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; 
+                         background: {{ forloop.first | ternary: 'white', 'transparent' }}; 
+                         cursor: pointer; transition: all 0.3s ease;"
+                  onclick="goToSlide({{ forloop.index }})"
+                  data-slide="{{ forloop.index }}">
+          </button>
+        {% endif %}
+      {% endfor %}
     </div>
+  {% endif %}
+</section>
 
-    {%- if section.blocks.size > 1 -%}
-      <div class="slideshow-ctrl container absolute flex justify-center w-full pointer-events-none no-js-hidden">
-        {%- if section.settings.nav_style == 'slideshow_nav_dots' or section.settings.nav_style == 'slideshow_nav_lines' -%}
-          <div class="slideshow-pagination flex items-center">
-            {%- for block in section.blocks -%}
-              <button class="page-btn" data-index="{{ forloop.index0 }}" aria-controls="slideshow-{{ section.id }}"{% if forloop.first %} aria-current="true"{% endif %}>
-                <span class="visually-hidden">{{ 'sections.slideshow.load_slide' | t }} {{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}</span>
-                {%- if section.settings.nav_style == 'slideshow_nav_lines' -%}
-                  <span class="page-btn__line block relative overflow-hidden pointer-events-none"></span>
-                {%- else -%}
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" class="page-btn__circle block pointer-events-none">
-                    <circle class="page-btn__fg-circle" cx="15" cy="15" r="3.5" />
-                    <circle class="page-btn__bg-circle" cx="15" cy="15" r="6" />
-                  </svg>
-                {%- endif -%}
-              </button>
-            {%- endfor -%}
-          </div>
-        {%- endif -%}
+<!-- Slideshow JavaScript -->
+<script>
+let currentSlide = 1;
+const totalSlides = {{ section.blocks.size }};
 
-        {%- if section.settings.nav_style == 'arrows' or section.settings.autoplay -%}
-          <div class="slideshow-nav flex items-center">
-            {%- if section.settings.nav_style == 'arrows' -%}
-              <button type="button" class="slideshow-nav__btn btn hidden md:block has-ltr-icon" name="prev" aria-controls="slideshow-{{ section.id }}">
-                <span class="visually-hidden">{{ 'general.slider.previous' | t }}</span>
-                {% render 'icon-chevron-left' %}
-              </button>
+function showSlide(n) {
+  const slides = document.querySelectorAll('.slide');
+  const indicators = document.querySelectorAll('.slide-indicator');
+  
+  if (n > totalSlides) currentSlide = 1;
+  if (n < 1) currentSlide = totalSlides;
+  
+  slides.forEach((slide, index) => {
+    slide.style.display = (index + 1 === currentSlide) ? 'flex' : 'none';
+  });
+  
+  indicators.forEach((indicator, index) => {
+    indicator.style.background = (index + 1 === currentSlide) ? 'white' : 'transparent';
+  });
+}
 
-              <div class="slideshow-nav__counter">
-                <span class="slideshow-nav__counter-current">1</span>
-                <span aria-hidden="true"> / </span>
-                <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-                <span class="slideshow-nav__counter-total">{{ section.blocks.size }}</span>
-              </div>
-            {%- endif -%}
+function changeSlide(n) {
+  currentSlide += n;
+  showSlide(currentSlide);
+}
 
-            {%- if section.settings.autoplay -%}
-              <div class="slideshow-nav__autoplay flex items-center {% unless section.settings.slider_pause %}hidden{% endunless %}">
-                <button type="button" class="slideshow-nav__btn autoplay-btn btn">
-                  <span class="pause-icon block pointer-events-none">
-                    <span class="visually-hidden">{{ 'sections.slideshow.pause' | t }}</span>
-                    {% render 'icon-pause' %}
-                  </span>
-                  <span class="play-icon block pointer-events-none">
-                    <span class="visually-hidden">{{ 'sections.slideshow.play' | t }}</span>
-                    {% render 'icon-video' %}
-                  </span>
-                </button>
-              </div>
-            {%- endif -%}
+function goToSlide(n) {
+  currentSlide = n;
+  showSlide(currentSlide);
+}
 
-            {%- if section.settings.nav_style == 'arrows' -%}
-              <button type="button" class="slideshow-nav__btn btn hidden md:block has-ltr-icon" name="next" aria-controls="slideshow-{{ section.id }}">
-                <span class="visually-hidden">{{ 'general.slider.next' | t }}</span>
-                {% render 'icon-chevron-right' %}
-              </button>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
+// Auto-play (optional - use section settings)
+{% comment %} Auto-play disabled by default for navigation-slideshow compatibility {% endcomment %}
+</script>
 
-    {%- if section.settings.quick_nav_menu != blank -%}
-      <div class="container container--quick-nav">
-        {%- liquid
-          if section.settings.menu_1_display contains "small"
-            assign menu_1_boxed = false
-          else
-            assign menu_1_boxed = true
-          endif
-          assign menu_1_display = section.settings.menu_1_display | replace: "small_", "" | replace: "large_", ""
+<!-- Enhanced Styles -->
+<style>
+.hero-slideshow h1 {
+  font-size: 56px;
+}
 
-          if section.settings.menu_2_display contains "small"
-            assign menu_2_boxed = false
-          else
-            assign menu_2_boxed = true
-          endif
-          assign menu_2_display = section.settings.menu_2_display | replace: "small_", "" | replace: "large_", ""
+.slide-arrow:hover {
+  background: rgba(255,255,255,0.3) !important;
+  transform: translateY(-50%) scale(1.1);
+}
 
-          if section.settings.menu_3_display contains "small"
-            assign menu_3_boxed = false
-          else
-            assign menu_3_boxed = true
-          endif
-          assign menu_3_display = section.settings.menu_3_display | replace: "small_", "" | replace: "large_", ""
+/* Buchspezifische Animationen */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(2deg); }
+  50% { transform: translateY(-5px) rotate(-1deg); }
+  75% { transform: translateY(-8px) rotate(1deg); }
+}
 
-          if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false
-            assign animate = true
-          else
-            assign animate = false
-          endif
-        -%}
-        {%
-          render 'quick-nav',
-          component_id: block.id,
-          menu: section.settings.quick_nav_menu,
-          image_ratio: section.settings.quick_nav_image_ratio,
-          image_fit: section.settings.quick_nav_image_fit,
-          use_product_image: section.settings.quick_nav_use_product_image,
-          color_scheme: section.settings.quick_nav_color_scheme,
-          show_price: section.settings.quick_nav_show_price,
-          animate: animate,
-          title: section.settings.quick_nav_title,
-          menu_1_display: menu_1_display,
-          menu_1_boxed: menu_1_boxed,
-          menu_1_text: section.settings.menu_1_text,
-          menu_2_display: menu_2_display,
-          menu_2_boxed: menu_2_boxed,
-          menu_2_text: section.settings.menu_2_text,
-          menu_3_display: menu_3_display,
-          menu_3_boxed: menu_3_boxed,
-          menu_3_text: section.settings.menu_3_text
-        %}
-      </div>
-    {%- endif -%}
-  </slide-show>
-</div>
+@keyframes sparkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.15; filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)); }
+  50% { opacity: 0.4; filter: drop-shadow(0 0 15px rgba(255,255,255,0.6)); }
+}
+
+/* Slide-spezifische Hintergründe */
+.slide:nth-child(1) {
+  background-image: 
+    linear-gradient(135deg, rgba(45, 90, 39, 0.8) 0%, rgba(74, 124, 89, 0.6) 100%),
+    radial-gradient(circle at 20% 80%, rgba(107, 155, 106, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(134, 239, 172, 0.2) 0%, transparent 50%) !important;
+}
+
+.slide:nth-child(2) {
+  background-image: 
+    linear-gradient(135deg, rgba(30, 64, 175, 0.8) 0%, rgba(45, 90, 39, 0.6) 100%),
+    radial-gradient(circle at 30% 70%, rgba(255, 215, 77, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(147, 197, 253, 0.3) 0%, transparent 50%) !important;
+}
+
+.slide:nth-child(3) {
+  background-image: 
+    linear-gradient(135deg, rgba(34, 197, 94, 0.8) 0%, rgba(45, 90, 39, 0.6) 100%),
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(167, 243, 208, 0.2) 0%, transparent 50%) !important;
+}
+
+@media (max-width: 768px) {
+  .hero-slideshow {
+    height: 70vh !important;
+    min-height: 500px !important;
+  }
+  
+  .hero-slideshow h1 {
+    font-size: 36px !important;
+  }
+  
+  .slide-content {
+    padding: 0 var(--space-md);
+  }
+  
+  .slide-arrow {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .slide-arrow.slide-prev {
+    left: var(--space-md) !important;
+  }
+  
+  .slide-arrow.slide-next {
+    right: var(--space-md) !important;
+  }
+  
+  .slide-content > div:last-child {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .floating-books .book-page,
+  .floating-stars .star,
+  .floating-shields .shield {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-slideshow {
+    height: 60vh !important;
+    min-height: 400px !important;
+  }
+  
+  .hero-slideshow h1 {
+    font-size: 28px !important;
+  }
+  
+  .slide-content div[style*="font-size: var(--text-xl)"] {
+    font-size: var(--text-base) !important;
+  }
+}
+
+/* Slide Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Focus States for Accessibility */
+.slide-arrow:focus,
+.slide-indicator:focus {
+  outline: 3px solid #86EFAC;
+  outline-offset: 2px;
+}
+</style>
 
 {% schema %}
 {
-  "name": "Navigation slideshow",
-  "tag": "section",
-  "class": "cc-nav-slideshow",
+  "name": "Navigation Slideshow (Zweitliebe Buchshop)",
   "settings": [
-    {
-      "type": "header",
-      "content": "Layout"
-    },
-    {
-      "type": "select",
-      "id": "height_mode",
-      "label": "Image height",
-      "options": [
-        {
-          "value": "auto",
-          "label": "Height of first image"
-        },
-        {
-          "value": "fixed",
-          "label": "Fixed height (set below)"
-        },
-        {
-          "value": "screen",
-          "label": "Full screen height"
-        }
-      ],
-      "default": "fixed"
-    },
-    {
-      "type": "range",
-      "id": "fixed_height_desktop",
-      "min": 600,
-      "max": 1200,
-      "step": 10,
-      "unit": "px",
-      "label": "Minimum fixed height on large screens",
-      "default": 700
-    },
-    {
-      "type": "range",
-      "id": "fixed_height_mobile",
-      "min": 250,
-      "max": 600,
-      "step": 10,
-      "unit": "px",
-      "label": "Minimum fixed height on mobile",
-      "default": 350
-    },
-    {
-      "type": "header",
-      "content": "Navigation panel"
-    },
-    {
-      "type": "paragraph",
-      "content": "This provides a small widget which allows users to quickly browse to their desired page. To get started, create a menu in [Content > Menus](/admin/content/menus) and choose that menu below. [Read more](https://cleancanvas.co.uk/support/enterprise/sections/navigation-slideshow)."
-    },
-    {
-      "type": "link_list",
-      "id": "quick_nav_menu",
-      "label": "Menu",
-      "default": "main-menu"
-    },
-    {
-      "type": "text",
-      "id": "quick_nav_title",
-      "label": "Heading",
-      "default": "Navigation options"
-    },
-    {
-      "type": "select",
-      "id": "quick_nav_image_ratio",
-      "label": "Image aspect ratio",
-      "options": [
-        {
-          "value": "1.77",
-          "label": "Landscape"
-        },
-        {
-          "value": "1",
-          "label": "Square"
-        },
-        {
-          "value": "0.75",
-          "label": "Portrait"
-        }
-      ],
-      "default": "1"
-    },
-    {
-      "type": "select",
-      "id": "quick_nav_image_fit",
-      "label": "Image fit",
-      "info": "Choose \"Natural\" to avoid cropping the image or \"Cover\" to fill available space (image may be cropped).",
-      "options": [
-        {
-          "value": "contain",
-          "label": "Natural"
-        },
-        {
-          "value": "cover",
-          "label": "Cover"
-        }
-      ],
-      "default": "contain"
-    },
-    {
-      "type": "checkbox",
-      "id": "quick_nav_use_product_image",
-      "label": "Use the first product image for collection images",
-      "default": false
-    },
-    {
-      "type": "select",
-      "id": "quick_nav_color_scheme",
-      "label": "Color scheme",
-      "info": "\"Content panels\" colors can be changed in \"Theme Settings > Colors > Content panels\".",
-      "options": [
-        {
-          "value": "none",
-          "label": "Default"
-        },
-        {
-          "value": "default",
-          "label": "Content panel"
-        },
-        {
-          "value": "1",
-          "label": "Scheme 1"
-        },
-        {
-          "value": "2",
-          "label": "Scheme 2"
-        },
-        {
-          "value": "3",
-          "label": "Scheme 3"
-        }
-      ],
-      "default": "none"
-    },
-    {
-      "type": "checkbox",
-      "id": "quick_nav_show_price",
-      "label": "Show price slider when available",
-      "default": false,
-      "info": "This will show when a collection is selected, and if the store is in the default currency."
-    },
-    {
-      "type": "header",
-      "content": "Menu 1"
-    },
-    {
-      "type": "text",
-      "id": "menu_1_text",
-      "label": "Placeholder text",
-      "default": "Level 1 Navigation"
-    },
-    {
-      "type": "select",
-      "id": "menu_1_display",
-      "label": "Display style",
-      "default": "large_text",
-      "options": [
-        {
-          "value": "small_text",
-          "label": "Small - Text"
-        },
-        {
-          "value": "small_image_text",
-          "label": "Small - Image and text"
-        },
-        {
-          "value": "large_text",
-          "label": "Large - Text"
-        },
-        {
-          "value": "large_image",
-          "label": "Large - Image"
-        },
-        {
-          "value": "large_image_text",
-          "label": "Large - Image and text"
-        }
-      ]
-    },
-    {
-      "type": "header",
-      "content": "Menu 2"
-    },
-    {
-      "type": "text",
-      "id": "menu_2_text",
-      "label": "Level 2 Navigation",
-      "default": "Navigation options"
-    },
-    {
-      "type": "select",
-      "id": "menu_2_display",
-      "label": "Display style",
-      "default": "large_text",
-      "options": [
-        {
-          "value": "small_text",
-          "label": "Small - Text"
-        },
-        {
-          "value": "small_image_text",
-          "label": "Small - Image and text"
-        },
-        {
-          "value": "large_text",
-          "label": "Large - Text"
-        },
-        {
-          "value": "large_image",
-          "label": "Large - Image"
-        },
-        {
-          "value": "large_image_text",
-          "label": "Large - Image and text"
-        }
-      ]
-    },
-    {
-      "type": "header",
-      "content": "Menu 3"
-    },
-    {
-      "type": "text",
-      "id": "menu_3_text",
-      "label": "Level 3 Navigation",
-      "default": "Choose an option"
-    },
-    {
-      "type": "select",
-      "id": "menu_3_display",
-      "label": "Display style",
-      "default": "large_text",
-      "options": [
-        {
-          "value": "small_text",
-          "label": "Small - Text"
-        },
-        {
-          "value": "small_image_text",
-          "label": "Small - Image and text"
-        },
-        {
-          "value": "large_text",
-          "label": "Large - Text"
-        },
-        {
-          "value": "large_image",
-          "label": "Large - Image"
-        },
-        {
-          "value": "large_image_text",
-          "label": "Large - Image and text"
-        }
-      ]
-    },
-    {
-      "type": "header",
-      "content": "Slideshow appearance"
-    },
-    {
-      "type": "select",
-      "id": "nav_style",
-      "label": "Pagination style",
-      "options": [
-        {
-          "value": "arrows",
-          "label": "Arrows"
-        },
-        {
-          "value": "slideshow_nav_dots",
-          "label": "Dots"
-        },
-        {
-          "value": "slideshow_nav_lines",
-          "label": "Lines"
-        }
-      ],
-      "default": "slideshow_nav_lines"
-    },
-    {
-      "type": "color",
-      "id": "pagination_color",
-      "label": "Pagination color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "select",
-      "id": "transition",
-      "label": "Slide transition",
-      "options": [
-        {
-          "value": "slide-fade",
-          "label": "Slide and fade"
-        },
-        {
-          "value": "slide",
-          "label": "Slide"
-        },
-        {
-          "value": "fade",
-          "label": "Fade"
-        }
-      ],
-      "default": "slide-fade"
-    },
     {
       "type": "checkbox",
       "id": "autoplay",
-      "label": "Auto-rotate slides",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "slider_pause",
-      "label": "Show pause button",
-      "info": "Only applies when auto-rotate is turned on.",
-      "default": false
-    },
-    {
-      "type": "range",
-      "id": "autoplay_speed",
-      "label": "Change slides every",
-      "min": 3,
-      "max": 9,
-      "step": 1,
-      "unit": "s",
-      "default": 5
-    },
-    {
-      "type": "header",
-      "content": "Style"
-    },
-    {
-      "type": "select",
-      "id": "color_scheme",
-      "info": "When \"Transparent background\" is chosen, the text color can be set in each slide.",
-      "label": "Color scheme",
-      "options": [
-        {
-          "value": "white",
-          "label": "Transparent background"
-        },
-        {
-          "value": "default",
-          "label": "Default"
-        },
-        {
-          "value": "1",
-          "label": "Scheme 1"
-        },
-        {
-          "value": "2",
-          "label": "Scheme 2"
-        },
-        {
-          "value": "3",
-          "label": "Scheme 3"
-        }
-      ],
-      "default": "white"
-    },
-    {
-      "type": "checkbox",
-      "id": "full_width",
-      "label": "Make section background full width",
-      "default": true
-    },
-    {
-      "type": "color",
-      "id": "tint_color",
-      "label": "Image tint color",
-      "default": "#000000"
-    },
-    {
-      "type": "range",
-      "id": "tint_opacity",
-      "min": 0,
-      "max": 60,
-      "step": 5,
-      "unit": "%",
-      "label": "Image tint opacity",
-      "default": 40
-    },
-    {
-      "type": "header",
-      "content": "Accessibility / SEO"
-    },
-    {
-      "type": "text",
-      "id": "accessibility_info",
-      "label": "Slideshow description",
-      "info": "Describe the slideshow for customers using screen readers.",
-      "default": "Featured collections and new arrivals"
-    },
-    {
-      "type": "checkbox",
-      "id": "prevent_animation",
-      "label": "Load the section without animation",
-      "info": "If this section is visible when the page loads, enabling this setting can reduce CLS and may improve site speed scores. [Read more](https://cleancanvas.co.uk/support/enterprise/performance-guide)",
+      "label": "Auto-play slides",
       "default": false
     }
   ],
@@ -752,208 +391,136 @@
     {
       "type": "slide",
       "name": "Slide",
-      "limit": 5,
       "settings": [
         {
           "type": "image_picker",
           "id": "image_desktop",
-          "label": "Image",
-          "info": "For best results, use a landscape shaped image with a minimum width of 3200px."
+          "label": "Desktop Image",
+          "info": "Empfohlen: Buchbezogene Bilder (Bibliothek, Leseszenen, etc.)"
         },
         {
           "type": "image_picker",
           "id": "image_mobile",
-          "label": "Mobile image (optional)",
-          "info": "For best results, use a square or portrait shaped image. If no mobile image is provided, the large screen image will be used."
-        },
-        {
-          "type": "header",
-          "content": "Text overlay"
+          "label": "Mobile Image"
         },
         {
           "type": "select",
           "id": "overlay_text_align",
-          "label": "Text alignment",
+          "label": "Text Alignment",
           "options": [
             {
               "value": "text-start",
-              "label": "Left"
+              "label": "Links"
             },
             {
               "value": "text-center",
-              "label": "Center"
+              "label": "Mitte"
             },
             {
-              "value": "text-end",
-              "label": "Right"
+              "value": "text-end", 
+              "label": "Rechts"
             }
           ],
-          "default": "text-start"
-        },
-        {
-          "type": "checkbox",
-          "id": "mob_center_text",
-          "label": "Center text on mobile",
-          "default": true
+          "default": "text-center"
         },
         {
           "type": "text",
           "id": "subheading",
-          "label": "Subheading",
-          "info": "Shown above the main heading."
+          "label": "Subheading"
         },
         {
           "type": "text",
           "id": "heading",
-          "label": "Heading",
-          "info": "Enter <br> for a line-break.",
-          "default": "Navigation slideshow"
+          "label": "Heading"
         },
         {
           "type": "select",
           "id": "heading_size",
-          "label": "Heading size",
+          "label": "Heading Size",
           "options": [
             {
-              "value": "h6",
-              "label": "Extra extra small"
-            },
-            {
-              "value": "h5",
-              "label": "Extra small"
-            },
-            {
-              "value": "h4",
+              "value": "h3",
               "label": "Small"
             },
             {
-              "value": "h3",
+              "value": "h2",
               "label": "Medium"
             },
             {
-              "value": "h2",
+              "value": "h1",
               "label": "Large"
             },
             {
-              "value": "h1",
-              "label": "Extra large"
-            },
-            {
               "value": "h0",
-              "label": "Extra extra large"
+              "label": "Extra Large"
             }
           ],
-          "default": "h1"
-        },
-        {
-          "type": "checkbox",
-          "id": "heading_h1",
-          "label": "Set as page heading (uses h1 tag)",
-          "info": "For optimum SEO, a page should only have one h1 and it should be the first heading on the page.",
-          "default": false
+          "default": "h0"
         },
         {
           "type": "richtext",
           "id": "text",
-          "label": "Text",
-          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
-        },
-        {
-          "type": "checkbox",
-          "id": "enlarge_text",
-          "label": "Enlarge text",
-          "default": true
+          "label": "Text"
         },
         {
           "type": "text",
           "id": "button_1_label",
-          "label": "Button 1 label",
-          "default": "Optional button"
+          "label": "Button Text"
         },
         {
           "type": "url",
           "id": "button_1_link",
-          "label": "Button 1 link"
+          "label": "Button Link"
         },
         {
           "type": "select",
           "id": "button_1_style",
-          "label": "Button 1 style",
+          "label": "Button Style",
           "options": [
             {
-              "value": "link",
-              "label": "Link"
-            },
-            {
               "value": "btn btn--primary",
-              "label": "Primary button"
+              "label": "Primary"
             },
             {
               "value": "btn btn--secondary",
-              "label": "Secondary button"
+              "label": "Secondary"
             }
           ],
           "default": "btn btn--primary"
-        },
-        {
-          "type": "text",
-          "id": "button_2_label",
-          "label": "Button 2 label"
-        },
-        {
-          "type": "url",
-          "id": "button_2_link",
-          "label": "Button 2 link"
-        },
-        {
-          "type": "select",
-          "id": "button_2_style",
-          "label": "Button 2 style",
-          "options": [
-            {
-              "value": "link",
-              "label": "Link"
-            },
-            {
-              "value": "btn btn--primary",
-              "label": "Primary button"
-            },
-            {
-              "value": "btn btn--secondary",
-              "label": "Secondary button"
-            }
-          ],
-          "default": "btn btn--primary"
-        },
-        {
-          "type": "color",
-          "id": "transparent_content_color",
-          "label": "Text and button color",
-          "info": "Only applies when the \"Transparent background\" color scheme is chosen.",
-          "default": "#ffffff"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Navigation slideshow",
+      "name": "Navigation Slideshow (Zweitliebe)",
       "blocks": [
         {
-          "type": "slide"
+          "type": "slide",
+          "settings": {
+            "heading": "Bücher entdecken.<br>Zweitliebe finden.",
+            "text": "<p><strong>Bis zu 70% günstiger</strong><br>als Neupreise! 180.000 Bücher verfügbar.</p>",
+            "button_1_label": "Jetzt Bücher entdecken"
+          }
         },
         {
-          "type": "slide"
+          "type": "slide",
+          "settings": {
+            "heading": "Bestseller Bücher.<br>Faire Preise.",
+            "text": "<p><strong>Große Auswahl</strong><br>an Romanen, Krimis & Sachbüchern!</p>",
+            "button_1_label": "Zu den Bestsellern"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "heading": "Gebrauchte Bücher.<br>Wie neu!",
+            "text": "<p><strong>36 Monate Garantie</strong><br>auf alle gebrauchten Bücher!</p>",
+            "button_1_label": "Gebrauchte Bücher"
+          }
         }
       ]
     }
-  ],
-  "disabled_on": {
-    "groups": [
-      "header",
-      "footer",
-      "aside"
-    ]
-  }
+  ]
 }
-{% endschema %}
+{% endschema %} 
