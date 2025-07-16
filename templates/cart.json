@@ -1,166 +1,143 @@
 {
   "sections": {
-    "cart_items": {
+    "breadcrumbs": {
+      "type": "rich-text",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "text": "<nav aria-label=\"Breadcrumb\" style=\"font-family: var(--zweitliebe-font-family); padding: var(--zweitliebe-space-4) 0; max-width: 1400px; margin: 0 auto; padding-left: var(--zweitliebe-space-10); padding-right: var(--zweitliebe-space-10);\"><div style=\"display: flex; flex-wrap: wrap; gap: var(--zweitliebe-space-2);\"><a href=\"/collections/all\" style=\"color: var(--zweitliebe-green); text-decoration: none; font-size: var(--zweitliebe-text-base); font-weight: 500;\">Shop</a><span style=\"color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-base); font-weight: 500;\">/</span><span style=\"color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-base); font-weight: 500;\">Cart</span></div></nav>",
+            "enlarge_text": false
+          }
+        }
+      ],
+      "block_order": [
+        "breadcrumb-text"
+      ],
+      "settings": {
+        "text_alignment": "left",
+        "narrow_column": false,
+        "spacing_above": false,
+        "spacing_below": false,
+        "bg_color": ""
+      }
+    },
+    "cart_main": {
       "type": "main-cart",
       "settings": {
         "show_vendor": false,
-        "show_cart_note": true,
-        "cart_note_placeholder": "Besondere Wünsche? (z.B. Geschenkverpackung)",
+        "show_cart_note": false,
         "show_checkout_button": true,
-        "checkout_button_text": "Zur Kasse",
+        "checkout_button_text": "Proceed to Checkout",
         "show_continue_shopping": true,
-        "continue_shopping_text": "Weiter stöbern",
+        "continue_shopping_text": "Continue Shopping",
         "continue_shopping_url": "/collections/all",
-        "show_savings": true,
+        "show_savings": false,
         "spacing_above": false,
         "spacing_below": true
       }
     },
-    "trust_benefits": {
-      "type": "icons-with-text",
-      "blocks": [
-        {
-          "type": "item",
-          "settings": {
-            "icon": "truck",
-            "heading": "Kostenloser Versand ab 10€",
-            "text": "Deine Bestellung wird klimaneutral versendet",
-            "link": ""
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "icon": "check_circle",
-            "heading": "36 Monate Garantie",
-            "text": "Länger als bei neuen Büchern",
-            "link": ""
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "icon": "shield",
-            "heading": "Sicherer Checkout",
-            "text": "SSL-verschlüsselt & datenschutzkonform",
-            "link": ""
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "icon": "return",
-            "heading": "Einfache Rückgabe",
-            "text": "14 Tage Widerrufsrecht",
-            "link": ""
-          }
-        }
-      ],
-      "block_order": [
-        "trust-1",
-        "trust-2",
-        "trust-3",
-        "trust-4"
-      ],
-      "settings": {
-        "heading": "Deine Vorteile",
-        "subheading": "Sicher und nachhaltig einkaufen",
-        "heading_align": "text-center",
-        "icon_size": 24,
-        "title_type_scale": "small",
-        "text_type_scale": "xsmall",
-        "icon_position": "beside",
-        "mobile_stack": false,
-        "section_height": "small",
-        "color_scheme": "2",
-        "full_width": true,
-        "dividers": "none",
-        "prevent_animation": false
-      }
-    },
-    "sustainability_impact": {
+    "trust_strip": {
       "type": "rich-text",
       "blocks": [
         {
-          "type": "heading",
-          "settings": {
-            "heading": "🌱 Dein Umwelt-Impact",
-            "heading_size": "h3"
-          }
-        },
-        {
           "type": "text",
           "settings": {
-            "text": "<div style='background: linear-gradient(135deg, var(--success-green) 0%, var(--accent-green) 100%); color: white; padding: var(--space-lg); border-radius: var(--radius-lg); text-align: center; margin-top: var(--space-md);'><h4 style='color: white; margin-bottom: var(--space-md);'>Mit deinem Einkauf sparst du:</h4><div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md);'><div><div style='font-size: var(--text-2xl); font-weight: var(--font-bold); margin-bottom: var(--space-xs);'>~5kg CO₂</div><div style='opacity: 0.9;'>Weniger Emissionen</div></div><div><div style='font-size: var(--text-2xl); font-weight: var(--font-bold); margin-bottom: var(--space-xs);'>90%</div><div style='opacity: 0.9;'>Weniger Wasserverbrauch</div></div><div><div style='font-size: var(--text-2xl); font-weight: var(--font-bold); margin-bottom: var(--space-xs);'>70%</div><div style='opacity: 0.9;'>Günstiger als Neupreis</div></div></div><p style='margin-top: var(--space-md); opacity: 0.9;'>Jedes gebrauchte Buch hilft der Umwelt und deinem Geldbeutel!</p></div>"
+            "text": "<div style=\"background: rgba(34, 197, 94, 0.05); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: var(--zweitliebe-radius-lg); padding: var(--zweitliebe-space-6); margin: var(--zweitliebe-space-8) 0; font-family: var(--zweitliebe-font-family);\"><div style=\"display: flex; align-items: center; gap: var(--zweitliebe-space-2); color: #059669; font-size: var(--zweitliebe-text-sm); font-weight: 600; margin-bottom: var(--zweitliebe-space-3);\"><span>✓</span><span>36 Month Guarantee on all Books</span><span style=\"margin-left: var(--zweitliebe-space-6);\">✓</span><span>Free Shipping over $10</span><span style=\"margin-left: var(--zweitliebe-space-6);\">✓</span><span>Carbon Neutral Shipping</span></div></div>",
+            "enlarge_text": false
           }
         }
       ],
       "block_order": [
-        "heading-1",
-        "text-1"
+        "trust-text"
       ],
       "settings": {
         "text_alignment": "center",
         "narrow_column": false,
-        "spacing_above": true,
-        "spacing_below": true,
-        "bg_color": "#F9FAFB"
-      }
-    },
-    "recommended_products": {
-             "type": "featured-collection",
-      "settings": {
-        "collection": "all",
-        "heading": "Andere Studierende kauften auch",
-        "subheading": "Ergänze deine Buchsammlung",
-        "text_alignment": "center",
-        "product_limit": 4,
-        "products_per_row": 4,
-        "mobile_products_per_row": "2",
-        "enable_filtering": false,
-        "enable_sorting": false,
-        "show_view_all": true,
-        "view_all_text": "Alle Bücher ansehen",
-        "spacing_above": true,
-        "spacing_below": true,
+        "spacing_above": false,
+        "spacing_below": false,
         "bg_color": ""
       }
     },
-    "payment_methods": {
+    "environmental_impact": {
       "type": "rich-text",
       "blocks": [
         {
-          "type": "heading",
-          "settings": {
-            "heading": "Sichere Bezahlung",
-            "heading_size": "h4"
-          }
-        },
-        {
           "type": "text",
           "settings": {
-            "text": "<div style='display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center; align-items: center; margin-top: var(--space-md);'><div style='padding: var(--space-sm); background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-md); display: flex; align-items: center; gap: var(--space-sm);'><span>💳</span> PayPal</div><div style='padding: var(--space-sm); background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-md); display: flex; align-items: center; gap: var(--space-sm);'><span>💳</span> VISA</div><div style='padding: var(--space-sm); background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-md); display: flex; align-items: center; gap: var(--space-sm);'><span>💳</span> Mastercard</div><div style='padding: var(--space-sm); background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-md); display: flex; align-items: center; gap: var(--space-sm);'><span>💳</span> Sofortüberweisung</div><div style='padding: var(--space-sm); background: white; border: 1px solid var(--gray-200); border-radius: var(--radius-md); display: flex; align-items: center; gap: var(--space-sm);'><span>💳</span> Klarna</div></div><p style='margin-top: var(--space-md); font-size: var(--text-sm); color: var(--gray-600);'>SSL-verschlüsselt • PCI-DSS zertifiziert • DSGVO-konform</p>"
+            "text": "<div style=\"background: rgba(30, 64, 175, 0.05); border: 1px solid rgba(30, 64, 175, 0.2); border-radius: var(--zweitliebe-radius-lg); padding: var(--zweitliebe-space-6); margin: var(--zweitliebe-space-8) 0; text-align: center; font-family: var(--zweitliebe-font-family);\"><p style=\"color: #1E40AF; font-size: var(--zweitliebe-text-sm); font-weight: 600; margin: 0;\">🌱 You save 2.3kg CO2 with this purchase!</p><p style=\"color: #3B82F6; font-size: var(--zweitliebe-text-xs); margin: var(--zweitliebe-space-2) 0 0 0;\">Used books are 85% more environmentally friendly</p></div>",
+            "enlarge_text": false
           }
         }
       ],
       "block_order": [
-        "heading-1",
-        "text-1"
+        "impact-text"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "narrow_column": false,
+        "spacing_above": false,
+        "spacing_below": false,
+        "bg_color": ""
+      }
+    },
+    "recommended_books": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Other readers also bought",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "none",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "footer_info": {
+      "type": "rich-text",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "text": "<div style=\"text-align: center; font-family: var(--zweitliebe-font-family); padding: var(--zweitliebe-space-8) 0;\"><div style=\"display: flex; flex-wrap: wrap; justify-content: center; gap: var(--zweitliebe-space-6);\"><a href=\"/pages/about\" style=\"color: var(--zweitliebe-green); text-decoration: none; font-size: var(--zweitliebe-text-base); font-weight: 400;\">About Us</a><a href=\"/pages/privacy-policy\" style=\"color: var(--zweitliebe-green); text-decoration: none; font-size: var(--zweitliebe-text-base); font-weight: 400;\">Privacy Policy</a><a href=\"/pages/terms-of-service\" style=\"color: var(--zweitliebe-green); text-decoration: none; font-size: var(--zweitliebe-text-base); font-weight: 400;\">Terms of Service</a></div><p style=\"color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-base); font-weight: 400; margin: var(--zweitliebe-space-6) 0 0 0;\">© 2024 Zweitliebe. All rights reserved.</p></div>",
+            "enlarge_text": false
+          }
+        }
+      ],
+      "block_order": [
+        "footer-text"
       ],
       "settings": {
         "text_alignment": "center",
         "narrow_column": false,
         "spacing_above": true,
-        "spacing_below": true,
+        "spacing_below": false,
         "bg_color": ""
       }
     }
   },
   "order": [
-    "cart_items",
-    "trust_benefits",
-    "sustainability_impact",
-    "recommended_products",
-    "payment_methods"
+    "breadcrumbs",
+    "cart_main",
+    "trust_strip",
+    "environmental_impact",
+    "recommended_books",
+    "footer_info"
   ]
 }

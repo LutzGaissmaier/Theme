@@ -1,265 +1,197 @@
 {
   "sections": {
-    "hero_section": {
-      "type": "rich-text",
+    "hero_banner": {
+      "type": "image-banner",
       "blocks": {
-        "heading_1": {
+        "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Gebrauchte Fachbücher für dein Studium",
+            "heading": "Discover Your Next Great Read",
             "heading_size": "h0"
           }
         },
-        "text_1": {
+        "text": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>180.000+ Bücher • Bis zu 70% sparen • 36 Monate Garantie</strong></p><p>Nachhaltig studieren mit geprüfter Qualität. Von Medizin bis Informatik.</p>",
-            "enlarge_text": true
+            "text": "Explore our curated collection of used books, from timeless classics to contemporary bestsellers. Find your next literary adventure at Zweitliebe.",
+            "text_style": "body"
           }
         },
-        "button_1": {
-          "type": "button",
+        "button": {
+          "type": "buttons",
           "settings": {
-            "button_label": "Fachbücher entdecken",
-            "button_link": "/collections/all",
-            "button_style": "btn btn--primary btn--large"
+            "button_label_1": "Shop Now",
+            "button_link_1": "/collections/all",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
           }
         }
       },
       "block_order": [
-        "heading_1",
-        "text_1", 
-        "button_1"
+        "heading",
+        "text",
+        "button"
       ],
       "settings": {
-        "text_alignment": "center",
-        "narrow_column": false,
-        "spacing_above": false,
-        "spacing_below": true,
-        "bg_color": "#F0FDF4"
-      }
-    },
-    "quick_search": {
-      "type": "rich-text",
-      "blocks": {
-        "search_widget": {
-          "type": "text",
-          "settings": {
-            "text": "<div style='background: white; padding: 32px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto;'><h3 style='text-align: center; margin-bottom: 24px; color: #1F2937;'>🔍 Schnell zum richtigen Buch</h3><div style='display: grid; grid-template-columns: 1fr auto; gap: 16px; margin-bottom: 24px;'><input type='search' placeholder='ISBN, Autor, Titel oder Fachbereich eingeben...' style='padding: 12px 16px; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 16px; width: 100%;'><button style='background: #2D5A27; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;'>Suchen</button></div><div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px;'><a href='/collections/medizin' style='background: #FEF3E2; color: #EA580C; padding: 8px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 500;'>🩺 Medizin</a><a href='/collections/bwl' style='background: #EFF6FF; color: #1E40AF; padding: 8px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 500;'>💼 BWL</a><a href='/collections/jura' style='background: #F3F4F6; color: #374151; padding: 8px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 500;'>⚖️ Jura</a><a href='/collections/informatik' style='background: #ECFDF5; color: #059669; padding: 8px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 500;'>💻 Informatik</a><a href='/collections/psychologie' style='background: #FDF2F8; color: #BE185D; padding: 8px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 500;'>🧠 Psychologie</a></div></div>",
-            "enlarge_text": false
-          }
-        }
-      },
-      "block_order": [
-        "search_widget"
-      ],
-      "settings": {
-        "text_alignment": "center",
-        "narrow_column": false,
-        "spacing_above": true,
-        "spacing_below": true,
-        "bg_color": ""
+        "image": "",
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "desktop_content_position": "bottom-left",
+        "show_text_box": false,
+        "desktop_content_alignment": "left",
+        "color_scheme": "white",
+        "image_behavior": "none",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true,
+        "bg_color": "#c5dac2"
       }
     },
     "popular_categories": {
-      "type": "icons-with-text",
+      "type": "multi-column",
       "blocks": {
-        "cat_1": {
-          "type": "item",
+        "column_1": {
+          "type": "column",
           "settings": {
-            "icon": "medical",
-            "heading": "Medizin & Gesundheit",
-            "text": "Anatomie, Pharmakologie, Klinische Medizin",
-            "link": "/collections/medizin"
+            "image": "",
+            "title": "Fiction",
+            "text": "<p>Immerse yourself in captivating stories and unforgettable characters.</p>",
+            "link_label": "Shop Fiction",
+            "link": "/collections/fiction"
           }
         },
-        "cat_2": {
-          "type": "item",
+        "column_2": {
+          "type": "column",
           "settings": {
-            "icon": "briefcase",
-            "heading": "BWL & Wirtschaft",
-            "text": "Marketing, Controlling, Unternehmensführung",
-            "link": "/collections/bwl"
+            "image": "",
+            "title": "Non-Fiction",
+            "text": "<p>Expand your knowledge with biographies, history, and educational content.</p>",
+            "link_label": "Shop Non-Fiction",
+            "link": "/collections/non-fiction"
           }
         },
-        "cat_3": {
-          "type": "item",
+        "column_3": {
+          "type": "column",
           "settings": {
-            "icon": "scales",
-            "heading": "Jura & Recht",
-            "text": "BGB, Strafrecht, Öffentliches Recht",
-            "link": "/collections/jura"
-          }
-        },
-        "cat_4": {
-          "type": "item",
-          "settings": {
-            "icon": "computer",
-            "heading": "Informatik & IT",
-            "text": "Programmierung, Algorithmen, Datenbanken",
-            "link": "/collections/informatik"
+            "image": "",
+            "title": "Children's Books",
+            "text": "<p>Spark imagination and foster a love of reading in young minds.</p>",
+            "link_label": "Shop Children's",
+            "link": "/collections/children"
           }
         }
       },
       "block_order": [
-        "cat_1",
-        "cat_2",
-        "cat_3",
-        "cat_4"
+        "column_1",
+        "column_2",
+        "column_3"
       ],
       "settings": {
-        "heading": "Fachbücher nach Studienrichtung",
-        "subheading": "Finde schnell die richtigen Bücher für dein Fach",
-        "heading_align": "text-center",
-        "icon_size": 48,
-        "title_type_scale": "medium",
-        "text_type_scale": "small",
-        "icon_position": "above",
-        "mobile_stack": true,
-        "section_height": "medium",
-        "color_scheme": "1",
-        "full_width": false,
-        "dividers": "none",
-        "prevent_animation": false
+        "title": "Popular Categories",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "View All",
+        "button_link": "/collections/all",
+        "color_scheme": "none",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "featured_books": {
+    "new_arrivals": {
       "type": "featured-collection",
       "settings": {
+        "title": "New Arrivals",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
         "collection": "all",
-        "title": "Beliebte Fachbücher",
-        "heading_align": "text-center",
-        "show_view_all": true,
-        "layout": "grid",
-        "card_size": "medium",
         "products_to_show": 8,
-        "show_promo_info": true,
-        "image_ratio": "1.4",
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
         "color_scheme": "none",
-        "button_style": "btn btn--secondary"
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "sustainability_impact": {
-      "type": "rich-text", 
-      "blocks": {
-        "heading_2": {
-          "type": "heading",
-          "settings": {
-            "heading": "Dein positiver Umwelt-Impact",
-            "heading_size": "h2"
-          }
-        },
-        "stats_1": {
-          "type": "text",
-          "settings": {
-            "text": "<div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin: 32px 0;'><div style='text-align: center; padding: 24px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);'><div style='font-size: 3rem; margin-bottom: 16px;'>🌱</div><h3 style='color: #22C55E; font-size: 2rem; margin-bottom: 8px;'>450+ Tonnen</h3><p style='color: #6B7280; margin: 0;'>CO₂ bereits eingespart</p></div><div style='text-align: center; padding: 24px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);'><div style='font-size: 3rem; margin-bottom: 16px;'>💧</div><h3 style='color: #1E40AF; font-size: 2rem; margin-bottom: 8px;'>90%</h3><p style='color: #6B7280; margin: 0;'>weniger Wasserverbrauch</p></div><div style='text-align: center; padding: 24px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);'><div style='font-size: 3rem; margin-bottom: 16px;'>🎓</div><h3 style='color: #2D5A27; font-size: 2rem; margin-bottom: 8px;'>50.000+</h3><p style='color: #6B7280; margin: 0;'>zufriedene Studierende</p></div><div style='text-align: center; padding: 24px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);'><div style='font-size: 3rem; margin-bottom: 16px;'>📚</div><h3 style='color: #F59E0B; font-size: 2rem; margin-bottom: 8px;'>180.000+</h3><p style='color: #6B7280; margin: 0;'>Bücher verfügbar</p></div></div><p style='text-align: center; margin-top: 32px; font-size: 18px;'><strong>Jedes gebrauchte Buch spart 2,5kg CO₂ und schont wertvolle Ressourcen.</strong></p>",
-            "enlarge_text": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_2",
-        "stats_1"
-      ],
-      "settings": {
-        "text_alignment": "center",
-        "narrow_column": false,
-        "spacing_above": true,
-        "spacing_below": true,
-        "bg_color": "#F0FDF4"
-      }
-    },
-    "student_testimonials": {
+    "testimonials": {
       "type": "testimonials",
       "blocks": {
         "testimonial_1": {
           "type": "testimonial",
           "settings": {
-            "quote": "Durch Zweitliebe spare ich pro Semester über 200€ für Fachbücher. Die Qualität ist top und der Service super schnell!",
+            "testimonial": "\"Zweitliebe has an amazing collection of books at unbeatable prices. I found classics I've been searching for everywhere!\"",
             "author": "Sarah M.",
-            "job_title": "Medizinstudentin, 5. Semester",
-            "star_rating": 5
+            "location": "Book Lover"
           }
         },
         "testimonial_2": {
-          "type": "testimonial", 
+          "type": "testimonial",
           "settings": {
-            "quote": "Endlich eine Plattform, die versteht was Studenten brauchen. Große Auswahl an BWL-Büchern und faire Preise.",
-            "author": "Tim K.",
-            "job_title": "BWL-Student, 3. Semester",
-            "star_rating": 5
+            "testimonial": "\"The quality of the used books is excellent, and the shipping was fast. Highly recommended for any reader.\"",
+            "author": "Michael K.",
+            "location": "Frequent Reader"
           }
         },
         "testimonial_3": {
           "type": "testimonial",
           "settings": {
-            "quote": "Die 36 Monate Garantie gibt mir Sicherheit. Falls ein Buch nicht passt, wird es unkompliziert getauscht.",
-            "author": "Lisa R.", 
-            "job_title": "Jura-Studentin, 7. Semester",
-            "star_rating": 5
+            "testimonial": "\"Great prices, great selection, and I love that I'm helping the environment by buying second-hand books.\"",
+            "author": "Emma L.",
+            "location": "Environmental Enthusiast"
           }
         }
       },
       "block_order": [
         "testimonial_1",
-        "testimonial_2", 
+        "testimonial_2",
         "testimonial_3"
       ],
       "settings": {
-        "heading": "Was Studierende über uns sagen",
-        "subheading": "Über 50.000 zufriedene Kunden vertrauen auf Zweitliebe",
+        "title": "What Our Readers Say",
+        "heading_size": "h1",
         "text_alignment": "center",
-        "autoplay": true,
-        "autoplay_speed": 6,
-        "spacing_above": true,
-        "spacing_below": true,
-        "bg_color": "#F9FAFB"
+        "color_scheme": "2",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "newsletter_signup": {
+    "newsletter": {
       "type": "newsletter",
-      "blocks": {
-        "newsletter_heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Bleib auf dem Laufenden",
-            "heading_size": "h3"
-          }
-        },
-        "newsletter_text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Erhalte Studientipps, Sonderangebote und Neuigkeiten zu deinen Fachbereichen direkt in dein Postfach.</p>",
-            "enlarge_text": false
-          }
-        },
-        "newsletter_form": {
-          "type": "form",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "newsletter_heading",
-        "newsletter_text",
-        "newsletter_form"
-      ],
       "settings": {
-        "overlay_position": "justify-center",
-        "text_align": "text-center",
-        "color_scheme": "2",
+        "color_scheme": "1",
         "full_width": true,
-        "spacing_above": true,
-        "spacing_below": false
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
-    "hero_section",
-    "quick_search",
-    "popular_categories",
-    "featured_books",
-    "sustainability_impact",
-    "student_testimonials",
-    "newsletter_signup"
+    "hero_banner",
+    "popular_categories", 
+    "new_arrivals",
+    "testimonials",
+    "newsletter"
   ]
 } 

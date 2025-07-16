@@ -1,0 +1,319 @@
+{% comment %} ZWEITLIEBE MODERN HEADER - Based on HTML Designs {% endcomment %}
+
+<style>
+/* === ZWEITLIEBE MODERN HEADER === */
+.zweitliebe-modern-header {
+  background: var(--zweitliebe-white);
+  border-bottom: 1px solid var(--zweitliebe-light);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: var(--zweitliebe-font-family);
+}
+
+.zweitliebe-header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--zweitliebe-space-10);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 70px;
+  gap: var(--zweitliebe-space-8);
+}
+
+/* Logo Section */
+.zweitliebe-logo-section {
+  display: flex;
+  align-items: center;
+  gap: var(--zweitliebe-space-8);
+}
+
+.zweitliebe-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--zweitliebe-space-4);
+  text-decoration: none;
+  color: var(--zweitliebe-dark);
+}
+
+.zweitliebe-logo-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.zweitliebe-logo-text {
+  font-size: var(--zweitliebe-text-lg);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+/* Navigation */
+.zweitliebe-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--zweitliebe-space-8);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.zweitliebe-nav-link {
+  color: var(--zweitliebe-dark);
+  text-decoration: none;
+  font-size: var(--zweitliebe-text-sm);
+  font-weight: 500;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.zweitliebe-nav-link:hover {
+  color: var(--zweitliebe-green);
+}
+
+/* Search Section */
+.zweitliebe-search-section {
+  flex: 1;
+  display: flex;
+  justify-content: end;
+  gap: var(--zweitliebe-space-8);
+  max-width: 600px;
+}
+
+.zweitliebe-search-container {
+  flex: 1;
+  max-width: 256px;
+  min-width: 160px;
+}
+
+.zweitliebe-search-form {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  border-radius: var(--zweitliebe-radius-lg);
+  overflow: hidden;
+}
+
+.zweitliebe-search-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--zweitliebe-light);
+  border: none;
+  padding-left: var(--zweitliebe-space-4);
+  border-radius: var(--zweitliebe-radius-lg) 0 0 var(--zweitliebe-radius-lg);
+  border-right: 0;
+  color: var(--zweitliebe-green);
+}
+
+.zweitliebe-search-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: var(--zweitliebe-light);
+  color: var(--zweitliebe-dark);
+  padding: 0 var(--zweitliebe-space-4) 0 var(--zweitliebe-space-2);
+  border-radius: 0 var(--zweitliebe-radius-lg) var(--zweitliebe-radius-lg) 0;
+  font-size: var(--zweitliebe-text-base);
+  font-weight: 400;
+  line-height: 1.4;
+  border-left: 0;
+}
+
+.zweitliebe-search-input:focus {
+  outline: 0;
+  ring: 0;
+}
+
+.zweitliebe-search-input::placeholder {
+  color: var(--zweitliebe-green);
+}
+
+/* Actions Section */
+.zweitliebe-actions {
+  display: flex;
+  gap: var(--zweitliebe-space-2);
+}
+
+.zweitliebe-action-btn {
+  display: flex;
+  min-width: 84px;
+  max-width: 480px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--zweitliebe-radius-full);
+  height: 40px;
+  padding: 0 var(--zweitliebe-space-4);
+  background: var(--zweitliebe-light);
+  color: var(--zweitliebe-dark);
+  text-decoration: none;
+  font-size: var(--zweitliebe-text-sm);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.015em;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.zweitliebe-action-btn:hover {
+  background: var(--zweitliebe-green);
+  color: var(--zweitliebe-white);
+}
+
+.zweitliebe-action-btn--icon {
+  min-width: 0;
+  padding: 0 var(--zweitliebe-space-3);
+  gap: var(--zweitliebe-space-2);
+}
+
+.zweitliebe-action-btn--icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .zweitliebe-header-container {
+    padding: 0 var(--zweitliebe-space-4);
+    gap: var(--zweitliebe-space-4);
+  }
+  
+  .zweitliebe-nav {
+    display: none;
+  }
+  
+  .zweitliebe-search-section {
+    max-width: 200px;
+  }
+  
+  .zweitliebe-action-btn {
+    min-width: 60px;
+    padding: 0 var(--zweitliebe-space-3);
+    font-size: var(--zweitliebe-text-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .zweitliebe-action-btn span {
+    display: none;
+  }
+  
+  .zweitliebe-action-btn {
+    min-width: 40px;
+    padding: 0 var(--zweitliebe-space-2);
+  }
+}
+</style>
+
+<header class="zweitliebe-modern-header" role="banner">
+  <div class="zweitliebe-header-container">
+    <!-- Logo Section -->
+    <div class="zweitliebe-logo-section">
+      <a href="{{ routes.root_url }}" class="zweitliebe-logo">
+        <div class="zweitliebe-logo-icon">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <h2 class="zweitliebe-logo-text">{{ shop.name | default: 'Zweitliebe' }}</h2>
+      </a>
+      
+      <!-- Navigation -->
+      <nav class="zweitliebe-nav" role="navigation">
+        <a href="{{ routes.root_url }}" class="zweitliebe-nav-link">Home</a>
+        <a href="{{ routes.collections_url }}" class="zweitliebe-nav-link">Browse</a>
+        <a href="/pages/sell" class="zweitliebe-nav-link">Sell</a>
+      </nav>
+    </div>
+
+    <!-- Search and Actions Section -->
+    <div class="zweitliebe-search-section">
+      <!-- Search Bar -->
+      <div class="zweitliebe-search-container">
+        <form action="{{ routes.search_url }}" method="get" role="search" class="zweitliebe-search-form">
+          <div class="zweitliebe-search-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+              <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/>
+            </svg>
+          </div>
+          <input 
+            type="search" 
+            name="q" 
+            placeholder="Search" 
+            class="zweitliebe-search-input"
+            autocomplete="off"
+          >
+        </form>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="zweitliebe-actions">
+        <a href="/pages/wishlist" class="zweitliebe-action-btn zweitliebe-action-btn--icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"/>
+          </svg>
+          <span>Wishlist</span>
+        </a>
+        
+        <a href="{{ routes.cart_url }}" class="zweitliebe-action-btn zweitliebe-action-btn--icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Zweitliebe Modern Header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "Zweitliebe"
+    },
+    {
+      "type": "header",
+      "content": "Search"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder",
+      "default": "Search"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#131612"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#6d816a"
+    }
+  ]
+}
+{% endschema %} 

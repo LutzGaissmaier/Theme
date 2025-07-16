@@ -1,0 +1,90 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "rich-text",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "text": "<nav aria-label=\"Breadcrumb\" style=\"font-family: var(--zweitliebe-font-family); padding: var(--zweitliebe-space-4) 0; max-width: 1400px; margin: 0 auto; padding-left: var(--zweitliebe-space-10); padding-right: var(--zweitliebe-space-10);\"><div style=\"display: flex; flex-wrap: wrap; gap: var(--zweitliebe-space-2);\"><a href=\"/collections/all\" style=\"color: var(--zweitliebe-green); text-decoration: none; font-size: var(--zweitliebe-text-base); font-weight: 500;\">Shop</a><span style=\"color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-base); font-weight: 500;\">/</span><span style=\"color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-base); font-weight: 500;\">Wishlist</span></div></nav>",
+            "enlarge_text": false
+          }
+        }
+      ],
+      "block_order": [
+        "breadcrumb-text"
+      ],
+      "settings": {
+        "text_alignment": "left",
+        "narrow_column": false,
+        "spacing_above": false,
+        "spacing_below": false,
+        "bg_color": ""
+      }
+    },
+    "wishlist_main": {
+      "type": "zweitliebe-wishlist",
+      "settings": {
+        "title": "My Wishlist",
+        "empty_message": "Your Wishlist is Empty",
+        "empty_description": "Start adding books you love to your wishlist!"
+      }
+    },
+    "recommended_books": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "You might also like",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "all",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "none",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "enable_quick_add": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "footer_info": {
+      "type": "rich-text",
+      "blocks": [
+        {
+          "type": "text",
+          "settings": {
+            "text": "<div style=\"text-align: center; font-family: var(--zweitliebe-font-family); padding: var(--zweitliebe-space-8) 0;\"><div style=\"display: flex; flex-wrap: wrap; justify-content: center; gap: var(--zweitliebe-space-6);\"><a href=\"/pages/about\" style=\"color: var(--zweitliebe-green); text-decoration: none; font-size: var(--zweitliebe-text-base); font-weight: 400;\">About Us</a><a href=\"/pages/privacy-policy\" style=\"color: var(--zweitliebe-green); text-decoration: none; font-size: var(--zweitliebe-text-base); font-weight: 400;\">Privacy Policy</a><a href=\"/pages/terms-of-service\" style=\"color: var(--zweitliebe-green); text-decoration: none; font-size: var(--zweitliebe-text-base); font-weight: 400;\">Terms of Service</a></div><p style=\"color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-base); font-weight: 400; margin: var(--zweitliebe-space-6) 0 0 0;\">© 2024 Zweitliebe. All rights reserved.</p></div>",
+            "enlarge_text": false
+          }
+        }
+      ],
+      "block_order": [
+        "footer-text"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "narrow_column": false,
+        "spacing_above": true,
+        "spacing_below": false,
+        "bg_color": ""
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "wishlist_main",
+    "recommended_books",
+    "footer_info"
+  ]
+} 

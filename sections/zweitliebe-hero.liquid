@@ -1,349 +1,217 @@
-{% comment %}
-  ZWEITLIEBE HOMEPAGE HERO - REBUY.DE INSPIRED
-  Conversion-optimiert mit Trust-Indicators und klaren CTAs
-{% endcomment %}
+{% comment %} ZWEITLIEBE MODERN HERO - Based on HTML Design 1 {% endcomment %}
 
-<section style="background: linear-gradient(135deg, var(--bg-secondary) 0%, #E8F5E8 100%); padding: var(--space-3xl) 0;">
-  <div class="zweitliebe-container">
-    <div class="zweitliebe-grid zweitliebe-grid-2" style="align-items: center; min-height: 70vh;">
-      
-      <!-- Text Content -->
-      <div style="padding: var(--space-2xl) 0;">
-        <!-- Trust Badge oben -->
-        <div style="margin-bottom: var(--space-lg);">
-          <div class="trust-badge guarantee-badge">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            {{ section.settings.guarantee_text | default: '36 Monate Garantie' }}
-          </div>
-          <div class="trust-badge" style="background: var(--success-green); margin-left: var(--space-sm);">
-            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-            </svg>
-            {{ section.settings.rating_text | default: '4.8/5 Bewertung' }}
-          </div>
-        </div>
-
-        <!-- Hauptheadline -->
-        <h1 style="font-size: 48px; line-height: 1.1; margin-bottom: var(--space-lg); font-weight: var(--font-bold); color: var(--gray-900);">
-          <span style="color: var(--primary-green);">{{ section.settings.headline_highlight | default: '180.000 Bücher' }}</span><br>
-          {{ section.settings.headline_main | default: 'nachhaltig & günstig' }}
-        </h1>
-
-        <!-- Subheadline -->
-        <p style="font-size: var(--text-xl); line-height: 1.6; margin-bottom: var(--space-xl); color: var(--gray-700);">
-          {{ section.settings.subheadline | default: 'Gebrauchte Bücher in Top-Zustand. Professionell geprüft,' }}
-          <strong style="color: var(--primary-green);">{{ section.settings.savings_text | default: 'bis zu 70% günstiger' }}</strong> 
-          {{ section.settings.subheadline_end | default: 'als Neupreise.' }}
-        </p>
-
-        <!-- USPs -->
-        <div style="margin-bottom: var(--space-2xl);">
-          {% for block in section.blocks %}
-            {% if block.type == 'usp' %}
-              <div style="display: flex; align-items: center; margin-bottom: var(--space-md);">
-                <div style="background: var(--success-green); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: var(--space-md);">
-                  <svg width="14" height="14" fill="white" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-                <span style="font-size: var(--text-base); font-weight: var(--font-medium); color: var(--gray-900);">{{ block.settings.text }}</span>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-
-        <!-- CTAs -->
-        <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
-          <a href="{{ section.settings.primary_cta_link | default: routes.all_products_collection_url }}" class="btn-primary">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-            </svg>
-            {{ section.settings.primary_cta_text | default: 'Jetzt Bücher entdecken' }}
-          </a>
-          
-          <a href="{{ section.settings.secondary_cta_link | default: '#categories' }}" class="btn-secondary">
-            {{ section.settings.secondary_cta_text | default: 'Kategorien durchstöbern' }}
-          </a>
-        </div>
-      </div>
-
-      <!-- Hero Image/Visual -->
-      <div style="text-align: center; padding: var(--space-xl);">
-        <div style="position: relative; display: inline-block;">
-          <!-- Hauptbild -->
-          <div style="background: white; border-radius: var(--radius-xl); padding: var(--space-xl); box-shadow: var(--shadow-lg); max-width: 400px;">
-            {% if section.settings.hero_image %}
-              <img src="{{ section.settings.hero_image | img_url: '400x400' }}" 
-                   alt="{{ section.settings.hero_image.alt | default: 'Zweitliebe Bücher Kollektion' }}" 
-                   style="width: 100%; height: auto; border-radius: var(--radius-md);">
-            {% else %}
-              <!-- Fallback: Bücher-Icon -->
-              <div style="width: 300px; height: 300px; background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-green) 100%); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
-                <svg width="120" height="120" fill="white" viewBox="0 0 24 24">
-                  <path d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v16h16V4H4zm2 2h12v2H6V6zm0 4h12v2H6v-2zm0 4h8v2H6v-2z"/>
-                </svg>
-              </div>
-            {% endif %}
-          </div>
-
-          <!-- Floating Trust Elements -->
-          <div style="position: absolute; top: -10px; right: -10px; background: var(--success-green); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-lg); font-size: var(--text-sm); font-weight: var(--font-bold); box-shadow: var(--shadow-card);">
-            {{ section.settings.floating_stat_1 | default: '180k+ Bücher' }}
-          </div>
-          
-          <div style="position: absolute; bottom: -10px; left: -10px; background: var(--trust-blue); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-lg); font-size: var(--text-sm); font-weight: var(--font-bold); box-shadow: var(--shadow-card);">
-            {{ section.settings.floating_stat_2 | default: '⭐ 4.8/5' }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Sustainability Impact Strip -->
-<section style="background: var(--success-green); color: white; padding: var(--space-lg) 0;">
-  <div class="zweitliebe-container">
-    <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: var(--space-lg);">
-      {% for block in section.blocks %}
-        {% if block.type == 'stat' %}
-          <div style="text-align: center;">
-            <div style="font-size: var(--text-2xl); font-weight: var(--font-bold); margin-bottom: var(--space-xs);">
-              {{ block.settings.number }}
-            </div>
-            <div style="font-size: var(--text-sm); opacity: 0.9;">
-              {{ block.settings.label }}
-            </div>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<!-- Mobile Optimization -->
 <style>
-@media (max-width: 768px) {
-  .zweitliebe-grid.zweitliebe-grid-2 {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
+/* === ZWEITLIEBE MODERN HERO === */
+.zweitliebe-hero {
+  font-family: var(--zweitliebe-font-family);
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--zweitliebe-space-6);
+  background: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), 
+              linear-gradient(135deg, #c5dac2 0%, #a8c9a3 50%, #8bb892 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--zweitliebe-space-4) var(--zweitliebe-space-10);
+  border-radius: 0;
+  position: relative;
+}
+
+.zweitliebe-hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.zweitliebe-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zweitliebe-space-2);
+  text-align: left;
+  max-width: 600px;
+}
+
+.zweitliebe-hero-title {
+  color: var(--zweitliebe-white);
+  font-size: var(--zweitliebe-text-4xl);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.033em;
+  margin: 0;
+}
+
+.zweitliebe-hero-subtitle {
+  color: var(--zweitliebe-white);
+  font-size: var(--zweitliebe-text-sm);
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.zweitliebe-hero-button {
+  display: flex;
+  min-width: 84px;
+  max-width: 480px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--zweitliebe-radius-full);
+  height: 40px;
+  padding: 0 var(--zweitliebe-space-4);
+  background: var(--zweitliebe-accent);
+  color: var(--zweitliebe-dark);
+  text-decoration: none;
+  font-size: var(--zweitliebe-text-sm);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.015em;
+  border: none;
+  transition: all 0.2s ease;
+  margin-top: var(--zweitliebe-space-4);
+  width: fit-content;
+}
+
+.zweitliebe-hero-button:hover {
+  background: #2dd408;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(56, 236, 28, 0.3);
+}
+
+/* Container adjustments for larger screens */
+@media (min-width: 480px) {
+  .zweitliebe-hero {
+    gap: var(--zweitliebe-space-8);
+    padding: var(--zweitliebe-space-4) var(--zweitliebe-space-10);
   }
   
-  .zweitliebe-grid.zweitliebe-grid-2 > div:first-child {
-    order: 2;
-    text-align: center;
+  .zweitliebe-hero-title {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1.2;
+    letter-spacing: -0.033em;
   }
   
-  .zweitliebe-grid.zweitliebe-grid-2 > div:last-child {
-    order: 1;
-    padding: var(--space-lg) 0;
+  .zweitliebe-hero-subtitle {
+    font-size: var(--zweitliebe-text-base);
+    font-weight: 400;
+    line-height: 1.4;
   }
   
-  h1 {
-    font-size: 36px !important;
-  }
-  
-  .btn-primary,
-  .btn-secondary {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-  }
-  
-  .zweitliebe-grid.zweitliebe-grid-2 > div:first-child > div:last-child {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  section:first-child {
-    padding: var(--space-2xl) 0 !important;
+  .zweitliebe-hero-button {
+    height: 48px;
+    padding: 0 var(--zweitliebe-space-5);
+    font-size: var(--zweitliebe-text-base);
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.015em;
   }
 }
 
-@media (max-width: 480px) {
-  div[style*="justify-content: space-around"] {
-    gap: var(--space-md) !important;
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .zweitliebe-hero {
+    min-height: 400px;
+    padding: var(--zweitliebe-space-4);
   }
   
-  div[style*="justify-content: space-around"] > div {
-    flex: 1 1 45%;
-    min-width: 120px;
+  .zweitliebe-hero-title {
+    font-size: var(--zweitliebe-text-3xl);
   }
   
-  div[style*="position: absolute"] {
-    font-size: var(--text-xs) !important;
-    padding: var(--space-xs) var(--space-sm) !important;
+  .zweitliebe-hero-subtitle {
+    font-size: var(--zweitliebe-text-sm);
+  }
+  
+  .zweitliebe-hero-button {
+    width: 100%;
+    justify-content: center;
   }
 }
 </style>
+
+<section class="zweitliebe-hero">
+  <div class="zweitliebe-hero-container">
+    <div class="zweitliebe-hero-content">
+      <h1 class="zweitliebe-hero-title">
+        {{ section.settings.title | default: "Discover Your Next Great Read" }}
+      </h1>
+      <h2 class="zweitliebe-hero-subtitle">
+        {{ section.settings.subtitle | default: "Explore our curated collection of used books, from timeless classics to contemporary bestsellers. Find your next literary adventure at Zweitliebe." }}
+      </h2>
+      {% if section.settings.button_text != blank %}
+        <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="zweitliebe-hero-button">
+          <span>{{ section.settings.button_text | default: "Shop Now" }}</span>
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>
 
 {% schema %}
 {
   "name": "Zweitliebe Hero",
   "settings": [
     {
-      "type": "text",
-      "id": "headline_highlight",
-      "label": "Headline Highlight (grün)",
-      "default": "180.000 Bücher"
+      "type": "header",
+      "content": "Content"
     },
     {
       "type": "text",
-      "id": "headline_main",
-      "label": "Headline Main",
-      "default": "nachhaltig & günstig"
+      "id": "title",
+      "label": "Title",
+      "default": "Discover Your Next Great Read"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Explore our curated collection of used books, from timeless classics to contemporary bestsellers. Find your next literary adventure at Zweitliebe."
     },
     {
       "type": "text",
-      "id": "subheadline",
-      "label": "Subheadline Start",
-      "default": "Gebrauchte Bücher in Top-Zustand. Professionell geprüft,"
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Shop Now"
     },
     {
-      "type": "text",
-      "id": "savings_text",
-      "label": "Savings Text (grün)",
-      "default": "bis zu 70% günstiger"
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link",
+      "default": "/collections/all"
     },
     {
-      "type": "text",
-      "id": "subheadline_end",
-      "label": "Subheadline End",
-      "default": "als Neupreise."
+      "type": "header",
+      "content": "Background"
     },
     {
       "type": "image_picker",
-      "id": "hero_image",
-      "label": "Hero Image"
+      "id": "background_image",
+      "label": "Background image"
     },
     {
-      "type": "text",
-      "id": "guarantee_text",
-      "label": "Guarantee Badge Text",
-      "default": "36 Monate Garantie"
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
     },
     {
-      "type": "text",
-      "id": "rating_text",
-      "label": "Rating Badge Text",
-      "default": "4.8/5 Bewertung"
-    },
-    {
-      "type": "text",
-      "id": "floating_stat_1",
-      "label": "Floating Stat 1",
-      "default": "180k+ Bücher"
-    },
-    {
-      "type": "text",
-      "id": "floating_stat_2",
-      "label": "Floating Stat 2",
-      "default": "⭐ 4.8/5"
-    },
-    {
-      "type": "text",
-      "id": "primary_cta_text",
-      "label": "Primary CTA Text",
-      "default": "Jetzt Bücher entdecken"
-    },
-    {
-      "type": "url",
-      "id": "primary_cta_link",
-      "label": "Primary CTA Link"
-    },
-    {
-      "type": "text",
-      "id": "secondary_cta_text",
-      "label": "Secondary CTA Text",
-      "default": "Kategorien durchstöbern"
-    },
-    {
-      "type": "url",
-      "id": "secondary_cta_link",
-      "label": "Secondary CTA Link"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "usp",
-      "name": "USP",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "label": "USP Text"
-        }
-      ]
-    },
-    {
-      "type": "stat",
-      "name": "Statistik",
-      "settings": [
-        {
-          "type": "text",
-          "id": "number",
-          "label": "Zahl"
-        },
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Beschreibung"
-        }
-      ]
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay opacity",
+      "default": 40
     }
   ],
   "presets": [
     {
-      "name": "Zweitliebe Hero",
-      "blocks": [
-        {
-          "type": "usp",
-          "settings": {
-            "text": "Kostenloser Versand ab 10€"
-          }
-        },
-        {
-          "type": "usp",
-          "settings": {
-            "text": "Schnelle Lieferung (1-3 Tage)"
-          }
-        },
-        {
-          "type": "usp",
-          "settings": {
-            "text": "36 Monate Garantie auf alle Bücher"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "number": "15,000kg",
-            "label": "CO₂ eingespart"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "number": "50,000+",
-            "label": "Zufriedene Kunden"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "number": "180,000+",
-            "label": "Bücher im Sortiment"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "number": "36",
-            "label": "Monate Garantie"
-          }
-        }
-      ]
+      "name": "Zweitliebe Hero"
     }
   ]
 }

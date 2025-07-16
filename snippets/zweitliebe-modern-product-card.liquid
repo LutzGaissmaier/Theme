@@ -1,0 +1,437 @@
+{% comment %} ZWEITLIEBE MODERN PRODUCT CARD - Based on HTML Designs {% endcomment %}
+
+{%- liquid
+  if collection and settings.card_url_within_coll and product.collections contains collection
+    assign product_url = product.url | within: collection
+  else
+    assign product_url = product.url
+  endif
+
+  assign current_variant = product.selected_or_first_available_variant
+  assign product_images = product.media | where: 'media_type', 'image'
+  
+  # Book specific data
+  assign book_format = product.metafields.book.format | default: 'Paperback'
+  assign book_author = product.metafields.book.author | default: product.vendor
+  assign book_condition = product.metafields.book.condition | default: 'Good'
+  
+  if image_ratio == nil
+    assign image_ratio = 1.4
+  endif
+-%}
+
+<style>
+/* === ZWEITLIEBE MODERN PRODUCT CARD === */
+.zweitliebe-product-card {
+  font-family: var(--zweitliebe-font-family);
+  background: var(--zweitliebe-white);
+  border-radius: var(--zweitliebe-radius-xl);
+  overflow: hidden;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.zweitliebe-product-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+/* Product Image */
+.zweitliebe-card-image {
+  position: relative;
+  overflow: hidden;
+  background: var(--zweitliebe-light);
+  border-radius: var(--zweitliebe-radius-lg) var(--zweitliebe-radius-lg) 0 0;
+}
+
+.zweitliebe-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.zweitliebe-card-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Product Content */
+.zweitliebe-card-content {
+  padding: var(--zweitliebe-space-4);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--zweitliebe-space-2);
+}
+
+.zweitliebe-card-format {
+  color: var(--zweitliebe-green);
+  font-size: var(--zweitliebe-text-sm);
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.zweitliebe-card-title {
+  color: var(--zweitliebe-dark);
+  font-size: var(--zweitliebe-text-base);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.zweitliebe-card-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.zweitliebe-card-title a:hover {
+  color: var(--zweitliebe-green);
+}
+
+.zweitliebe-card-author {
+  color: var(--zweitliebe-green);
+  font-size: var(--zweitliebe-text-sm);
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.zweitliebe-card-price {
+  color: var(--zweitliebe-dark);
+  font-size: var(--zweitliebe-text-base);
+  font-weight: 600;
+  line-height: 1.4;
+  margin: var(--zweitliebe-space-2) 0 0 0;
+}
+
+/* Card Actions */
+.zweitliebe-card-actions {
+  padding: 0 var(--zweitliebe-space-4) var(--zweitliebe-space-4);
+  display: flex;
+  gap: var(--zweitliebe-space-2);
+  align-items: center;
+}
+
+.zweitliebe-add-to-cart {
+  display: flex;
+  min-width: 84px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--zweitliebe-radius-full);
+  height: 36px;
+  padding: 0 var(--zweitliebe-space-4);
+  flex: 1;
+  background: var(--zweitliebe-light);
+  color: var(--zweitliebe-dark);
+  text-decoration: none;
+  font-size: var(--zweitliebe-text-sm);
+  font-weight: 500;
+  line-height: 1.4;
+  border: none;
+  transition: all 0.2s ease;
+  gap: var(--zweitliebe-space-1);
+}
+
+.zweitliebe-add-to-cart:hover {
+  background: var(--zweitliebe-green);
+  color: var(--zweitliebe-white);
+}
+
+.zweitliebe-add-to-cart svg {
+  width: 16px;
+  height: 16px;
+  color: currentColor;
+}
+
+.zweitliebe-wishlist-btn {
+  background: none;
+  border: none;
+  padding: var(--zweitliebe-space-2);
+  cursor: pointer;
+  border-radius: var(--zweitliebe-radius-full);
+  transition: all 0.2s ease;
+  color: var(--zweitliebe-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.zweitliebe-wishlist-btn:hover {
+  background: rgba(109, 129, 106, 0.1);
+}
+
+.zweitliebe-wishlist-btn svg {
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+}
+
+.zweitliebe-wishlist-btn.active {
+  color: #dc2626;
+}
+
+/* Condition Badge */
+.zweitliebe-condition-badge {
+  position: absolute;
+  top: var(--zweitliebe-space-2);
+  left: var(--zweitliebe-space-2);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--zweitliebe-dark);
+  padding: var(--zweitliebe-space-1) var(--zweitliebe-space-2);
+  border-radius: var(--zweitliebe-radius-sm);
+  font-size: var(--zweitliebe-text-xs);
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+/* Price Badge */
+.zweitliebe-price-badge {
+  position: absolute;
+  top: var(--zweitliebe-space-2);
+  right: var(--zweitliebe-space-2);
+  background: var(--zweitliebe-accent);
+  color: var(--zweitliebe-dark);
+  padding: var(--zweitliebe-space-1) var(--zweitliebe-space-2);
+  border-radius: var(--zweitliebe-radius-sm);
+  font-size: var(--zweitliebe-text-xs);
+  font-weight: 600;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .zweitliebe-card-content {
+    padding: var(--zweitliebe-space-3);
+    gap: var(--zweitliebe-space-1);
+  }
+  
+  .zweitliebe-card-actions {
+    padding: 0 var(--zweitliebe-space-3) var(--zweitliebe-space-3);
+  }
+  
+  .zweitliebe-card-title {
+    font-size: var(--zweitliebe-text-sm);
+  }
+  
+  .zweitliebe-card-format,
+  .zweitliebe-card-author {
+    font-size: var(--zweitliebe-text-xs);
+  }
+}
+</style>
+
+{%- if product and product != empty -%}
+  <article class="zweitliebe-product-card" data-product-id="{{ product.id }}">
+    <!-- Product Image -->
+    <div class="zweitliebe-card-image" style="aspect-ratio: {{ image_ratio }};">
+      <a href="{{ product_url }}" aria-label="{{ product.title | escape }}">
+        {%- if product.featured_media -%}
+          {%- capture sizes %}{% render 'sizes-attribute', grid: true, min: 2, sm: 3, md: 4 %}{% endcapture -%}
+          {% render 'image',
+            image: product.featured_media.preview_image,
+            widths: '280, 360, 540, 720',
+            src_width: 360,
+            sizes: sizes,
+            loading: 'lazy',
+            style: 'aspect-ratio: ' | append: image_ratio
+          %}
+        {%- else -%}
+          <div style="width: 100%; height: 100%; background: var(--zweitliebe-light); display: flex; align-items: center; justify-content: center;">
+            <svg width="48" height="48" fill="var(--zweitliebe-green)" viewBox="0 0 24 24">
+              <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+            </svg>
+          </div>
+        {%- endif -%}
+      </a>
+
+      <!-- Condition Badge -->
+      {%- if book_condition -%}
+        <div class="zweitliebe-condition-badge">{{ book_condition }}</div>
+      {%- endif -%}
+
+      <!-- Price Savings Badge -->
+      {%- if product.compare_at_price > product.price -%}
+        {%- assign savings = product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round -%}
+        <div class="zweitliebe-price-badge">-{{ savings }}%</div>
+      {%- endif -%}
+    </div>
+
+    <!-- Product Content -->
+    <div class="zweitliebe-card-content">
+      {%- if book_format -%}
+        <p class="zweitliebe-card-format">{{ book_format }}</p>
+      {%- endif -%}
+      
+      <h3 class="zweitliebe-card-title">
+        <a href="{{ product_url }}">{{ product.title | escape }}</a>
+      </h3>
+      
+      {%- if book_author -%}
+        <p class="zweitliebe-card-author">{{ book_author }}</p>
+      {%- endif -%}
+      
+      <div class="zweitliebe-card-price">
+        {%- if product.compare_at_price > product.price -%}
+          <span style="text-decoration: line-through; color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); margin-right: var(--zweitliebe-space-2);">
+            {{ product.compare_at_price | money }}
+          </span>
+        {%- endif -%}
+        {{ product.price | money }}
+      </div>
+    </div>
+
+    <!-- Card Actions -->
+    <div class="zweitliebe-card-actions">
+      {%- if product.available -%}
+        <button class="zweitliebe-add-to-cart" 
+                data-product-id="{{ product.id }}"
+                data-variant-id="{{ current_variant.id }}"
+                onclick="addToCart(this)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+            <path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"/>
+          </svg>
+          <span>Add to Cart</span>
+        </button>
+      {%- else -%}
+        <button class="zweitliebe-add-to-cart" disabled style="opacity: 0.5;">
+          <span>Out of Stock</span>
+        </button>
+      {%- endif -%}
+
+      <button class="zweitliebe-wishlist-btn" 
+              data-wishlist-add
+              data-product-data='{"id": "{{ product.id }}", "title": "{{ product.title | escape }}", "author": "{{ book_author | escape }}", "format": "{{ book_format | escape }}", "image": "{{ product.featured_media | img_url: '400x400' }}", "variantId": "{{ current_variant.id }}", "price": "{{ product.price | money }}"}'
+              title="Add to Wishlist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256">
+          <path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"/>
+        </svg>
+      </button>
+    </div>
+  </article>
+{%- else -%}
+  <!-- Placeholder Product Card -->
+  <article class="zweitliebe-product-card">
+    <div class="zweitliebe-card-image" style="aspect-ratio: {{ image_ratio }};">
+      <div style="width: 100%; height: 100%; background: var(--zweitliebe-light); display: flex; align-items: center; justify-content: center;">
+        <svg width="48" height="48" fill="var(--zweitliebe-green)" viewBox="0 0 24 24">
+          <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="zweitliebe-card-content">
+      <p class="zweitliebe-card-format">Paperback</p>
+      <h3 class="zweitliebe-card-title">
+        <a href="#">{{ 'onboarding.product.title' | t }}</a>
+      </h3>
+      <p class="zweitliebe-card-author">Sample Author</p>
+      <div class="zweitliebe-card-price">
+        {%- render 'price-as-money', price: 1999 -%}
+      </div>
+    </div>
+    <div class="zweitliebe-card-actions">
+      <button class="zweitliebe-add-to-cart">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+          <path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"/>
+        </svg>
+        <span>Add to Cart</span>
+      </button>
+      <button class="zweitliebe-wishlist-btn" title="Add to Wishlist">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256">
+          <path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"/>
+        </svg>
+      </button>
+    </div>
+  </article>
+{%- endif -%}
+
+<script>
+// Add to Cart Functionality
+function addToCart(button) {
+  const variantId = button.dataset.variantId;
+  
+  if (!variantId) return;
+  
+  button.disabled = true;
+  button.innerHTML = '<span>Adding...</span>';
+  
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      items: [{
+        id: variantId,
+        quantity: 1
+      }]
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Show success message
+    showNotification('Item added to cart!', 'success');
+    
+    // Update cart count if function exists
+    if (window.updateCartCount) {
+      window.updateCartCount();
+    }
+    
+    // Reset button
+    button.disabled = false;
+    button.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+        <path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"/>
+      </svg>
+      <span>Add to Cart</span>
+    `;
+  })
+  .catch(error => {
+    console.error('Error adding to cart:', error);
+    showNotification('Failed to add item to cart', 'error');
+    
+    // Reset button
+    button.disabled = false;
+    button.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+        <path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"/>
+      </svg>
+      <span>Add to Cart</span>
+    `;
+  });
+}
+
+// Simple notification function
+function showNotification(message, type = 'success') {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: ${type === 'error' ? '#dc2626' : '#059669'};
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    z-index: 10000;
+    font-family: var(--zweitliebe-font-family);
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  `;
+  notification.textContent = message;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.remove();
+  }, 3000);
+}
+</script> 

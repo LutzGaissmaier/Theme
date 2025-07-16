@@ -1,0 +1,473 @@
+{% comment %} ZWEITLIEBE MODERN WISHLIST - Based on HTML Design 4 {% endcomment %}
+
+<style>
+/* === ZWEITLIEBE MODERN WISHLIST === */
+.zweitliebe-wishlist {
+  font-family: var(--zweitliebe-font-family);
+  background: var(--zweitliebe-white);
+  color: var(--zweitliebe-dark);
+  min-height: 60vh;
+}
+
+.zweitliebe-wishlist-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 var(--zweitliebe-space-10);
+}
+
+/* Wishlist Header */
+.zweitliebe-wishlist-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--zweitliebe-space-3);
+  padding: var(--zweitliebe-space-4);
+  margin-bottom: var(--zweitliebe-space-6);
+}
+
+.zweitliebe-wishlist-title {
+  color: var(--zweitliebe-dark);
+  font-size: var(--zweitliebe-text-4xl);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 0;
+  min-width: 288px;
+}
+
+/* Wishlist Items */
+.zweitliebe-wishlist-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zweitliebe-space-4);
+}
+
+.zweitliebe-wishlist-item {
+  padding: var(--zweitliebe-space-4);
+  background: var(--zweitliebe-white);
+  border-radius: var(--zweitliebe-radius-xl);
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: var(--zweitliebe-space-4);
+  transition: all 0.2s ease;
+}
+
+.zweitliebe-wishlist-item:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Item Content */
+.zweitliebe-wishlist-item-content {
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  gap: var(--zweitliebe-space-4);
+  min-width: 0;
+}
+
+.zweitliebe-wishlist-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zweitliebe-space-1);
+}
+
+.zweitliebe-item-format {
+  color: var(--zweitliebe-green);
+  font-size: var(--zweitliebe-text-sm);
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.zweitliebe-item-title {
+  color: var(--zweitliebe-dark);
+  font-size: var(--zweitliebe-text-base);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.zweitliebe-item-author {
+  color: var(--zweitliebe-green);
+  font-size: var(--zweitliebe-text-sm);
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Item Actions */
+.zweitliebe-wishlist-item-actions {
+  display: flex;
+  gap: var(--zweitliebe-space-2);
+  align-items: flex-start;
+}
+
+.zweitliebe-add-to-cart-btn {
+  display: flex;
+  min-width: 84px;
+  max-width: 480px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--zweitliebe-radius-full);
+  height: 32px;
+  padding: 0 var(--zweitliebe-space-4);
+  background: var(--zweitliebe-light);
+  color: var(--zweitliebe-dark);
+  text-decoration: none;
+  font-size: var(--zweitliebe-text-sm);
+  font-weight: 500;
+  line-height: 1.4;
+  border: none;
+  transition: all 0.2s ease;
+  gap: var(--zweitliebe-space-1);
+  width: fit-content;
+  flex-direction: row-reverse;
+}
+
+.zweitliebe-add-to-cart-btn:hover {
+  background: var(--zweitliebe-green);
+  color: var(--zweitliebe-white);
+}
+
+.zweitliebe-add-to-cart-btn svg {
+  width: 18px;
+  height: 18px;
+  color: currentColor;
+}
+
+/* Item Image */
+.zweitliebe-wishlist-item-image {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--zweitliebe-radius-xl);
+  flex: 1;
+  aspect-ratio: 16 / 9;
+  min-height: 120px;
+}
+
+/* Empty Wishlist */
+.zweitliebe-wishlist-empty {
+  text-align: center;
+  padding: var(--zweitliebe-space-12) var(--zweitliebe-space-4);
+}
+
+.zweitliebe-wishlist-empty h2 {
+  color: var(--zweitliebe-dark);
+  font-size: var(--zweitliebe-text-2xl);
+  font-weight: 700;
+  margin-bottom: var(--zweitliebe-space-4);
+}
+
+.zweitliebe-wishlist-empty p {
+  color: var(--zweitliebe-green);
+  font-size: var(--zweitliebe-text-base);
+  margin-bottom: var(--zweitliebe-space-8);
+}
+
+.zweitliebe-wishlist-empty .btn {
+  background: var(--zweitliebe-accent);
+  color: var(--zweitliebe-dark);
+  padding: var(--zweitliebe-space-3) var(--zweitliebe-space-6);
+  border-radius: var(--zweitliebe-radius-full);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.zweitliebe-wishlist-empty .btn:hover {
+  background: #2dd408;
+  transform: translateY(-1px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .zweitliebe-wishlist-container {
+    padding: 0 var(--zweitliebe-space-4);
+  }
+  
+  .zweitliebe-wishlist-item {
+    flex-direction: column;
+    gap: var(--zweitliebe-space-3);
+  }
+  
+  .zweitliebe-wishlist-item-content {
+    flex: none;
+  }
+  
+  .zweitliebe-wishlist-item-image {
+    aspect-ratio: 3 / 2;
+    min-height: 160px;
+  }
+  
+  .zweitliebe-wishlist-title {
+    font-size: var(--zweitliebe-text-2xl);
+    min-width: auto;
+  }
+  
+  .zweitliebe-add-to-cart-btn {
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+</style>
+
+<section class="zweitliebe-wishlist">
+  <div class="zweitliebe-wishlist-container">
+    <!-- Wishlist Header -->
+    <div class="zweitliebe-wishlist-header">
+      <h1 class="zweitliebe-wishlist-title">My Wishlist</h1>
+    </div>
+
+    <!-- Wishlist Items -->
+    <div class="zweitliebe-wishlist-items" id="wishlist-items">
+      {% comment %} Items will be populated by JavaScript {% endcomment %}
+    </div>
+
+    <!-- Empty State -->
+    <div class="zweitliebe-wishlist-empty" id="wishlist-empty" style="display: none;">
+      <h2>Your Wishlist is Empty</h2>
+      <p>Start adding books you love to your wishlist!</p>
+      <a href="{{ routes.collections_url }}" class="btn">Browse Books</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// Zweitliebe Wishlist Functionality
+class ZweitliebeWishlist {
+  constructor() {
+    this.wishlistKey = 'zweitliebe-wishlist';
+    this.wishlist = this.getWishlist();
+    this.init();
+  }
+
+  init() {
+    this.renderWishlist();
+    this.bindEvents();
+  }
+
+  getWishlist() {
+    try {
+      return JSON.parse(localStorage.getItem(this.wishlistKey)) || [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  saveWishlist() {
+    localStorage.setItem(this.wishlistKey, JSON.stringify(this.wishlist));
+  }
+
+  addToWishlist(product) {
+    if (!this.isInWishlist(product.id)) {
+      this.wishlist.push(product);
+      this.saveWishlist();
+      this.renderWishlist();
+      this.showNotification(`${product.title} added to wishlist!`);
+    }
+  }
+
+  removeFromWishlist(productId) {
+    this.wishlist = this.wishlist.filter(item => item.id !== productId);
+    this.saveWishlist();
+    this.renderWishlist();
+    this.showNotification('Item removed from wishlist');
+  }
+
+  isInWishlist(productId) {
+    return this.wishlist.some(item => item.id === productId);
+  }
+
+  renderWishlist() {
+    const container = document.getElementById('wishlist-items');
+    const emptyState = document.getElementById('wishlist-empty');
+    
+    if (!container) return;
+
+    if (this.wishlist.length === 0) {
+      container.style.display = 'none';
+      if (emptyState) emptyState.style.display = 'block';
+      return;
+    }
+
+    if (emptyState) emptyState.style.display = 'none';
+    container.style.display = 'flex';
+
+    container.innerHTML = this.wishlist.map(item => this.renderWishlistItem(item)).join('');
+    this.bindItemEvents();
+  }
+
+  renderWishlistItem(item) {
+    return `
+      <div class="zweitliebe-wishlist-item" data-product-id="${item.id}">
+        <div class="zweitliebe-wishlist-item-content">
+          <div class="zweitliebe-wishlist-item-details">
+            <p class="zweitliebe-item-format">${item.format || 'Paperback'}</p>
+            <p class="zweitliebe-item-title">${item.title}</p>
+            <p class="zweitliebe-item-author">${item.author || item.vendor || ''}</p>
+          </div>
+          <div class="zweitliebe-wishlist-item-actions">
+            <button class="zweitliebe-add-to-cart-btn" data-add-to-cart="${item.variantId}">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M222.14,58.87A8,8,0,0,0,216,56H54.68L49.79,29.14A16,16,0,0,0,34.05,16H16a8,8,0,0,0,0,16h18L59.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,152,204a28,28,0,1,0,28-28H83.17a8,8,0,0,1-7.87-6.57L72.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,222.14,58.87ZM96,204a12,12,0,1,1-12-12A12,12,0,0,1,96,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,192,204Zm4-74.57A8,8,0,0,1,188.1,136H69.22L57.59,72H206.41Z"/>
+              </svg>
+              <span>Add to Cart</span>
+            </button>
+            <button class="zweitliebe-remove-btn" data-remove="${item.id}" title="Remove from wishlist" style="background: none; border: none; color: var(--zweitliebe-green); cursor: pointer; padding: 4px;">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 256 256">
+                <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="zweitliebe-wishlist-item-image" style="background-image: url('${item.image || '/assets/placeholder.jpg'}');"></div>
+      </div>
+    `;
+  }
+
+  bindEvents() {
+    // Listen for wishlist additions from product pages
+    document.addEventListener('click', (e) => {
+      if (e.target.closest('[data-wishlist-add]')) {
+        e.preventDefault();
+        const btn = e.target.closest('[data-wishlist-add]');
+        const productData = JSON.parse(btn.dataset.productData || '{}');
+        this.addToWishlist(productData);
+      }
+    });
+  }
+
+  bindItemEvents() {
+    // Remove from wishlist
+    document.querySelectorAll('[data-remove]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const productId = btn.dataset.remove;
+        this.removeFromWishlist(productId);
+      });
+    });
+
+    // Add to cart
+    document.querySelectorAll('[data-add-to-cart]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const variantId = btn.dataset.addToCart;
+        this.addToCart(variantId);
+      });
+    });
+  }
+
+  addToCart(variantId) {
+    if (!variantId) return;
+
+    const formData = {
+      items: [{
+        id: variantId,
+        quantity: 1
+      }]
+    };
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.showNotification('Item added to cart!');
+      // Update cart count if exists
+      if (window.updateCartCount) {
+        window.updateCartCount();
+      }
+    })
+    .catch(error => {
+      console.error('Error adding to cart:', error);
+      this.showNotification('Failed to add item to cart', 'error');
+    });
+  }
+
+  showNotification(message, type = 'success') {
+    // Simple notification system
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: ${type === 'error' ? '#dc2626' : '#059669'};
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      z-index: 10000;
+      font-family: var(--zweitliebe-font-family);
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    `;
+    notification.textContent = message;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+      notification.remove();
+    }, 3000);
+  }
+
+  // Public methods for external use
+  getWishlistCount() {
+    return this.wishlist.length;
+  }
+
+  getWishlistItems() {
+    return [...this.wishlist];
+  }
+}
+
+// Initialize wishlist when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  if (document.querySelector('.zweitliebe-wishlist')) {
+    window.zweitliebeWishlist = new ZweitliebeWishlist();
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Zweitliebe Wishlist",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Wishlist Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Wishlist title",
+      "default": "My Wishlist"
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "Empty wishlist message",
+      "default": "Your Wishlist is Empty"
+    },
+    {
+      "type": "text",
+      "id": "empty_description",
+      "label": "Empty wishlist description",
+      "default": "Start adding books you love to your wishlist!"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zweitliebe Wishlist"
+    }
+  ]
+}
+{% endschema %} 

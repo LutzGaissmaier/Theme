@@ -1,0 +1,19 @@
+{
+  "type": "header",
+  "name": "Zweitliebe Header Group",
+  "sections": {
+    "zweitliebe_modern_header": {
+      "type": "zweitliebe-modern-header",
+      "settings": {
+        "logo_text": "Zweitliebe",
+        "search_placeholder": "Search",
+        "bg_color": "#ffffff",
+        "text_color": "#131612",
+        "accent_color": "#6d816a"
+      }
+    }
+  },
+  "order": [
+    "zweitliebe_modern_header"
+  ]
+} 

@@ -30,7 +30,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?display=swap&family=Lexend:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900" rel="stylesheet">
 
   {%- style %}
     {{- settings.body_font | font_face: font_display: 'swap' -}}
@@ -254,6 +254,43 @@
       {% endif %}
 
       --reading-width: 48em;
+
+      /* === ZWEITLIEBE DESIGN SYSTEM === */
+      /* Modern color palette matching the HTML designs */
+      --zweitliebe-dark: #131612;          /* Primary text color */
+      --zweitliebe-green: #6d816a;         /* Secondary green/gray */
+      --zweitliebe-light: #f1f4f1;         /* Background light */
+      --zweitliebe-accent: #38ec1c;        /* Bright green for CTAs */
+      --zweitliebe-white: #ffffff;         /* Pure white */
+      
+      /* Typography System */
+      --zweitliebe-font-family: 'Lexend', 'Noto Sans', sans-serif;
+      --zweitliebe-text-xs: 12px;
+      --zweitliebe-text-sm: 14px;
+      --zweitliebe-text-base: 16px;
+      --zweitliebe-text-lg: 18px;
+      --zweitliebe-text-xl: 20px;
+      --zweitliebe-text-2xl: 24px;
+      --zweitliebe-text-3xl: 30px;
+      --zweitliebe-text-4xl: 36px;
+      
+      /* Spacing System */
+      --zweitliebe-space-1: 4px;
+      --zweitliebe-space-2: 8px;
+      --zweitliebe-space-3: 12px;
+      --zweitliebe-space-4: 16px;
+      --zweitliebe-space-5: 20px;
+      --zweitliebe-space-6: 24px;
+      --zweitliebe-space-8: 32px;
+      --zweitliebe-space-10: 40px;
+      --zweitliebe-space-12: 48px;
+      
+      /* Border Radius */
+      --zweitliebe-radius-sm: 6px;
+      --zweitliebe-radius-md: 8px;
+      --zweitliebe-radius-lg: 12px;
+      --zweitliebe-radius-xl: 16px;
+      --zweitliebe-radius-full: 50px;
     }
 
     @media (max-width: {{ breakpoint_md }}px) {
@@ -277,6 +314,13 @@
   {%- if request.page_type contains 'customers' -%}
     <link rel="stylesheet" href="{{ 'customer.css' | asset_url }}">
   {%- endif -%}
+
+  {%- if template.name == 'cart' -%}
+    <link rel="stylesheet" href="{{ 'zweitliebe-cart.css' | asset_url }}">
+  {%- endif -%}
+
+  <!-- Mobile Optimization -->
+  <link rel="stylesheet" href="{{ 'zweitliebe-mobile.css' | asset_url }}" media="(max-width: 768px)">
 
   {%- if settings.swatch_colors != blank -%}
     <link rel="stylesheet" href="{{ 'swatches.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -305,6 +349,15 @@
     {{- settings.custom_html_head -}}
     <!-- CC Custom Head End -->
   {%- endif -%}
+
+  <style>
+    /* Global Zweitliebe Font */
+    body {
+      font-family: var(--zweitliebe-font-family) !important;
+      color: var(--zweitliebe-dark);
+      background-color: var(--zweitliebe-white);
+    }
+  </style>
 </head>
 
 <body{% if settings.animations_enabled != "disabled" %} class="cc-animate-enabled"{% endif %}>

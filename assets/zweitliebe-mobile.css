@@ -1,0 +1,584 @@
+/* === ZWEITLIEBE MOBILE OPTIMIZATION === */
+/* Mobile-First responsive design für alle Komponenten */
+
+/* === GLOBAL MOBILE STYLES === */
+@media (max-width: 768px) {
+  /* Container Adjustments */
+  .zweitliebe-hero-container,
+  .zweitliebe-header-container,
+  .zweitliebe-wishlist-container {
+    padding: 0 var(--zweitliebe-space-4) !important;
+  }
+
+  /* Typography Scaling */
+  :root {
+    --zweitliebe-text-4xl: 28px;
+    --zweitliebe-text-3xl: 24px;
+    --zweitliebe-text-2xl: 20px;
+    --zweitliebe-text-xl: 18px;
+    --zweitliebe-text-lg: 16px;
+  }
+
+  /* Spacing Adjustments */
+  :root {
+    --zweitliebe-space-12: 32px;
+    --zweitliebe-space-10: 24px;
+    --zweitliebe-space-8: 20px;
+    --zweitliebe-space-6: 16px;
+  }
+}
+
+/* === HEADER MOBILE === */
+@media (max-width: 768px) {
+  .zweitliebe-header-container {
+    flex-direction: column;
+    gap: var(--zweitliebe-space-4);
+    min-height: auto;
+    padding: var(--zweitliebe-space-4);
+  }
+
+  .zweitliebe-logo-section {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .zweitliebe-nav {
+    display: none;
+  }
+
+  .zweitliebe-search-section {
+    width: 100%;
+    max-width: none;
+    order: 3;
+  }
+
+  .zweitliebe-search-container {
+    flex: 1;
+    max-width: none;
+  }
+
+  .zweitliebe-actions {
+    gap: var(--zweitliebe-space-3);
+  }
+
+  .zweitliebe-action-btn span {
+    display: none;
+  }
+
+  .zweitliebe-action-btn {
+    min-width: 44px;
+    padding: 0 var(--zweitliebe-space-2);
+  }
+}
+
+/* === HERO MOBILE === */
+@media (max-width: 768px) {
+  .zweitliebe-hero {
+    min-height: 320px;
+    padding: var(--zweitliebe-space-6) var(--zweitliebe-space-4);
+    justify-content: center;
+  }
+
+  .zweitliebe-hero-title {
+    font-size: var(--zweitliebe-text-2xl);
+    text-align: center;
+  }
+
+  .zweitliebe-hero-subtitle {
+    font-size: var(--zweitliebe-text-sm);
+    text-align: center;
+  }
+
+  .zweitliebe-hero-content {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .zweitliebe-hero-button {
+    width: 100%;
+    justify-content: center;
+    height: 44px;
+  }
+}
+
+/* === PRODUCT CARDS MOBILE === */
+@media (max-width: 768px) {
+  .zweitliebe-product-card {
+    margin-bottom: var(--zweitliebe-space-4);
+  }
+
+  .zweitliebe-card-content {
+    padding: var(--zweitliebe-space-3);
+    gap: var(--zweitliebe-space-1);
+  }
+
+  .zweitliebe-card-actions {
+    padding: 0 var(--zweitliebe-space-3) var(--zweitliebe-space-3);
+    flex-direction: column;
+    gap: var(--zweitliebe-space-2);
+  }
+
+  .zweitliebe-add-to-cart {
+    width: 100%;
+    height: 44px;
+    justify-content: center;
+  }
+
+  .zweitliebe-wishlist-btn {
+    align-self: center;
+  }
+
+  .zweitliebe-card-title {
+    font-size: var(--zweitliebe-text-sm);
+    -webkit-line-clamp: 3;
+  }
+
+  .zweitliebe-card-format,
+  .zweitliebe-card-author {
+    font-size: var(--zweitliebe-text-xs);
+  }
+
+  .zweitliebe-card-price {
+    font-size: var(--zweitliebe-text-sm);
+  }
+}
+
+/* === CART MOBILE === */
+@media (max-width: 768px) {
+  .cart {
+    padding: 0 var(--zweitliebe-space-4);
+  }
+
+  .cart h1,
+  .cart h2[data-cart-heading] {
+    font-size: var(--zweitliebe-text-2xl);
+    text-align: center;
+  }
+
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--zweitliebe-space-3);
+    padding: var(--zweitliebe-space-4) var(--zweitliebe-space-2);
+    border-bottom: 1px solid var(--zweitliebe-light);
+  }
+
+  .cart-item__image {
+    width: 80px;
+    height: 80px;
+    align-self: center;
+  }
+
+  .cart-item__details {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cart-item__title,
+  .cart-item__subtitle {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    text-align: center;
+  }
+
+  .cart__summary {
+    margin: var(--zweitliebe-space-6) 0;
+  }
+
+  .cart__summary h3 {
+    text-align: center;
+    margin-bottom: var(--zweitliebe-space-3);
+  }
+
+  .cart__summary-row {
+    gap: var(--zweitliebe-space-4);
+    padding: var(--zweitliebe-space-3) 0;
+  }
+
+  .cart__checkout-button {
+    width: 100%;
+    height: 52px;
+    font-size: var(--zweitliebe-text-base);
+  }
+
+  .cart__continue-shopping {
+    text-align: center;
+    display: block;
+    margin-top: var(--zweitliebe-space-4);
+  }
+}
+
+/* === WISHLIST MOBILE === */
+@media (max-width: 768px) {
+  .zweitliebe-wishlist-header {
+    padding: var(--zweitliebe-space-3);
+    text-align: center;
+  }
+
+  .zweitliebe-wishlist-title {
+    font-size: var(--zweitliebe-text-2xl);
+    min-width: auto;
+  }
+
+  .zweitliebe-wishlist-item {
+    flex-direction: column;
+    gap: var(--zweitliebe-space-3);
+    padding: var(--zweitliebe-space-3);
+  }
+
+  .zweitliebe-wishlist-item-content {
+    flex: none;
+    text-align: center;
+  }
+
+  .zweitliebe-wishlist-item-image {
+    aspect-ratio: 3 / 2;
+    min-height: 160px;
+    order: -1;
+  }
+
+  .zweitliebe-wishlist-item-actions {
+    justify-content: center;
+    gap: var(--zweitliebe-space-3);
+  }
+
+  .zweitliebe-add-to-cart-btn {
+    width: 180px;
+    justify-content: center;
+    flex-direction: row;
+    height: 40px;
+  }
+
+  .zweitliebe-wishlist-empty {
+    padding: var(--zweitliebe-space-8) var(--zweitliebe-space-4);
+  }
+
+  .zweitliebe-wishlist-empty h2 {
+    font-size: var(--zweitliebe-text-xl);
+  }
+}
+
+/* === ACCOUNT DASHBOARD MOBILE === */
+@media (max-width: 768px) {
+  /* Quick Actions */
+  .zweitliebe-quick-actions-container {
+    padding: 0 var(--zweitliebe-space-4);
+  }
+
+  .zweitliebe-quick-actions-buttons {
+    flex-direction: column;
+    gap: var(--zweitliebe-space-3);
+  }
+
+  .zweitliebe-quick-action-btn {
+    width: 100%;
+    height: 48px;
+    justify-content: center;
+  }
+
+  /* Account Overview Table */
+  .zweitliebe-account-overview-table {
+    display: block !important;
+    padding: var(--zweitliebe-space-3);
+  }
+
+  .zweitliebe-account-overview-row {
+    display: flex !important;
+    flex-direction: column;
+    gap: var(--zweitliebe-space-1);
+    padding: var(--zweitliebe-space-3) 0;
+    border-bottom: 1px solid var(--zweitliebe-light);
+  }
+
+  .zweitliebe-account-overview-label {
+    font-weight: 600;
+    color: var(--zweitliebe-dark);
+  }
+
+  .zweitliebe-account-overview-value {
+    color: var(--zweitliebe-green);
+  }
+
+  /* Recent Orders Table */
+  .zweitliebe-orders-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .zweitliebe-orders-table table {
+    min-width: 600px;
+  }
+
+  .zweitliebe-orders-table th,
+  .zweitliebe-orders-table td {
+    padding: var(--zweitliebe-space-2) var(--zweitliebe-space-3);
+    font-size: var(--zweitliebe-text-xs);
+  }
+}
+
+/* === BREADCRUMBS MOBILE === */
+@media (max-width: 768px) {
+  nav[aria-label="Breadcrumb"] {
+    padding: var(--zweitliebe-space-3) var(--zweitliebe-space-4) !important;
+  }
+
+  nav[aria-label="Breadcrumb"] div {
+    gap: var(--zweitliebe-space-1) !important;
+    font-size: var(--zweitliebe-text-sm) !important;
+  }
+}
+
+/* === FORMS MOBILE === */
+@media (max-width: 768px) {
+  .zweitliebe-search-form {
+    height: 44px;
+  }
+
+  .zweitliebe-search-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 0 var(--zweitliebe-space-3);
+  }
+
+  .zweitliebe-search-icon {
+    padding-left: var(--zweitliebe-space-3);
+  }
+
+  /* Form Fields */
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  input[type="tel"],
+  textarea {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    padding: var(--zweitliebe-space-3) var(--zweitliebe-space-4);
+    border-radius: var(--zweitliebe-radius-md);
+  }
+
+  /* Buttons */
+  .btn,
+  button {
+    min-height: 44px; /* Touch target size */
+    padding: var(--zweitliebe-space-3) var(--zweitliebe-space-4);
+    font-size: var(--zweitliebe-text-base);
+  }
+}
+
+/* === GRID SYSTEMS MOBILE === */
+@media (max-width: 480px) {
+  /* Product Grids */
+  .grid,
+  .products-grid,
+  .collection-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: var(--zweitliebe-space-3) !important;
+  }
+
+  /* Single column for very small screens */
+  .featured-collection .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 320px) {
+  .grid,
+  .products-grid,
+  .collection-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* === MODAL & OVERLAY MOBILE === */
+@media (max-width: 768px) {
+  .modal,
+  .drawer,
+  .overlay {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    max-height: 100vh;
+  }
+
+  .modal-content,
+  .drawer-content {
+    padding: var(--zweitliebe-space-4);
+    max-height: calc(100vh - var(--zweitliebe-space-8));
+    overflow-y: auto;
+  }
+
+  .modal-header {
+    padding: var(--zweitliebe-space-4) var(--zweitliebe-space-4) var(--zweitliebe-space-2);
+    border-bottom: 1px solid var(--zweitliebe-light);
+  }
+
+  .modal-footer {
+    padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4) var(--zweitliebe-space-4);
+    border-top: 1px solid var(--zweitliebe-light);
+  }
+}
+
+/* === NAVIGATION MOBILE === */
+@media (max-width: 768px) {
+  /* Mobile Navigation Menu */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--zweitliebe-white);
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .mobile-nav.active {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-header {
+    padding: var(--zweitliebe-space-4);
+    border-bottom: 1px solid var(--zweitliebe-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mobile-nav-items {
+    padding: var(--zweitliebe-space-4);
+  }
+
+  .mobile-nav-item {
+    display: block;
+    padding: var(--zweitliebe-space-3) 0;
+    border-bottom: 1px solid var(--zweitliebe-light);
+    color: var(--zweitliebe-dark);
+    text-decoration: none;
+    font-size: var(--zweitliebe-text-base);
+    font-weight: 500;
+  }
+
+  .mobile-nav-item:hover {
+    color: var(--zweitliebe-green);
+  }
+
+  /* Mobile Menu Toggle */
+  .mobile-menu-toggle {
+    background: none;
+    border: none;
+    padding: var(--zweitliebe-space-2);
+    cursor: pointer;
+    display: block;
+    color: var(--zweitliebe-dark);
+  }
+
+  .mobile-menu-toggle svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* === TOUCH OPTIMIZATION === */
+@media (max-width: 768px) {
+  /* Larger touch targets */
+  a, button, input, select, textarea {
+    min-height: 44px;
+  }
+
+  /* Better tap highlighting */
+  a, button {
+    -webkit-tap-highlight-color: rgba(109, 129, 106, 0.2);
+  }
+
+  /* Smoother scrolling */
+  html {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent text scaling */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+}
+
+/* === PERFORMANCE OPTIMIZATIONS === */
+@media (max-width: 768px) {
+  /* Reduce animations on mobile for performance */
+  .zweitliebe-product-card:hover {
+    transform: none;
+  }
+
+  .zweitliebe-card-image:hover img {
+    transform: none;
+  }
+
+  /* Simplify shadows on mobile */
+  .card,
+  .zweitliebe-product-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .card:hover,
+  .zweitliebe-product-card:hover {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+}
+
+/* === ACCESSIBILITY MOBILE === */
+@media (max-width: 768px) {
+  /* Better focus states for mobile */
+  a:focus,
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: 2px solid var(--zweitliebe-accent);
+    outline-offset: 2px;
+  }
+
+  /* Larger text for better readability */
+  .small-text,
+  .text-xs {
+    font-size: var(--zweitliebe-text-sm) !important;
+  }
+
+  /* Better contrast for mobile */
+  .text-secondary {
+    color: var(--zweitliebe-dark) !important;
+    opacity: 0.8;
+  }
+}
+
+/* === LANDSCAPE MOBILE === */
+@media (max-width: 768px) and (orientation: landscape) {
+  .zweitliebe-hero {
+    min-height: 240px;
+  }
+
+  .zweitliebe-wishlist-item-image {
+    aspect-ratio: 2 / 1;
+    min-height: 120px;
+  }
+}
+
+/* === VERY SMALL SCREENS === */
+@media (max-width: 360px) {
+  :root {
+    --zweitliebe-space-4: 12px;
+    --zweitliebe-space-3: 8px;
+    --zweitliebe-space-2: 6px;
+  }
+
+  .zweitliebe-hero-title {
+    font-size: var(--zweitliebe-text-xl);
+  }
+
+  .zweitliebe-card-actions {
+    padding: 0 var(--zweitliebe-space-2) var(--zweitliebe-space-2);
+  }
+
+  .cart {
+    padding: 0 var(--zweitliebe-space-2);
+  }
+} 
