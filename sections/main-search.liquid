@@ -61,6 +61,11 @@
         <div class="form-width mb-section block{% if section.settings.heading_align == "text-center" %} mx-auto{% elsif section.settings.heading_align == "text-end" %} mis-auto{% endif %}">
           {% render 'predictive-search', id: 'main-search', persist_value: true %}
         </div>
+        
+        {%- comment -%}Zweitliebe Erweiterte Buchsuche{%- endcomment -%}
+        <div class="mb-section">
+          {% render 'advanced-book-search', id: 'book-search' %}
+        </div>
       {%- endif -%}
     </div>
   {%- endif -%}
@@ -127,7 +132,7 @@
                 <li class="js-pagination-result">
                   {%- case item.object_type -%}
                     {%- when 'product' -%}
-                      {% render 'product-card', product: item, image_ratio: image_ratio, show_compare: settings.enable_compare %}
+                      {% render 'book-product-card', product: item, image_ratio: image_ratio, show_compare: settings.enable_compare %}
                     {%- when 'article' -%}
                       {% render 'article-card',
                         article: item,
