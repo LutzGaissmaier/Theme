@@ -109,8 +109,8 @@
         "bg_color": "#F9FAFB"
       }
     },
-    "featured_products": {
-      "type": "zweitliebe-featured-collection",
+         "featured_products": {
+       "type": "featured-collection",
       "settings": {
         "collection": "all",
         "heading": "Beliebte Fachbücher",

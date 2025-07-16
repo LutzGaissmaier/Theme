@@ -1,31 +1,23 @@
 {
   "sections": {
-    "zweitliebe_header": {
-      "type": "zweitliebe-trust-header",
-      "settings": {
-        "show_trust_messages": true,
-        "show_search_enhancement": true,
-        "show_category_nav": true
-      }
-    },
     "hero_section": {
       "type": "rich-text",
-      "blocks": [
-        {
+      "blocks": {
+        "heading_1": {
           "type": "heading",
           "settings": {
             "heading": "Gebrauchte Fachbücher für dein Studium",
             "heading_size": "h0"
           }
         },
-        {
+        "text_1": {
           "type": "text",
           "settings": {
             "text": "<p><strong>180.000+ Bücher • Bis zu 70% sparen • 36 Monate Garantie</strong></p><p>Nachhaltig studieren mit geprüfter Qualität. Von Medizin bis Informatik.</p>",
             "enlarge_text": true
           }
         },
-        {
+        "button_1": {
           "type": "button",
           "settings": {
             "button_label": "Fachbücher entdecken",
@@ -33,33 +25,33 @@
             "button_style": "btn btn--primary btn--large"
           }
         }
-      ],
+      },
       "block_order": [
-        "heading",
-        "text", 
-        "button"
+        "heading_1",
+        "text_1", 
+        "button_1"
       ],
       "settings": {
         "text_alignment": "center",
         "narrow_column": false,
         "spacing_above": false,
         "spacing_below": true,
-        "bg_color": "linear-gradient(135deg, #F0FDF4 0%, #ECFDF5 100%)"
+        "bg_color": "#F0FDF4"
       }
     },
     "quick_search": {
       "type": "rich-text",
-      "blocks": [
-        {
+      "blocks": {
+        "search_widget": {
           "type": "text",
           "settings": {
-            "text": "<div style='background: white; padding: var(--space-xl); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); max-width: 800px; margin: 0 auto;'><h3 style='text-align: center; margin-bottom: var(--space-lg); color: var(--text-dark);'>🔍 Schnell zum richtigen Buch</h3><div style='display: grid; grid-template-columns: 1fr auto; gap: var(--space-md); margin-bottom: var(--space-lg);'><input type='search' placeholder='ISBN, Autor, Titel oder Fachbereich eingeben...' style='padding: var(--space-md); border: 2px solid var(--gray-200); border-radius: var(--radius-md); font-size: var(--text-lg); width: 100%;'><button style='background: var(--primary-green); color: white; padding: var(--space-md) var(--space-lg); border: none; border-radius: var(--radius-md); font-weight: 600; cursor: pointer;'>Suchen</button></div><div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-sm);'><a href='/collections/medizin' style='background: #FEF3E2; color: #EA580C; padding: var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; text-align: center; font-weight: 500; transition: all 0.2s;'>🩺 Medizin</a><a href='/collections/bwl' style='background: #EFF6FF; color: #1E40AF; padding: var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; text-align: center; font-weight: 500;'>💼 BWL</a><a href='/collections/jura' style='background: #F3F4F6; color: #374151; padding: var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; text-align: center; font-weight: 500;'>⚖️ Jura</a><a href='/collections/informatik' style='background: #ECFDF5; color: #059669; padding: var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; text-align: center; font-weight: 500;'>💻 Informatik</a><a href='/collections/psychologie' style='background: #FDF2F8; color: #BE185D; padding: var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; text-align: center; font-weight: 500;'>🧠 Psychologie</a></div></div>",
+            "text": "<div style='background: white; padding: 32px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto;'><h3 style='text-align: center; margin-bottom: 24px; color: #1F2937;'>🔍 Schnell zum richtigen Buch</h3><div style='display: grid; grid-template-columns: 1fr auto; gap: 16px; margin-bottom: 24px;'><input type='search' placeholder='ISBN, Autor, Titel oder Fachbereich eingeben...' style='padding: 12px 16px; border: 2px solid #E5E7EB; border-radius: 8px; font-size: 16px; width: 100%;'><button style='background: #2D5A27; color: white; padding: 12px 24px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;'>Suchen</button></div><div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px;'><a href='/collections/medizin' style='background: #FEF3E2; color: #EA580C; padding: 8px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 500;'>🩺 Medizin</a><a href='/collections/bwl' style='background: #EFF6FF; color: #1E40AF; padding: 8px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 500;'>💼 BWL</a><a href='/collections/jura' style='background: #F3F4F6; color: #374151; padding: 8px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 500;'>⚖️ Jura</a><a href='/collections/informatik' style='background: #ECFDF5; color: #059669; padding: 8px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 500;'>💻 Informatik</a><a href='/collections/psychologie' style='background: #FDF2F8; color: #BE185D; padding: 8px; border-radius: 6px; text-decoration: none; text-align: center; font-weight: 500;'>🧠 Psychologie</a></div></div>",
             "enlarge_text": false
           }
         }
-      ],
+      },
       "block_order": [
-        "search-widget"
+        "search_widget"
       ],
       "settings": {
         "text_alignment": "center",
@@ -71,8 +63,8 @@
     },
     "popular_categories": {
       "type": "icons-with-text",
-      "blocks": [
-        {
+      "blocks": {
+        "cat_1": {
           "type": "item",
           "settings": {
             "icon": "medical",
@@ -81,7 +73,7 @@
             "link": "/collections/medizin"
           }
         },
-        {
+        "cat_2": {
           "type": "item",
           "settings": {
             "icon": "briefcase",
@@ -90,7 +82,7 @@
             "link": "/collections/bwl"
           }
         },
-        {
+        "cat_3": {
           "type": "item",
           "settings": {
             "icon": "scales",
@@ -99,7 +91,7 @@
             "link": "/collections/jura"
           }
         },
-        {
+        "cat_4": {
           "type": "item",
           "settings": {
             "icon": "computer",
@@ -107,33 +99,13 @@
             "text": "Programmierung, Algorithmen, Datenbanken",
             "link": "/collections/informatik"
           }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "icon": "brain",
-            "heading": "Psychologie",
-            "text": "Allgemeine, Klinische, Sozialpsychologie",
-            "link": "/collections/psychologie"
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "icon": "calculator",
-            "heading": "Mathematik & Statistik",
-            "text": "Analysis, Algebra, Wahrscheinlichkeitsrechnung",
-            "link": "/collections/mathematik"
-          }
         }
-      ],
+      },
       "block_order": [
-        "cat-1",
-        "cat-2",
-        "cat-3",
-        "cat-4",
-        "cat-5",
-        "cat-6"
+        "cat_1",
+        "cat_2",
+        "cat_3",
+        "cat_4"
       ],
       "settings": {
         "heading": "Fachbücher nach Studienrichtung",
@@ -169,25 +141,25 @@
     },
     "sustainability_impact": {
       "type": "rich-text", 
-      "blocks": [
-        {
+      "blocks": {
+        "heading_2": {
           "type": "heading",
           "settings": {
             "heading": "Dein positiver Umwelt-Impact",
             "heading_size": "h2"
           }
         },
-        {
+        "stats_1": {
           "type": "text",
           "settings": {
-            "text": "<div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-xl); margin: var(--space-xl) 0;'><div style='text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-md);'><div style='font-size: 3rem; margin-bottom: var(--space-md);'>🌱</div><h3 style='color: var(--success-green); font-size: var(--text-2xl); margin-bottom: var(--space-sm);'>450+ Tonnen</h3><p style='color: var(--text-muted); margin: 0;'>CO₂ bereits eingespart</p></div><div style='text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-md);'><div style='font-size: 3rem; margin-bottom: var(--space-md);'>💧</div><h3 style='color: var(--trust-blue); font-size: var(--text-2xl); margin-bottom: var(--space-sm);'>90%</h3><p style='color: var(--text-muted); margin: 0;'>weniger Wasserverbrauch</p></div><div style='text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-md);'><div style='font-size: 3rem; margin-bottom: var(--space-md);'>🎓</div><h3 style='color: var(--primary-green); font-size: var(--text-2xl); margin-bottom: var(--space-sm);'>50.000+</h3><p style='color: var(--text-muted); margin: 0;'>zufriedene Studierende</p></div><div style='text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-xl); box-shadow: var(--shadow-md);'><div style='font-size: 3rem; margin-bottom: var(--space-md);'>📚</div><h3 style='color: var(--accent-orange); font-size: var(--text-2xl); margin-bottom: var(--space-sm);'>180.000+</h3><p style='color: var(--text-muted); margin: 0;'>Bücher verfügbar</p></div></div><p style='text-align: center; margin-top: var(--space-xl); font-size: var(--text-lg);'><strong>Jedes gebrauchte Buch spart 2,5kg CO₂ und schont wertvolle Ressourcen.</strong></p>",
+            "text": "<div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; margin: 32px 0;'><div style='text-align: center; padding: 24px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);'><div style='font-size: 3rem; margin-bottom: 16px;'>🌱</div><h3 style='color: #22C55E; font-size: 2rem; margin-bottom: 8px;'>450+ Tonnen</h3><p style='color: #6B7280; margin: 0;'>CO₂ bereits eingespart</p></div><div style='text-align: center; padding: 24px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);'><div style='font-size: 3rem; margin-bottom: 16px;'>💧</div><h3 style='color: #1E40AF; font-size: 2rem; margin-bottom: 8px;'>90%</h3><p style='color: #6B7280; margin: 0;'>weniger Wasserverbrauch</p></div><div style='text-align: center; padding: 24px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);'><div style='font-size: 3rem; margin-bottom: 16px;'>🎓</div><h3 style='color: #2D5A27; font-size: 2rem; margin-bottom: 8px;'>50.000+</h3><p style='color: #6B7280; margin: 0;'>zufriedene Studierende</p></div><div style='text-align: center; padding: 24px; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);'><div style='font-size: 3rem; margin-bottom: 16px;'>📚</div><h3 style='color: #F59E0B; font-size: 2rem; margin-bottom: 8px;'>180.000+</h3><p style='color: #6B7280; margin: 0;'>Bücher verfügbar</p></div></div><p style='text-align: center; margin-top: 32px; font-size: 18px;'><strong>Jedes gebrauchte Buch spart 2,5kg CO₂ und schont wertvolle Ressourcen.</strong></p>",
             "enlarge_text": false
           }
         }
-      ],
+      },
       "block_order": [
-        "heading",
-        "stats"
+        "heading_2",
+        "stats_1"
       ],
       "settings": {
         "text_alignment": "center",
@@ -197,72 +169,10 @@
         "bg_color": "#F0FDF4"
       }
     },
-    "how_it_works": {
-      "type": "icons-with-text",
-      "blocks": [
-        {
-          "type": "item",
-          "settings": {
-            "icon": "search",
-            "heading": "1. Finden",
-            "text": "Suche nach ISBN, Titel oder durchstöbere Fachbereiche",
-            "link": ""
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "icon": "check_circle",
-            "heading": "2. Prüfen",
-            "text": "Alle Bücher sind geprüft und zustandsbewertet",
-            "link": ""
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "icon": "shopping_cart",
-            "heading": "3. Bestellen",
-            "text": "Schnell und sicher bestellen, ab 10€ versandkostenfrei",
-            "link": ""
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "icon": "truck",
-            "heading": "4. Erhalten",
-            "text": "Klimaneutraler Versand, meist noch am gleichen Tag",
-            "link": ""
-          }
-        }
-      ],
-      "block_order": [
-        "step-1",
-        "step-2",
-        "step-3",
-        "step-4"
-      ],
-      "settings": {
-        "heading": "So einfach kommst du zu deinen Fachbüchern",
-        "subheading": "In 4 einfachen Schritten zum nachhaltigen Studienerfolg",
-        "heading_align": "text-center",
-        "icon_size": 40,
-        "title_type_scale": "medium",
-        "text_type_scale": "small",
-        "icon_position": "above",
-        "mobile_stack": true,
-        "section_height": "medium",
-        "color_scheme": "2",
-        "full_width": false,
-        "dividers": "none",
-        "prevent_animation": false
-      }
-    },
     "student_testimonials": {
       "type": "testimonials",
-      "blocks": [
-        {
+      "blocks": {
+        "testimonial_1": {
           "type": "testimonial",
           "settings": {
             "quote": "Durch Zweitliebe spare ich pro Semester über 200€ für Fachbücher. Die Qualität ist top und der Service super schnell!",
@@ -271,7 +181,7 @@
             "star_rating": 5
           }
         },
-        {
+        "testimonial_2": {
           "type": "testimonial", 
           "settings": {
             "quote": "Endlich eine Plattform, die versteht was Studenten brauchen. Große Auswahl an BWL-Büchern und faire Preise.",
@@ -280,7 +190,7 @@
             "star_rating": 5
           }
         },
-        {
+        "testimonial_3": {
           "type": "testimonial",
           "settings": {
             "quote": "Die 36 Monate Garantie gibt mir Sicherheit. Falls ein Buch nicht passt, wird es unkompliziert getauscht.",
@@ -289,150 +199,49 @@
             "star_rating": 5
           }
         }
-      ],
+      },
       "block_order": [
-        "testimonial-1",
-        "testimonial-2", 
-        "testimonial-3"
+        "testimonial_1",
+        "testimonial_2", 
+        "testimonial_3"
       ],
       "settings": {
         "heading": "Was Studierende über uns sagen",
         "subheading": "Über 50.000 zufriedene Kunden vertrauen auf Zweitliebe",
         "text_alignment": "center",
         "autoplay": true,
-        "autoplay_speed": 6000,
+        "autoplay_speed": 6,
         "spacing_above": true,
         "spacing_below": true,
         "bg_color": "#F9FAFB"
       }
     },
-    "sell_books_cta": {
-      "type": "rich-text",
-      "blocks": [
-        {
-          "type": "heading",
-          "settings": {
-            "heading": "Verkaufe deine Bücher an uns",
-            "heading_size": "h2"
-          }
-        },
-        {
-          "type": "text",
-          "settings": {
-            "text": "<p>Mach Geld aus deinen alten Fachbüchern! Wir kaufen gebrauchte Bücher zu fairen Preisen an.</p><div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); margin: var(--space-lg) 0;'><div style='text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);'><div style='font-size: 2rem; margin-bottom: var(--space-sm);'>📱</div><h4>Einfach</h4><p style='margin: var(--space-sm) 0; color: var(--text-muted);'>ISBN eingeben und sofort Preis erhalten</p></div><div style='text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);'><div style='font-size: 2rem; margin-bottom: var(--space-sm);'>📦</div><h4>Kostenlos</h4><p style='margin: var(--space-sm) 0; color: var(--text-muted);'>Versandetikett drucken und kostenlos senden</p></div><div style='text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);'><div style='font-size: 2rem; margin-bottom: var(--space-sm);'>💰</div><h4>Schnell</h4><p style='margin: var(--space-sm) 0; color: var(--text-muted);'>Geld nach 1-3 Tagen auf deinem Konto</p></div></div>",
-            "enlarge_text": false
-          }
-        },
-        {
-          "type": "button",
-          "settings": {
-            "button_label": "Jetzt Bücher verkaufen",
-            "button_link": "/pages/ankauf",
-            "button_style": "btn btn--primary btn--large"
-          }
-        }
-      ],
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
-      "settings": {
-        "text_alignment": "center",
-        "narrow_column": false,
-        "spacing_above": true,
-        "spacing_below": true,
-        "bg_color": "#EFF6FF"
-      }
-    },
-    "trust_guarantees": {
-      "type": "icons-with-text",
-      "blocks": [
-        {
-          "type": "item",
-          "settings": {
-            "icon": "shield_check",
-            "heading": "36 Monate Garantie",
-            "text": "Längste Garantie am Markt - 3x länger als gesetzlich",
-            "link": "/pages/garantie"
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "icon": "truck",
-            "heading": "Kostenloser Versand",
-            "text": "Ab 10€ deutschlandweit kostenlos und klimaneutral",
-            "link": "/pages/versand"
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "icon": "star",
-            "heading": "4.8/5 Sterne",
-            "text": "Von über 50.000 zufriedenen Studierenden",
-            "link": "/pages/bewertungen"
-          }
-        },
-        {
-          "type": "item",
-          "settings": {
-            "icon": "leaf",
-            "heading": "Nachhaltig & Fair",
-            "text": "2,5kg CO₂ Ersparnis pro Buch für die Umwelt",
-            "link": "/pages/nachhaltigkeit"
-          }
-        }
-      ],
-      "block_order": [
-        "trust-1",
-        "trust-2",
-        "trust-3",
-        "trust-4"
-      ],
-      "settings": {
-        "heading": "Darum vertrauen uns Studierende",
-        "subheading": "Qualität, Service und Nachhaltigkeit stehen bei uns an erster Stelle",
-        "heading_align": "text-center",
-        "icon_size": 40,
-        "title_type_scale": "medium", 
-        "text_type_scale": "small",
-        "icon_position": "above",
-        "mobile_stack": true,
-        "section_height": "medium",
-        "color_scheme": "1",
-        "full_width": false,
-        "dividers": "none",
-        "prevent_animation": false
-      }
-    },
     "newsletter_signup": {
       "type": "newsletter",
-      "blocks": [
-        {
+      "blocks": {
+        "newsletter_heading": {
           "type": "heading",
           "settings": {
             "heading": "Bleib auf dem Laufenden",
             "heading_size": "h3"
           }
         },
-        {
+        "newsletter_text": {
           "type": "text",
           "settings": {
             "text": "<p>Erhalte Studientipps, Sonderangebote und Neuigkeiten zu deinen Fachbereichen direkt in dein Postfach.</p>",
             "enlarge_text": false
           }
         },
-        {
+        "newsletter_form": {
           "type": "form",
           "settings": {}
         }
-      ],
+      },
       "block_order": [
-        "newsletter-heading",
-        "newsletter-text",
-        "newsletter-form"
+        "newsletter_heading",
+        "newsletter_text",
+        "newsletter_form"
       ],
       "settings": {
         "overlay_position": "justify-center",
@@ -445,16 +254,12 @@
     }
   },
   "order": [
-    "zweitliebe_header",
     "hero_section",
     "quick_search",
     "popular_categories",
     "featured_books",
     "sustainability_impact",
-    "how_it_works",
     "student_testimonials",
-    "sell_books_cta",
-    "trust_guarantees",
     "newsletter_signup"
   ]
 } 

@@ -68,7 +68,7 @@
       }
     },
     "recommended_products": {
-      "type": "zweitliebe-featured-collection",
+             "type": "featured-collection",
       "settings": {
         "collection": "all",
         "heading": "Trotzdem stöbern?",

@@ -108,7 +108,7 @@
       }
     },
     "recommended_products": {
-      "type": "zweitliebe-featured-collection",
+             "type": "featured-collection",
       "settings": {
         "collection": "all",
         "heading": "Andere Studierende kauften auch",

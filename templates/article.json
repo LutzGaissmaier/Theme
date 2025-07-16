@@ -43,8 +43,8 @@
         "bg_color": "#F9FAFB"
       }
     },
-    "related_books": {
-      "type": "zweitliebe-featured-collection",
+         "related_books": {
+       "type": "featured-collection",
       "settings": {
         "collection": "all",
         "heading": "Passende Fachbücher zum Artikel",

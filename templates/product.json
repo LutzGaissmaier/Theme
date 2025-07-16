@@ -175,7 +175,7 @@
       }
     },
     "featured_collection": {
-      "type": "zweitliebe-featured-collection",
+             "type": "featured-collection",
       "settings": {
         "collection": "related-books",
         "heading": "Ähnliche Bücher",
