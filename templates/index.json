@@ -1,88 +1,68 @@
 {
   "sections": {
-    "trust_header": {
-      "type": "zweitliebe-trust-header",
+    "promo_banner": {
+      "type": "zweitliebe-promo-banner",
       "settings": {
-        "search_placeholder": "ISBN, Titel, Autor oder Kategorie...",
-        "trust_message_1": "Kostenloser Versand ab 10€",
-        "trust_message_2": "36 Monate Garantie",
-        "trust_message_3": "4.8/5 Kundenbewertung",
-        "trust_message_4": "180.000+ Bücher verfügbar"
+        "heading": "Aktuelle Angebote!",
+        "subtext": "Spare jetzt extra mit unserem Rabattcode",
+        "icon": "🔥",
+        "discount_code": "BUCHLIEBE23",
+        "button_text": "Jetzt shoppen",
+        "button_link": "/collections/sale",
+        "bg_color": "#EF4444",
+        "bg_color_end": "#DC2626",
+        "dismissible": true,
+        "remember_dismiss": true
       }
     },
     "hero": {
-      "type": "zweitliebe-hero",
+      "type": "zweitliebe-hero-slideshow",
       "blocks": [
         {
-          "type": "usp",
+          "type": "slide",
           "settings": {
-            "text": "Kostenloser Versand ab 10€"
+            "headline_highlight": "Bücher entdecken.",
+            "headline": "Zweitliebe finden.",
+            "text": "<p><strong>Bis zu 70% günstiger</strong><br>als Neupreise! 180.000 Bücher verfügbar.</p>",
+            "button_1_label": "Jetzt Bücher entdecken",
+            "button_1_link": "/collections/all",
+            "text_alignment": "center",
+            "show_trust_badges": true
           }
         },
         {
-          "type": "usp", 
+          "type": "slide",
           "settings": {
-            "text": "Schnelle Lieferung (1-3 Tage)"
+            "headline_highlight": "Bestseller Bücher.",
+            "headline": "Faire Preise.",
+            "text": "<p><strong>Große Auswahl</strong><br>an Romanen, Krimis & Sachbüchern!</p>",
+            "button_1_label": "Zu den Bestsellern",
+            "button_1_link": "/collections/bestseller",
+            "text_alignment": "center",
+            "show_trust_badges": true
           }
         },
         {
-          "type": "usp",
+          "type": "slide",
           "settings": {
-            "text": "36 Monate Garantie auf alle Bücher"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "number": "15,000kg",
-            "label": "CO₂ eingespart"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "number": "50,000+",
-            "label": "Zufriedene Kunden"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "number": "180,000+", 
-            "label": "Bücher im Sortiment"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "number": "36",
-            "label": "Monate Garantie"
+            "headline_highlight": "Gebrauchte Bücher.",
+            "headline": "Wie neu!",
+            "text": "<p><strong>36 Monate Garantie</strong><br>auf alle gebrauchten Bücher!</p>",
+            "button_1_label": "Gebrauchte Bücher",
+            "button_1_link": "/collections/gebraucht",
+            "text_alignment": "center",
+            "show_trust_badges": true
           }
         }
       ],
       "block_order": [
-        "usp-1",
-        "usp-2", 
-        "usp-3",
-        "stat-1",
-        "stat-2",
-        "stat-3",
-        "stat-4"
+        "slide-1",
+        "slide-2", 
+        "slide-3"
       ],
       "settings": {
-        "headline_highlight": "180.000 Bücher",
-        "headline_main": "nachhaltig & günstig", 
-        "subheadline": "Gebrauchte Bücher in Top-Zustand. Professionell geprüft,",
-        "savings_text": "bis zu 70% günstiger",
-        "subheadline_end": "als Neupreise.",
-        "guarantee_text": "36 Monate Garantie",
-        "rating_text": "4.8/5 Bewertung",
-        "floating_stat_1": "180k+ Bücher",
-        "floating_stat_2": "⭐ 4.8/5",
-        "primary_cta_text": "Jetzt Bücher entdecken",
-        "primary_cta_link": "/collections/all",
-        "secondary_cta_text": "Kategorien durchstöbern",
-        "secondary_cta_link": "#categories"
+        "autoplay": true,
+        "autoplay_speed": 5000
       }
     },
     "categories": {
@@ -348,7 +328,7 @@
     }
   },
   "order": [
-    "trust_header",
+    "promo_banner",
     "hero", 
     "categories",
     "featured_products",

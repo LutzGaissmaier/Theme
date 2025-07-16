@@ -1,0 +1,390 @@
+{% comment %}
+  ZWEITLIEBE HERO SLIDESHOW - REBUY.DE INSPIRED
+  Mit Hintergrundbildern und Conversion-optimierten Slides
+{% endcomment %}
+
+<section class="hero-slideshow" style="position: relative; overflow: hidden;">
+  
+  <!-- Slideshow Container -->
+  <div class="slideshow-container" style="position: relative; height: 80vh; min-height: 600px;">
+    
+    {% for block in section.blocks %}
+      {% if block.type == 'slide' %}
+        <div class="slide" 
+             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                    background: linear-gradient(135deg, rgba(45, 90, 39, 0.8) 0%, rgba(107, 155, 106, 0.6) 100%), 
+                                url('{{ block.settings.background_image | img_url: '1800x1200' }}') center/cover;
+                    display: {{ forloop.first | default: false | ternary: 'flex', 'none' }}; 
+                    align-items: center; justify-content: center;
+                    animation: slideIn 0.8s ease-in-out;"
+             data-slide="{{ forloop.index }}">
+          
+          <!-- Overlay für bessere Lesbarkeit -->
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3);"></div>
+          
+          <!-- Content Container -->
+          <div class="zweitliebe-container" style="position: relative; z-index: 2;">
+            <div class="slide-content" style="text-align: {{ block.settings.text_alignment | default: 'center' }}; color: white; max-width: 800px; margin: 0 auto;">
+              
+              <!-- Trust Badges oben -->
+              {% if block.settings.show_trust_badges %}
+                <div style="margin-bottom: var(--space-lg); display: flex; justify-content: {{ block.settings.text_alignment | default: 'center' }}; gap: var(--space-sm); flex-wrap: wrap;">
+                  <div class="trust-badge guarantee-badge">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                    </svg>
+                    36 Monate Garantie
+                  </div>
+                  
+                  <div class="trust-badge" style="background: var(--success-green);">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                    4.8/5 Bewertung
+                  </div>
+                </div>
+              {% endif %}
+
+              <!-- Hauptheadline -->
+              <h1 style="font-size: 56px; line-height: 1.1; margin-bottom: var(--space-lg); font-weight: var(--font-bold); text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                {% if block.settings.headline_highlight %}
+                  <span style="color: #86EFAC;">{{ block.settings.headline_highlight }}</span><br>
+                {% endif %}
+                {{ block.settings.headline }}
+              </h1>
+
+              <!-- Subheadline/Text -->
+              {% if block.settings.text %}
+                <div style="font-size: var(--text-xl); line-height: 1.6; margin-bottom: var(--space-2xl); opacity: 0.95;">
+                  {{ block.settings.text }}
+                </div>
+              {% endif %}
+
+              <!-- CTAs -->
+              <div style="display: flex; gap: var(--space-md); justify-content: {{ block.settings.text_alignment | default: 'center' }}; flex-wrap: wrap;">
+                {% if block.settings.button_1_label %}
+                  <a href="{{ block.settings.button_1_link | default: '#' }}" 
+                     class="btn-primary" 
+                     style="padding: var(--space-lg) var(--space-2xl); font-size: var(--text-lg); font-weight: var(--font-bold); box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    {{ block.settings.button_1_label }}
+                  </a>
+                {% endif %}
+                
+                {% if block.settings.button_2_label %}
+                  <a href="{{ block.settings.button_2_link | default: '#' }}" 
+                     class="btn-secondary" 
+                     style="padding: var(--space-lg) var(--space-2xl); font-size: var(--text-lg); font-weight: var(--font-bold); background: rgba(255,255,255,0.1); border: 2px solid white; color: white; backdrop-filter: blur(10px);">
+                    {{ block.settings.button_2_label }}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- Slideshow Navigation -->
+  {% if section.blocks.size > 1 %}
+    <!-- Previous/Next Arrows -->
+    <button class="slide-arrow slide-prev" 
+            style="position: absolute; left: var(--space-xl); top: 50%; transform: translateY(-50%); 
+                   background: rgba(255,255,255,0.2); border: none; border-radius: 50%; 
+                   width: 60px; height: 60px; cursor: pointer; z-index: 10; 
+                   backdrop-filter: blur(10px); transition: all 0.3s ease;"
+            onclick="changeSlide(-1)">
+      <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+      </svg>
+    </button>
+    
+    <button class="slide-arrow slide-next" 
+            style="position: absolute; right: var(--space-xl); top: 50%; transform: translateY(-50%); 
+                   background: rgba(255,255,255,0.2); border: none; border-radius: 50%; 
+                   width: 60px; height: 60px; cursor: pointer; z-index: 10; 
+                   backdrop-filter: blur(10px); transition: all 0.3s ease;"
+            onclick="changeSlide(1)">
+      <svg width="24" height="24" fill="white" viewBox="0 0 24 24">
+        <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+      </svg>
+    </button>
+
+    <!-- Slide Indicators -->
+    <div class="slide-indicators" 
+         style="position: absolute; bottom: var(--space-xl); left: 50%; transform: translateX(-50%); 
+                display: flex; gap: var(--space-sm); z-index: 10;">
+      {% for block in section.blocks %}
+        {% if block.type == 'slide' %}
+          <button class="slide-indicator" 
+                  style="width: 12px; height: 12px; border-radius: 50%; border: 2px solid white; 
+                         background: {{ forloop.first | ternary: 'white', 'transparent' }}; 
+                         cursor: pointer; transition: all 0.3s ease;"
+                  onclick="goToSlide({{ forloop.index }})"
+                  data-slide="{{ forloop.index }}">
+          </button>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</section>
+
+<!-- Slideshow JavaScript -->
+<script>
+let currentSlide = 1;
+const totalSlides = {{ section.blocks.size }};
+
+function showSlide(n) {
+  const slides = document.querySelectorAll('.slide');
+  const indicators = document.querySelectorAll('.slide-indicator');
+  
+  if (n > totalSlides) currentSlide = 1;
+  if (n < 1) currentSlide = totalSlides;
+  
+  slides.forEach((slide, index) => {
+    slide.style.display = (index + 1 === currentSlide) ? 'flex' : 'none';
+  });
+  
+  indicators.forEach((indicator, index) => {
+    indicator.style.background = (index + 1 === currentSlide) ? 'white' : 'transparent';
+  });
+}
+
+function changeSlide(n) {
+  currentSlide += n;
+  showSlide(currentSlide);
+}
+
+function goToSlide(n) {
+  currentSlide = n;
+  showSlide(currentSlide);
+}
+
+// Auto-play (optional)
+{% if section.settings.autoplay %}
+setInterval(() => {
+  currentSlide++;
+  showSlide(currentSlide);
+}, {{ section.settings.autoplay_speed | default: 5000 }});
+{% endif %}
+</script>
+
+<!-- Mobile Styles -->
+<style>
+.hero-slideshow h1 {
+  font-size: 56px;
+}
+
+.slide-arrow:hover {
+  background: rgba(255,255,255,0.3) !important;
+  transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .hero-slideshow {
+    height: 70vh !important;
+    min-height: 500px !important;
+  }
+  
+  .hero-slideshow h1 {
+    font-size: 36px !important;
+  }
+  
+  .slide-content {
+    padding: 0 var(--space-md);
+  }
+  
+  .slide-arrow {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .slide-arrow.slide-prev {
+    left: var(--space-md) !important;
+  }
+  
+  .slide-arrow.slide-next {
+    right: var(--space-md) !important;
+  }
+  
+  .slide-content > div:last-child {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-slideshow {
+    height: 60vh !important;
+    min-height: 400px !important;
+  }
+  
+  .hero-slideshow h1 {
+    font-size: 28px !important;
+  }
+  
+  .slide-content div[style*="font-size: var(--text-xl)"] {
+    font-size: var(--text-base) !important;
+  }
+}
+
+/* Slide Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Focus States for Accessibility */
+.slide-arrow:focus,
+.slide-indicator:focus {
+  outline: 3px solid #86EFAC;
+  outline-offset: 2px;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Zweitliebe Hero Slideshow",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-play slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "label": "Auto-play speed (ms)",
+      "min": 3000,
+      "max": 10000,
+      "step": 1000,
+      "default": 5000
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background Image"
+        },
+        {
+          "type": "text",
+          "id": "headline_highlight",
+          "label": "Headline Highlight (grün)"
+        },
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Hauptheadline"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text/Beschreibung"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Text Alignment",
+          "options": [
+            {
+              "value": "left",
+              "label": "Links"
+            },
+            {
+              "value": "center",
+              "label": "Mitte"
+            },
+            {
+              "value": "right", 
+              "label": "Rechts"
+            }
+          ],
+          "default": "center"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_trust_badges",
+          "label": "Trust Badges anzeigen",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "button_1_label",
+          "label": "Button 1 Text"
+        },
+        {
+          "type": "url",
+          "id": "button_1_link",
+          "label": "Button 1 Link"
+        },
+        {
+          "type": "text",
+          "id": "button_2_label",
+          "label": "Button 2 Text"
+        },
+        {
+          "type": "url",
+          "id": "button_2_link",
+          "label": "Button 2 Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zweitliebe Hero Slideshow",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "headline_highlight": "Bücher entdecken.",
+            "headline": "Zweitliebe finden.",
+            "text": "<p><strong>Bis zu 70% günstiger</strong><br>als Neupreise! 180.000 Bücher verfügbar.</p>",
+            "button_1_label": "Jetzt Bücher entdecken",
+            "button_1_link": "/collections/all"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "headline_highlight": "Bestseller Bücher.",
+            "headline": "Faire Preise.",
+            "text": "<p><strong>Große Auswahl</strong><br>an Romanen, Krimis & Sachbüchern!</p>",
+            "button_1_label": "Zu den Bestsellern",
+            "button_1_link": "/collections/bestseller"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "headline_highlight": "Gebrauchte Bücher.",
+            "headline": "Wie neu!",
+            "text": "<p><strong>36 Monate Garantie</strong><br>auf alle gebrauchten Bücher!</p>",
+            "button_1_label": "Gebrauchte Bücher",
+            "button_1_link": "/collections/gebraucht"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 
