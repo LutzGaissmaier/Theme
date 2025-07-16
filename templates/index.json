@@ -11,12 +11,12 @@
             "overlay_text_align": "text-start",
             "mob_center_text": true,
             "subheading": "",
-            "heading": "Smart tech. <br>Smart prices.",
+            "heading": "Bücher entdecken. <br>Zweitliebe finden.",
             "heading_size": "h0",
             "heading_h1": false,
-            "text": "<p><strong>Save up to 50%<br\/><\/strong>on over 1,000 products!<\/p>",
+            "text": "<p><strong>Bis zu 70% günstiger<br\/><\/strong>als Neupreise! 180.000 Bücher verfügbar.<\/p>",
             "enlarge_text": true,
-            "button_1_label": "Shop Smart Tech",
+            "button_1_label": "Jetzt Bücher entdecken",
             "button_1_link": "",
             "button_1_style": "btn btn--primary",
             "button_2_label": "",
@@ -33,12 +33,12 @@
             "overlay_text_align": "text-start",
             "mob_center_text": true,
             "subheading": "",
-            "heading": "Top specs. <br>Low prices.",
+            "heading": "Bestseller Bücher. <br>Faire Preise.",
             "heading_size": "h0",
             "heading_h1": false,
-            "text": "<p><strong>Save up to 50%<br\/><\/strong>on over 1,000 products!<\/p>",
+            "text": "<p><strong>Große Auswahl<br\/><\/strong>an Romanen, Krimis & Sachbüchern!<\/p>",
             "enlarge_text": true,
-            "button_1_label": "Shop Laptops",
+            "button_1_label": "Zu den Bestsellern",
             "button_1_link": "",
             "button_1_style": "btn btn--primary",
             "button_2_label": "",
@@ -55,12 +55,12 @@
             "overlay_text_align": "text-start",
             "mob_center_text": true,
             "subheading": "",
-            "heading": "Amazing deals <br>on electricals.",
+            "heading": "Gebrauchte Bücher. <br>Wie neu!",
             "heading_size": "h0",
             "heading_h1": false,
-            "text": "<p><strong>Save up to 50%<br\/><\/strong>on over 1,000 products!<\/p>",
+            "text": "<p><strong>36 Monate Garantie<br\/><\/strong>auf alle gebrauchten Bücher!<\/p>",
             "enlarge_text": true,
-            "button_1_label": "Shop Home Tech",
+            "button_1_label": "Gebrauchte Bücher",
             "button_1_link": "",
             "button_1_style": "btn btn--primary",
             "button_2_label": "",
@@ -179,7 +179,7 @@
             "rows": 2,
             "line1_text": "",
             "line1_text_type_scale": "--h6-font-size",
-            "line2_text": "New in",
+            "line2_text": "Neuheiten",
             "line2_text_type_scale": "h2",
             "line3_text": "",
             "line3_text_type_scale": "--h5-font-size",
@@ -188,8 +188,8 @@
             "promo_circle": true,
             "background_color": "#aa1155",
             "text_color": "#ffffff",
-            "subheading": "Smart prices on smart watches",
-            "link_text": "Shop the latest arrivals now >",
+            "subheading": "Die neuesten Bucherscheinungen",
+            "link_text": "Jetzt neue Bücher entdecken >",
             "text_type_scale": "h5",
             "tint_color": "#000000",
             "tint_opacity": 0
@@ -202,19 +202,19 @@
             "link_url": "",
             "columns": 1,
             "rows": 1,
-            "line1_text": "Save up to",
+            "line1_text": "Spare bis zu",
             "line1_text_type_scale": "--h6-font-size",
-            "line2_text": "25%",
+            "line2_text": "70%",
             "line2_text_type_scale": "h3",
             "line3_text": "",
             "line3_text_type_scale": "--h5-font-size",
             "overlay_position": "justify-start items-start",
             "text_alignment": "text-center",
             "promo_circle": true,
-            "background_color": "#aa1155",
+            "background_color": "#8FBC8F",
             "text_color": "#ffffff",
-            "subheading": "Replace the essentials",
-            "link_text": "Shop Computing >",
+            "subheading": "Gebrauchte Bücher in Top-Zustand",
+            "link_text": "Zu den Schnäppchen >",
             "text_type_scale": "h5",
             "tint_color": "#000000",
             "tint_opacity": 0
@@ -238,8 +238,8 @@
             "promo_circle": true,
             "background_color": "#aa1155",
             "text_color": "#ffffff",
-            "subheading": "Treat yourself...",
-            "link_text": "Shop loudspeakers >",
+            "subheading": "Gönn dir was Gutes...",
+            "link_text": "Zu den Bestsellern >",
             "text_type_scale": "h5",
             "tint_color": "#000000",
             "tint_opacity": 0
@@ -252,19 +252,19 @@
             "link_url": "",
             "columns": 2,
             "rows": 1,
-            "line1_text": "Save up to",
+            "line1_text": "Über",
             "line1_text_type_scale": "--h6-font-size",
-            "line2_text": "33%",
+            "line2_text": "180k",
             "line2_text_type_scale": "h2",
-            "line3_text": "",
+            "line3_text": "Bücher",
             "line3_text_type_scale": "--h5-font-size",
             "overlay_position": "justify-start items-start",
             "text_alignment": "text-center",
             "promo_circle": true,
-            "background_color": "#aa1155",
+            "background_color": "#8FBC8F",
             "text_color": "#ffffff",
-            "subheading": "Make it snappy!",
-            "link_text": "Top deals on cameras >",
+            "subheading": "Große Auswahl für jeden Geschmack!",
+            "link_text": "Katalog durchstöbern >",
             "text_type_scale": "h5",
             "tint_color": "#000000",
             "tint_opacity": 0
@@ -297,7 +297,7 @@
         "template--17937594614048__8920e5de-3c38-4881-9157-068a30f16121-16768866707e61c625-0": {
           "type": "heading",
           "settings": {
-            "heading": "Flash Sale",
+            "heading": "Aktuelle Angebote",
             "heading_size": "h1",
             "heading_h1": false
           }
@@ -305,7 +305,7 @@
         "template--17937594614048__8920e5de-3c38-4881-9157-068a30f16121-16768866707e61c625-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Hurry! Offers end soon.<\/p>",
+            "text": "<p>Schnell zugreifen! Begrenzte Stückzahl.<\/p>",
             "enlarge_text": true
           }
         },
@@ -322,7 +322,7 @@
         "fcfd3bc5-11d0-43b5-8d4b-ca59a170c6dd": {
           "type": "button",
           "settings": {
-            "button_1_label": "Shop Flash Sale",
+            "button_1_label": "Zu den Angeboten",
             "button_1_link": "",
             "button_1_style": "btn btn--primary",
             "button_2_label": "",
@@ -383,7 +383,7 @@
         "acce17cf-8f17-46d2-9235-006d24df53ea": {
           "type": "heading",
           "settings": {
-            "heading": "New Product V2",
+            "heading": "Zweitliebe Premium",
             "heading_size": "h1",
             "heading_h1": false
           }
@@ -391,14 +391,14 @@
         "6c4e69a1-9cf9-4045-8abb-e3d8ceb30b23": {
           "type": "text",
           "settings": {
-            "text": "<p>Smart watches just got smarter...<\/p>",
+            "text": "<p>Nachhaltiges Lesen wird noch einfacher...<\/p>",
             "enlarge_text": true
           }
         },
         "90617dd2-3fd4-4de9-b743-6301d904e700": {
           "type": "button",
           "settings": {
-            "button_label": "Coming Soon!",
+            "button_label": "Jetzt entdecken!",
             "button_link": "",
             "button_style": "btn btn--primary"
           }
@@ -674,7 +674,7 @@
         "template--17646024294688__53337ab6-3f88-45e9-8fe2-7d55ee55a74a-16752469146a26910e-0": {
           "type": "heading",
           "settings": {
-            "heading": "A visual sound",
+            "heading": "Ein literarisches Erlebnis",
             "heading_size": "h1",
             "heading_h1": false
           }
@@ -682,14 +682,14 @@
         "template--17646024294688__53337ab6-3f88-45e9-8fe2-7d55ee55a74a-16752469146a26910e-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Top deals on home entertainment<\/p>",
+            "text": "<p>Top Angebote für Buchliebhaber<\/p>",
             "enlarge_text": true
           }
         },
         "template--17646024294688__53337ab6-3f88-45e9-8fe2-7d55ee55a74a-16752469146a26910e-2": {
           "type": "button",
           "settings": {
-            "button_1_label": "Shop now",
+            "button_1_label": "Jetzt stöbern",
             "button_1_link": "",
             "button_1_style": "btn btn--primary",
             "button_2_label": "",
@@ -729,8 +729,8 @@
           "type": "feature",
           "settings": {
             "image": "",
-            "heading": "Pixel perfect",
-            "text": "<p>Immerse yourself in crystal-clear images and movies with the stunning 27\" 2560 x 1400 backlit LED screen.<\/p>",
+            "heading": "Zustand perfekt",
+            "text": "<p>Tauchen Sie ein in die Welt der Bücher mit unserer sorgfältigen Qualitätsprüfung und detaillierten Zustandsbeschreibung.<\/p>",
             "content_align": "text-start",
             "hotspot_x": 24,
             "hotspot_y": 24
@@ -740,8 +740,8 @@
           "type": "feature",
           "settings": {
             "image": "",
-            "heading": "Powerful processing",
-            "text": "<p>With a choice of Intel's 12th Gen i7-1260P or i5-1240P processors, it won't let you down.<\/p>",
+            "heading": "Schnelle Lieferung",
+            "text": "<p>Mit unserem effizienten Versand erhalten Sie Ihre Bücher schnell und sicher - meist schon am nächsten Tag.<\/p>",
             "content_align": "text-start",
             "hotspot_x": 84,
             "hotspot_y": 32
@@ -751,8 +751,8 @@
           "type": "feature",
           "settings": {
             "image": "",
-            "heading": "Rear I\/O connectors",
-            "text": "<p>You're always connected, featuring x2 HDMI ports, x2 USB 3.2 Type A ports and x1 LAN port.<\/p>",
+            "heading": "36 Monate Garantie",
+            "text": "<p>Sie sind immer abgesichert - mit unserer einzigartigen 36-Monate Garantie auf alle gebrauchten Bücher.<\/p>",
             "content_align": "text-start",
             "hotspot_x": 66,
             "hotspot_y": 66
@@ -787,14 +787,14 @@
         "template--17646024294688__44b64c8e-4ea7-4c35-96f3-42d82b3c2069-167517588875579705-0": {
           "type": "heading",
           "settings": {
-            "heading": "Sign up and get 10% off",
+            "heading": "Newsletter abonnieren und 10% sparen",
             "heading_size": "h3"
           }
         },
         "template--17646024294688__44b64c8e-4ea7-4c35-96f3-42d82b3c2069-167517588875579705-1": {
           "type": "text",
           "settings": {
-            "text": "<p>News, reviews & special offers<\/p>",
+            "text": "<p>Buchempfehlungen, Neuheiten & exklusive Angebote<\/p>",
             "enlarge_text": true
           }
         },
@@ -848,10 +848,10 @@
           "type": "column",
           "settings": {
             "image": "",
-            "heading": "Home Audio",
-            "heading_bg_color": "#ff580d",
+            "heading": "Romane",
+            "heading_bg_color": "#8FBC8F",
             "heading_text_color": "#ffffff",
-            "button_label": "Shop all",
+            "button_label": "Alle anzeigen",
             "button_link": "#"
           }
         },
@@ -859,10 +859,10 @@
           "type": "column",
           "settings": {
             "image": "",
-            "heading": "Smart Tech",
-            "heading_bg_color": "#ff580d",
+            "heading": "Krimis & Thriller",
+            "heading_bg_color": "#8FBC8F",
             "heading_text_color": "#ffffff",
-            "button_label": "Shop all",
+            "button_label": "Alle anzeigen",
             "button_link": "#"
           }
         },
@@ -870,10 +870,10 @@
           "type": "column",
           "settings": {
             "image": "",
-            "heading": "Digital Cameras",
-            "heading_bg_color": "#ff580d",
+            "heading": "Fantasy & Science Fiction",
+            "heading_bg_color": "#8FBC8F",
             "heading_text_color": "#ffffff",
-            "button_label": "Shop all",
+            "button_label": "Alle anzeigen",
             "button_link": "#"
           }
         },
@@ -881,10 +881,10 @@
           "type": "column",
           "settings": {
             "image": "",
-            "heading": "Computing",
-            "heading_bg_color": "#ff580d",
+            "heading": "Sachbücher",
+            "heading_bg_color": "#8FBC8F",
             "heading_text_color": "#ffffff",
-            "button_label": "Shop all",
+            "button_label": "Alle anzeigen",
             "button_link": "#"
           }
         }
