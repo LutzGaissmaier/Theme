@@ -163,7 +163,7 @@
       }
     },
     "featured_products": {
-      "type": "zweitliebe-featured-collection",
+      "type": "featured-collection",
       "settings": {
         "collection": "bestseller",
         "heading": "Unsere Bestseller",

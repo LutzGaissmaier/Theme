@@ -1,0 +1,63 @@
+{% comment %}
+  ZWEITLIEBE PRODUCT GRID - REBUY.DE STYLE
+  Verwendet rebuy-product-card für optimale Conversion
+{% endcomment %}
+
+<div class="zweitliebe-container">
+  {% if section.settings.heading != blank or section.settings.subheading != blank %}
+    <div style="text-align: {{ section.settings.text_alignment | default: 'center' }}; margin-bottom: var(--space-2xl);">
+      {% if section.settings.heading != blank %}
+        <h2 style="font-size: var(--text-3xl); font-weight: var(--font-bold); color: var(--gray-900); margin-bottom: var(--space-md);">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+      
+      {% if section.settings.subheading != blank %}
+        <p style="font-size: var(--text-lg); color: var(--gray-600); max-width: 600px; margin: 0 auto;">
+          {{ section.settings.subheading }}
+        </p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <!-- Product Grid -->
+  <div class="zweitliebe-grid zweitliebe-grid-{{ section.settings.products_per_row | default: 4 }}" style="margin-bottom: var(--space-2xl);">
+    {% if collection %}
+      {% for product in collection.products limit: section.settings.product_limit %}
+        {% render 'rebuy-product-card', product: product, section: section %}
+      {% endfor %}
+    {% else %}
+      {% for product in collections.all.products limit: section.settings.product_limit %}
+        {% render 'rebuy-product-card', product: product, section: section %}  
+      {% endfor %}
+    {% endif %}
+  </div>
+
+  <!-- View All Button -->
+  {% if section.settings.show_view_all and collection %}
+    <div style="text-align: center;">
+      <a href="{{ collection.url }}" class="btn-secondary">
+        {{ section.settings.view_all_text | default: 'Alle Produkte anzeigen' }}
+      </a>
+    </div>
+  {% endif %}
+</div>
+
+<!-- Mobile Responsive -->
+<style>
+@media (max-width: 768px) {
+  .zweitliebe-grid-2,
+  .zweitliebe-grid-3, 
+  .zweitliebe-grid-4 {
+    grid-template-columns: repeat({{ section.settings.mobile_products_per_row | default: 2 }}, 1fr) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .zweitliebe-grid-2,
+  .zweitliebe-grid-3,
+  .zweitliebe-grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+}
+</style> 
