@@ -6176,3 +6176,86 @@ a[href*="faq"]:not(.button):before,
   background-color: #2D5A27 !important;
   color: white !important;
 }
+
+/* ⚡ NUCLEAR OPTION: Entferne ALLE Tech-Hintergründe komplett */
+.hero-slideshow,
+.slideshow,
+.navigation-slideshow,
+.hero-section,
+.slideshow-container,
+[class*="slideshow"],
+[class*="hero"] {
+  background-image: none !important;
+  background: none !important;
+}
+
+/* Erzwinge Buch-Hintergründe für ALLE Slides */
+.hero-slideshow *,
+.slideshow *,
+.navigation-slideshow *,
+.hero-section *,
+.slideshow-container *,
+[class*="slideshow"] *,
+[class*="hero"] * {
+  background-image: none !important;
+}
+
+/* Ersetze durch Buch-Gradient für alle Slideshow-Elemente */
+.hero-slideshow,
+.slideshow,
+.navigation-slideshow,
+.hero-section,
+.slideshow-container,
+[class*="slideshow"]:not([class*="product"]),
+[class*="hero"]:not([class*="product"]) {
+  background: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+  position: relative !important;
+}
+
+/* Verstecke alle möglichen Tech-SVGs und -Bilder */
+svg[viewBox*="camera"],
+svg[viewBox*="watch"],
+svg[viewBox*="computer"],
+img[alt*="camera"],
+img[alt*="watch"],
+img[alt*="computer"],
+img[alt*="technology"],
+img[alt*="tech"],
+[style*="camera"],
+[style*="watch"],
+[style*="computer"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Ersetze Suchplatzhalter via CSS */
+.search__input[placeholder*="camera"]::-webkit-input-placeholder {
+  content: "Nach Büchern suchen..." !important;
+}
+
+.search__input[placeholder*="camera"]::-moz-placeholder {
+  content: "Nach Büchern suchen..." !important;
+}
+
+.search__input[placeholder*="laptop"]::-webkit-input-placeholder {
+  content: "Autor oder Titel eingeben..." !important;
+}
+
+.search__input[placeholder*="laptop"]::-moz-placeholder {
+  content: "Autor oder Titel eingeben..." !important;
+}
+
+.search__input[placeholder*="tech"]::-webkit-input-placeholder {
+  content: "ISBN oder Verlag suchen..." !important;
+}
+
+.search__input[placeholder*="tech"]::-moz-placeholder {
+  content: "ISBN oder Verlag suchen..." !important;
+}
+
+/* Überschreibe alle möglichen Slideshow Background-Styles */
+[style*="background-image"][style*="url"] {
+  background-image: none !important;
+  background: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+}

@@ -134,6 +134,44 @@
 
   // Funktion für spezielle Selektoren
   function replaceSpecialElements() {
+    
+    // ⚡ KRITISCH: Ersetze englische Suchplatzhalter sofort
+    const searchInputs = document.querySelectorAll('input[type="search"], .search__input, #header-search');
+    searchInputs.forEach(input => {
+      const placeholder = input.getAttribute('placeholder');
+      if (placeholder) {
+        if (placeholder.includes('camera')) {
+          input.setAttribute('placeholder', 'Nach Büchern suchen...');
+        } else if (placeholder.includes('laptop')) {
+          input.setAttribute('placeholder', 'Autor oder Titel eingeben...');
+        } else if (placeholder.includes('tech') || placeholder.includes('smart')) {
+          input.setAttribute('placeholder', 'ISBN oder Verlag suchen...');
+        } else if (placeholder.includes('Search for') || placeholder.includes('Search')) {
+          input.setAttribute('placeholder', 'Nach Büchern suchen...');
+        }
+      }
+    });
+    
+    // Entferne alle Tech-Hintergründe via JavaScript
+    const slideshowElements = document.querySelectorAll('.hero-slideshow, .slideshow, .navigation-slideshow, .slide, [class*="slideshow"], [class*="hero"]');
+    slideshowElements.forEach(element => {
+      if (element.style.backgroundImage) {
+        element.style.backgroundImage = 'none';
+        element.style.background = 'linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%)';
+      }
+    });
+    
+    // Verstecke Tech-SVGs
+    const techSvgs = document.querySelectorAll('svg[viewBox*="camera"], svg[viewBox*="watch"], svg[viewBox*="computer"]');
+    techSvgs.forEach(svg => {
+      svg.style.display = 'none';
+    });
+    
+    // Verstecke Tech-Bilder
+    const techImages = document.querySelectorAll('img[alt*="camera"], img[alt*="watch"], img[alt*="computer"], img[alt*="technology"]');
+    techImages.forEach(img => {
+      img.style.display = 'none';
+    });
     // Home Link in Navigation
     const homeLinks = document.querySelectorAll('a[href="/"], a[href="' + window.location.origin + '/"]');
     homeLinks.forEach(link => {
@@ -235,6 +273,35 @@
     setTimeout(() => {
       translatePage();
     }, 3000);
+
+    // ⚡ AGGRESSIVE ÜBERSCHREIBUNG: Wiederhole alle 1 Sekunde für die ersten 10 Sekunden
+    let aggressiveCounter = 0;
+    const aggressiveInterval = setInterval(() => {
+      aggressiveCounter++;
+      
+      // Überschreibe Suchplatzhalter
+      const searchInputs = document.querySelectorAll('input[type="search"], .search__input');
+      searchInputs.forEach(input => {
+        const placeholder = input.getAttribute('placeholder');
+        if (placeholder && (placeholder.includes('camera') || placeholder.includes('laptop') || placeholder.includes('tech'))) {
+          input.setAttribute('placeholder', 'Nach Büchern suchen...');
+        }
+      });
+      
+      // Entferne Tech-Hintergründe
+      const slides = document.querySelectorAll('.slide, [class*="slide"]');
+      slides.forEach(slide => {
+        if (slide.style.backgroundImage || getComputedStyle(slide).backgroundImage !== 'none') {
+          slide.style.backgroundImage = 'none';
+          slide.style.background = 'linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%)';
+        }
+      });
+      
+      // Stoppe nach 10 Sekunden
+      if (aggressiveCounter >= 10) {
+        clearInterval(aggressiveInterval);
+      }
+    }, 1000);
   }
 
   // Script starten
