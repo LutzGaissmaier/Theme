@@ -26,7 +26,7 @@
         "banner-heading-0": {
           "type": "heading",
           "settings": {
-            "heading": "Help & FAQs",
+            "heading": "Hilfe & Häufige Fragen",
             "heading_size": "h0",
             "heading_h1": true
           }
@@ -34,7 +34,7 @@
         "banner-text-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Add some general information for your shoppers.<\/p>",
+            "text": "<p>Hier finden Sie Antworten auf die häufigsten Fragen zu unserem Buchshop.<\/p>",
             "enlarge_text": true
           }
         }
@@ -47,7 +47,7 @@
     "faqs": {
       "type": "faq",
       "settings": {
-        "heading": "FAQs",
+        "heading": "Häufige Fragen",
         "heading_align": "text-center",
         "color_scheme": "none",
         "full_width": true
@@ -56,67 +56,67 @@
         "faq-category-1": {
           "type": "category",
           "settings": {
-            "text": "Ordering"
+            "text": "Bestellung"
           }
         },
         "faq-question-1": {
           "type": "question",
           "settings": {
             "icon": "question_mark",
-            "heading": "Can I cancel my order?",
-            "text": "<p>We completely get it, we change our minds too! While we wish could, once an order is placed, we are unable to alter or cancel it at this time. We hope to have a cancellation window one day in the future.<\/p><p>Should the item(s) not work out, make sure to exchange for a preferred style or return for a refund. As a reminder, domestic return shipping is free.<\/p>"
+            "heading": "Kann ich meine Bestellung stornieren?",
+            "text": "<p>Das verstehen wir vollkommen! Sobald eine Bestellung aufgegeben wurde, können wir sie leider nicht mehr ändern oder stornieren.<\/p><p>Falls die Bücher nicht passen, können Sie diese einfach zurücksenden oder umtauschen. Der Rückversand innerhalb Deutschlands ist kostenlos.<\/p>"
           }
         },
         "faq-question-2": {
           "type": "question",
           "settings": {
             "icon": "chat_bubble",
-            "heading": "What if I want to speak to someone?",
-            "text": "<p>We want to speak to you too! Contact us with any questions, concerns, or feedback. We will be sure to get back to you within 48 hours. However, please note that inquiries sent on Fridays will receive a reply the following Monday, but possibly sooner.<\/p>"
+            "heading": "Wie kann ich den Kundenservice kontaktieren?",
+            "text": "<p>Wir helfen Ihnen gerne weiter! Kontaktieren Sie uns bei Fragen, Anliegen oder Feedback. Wir antworten innerhalb von 48 Stunden. Anfragen am Freitag werden am folgenden Montag beantwortet.<\/p>"
           }
         },
         "faq-category-2": {
           "type": "category",
           "settings": {
-            "text": "Shipping"
+            "text": "Versand"
           }
         },
         "faq-question-3": {
           "type": "question",
           "settings": {
             "icon": "map_pin",
-            "heading": "What countries do you ship to?",
-            "text": "<p>We currently ship to the United States, Canada, Australia and the UK. To enquire about shipping to a different destination, please contact us.<\/p>"
+            "heading": "In welche Länder versenden Sie?",
+            "text": "<p>Wir versenden nach Deutschland, Österreich, Schweiz und in die EU. Für Anfragen zu anderen Versandzielen kontaktieren Sie uns bitte.<\/p>"
           }
         },
         "faq-question-4": {
           "type": "question",
           "settings": {
             "icon": "calendar",
-            "heading": "How long will it take to receive my order?",
-            "text": "<p>Standard shipping normally takes 3-5 days. Next day shipping is available on all domestic orders (for an additional charge). International shipping times depend on the products and destination (estimated at checkout).<\/p>"
+            "heading": "Wie lange dauert die Lieferung?",
+            "text": "<p>Standardversand dauert normalerweise 2-4 Tage. Express-Versand am nächsten Tag ist gegen Aufpreis verfügbar. Bei EU-Versand rechnen Sie mit 3-7 Tagen (Schätzung an der Kasse).<\/p>"
           }
         },
         "faq-category-3": {
           "type": "category",
           "settings": {
-            "text": "Returns and Refunds"
+            "text": "Rückgabe & Rückerstattung"
           }
         },
         "faq-question-5": {
           "type": "question",
           "settings": {
             "icon": "return",
-            "heading": "How do I return a product?",
-            "text": "<p>Items must be returned within 30 days after receiving your order. Items must be returned in the same condition in which they were received, be unworn\/unused, have any tags still attached, and include all the original packaging.<\/p>"
+            "heading": "Wie kann ich Bücher zurückgeben?",
+            "text": "<p>Bücher können innerhalb von 36 Monaten nach Erhalt zurückgegeben werden. Sie müssen im gleichen Zustand zurückgesendet werden, ungelesen\/unbenutzt, mit allen ursprünglichen Verpackungen.<\/p>"
           }
         },
         "faq-question-6": {
           "type": "question",
           "settings": {
             "icon": "clock",
-            "heading": "How long will it take to receive my refund?",
-            "text": "<p>Refunds are processed within 7 days from when we receive the item(s).<\/p>"
+            "heading": "Wie lange dauert die Rückerstattung?",
+            "text": "<p>Rückerstattungen werden innerhalb von 7 Tagen nach Erhalt der Bücher bearbeitet.<\/p>"
           }
         }
       },
@@ -159,7 +159,7 @@
         "contact-dropdown-4": {
           "type": "dropdown",
           "settings": {
-            "title": "How can we help?",
+            "title": "Womit können wir Ihnen helfen?",
             "half_width": false
           }
         },

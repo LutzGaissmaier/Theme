@@ -151,7 +151,7 @@
         "sections--17646025539872__883c3065-1506-4c0c-af62-4e0f6bc49c84-167509257206b82108-0": {
           "type": "heading",
           "settings": {
-            "heading": "Flash Sale now on!",
+            "heading": "Aktuelle Angebote!",
             "heading_size": "h6",
             "show_on_mobile": true,
             "show_on_desktop": true
@@ -160,7 +160,7 @@
         "sections--17646025539872__883c3065-1506-4c0c-af62-4e0f6bc49c84-167509257206b82108-1": {
           "type": "text",
           "settings": {
-            "text": "<p>Huge savings across all ranges sitewide<\/p>",
+            "text": "<p>Große Ersparnis auf alle Buchkategorien<\/p>",
             "enlarge_text": false,
             "show_on_mobile": false,
             "show_on_desktop": true
@@ -169,7 +169,7 @@
         "58b7ef29-75b8-489c-8f40-d7eb6859d517": {
           "type": "discount",
           "settings": {
-            "discount_code": "FLASHSALE23"
+            "discount_code": "BUCHLIEBE23"
           }
         }
       },
