@@ -5883,3 +5883,245 @@ body > .os-scrollbar {
     grid-template-columns: repeat(8, minmax(0, 1fr));
   }
 }
+
+/* ========================================
+   DEUTSCHE ÜBERSETZUNGEN - CSS OVERRIDES
+   Ersetzt englische Texte durch deutsche
+   ======================================== */
+
+/* Verstecke englische Texte und ersetze sie durch deutsche */
+
+/* Gift Cards Hinweis im Header */
+[data-announcement-bar] a[href*="gift"],
+.utility-bar a[href*="gift"],
+.header__announcement a[href*="gift"] {
+  font-size: 0 !important;
+  line-height: 0 !important;
+}
+
+[data-announcement-bar] a[href*="gift"]:before,
+.utility-bar a[href*="gift"]:before,
+.header__announcement a[href*="gift"]:before {
+  content: "Geschenkkarten verfügbar Mehr erfahren";
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  display: inline-block;
+}
+
+/* Brands Link */
+a[href*="brands"]:not(.button),
+.header__menu a[href*="brands"] {
+  font-size: 0 !important;
+}
+
+a[href*="brands"]:not(.button):before,
+.header__menu a[href*="brands"]:before {
+  content: "Marken";
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+/* FAQ Link */
+a[href*="faq"]:not(.button),
+.header__menu a[href*="faq"] {
+  font-size: 0 !important;
+}
+
+a[href*="faq"]:not(.button):before,
+.header__menu a[href*="faq"]:before {
+  content: "FAQ";
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Home Navigation - spezifischer Selector */
+.breadcrumb__item a[href="/"]:not(.button),
+.header-navigation a[href="/"]:not(.button),
+.nav__item a[href="/"]:not(.button) {
+  font-size: 0 !important;
+}
+
+.breadcrumb__item a[href="/"]:not(.button):before,
+.header-navigation a[href="/"]:not(.button):before,
+.nav__item a[href="/"]:not(.button):before {
+  content: "Startseite";
+  font-size: 14px !important;
+  line-height: inherit !important;
+  font-weight: inherit;
+}
+
+/* Expert Help Button */
+.header__button[aria-label*="help"],
+.header__button[data-text*="expert"],
+.button[aria-label*="Expert"],
+.header-button {
+  font-size: 0 !important;
+}
+
+.header__button[aria-label*="help"]:before,
+.header__button[data-text*="expert"]:before,
+.button[aria-label*="Expert"]:before,
+.header-button:before {
+  content: "Expertenberatung";
+  font-size: 14px !important;
+  line-height: inherit !important;
+}
+
+/* Trust Banner Texte - spezifischere Selektoren */
+.trust-bar__item:nth-child(1) .trust-bar__text,
+.announcement-bar__item:nth-child(1) .announcement-bar__text,
+[class*="shipping"] .trust-text:not(.button) {
+  font-size: 0 !important;
+}
+
+.trust-bar__item:nth-child(1) .trust-bar__text:before,
+.announcement-bar__item:nth-child(1) .announcement-bar__text:before,
+[class*="shipping"] .trust-text:not(.button):before {
+  content: "Kostenloser Versand ab 10€";
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  white-space: nowrap;
+  color: inherit;
+}
+
+.trust-bar__item:nth-child(2) .trust-bar__text,
+.announcement-bar__item:nth-child(2) .announcement-bar__text {
+  font-size: 0 !important;
+}
+
+.trust-bar__item:nth-child(2) .trust-bar__text:before,
+.announcement-bar__item:nth-child(2) .announcement-bar__text:before {
+  content: "Kostenlose Hilfe & Beratung";
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  white-space: nowrap;
+  color: inherit;
+}
+
+.trust-bar__item:nth-child(3) .trust-bar__text,
+.announcement-bar__item:nth-child(3) .announcement-bar__text {
+  font-size: 0 !important;
+}
+
+.trust-bar__item:nth-child(3) .trust-bar__text:before,
+.announcement-bar__item:nth-child(3) .announcement-bar__text:before {
+  content: "Problemlose Rückgabe";
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  white-space: nowrap;
+  color: inherit;
+}
+
+.trust-bar__item:nth-child(4) .trust-bar__text,
+.announcement-bar__item:nth-child(4) .announcement-bar__text {
+  font-size: 0 !important;
+}
+
+.trust-bar__item:nth-child(4) .trust-bar__text:before,
+.announcement-bar__item:nth-child(4) .announcement-bar__text:before {
+  content: "7 Tage die Woche geöffnet";
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  white-space: nowrap;
+  color: inherit;
+}
+
+/* Shop our range / Choose department */
+.collection-hero h2,
+.filter-bar__heading,
+.sidebar__heading {
+  font-size: 0 !important;
+}
+
+.collection-hero h2:before,
+.filter-bar__heading:before,
+.sidebar__heading:before {
+  content: "Unser Sortiment entdecken";
+  font-size: 24px !important;
+  line-height: inherit !important;
+  font-weight: inherit;
+}
+
+/* Weitere allgemeine englische Begriffe */
+.button[data-text*="Shop"],
+.btn[data-text*="Shop"] {
+  font-size: 0 !important;
+}
+
+.button[data-text*="Shop"]:before,
+.btn[data-text*="Shop"]:before {
+  content: "Jetzt einkaufen";
+  font-size: 16px !important;
+  line-height: inherit !important;
+  font-weight: inherit;
+}
+
+.button[data-text*="Learn"],
+.btn[data-text*="Learn"] {
+  font-size: 0 !important;
+}
+
+.button[data-text*="Learn"]:before,
+.btn[data-text*="Learn"]:before {
+  content: "Mehr erfahren";
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.button[data-text*="View"],
+.btn[data-text*="View"] {
+  font-size: 0 !important;
+}
+
+.button[data-text*="View"]:before,
+.btn[data-text*="View"]:before {
+  content: "Alle anzeigen";
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+/* Responsive Anpassungen für mobile Geräte */
+@media (max-width: 768px) {
+  .trust-bar__text:before,
+  .announcement-bar__text:before {
+    font-size: 12px !important;
+  }
+  
+  /* Kürzere Texte für mobile */
+  .trust-bar__item:nth-child(1) .trust-bar__text:before {
+    content: "Versand ab 10€ frei";
+  }
+  
+  .trust-bar__item:nth-child(2) .trust-bar__text:before {
+    content: "Kostenlose Beratung";
+  }
+  
+  .trust-bar__item:nth-child(3) .trust-bar__text:before {
+    content: "Kostenlose Rückgabe";
+  }
+  
+  .trust-bar__item:nth-child(4) .trust-bar__text:before {
+    content: "7 Tage geöffnet";
+  }
+}
+
+/* Spezielle Fälle für häufige englische Begriffe */
+[aria-label*="Free shipping"]:before,
+[data-tooltip*="Free shipping"]:before {
+  content: "Kostenloser Versand ab 10€" !important;
+}
+
+[aria-label*="Free help"]:before,
+[data-tooltip*="Free help"]:before {
+  content: "Kostenlose Hilfe & Beratung" !important;
+}
+
+[aria-label*="Hassle-free"]:before,
+[data-tooltip*="Hassle-free"]:before {
+  content: "Problemlose Rückgabe" !important;
+}
+
+[aria-label*="Open 7 days"]:before,
+[data-tooltip*="Open 7 days"]:before {
+  content: "7 Tage die Woche geöffnet" !important;
+}
