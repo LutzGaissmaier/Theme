@@ -1,257 +1,360 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
-      "disabled": true,
-      "settings": {
-        "show_page_title": false,
-        "heading_align": "text-center"
-      }
-    },
-    "image-banner": {
-      "type": "image-banner",
-      "settings": {
-        "height_mode": "fixed",
-        "fixed_height_desktop": 560,
-        "fixed_height_mobile": 400,
-        "overlay_position": "justify-start items-center",
-        "overlay_text_align": "text-start",
-        "mob_center_text": true,
-        "mobile_stacked": false,
-        "color_scheme": "white",
-        "full_width": true,
-        "prevent_animation": false
-      },
-      "blocks": {
-        "banner-heading-0": {
+    "faq_hero": {
+      "type": "rich-text",
+      "blocks": [
+        {
           "type": "heading",
           "settings": {
-            "heading": "Hilfe & Häufige Fragen",
-            "heading_size": "h0",
-            "heading_h1": true
+            "heading": "Häufige Fragen von Studierenden",
+            "heading_size": "h1"
           }
         },
-        "banner-text-1": {
+        {
           "type": "text",
           "settings": {
-            "text": "<p>Hier finden Sie Antworten auf die häufigsten Fragen zu unserem Buchshop.<\/p>",
+            "text": "<p><strong>Schnelle Antworten auf alle wichtigen Fragen</strong><br>rund um Fachbücher, Bestellung, Versand und Nachhaltigkeit.</p>",
             "enlarge_text": true
           }
         }
-      },
+      ],
       "block_order": [
-        "banner-heading-0",
-        "banner-text-1"
-      ]
-    },
-    "faqs": {
-      "type": "faq",
-      "settings": {
-        "heading": "Häufige Fragen",
-        "heading_align": "text-center",
-        "color_scheme": "none",
-        "full_width": true
-      },
-      "blocks": {
-        "faq-category-1": {
-          "type": "category",
-          "settings": {
-            "text": "Bestellung"
-          }
-        },
-        "faq-question-1": {
-          "type": "question",
-          "settings": {
-            "icon": "question_mark",
-            "heading": "Kann ich meine Bestellung stornieren?",
-            "text": "<p>Das verstehen wir vollkommen! Sobald eine Bestellung aufgegeben wurde, können wir sie leider nicht mehr ändern oder stornieren.<\/p><p>Falls die Bücher nicht passen, können Sie diese einfach zurücksenden oder umtauschen. Der Rückversand innerhalb Deutschlands ist kostenlos.<\/p>"
-          }
-        },
-        "faq-question-2": {
-          "type": "question",
-          "settings": {
-            "icon": "chat_bubble",
-            "heading": "Wie kann ich den Kundenservice kontaktieren?",
-            "text": "<p>Wir helfen Ihnen gerne weiter! Kontaktieren Sie uns bei Fragen, Anliegen oder Feedback. Wir antworten innerhalb von 48 Stunden. Anfragen am Freitag werden am folgenden Montag beantwortet.<\/p>"
-          }
-        },
-        "faq-category-2": {
-          "type": "category",
-          "settings": {
-            "text": "Versand"
-          }
-        },
-        "faq-question-3": {
-          "type": "question",
-          "settings": {
-            "icon": "map_pin",
-            "heading": "In welche Länder versenden Sie?",
-            "text": "<p>Wir versenden nach Deutschland, Österreich, Schweiz und in die EU. Für Anfragen zu anderen Versandzielen kontaktieren Sie uns bitte.<\/p>"
-          }
-        },
-        "faq-question-4": {
-          "type": "question",
-          "settings": {
-            "icon": "calendar",
-            "heading": "Wie lange dauert die Lieferung?",
-            "text": "<p>Standardversand dauert normalerweise 2-4 Tage. Express-Versand am nächsten Tag ist gegen Aufpreis verfügbar. Bei EU-Versand rechnen Sie mit 3-7 Tagen (Schätzung an der Kasse).<\/p>"
-          }
-        },
-        "faq-category-3": {
-          "type": "category",
-          "settings": {
-            "text": "Rückgabe & Rückerstattung"
-          }
-        },
-        "faq-question-5": {
-          "type": "question",
-          "settings": {
-            "icon": "return",
-            "heading": "Wie kann ich Bücher zurückgeben?",
-            "text": "<p>Bücher können innerhalb von 36 Monaten nach Erhalt zurückgegeben werden. Sie müssen im gleichen Zustand zurückgesendet werden, ungelesen\/unbenutzt, mit allen ursprünglichen Verpackungen.<\/p>"
-          }
-        },
-        "faq-question-6": {
-          "type": "question",
-          "settings": {
-            "icon": "clock",
-            "heading": "Wie lange dauert die Rückerstattung?",
-            "text": "<p>Rückerstattungen werden innerhalb von 7 Tagen nach Erhalt der Bücher bearbeitet.<\/p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq-category-1",
-        "faq-question-1",
-        "faq-question-2",
-        "faq-category-2",
-        "faq-question-3",
-        "faq-question-4",
-        "faq-category-3",
-        "faq-question-5",
-        "faq-question-6"
-      ]
-    },
-    "contact-form": {
-      "type": "contact-form",
-      "blocks": {
-        "contact-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>If the answers you're looking for aren't in our FAQ, please send us an email by completing the form below.<\/p>",
-            "half_width": false
-          }
-        },
-        "contact-name-2": {
-          "type": "name",
-          "settings": {
-            "required": true,
-            "half_width": true
-          }
-        },
-        "contact-email-3": {
-          "type": "email",
-          "settings": {
-            "required": true,
-            "half_width": true
-          }
-        },
-        "contact-dropdown-4": {
-          "type": "dropdown",
-          "settings": {
-            "title": "Womit können wir Ihnen helfen?",
-            "half_width": false
-          }
-        },
-        "contact-body-5": {
-          "type": "body",
-          "settings": {
-            "required": true,
-            "half_width": false
-          }
-        }
-      },
-      "block_order": [
-        "contact-text-1",
-        "contact-name-2",
-        "contact-email-3",
-        "contact-dropdown-4",
-        "contact-body-5"
+        "heading",
+        "text"
       ],
       "settings": {
-        "heading": "Still looking for answers?",
-        "heading_align": "text-center",
-        "image_position": "top",
-        "color_scheme": "1",
-        "full_width": false,
-        "button_style": "btn btn--primary"
+        "text_alignment": "center",
+        "narrow_column": true,
+        "spacing_above": false,
+        "spacing_below": true,
+        "bg_color": "#F9FAFB"
       }
     },
-    "featured-collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "Trending",
-        "heading_align": "text-start",
-        "show_view_all": true,
-        "layout": "carousel",
-        "card_size": "small",
-        "products_to_show": 24,
-        "show_promo_info": false,
-        "image_ratio": "1",
-        "color_scheme": "none",
-        "button_style": "btn btn--secondary"
-      }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "settings": {
-        "overlay_position": "justify-center",
-        "text_align": "text-center",
-        "color_scheme": "default",
-        "full_width": true
-      },
-      "blocks": {
-        "newsletter-heading-1": {
-          "type": "heading",
-          "settings": {
-            "heading": "Sign up to our Newsletter",
-            "heading_size": "h5"
-          }
-        },
-        "newsletter-text-2": {
+    "quick_search": {
+      "type": "rich-text",
+      "blocks": [
+        {
           "type": "text",
           "settings": {
+            "text": "<div style='background: white; padding: var(--space-lg); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); max-width: 600px; margin: 0 auto;'><h3 style='margin-bottom: var(--space-md); text-align: center;'>🔍 Schnelle FAQ-Suche</h3><div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-sm);'><a href='#bestellung' style='background: var(--primary-green); color: white; padding: var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; text-align: center; font-size: var(--text-sm);'>📦 Bestellung</a><a href='#versand' style='background: var(--trust-blue); color: white; padding: var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; text-align: center; font-size: var(--text-sm);'>🚚 Versand</a><a href='#garantie' style='background: var(--success-green); color: white; padding: var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; text-align: center; font-size: var(--text-sm);'>🛡️ Garantie</a><a href='#nachhaltigkeit' style='background: var(--accent-green); color: white; padding: var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; text-align: center; font-size: var(--text-sm);'>🌱 Nachhaltigkeit</a><a href='#verkaufen' style='background: var(--warning-yellow); color: var(--text-dark); padding: var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; text-align: center; font-size: var(--text-sm);'>💰 Verkaufen</a></div></div>",
+            "enlarge_text": false
+          }
+        }
+      ],
+      "block_order": [
+        "quick-search"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "narrow_column": false,
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": ""
+      }
+    },
+    "faq_bestellung": {
+      "type": "faq",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "Wie funktioniert die Bestellung bei Zweitliebe?",
+            "answer": "<p>Ganz einfach! Suche nach deinem Fachbuch über ISBN, Titel oder Autor. Wähle den gewünschten Zustand aus und lege das Buch in den Warenkorb. Nach dem Checkout erfolgt der Versand meist noch am gleichen Tag.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Welche Zahlungsmethoden akzeptiert ihr?",
+            "answer": "<p>Wir bieten alle gängigen Zahlungsmethoden: PayPal, Kreditkarte (Visa, Mastercard), SEPA-Lastschrift, Sofortüberweisung und Kauf auf Rechnung (nach Bonitätsprüfung). Alle Zahlungen sind SSL-verschlüsselt und sicher.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Kann ich als Student auf Rechnung bezahlen?",
+            "answer": "<p>Ja! Nach einer automatischen Bonitätsprüfung bieten wir Studierenden gerne Kauf auf Rechnung an. Das Zahlungsziel beträgt 14 Tage ab Rechnungsdatum.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Gibt es einen Mindestbestellwert?",
+            "answer": "<p>Nein, es gibt keinen Mindestbestellwert. Ab 10€ Bestellwert ist der Versand kostenfrei, darunter berechnen wir 2,95€ Versandkosten.</p>"
+          }
+        }
+      ],
+      "block_order": [
+        "faq-bestellung-1",
+        "faq-bestellung-2",
+        "faq-bestellung-3",
+        "faq-bestellung-4"
+      ],
+      "settings": {
+        "heading": "📦 Bestellung & Bezahlung",
+        "subheading": "Alles rund um deinen Einkauf",
+        "text_alignment": "left",
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#F0FDF4"
+      }
+    },
+    "faq_versand": {
+      "type": "faq",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "Wie schnell erhalte ich meine Bücher?",
+            "answer": "<p>Bei Bestellungen bis 16 Uhr versenden wir noch am gleichen Tag per DHL. Die Lieferzeit beträgt dann 1-3 Werktage innerhalb Deutschlands. Du erhältst eine Sendungsverfolgungsnummer per E-Mail.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Liefert ihr auch ins Ausland?",
+            "answer": "<p>Ja, wir versenden EU-weit! Die Versandkosten betragen je nach Land 4,95€ - 9,95€. Die Lieferzeit beträgt 3-7 Werktage. Zollgebühren können in Nicht-EU-Ländern zusätzlich anfallen.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Kann ich an meine Uni oder WG liefern lassen?",
+            "answer": "<p>Absolut! Du kannst jede beliebige Adresse als Lieferadresse angeben. Achte nur darauf, dass jemand das Paket entgegennehmen kann oder nutze eine Packstation.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Was passiert, wenn ich nicht da bin?",
+            "answer": "<p>DHL hinterlässt eine Benachrichtigung und das Paket wird in der nächsten Postfiliale oder Packstation hinterlegt. Du hast 7 Tage Zeit zur Abholung.</p>"
+          }
+        }
+      ],
+      "block_order": [
+        "faq-versand-1",
+        "faq-versand-2",
+        "faq-versand-3",
+        "faq-versand-4"
+      ],
+      "settings": {
+        "heading": "🚚 Versand & Lieferung",
+        "subheading": "Schnell und zuverlässig zu dir",
+        "text_alignment": "left",
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#EFF6FF"
+      }
+    },
+    "faq_garantie": {
+      "type": "faq",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "Was bedeutet die 36 Monate Garantie?",
+            "answer": "<p>Wir garantieren dir 36 Monate lang, dass deine Bücher exakt dem beworbenen Zustand entsprechen. Das ist 3x länger als das gesetzliche Widerrufsrecht! Falls ein Buch nicht deinen Erwartungen entspricht, tauschen wir es kostenlos um oder erstatten den vollen Kaufpreis.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Wie sind die Zustandsbeschreibungen zu verstehen?",
+            "answer": "<p><strong>Neuwertig:</strong> Wie neu, minimale Gebrauchsspuren<br><strong>Sehr gut:</strong> Leichte Gebrauchsspuren, alle Seiten vollständig<br><strong>Gut:</strong> Deutliche Gebrauchsspuren, evtl. Unterstreichungen<br><strong>Akzeptabel:</strong> Starke Gebrauchsspuren, aber vollständig lesbar</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Kann ich Bücher zurückgeben?",
+            "answer": "<p>Ja! Du hast 14 Tage Widerrufsrecht ab Erhalt. Zusätzlich gewähren wir dir 30 Tage Umtauschrecht, wenn das Buch nicht deinen Vorstellungen entspricht. Der Rückversand ist für dich kostenlos.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Was ist, wenn Seiten fehlen oder das Buch beschädigt ist?",
+            "answer": "<p>Das sollte nicht passieren, aber falls doch: Melde dich sofort bei uns! Wir senden dir umgehend kostenlosen Ersatz oder erstatten den vollen Kaufpreis. Deine Zufriedenheit ist unser Ziel.</p>"
+          }
+        }
+      ],
+      "block_order": [
+        "faq-garantie-1",
+        "faq-garantie-2",
+        "faq-garantie-3",
+        "faq-garantie-4"
+      ],
+      "settings": {
+        "heading": "🛡️ Garantie & Rückgabe",
+        "subheading": "Deine Sicherheit beim Kauf",
+        "text_alignment": "left",
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#FEF3C7"
+      }
+    },
+    "faq_nachhaltigkeit": {
+      "type": "faq",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "Wie nachhaltig sind gebrauchte Bücher wirklich?",
+            "answer": "<p>Sehr nachhaltig! Jedes gebrauchte Buch spart ca. 2,5kg CO₂, 90% Wasserverbrauch und schont wertvolle Rohstoffe wie Holz und Chemikalien. Mit 180.000+ Büchern haben wir bereits über 450 Tonnen CO₂ eingespart!</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Was macht ihr mit nicht verkaufbaren Büchern?",
+            "answer": "<p>Bücher, die nicht mehr verkaufbar sind, spenden wir an Bildungseinrichtungen, Bibliotheken oder Recycling-Programme. Nichts wandert einfach in den Müll - Nachhaltigkeit ist bei uns nicht nur Marketing.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Wie berechnet ihr die CO₂-Ersparnis?",
+            "answer": "<p>Basierend auf wissenschaftlichen Studien zur Buchproduktion: Ein neues Buch verursacht durchschnittlich 2,71kg CO₂ durch Papierherstellung, Druck und Transport. Durch Wiederverwendung sparen wir diese Emissionen ein.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Ist euer Versand klimaneutral?",
+            "answer": "<p>Ja! Wir versenden ausschließlich mit DHL GoGreen (klimaneutral) und verwenden recycelte Verpackungsmaterialien. Die CO₂-Ersparnis durch gebrauchte Bücher ist deutlich höher als die Versandemissionen.</p>"
+          }
+        }
+      ],
+      "block_order": [
+        "faq-nachhaltigkeit-1",
+        "faq-nachhaltigkeit-2",
+        "faq-nachhaltigkeit-3",
+        "faq-nachhaltigkeit-4"
+      ],
+      "settings": {
+        "heading": "🌱 Nachhaltigkeit & Umwelt",
+        "subheading": "Gemeinsam für eine bessere Zukunft",
+        "text_alignment": "left",
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#ECFDF5"
+      }
+    },
+    "faq_verkaufen": {
+      "type": "faq",
+      "blocks": [
+        {
+          "type": "question",
+          "settings": {
+            "question": "Wie kann ich meine Bücher an euch verkaufen?",
+            "answer": "<p>Ganz einfach über unseren Ankauf-Bereich! Gib die ISBN ein, bewerte den Zustand und wir machen dir ein Angebot. Bei Annahme druckst du ein kostenloses Versandetikett aus und sendest die Bücher zu uns.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Welche Bücher kauft ihr an?",
+            "answer": "<p>Wir kaufen alle gängigen Fachbücher an: Medizin, BWL, Jura, Informatik, Psychologie, Ingenieurswissenschaften und mehr. Die Bücher sollten nicht älter als 10 Jahre und in gutem Zustand sein.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Wie viel bekomme ich für meine Bücher?",
+            "answer": "<p>Das hängt von Nachfrage, Zustand und Alter ab. Durchschnittlich zahlen wir 10-30% des Neupreises. Du siehst den exakten Preis sofort nach ISBN-Eingabe - ohne versteckte Abzüge.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "question": "Wann und wie erhalte ich mein Geld?",
+            "answer": "<p>Nach Eingang und Prüfung deiner Bücher (1-3 Werktage) überweisen wir den Betrag auf dein Konto oder PayPal. Alternativ kannst du auch einen Gutschein für unseren Shop wählen (10% Bonus!).</p>"
+          }
+        }
+      ],
+      "block_order": [
+        "faq-verkaufen-1",
+        "faq-verkaufen-2",
+        "faq-verkaufen-3",
+        "faq-verkaufen-4"
+      ],
+      "settings": {
+        "heading": "💰 Bücher verkaufen",
+        "subheading": "Mach Geld aus deinen alten Büchern",
+        "text_alignment": "left",
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#FEF3E2"
+      }
+    },
+    "contact_cta": {
+      "type": "rich-text",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "Deine Frage war nicht dabei?",
+            "heading_size": "h3"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<p>Kein Problem! Unser Student*innen-Support-Team hilft dir gerne weiter.</p><div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); margin: var(--space-lg) 0;'><div style='text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);'><div style='font-size: 2rem; margin-bottom: var(--space-sm);'>💬</div><h4>Live-Chat</h4><p style='margin: var(--space-sm) 0;'>Sofort-Hilfe verfügbar</p><small style='color: var(--text-muted);'>Mo-Fr 9-18 Uhr</small></div><div style='text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);'><div style='font-size: 2rem; margin-bottom: var(--space-sm);'>📧</div><h4>E-Mail Support</h4><p style='margin: var(--space-sm) 0;'>support@zweitliebe.de</p><small style='color: var(--text-muted);'>Antwort binnen 24h</small></div><div style='text-align: center; padding: var(--space-lg); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);'><div style='font-size: 2rem; margin-bottom: var(--space-sm);'>📱</div><h4>WhatsApp</h4><p style='margin: var(--space-sm) 0;'>+49 123 456 789</p><small style='color: var(--text-muted);'>Schnelle Antworten</small></div></div>",
             "enlarge_text": false
           }
         },
-        "newsletter-form-3": {
-          "type": "form",
+        {
+          "type": "button",
           "settings": {
+            "button_label": "Kontakt aufnehmen",
+            "button_link": "/pages/kontakt",
+            "button_style": "btn btn--primary"
           }
         }
-      },
+      ],
       "block_order": [
-        "newsletter-heading-1",
-        "newsletter-text-2",
-        "newsletter-form-3"
-      ]
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "narrow_column": false,
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#F9FAFB"
+      }
+    },
+    "popular_books": {
+      "type": "zweitliebe-featured-collection",
+      "settings": {
+        "collection": "all",
+        "heading": "Beliebte Fachbücher entdecken",
+        "subheading": "Stöbere in unserem Sortiment",
+        "text_alignment": "center",
+        "product_limit": 4,
+        "products_per_row": 4,
+        "mobile_products_per_row": "2",
+        "enable_filtering": false,
+        "enable_sorting": false,
+        "show_view_all": true,
+        "view_all_text": "Alle Bücher ansehen",
+        "spacing_above": true,
+        "spacing_below": false,
+        "bg_color": ""
+      }
     }
   },
   "order": [
-    "main",
-    "image-banner",
-    "faqs",
-    "contact-form",
-    "featured-collection",
-    "newsletter"
+    "faq_hero",
+    "quick_search",
+    "faq_bestellung",
+    "faq_versand",
+    "faq_garantie",
+    "faq_nachhaltigkeit",
+    "faq_verkaufen",
+    "contact_cta",
+    "popular_books"
   ]
 }

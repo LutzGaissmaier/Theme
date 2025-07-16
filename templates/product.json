@@ -1,1 +1,257 @@
-{"sections":{"main":{"type":"main-product","blocks":{"vendor-sku":{"type":"vendor-sku","settings":{}},"product-labels":{"type":"product-labels","settings":{}},"title":{"type":"title","settings":{}},"price":{"type":"price","settings":{}},"divider-0":{"type":"divider","settings":{}},"variant-picker":{"type":"variant-picker","settings":{}},"divider-1":{"type":"divider","settings":{}},"buy-buttons":{"type":"buy-buttons","settings":{}},"message-1":{"type":"message","settings":{"icon":"clock","title":"<p><strong>Popular right now<br\/><\/strong>Lots of people have looked at this recently<\/p>","show_over_media":true,"visibility_duration":4}},"message-2":{"type":"message","settings":{"icon":"price_tag","title":"<p><strong>Selling fast!<br\/><\/strong>Grab yours while you can<\/p>","show_over_media":true,"visibility_duration":5}},"collapsible-content-1":{"type":"collapsible-content","settings":{"heading":"Care information","icon":"heart","text":"<p>Display general product information or specific product information using metafields.<\/p>"}},"collapsible-content-2":{"type":"collapsible-content","settings":{"heading":"Delivery and Shipping","icon":"truck","text":"<p>Add some general information about your delivery and shipping policies.<\/p>"}},"share":{"type":"share","settings":{}},"message-3":{"type":"message","settings":{"icon":"none","title":"<p>Add a stand out message for your customers<\/p>","close":"once","show_over_media":false}}},"block_order":["vendor-sku","product-labels","title","price","divider-0","variant-picker","divider-1","buy-buttons","message-1","message-2","collapsible-content-1","collapsible-content-2","share","message-3"],"settings":{"sticky_atc_panel":true,"border_color":"#eeeeee"}},"details":{"type":"product-details","blocks":{"highlight-text":{"type":"highlight-text","settings":{}},"tabs":{"type":"tabs","settings":{"style":"collapsible","show_description":true}},"payment-methods":{"type":"payment-methods","settings":{}}},"block_order":["highlight-text","tabs","payment-methods"],"settings":{}},"product-features":{"type":"product-features","blocks":{"product-features-feature-0":{"type":"feature","settings":{"hotspot_x":28,"hotspot_y":38}},"product-features-feature-1":{"type":"feature","settings":{"hotspot_x":60,"hotspot_y":29}},"product-features-feature-2":{"type":"feature","settings":{"hotspot_x":73,"hotspot_y":54}},"product-features-feature-3":{"type":"feature","settings":{"hotspot_x":50,"hotspot_y":66}}},"block_order":["product-features-feature-0","product-features-feature-1","product-features-feature-2","product-features-feature-3"],"settings":{"show_content":true,"layout":"text_first","text_align":"text-center","mob_center_text":false,"heading_size":"h1","enlarge_text":false,"title":"Product features","description":"<p>Use this section to highlight specific product features to your customers.<\/p>"}},"product-comparison-grid":{"type":"product-comparison-grid","blocks":{"comparison-product-1":{"type":"product","settings":{}},"comparison-vendor-2":{"type":"vendor","settings":{}},"comparison-price-3":{"type":"price","settings":{}},"comparison-description-4":{"type":"description","settings":{}}},"block_order":["comparison-product-1","comparison-vendor-2","comparison-price-3","comparison-description-4"],"settings":{}},"collection-list":{"type":"collection-list","blocks":{"collection-list-collection-1":{"type":"collection","settings":{}},"collection-list-collection-2":{"type":"collection","settings":{}},"collection-list-collection-3":{"type":"collection","settings":{}},"collection-list-collection-4":{"type":"collection","settings":{}},"collection-list-collection-5":{"type":"collection","settings":{}},"collection-list-collection-6":{"type":"collection","settings":{}}},"block_order":["collection-list-collection-1","collection-list-collection-2","collection-list-collection-3","collection-list-collection-4","collection-list-collection-5","collection-list-collection-6"],"settings":{"title":"Our Collections","heading_align":"text-start","layout":"carousel","card_size":"medium"}},"image-banner":{"type":"image-banner","blocks":{"image-banner-heading":{"type":"heading","settings":{}},"image-banner-text":{"type":"text","settings":{}},"image-banner-button":{"type":"button","settings":{}}},"block_order":["image-banner-heading","image-banner-text","image-banner-button"],"settings":{"height_mode":"fixed","fixed_height_desktop":640,"fixed_height_mobile":480,"mobile_stacked":false,"full_width":false}},"recommendations":{"type":"product-recommendations","settings":{}}},"order":["main","details","product-features","product-comparison-grid","collection-list","image-banner","recommendations"]}
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": [
+        {
+          "type": "vendor-sku",
+          "settings": {}
+        },
+        {
+          "type": "product-labels",
+          "settings": {}
+        },
+        {
+          "type": "title",
+          "settings": {}
+        },
+        {
+          "type": "price",
+          "settings": {}
+        },
+        {
+          "type": "divider",
+          "settings": {}
+        },
+        {
+          "type": "variant-picker",
+          "settings": {}
+        },
+        {
+          "type": "divider",
+          "settings": {}
+        },
+        {
+          "type": "buy-buttons",
+          "settings": {}
+        },
+        {
+          "type": "message",
+          "settings": {
+            "icon": "check",
+            "title": "<p><strong>36 Monate Garantie</strong><br>Länger als bei neuen Büchern</p>",
+            "show_over_media": true,
+            "visibility_duration": 4
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "icon": "truck",
+            "title": "<p><strong>Kostenloser Versand</strong><br>Ab 10€ Bestellwert</p>",
+            "show_over_media": true,
+            "visibility_duration": 5
+          }
+        },
+        {
+          "type": "message",
+          "settings": {
+            "icon": "heart",
+            "title": "<p><strong>CO₂ positiv</strong><br>-2,5kg CO₂ Ersparnis mit diesem Buch</p>",
+            "show_over_media": true,
+            "visibility_duration": 3
+          }
+        },
+        {
+          "type": "collapsible-content",
+          "settings": {
+            "heading": "Buchzustand & Qualität",
+            "icon": "star",
+            "text": "<p><strong>Professionell aufbereitet:</strong> Jedes Buch wird sorgfältig geprüft und professionell aufbereitet. Unsere Qualitätsstufen garantieren dir transparente Information über den Buchzustand.</p><ul><li>✅ Sichtprüfung aller Seiten</li><li>✅ Professionelle Reinigung</li><li>✅ Reparatur kleinerer Mängel</li><li>✅36 Monate Garantie</li></ul>"
+          }
+        },
+        {
+          "type": "collapsible-content",
+          "settings": {
+            "heading": "Versand & Lieferung",
+            "icon": "truck",
+            "text": "<p><strong>Schnell und sicher:</strong></p><ul><li>📦 Kostenloser Versand ab 10€</li><li>🚚 Lieferung in 1-3 Werktagen</li><li>📍 Sendungsverfolgung inklusive</li><li>♻️ Umweltfreundliche Verpackung</li></ul>"
+          }
+        },
+        {
+          "type": "collapsible-content",
+          "settings": {
+            "heading": "Nachhaltigkeit",
+            "icon": "leaf",
+            "text": "<p><strong>Dein Beitrag zur Umwelt:</strong></p><ul><li>🌱 2,5kg CO₂ Ersparnis pro Buch</li><li>💧 90% weniger Wasserverbrauch</li><li>🌳 Schonung wertvoller Rohstoffe</li><li>♻️ Aktiver Beitrag zur Kreislaufwirtschaft</li></ul><p>Mit deinem Kauf unterstützt du nachhaltige Buchkultur!</p>"
+          }
+        },
+        {
+          "type": "share",
+          "settings": {}
+        }
+      ],
+      "block_order": [
+        "vendor-sku",
+        "product-labels", 
+        "title",
+        "price",
+        "divider-0",
+        "variant-picker",
+        "divider-1", 
+        "buy-buttons",
+        "message-1",
+        "message-2",
+        "message-3",
+        "collapsible-content-1",
+        "collapsible-content-2", 
+        "collapsible-content-3",
+        "share"
+      ],
+      "settings": {
+        "sticky_atc_panel": true,
+        "border_color": "#e5e7eb"
+      }
+    },
+    "trust_banner": {
+      "type": "icons-with-text",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon": "check_circle",
+            "heading": "36 Monate Garantie",
+            "text": "Länger als bei neuen Büchern",
+            "link": ""
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "heading": "Kostenloser Versand",
+            "text": "Ab 10€ Bestellwert",
+            "link": ""
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "star",
+            "heading": "Geprüfte Qualität",
+            "text": "Professionell aufbereitet",
+            "link": ""
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "heading": "CO₂ positiv",
+            "text": "Umweltfreundlich & nachhaltig",
+            "link": ""
+          }
+        }
+      ],
+      "block_order": [
+        "trust-1",
+        "trust-2", 
+        "trust-3",
+        "trust-4"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_align": "text-center",
+        "icon_size": 32,
+        "title_type_scale": "medium",
+        "text_type_scale": "small",
+        "icon_position": "above",
+        "mobile_stack": false,
+        "section_height": "small",
+        "color_scheme": "2",
+        "full_width": true,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    },
+    "featured_collection": {
+      "type": "zweitliebe-featured-collection",
+      "settings": {
+        "collection": "related-books",
+        "heading": "Ähnliche Bücher",
+        "subheading": "Kunden, die dieses Buch kauften, interessierten sich auch für",
+        "text_alignment": "center",
+        "product_limit": 8,
+        "products_per_row": 4,
+        "mobile_products_per_row": "2",
+        "enable_filtering": false,
+        "enable_sorting": false,
+        "show_view_all": true,
+        "view_all_text": "Alle ähnlichen Bücher",
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#f9fafb"
+      }
+    },
+    "sustainability_section": {
+      "type": "media-with-text",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "Nachhaltigkeit, die sich lohnt",
+            "heading_size": "h3"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<p>Mit dem Kauf dieses gebrauchten Buches leistest du einen aktiven Beitrag zum Umweltschutz und sparst dabei bis zu 70% gegenüber dem Neupreis.</p>"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "button_label": "Mehr über Nachhaltigkeit",
+            "button_link": "/pages/nachhaltigkeit",
+            "button_style": "btn btn--secondary"
+          }
+        }
+      ],
+      "block_order": [
+        "heading-1",
+        "text-1", 
+        "button-1"
+      ],
+      "settings": {
+        "image_position": "right",
+        "image_size": "medium",
+        "vertical_alignment": "center",
+        "text_alignment": "left",
+        "color_scheme": "1",
+        "spacing_above": true,
+        "spacing_below": true
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Das könnte dir auch gefallen",
+        "subheading": "Basierend auf diesem Artikel",
+        "products_per_row": 4,
+        "mobile_products_per_row": "2",
+        "limit": 8,
+        "text_alignment": "center",
+        "spacing_above": true,
+        "spacing_below": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "trust_banner",
+    "featured_collection", 
+    "sustainability_section",
+    "recommendations"
+  ]
+}

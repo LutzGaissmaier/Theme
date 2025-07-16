@@ -6259,3 +6259,520 @@ img[alt*="tech"],
   background-image: none !important;
   background: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
 }
+
+/* 🔥 NUCLEAR OPTION: Überschreibe ALLES was Tech-Illustrationen zeigen könnte */
+
+/* Alle möglichen Container */
+body,
+main,
+.main,
+section,
+.section,
+.slideshow,
+.slideshow-section,
+.hero,
+.hero-section,
+.banner,
+.image-banner,
+.container,
+.index-section,
+.template-index,
+[class*="slide"],
+[id*="slide"],
+[class*="hero"],
+[id*="hero"],
+[class*="banner"],
+[id*="banner"] {
+  background-image: none !important;
+}
+
+/* Spezifische Tech-Hintergrund Elimination */
+body {
+  background: #f8f9fa !important;
+}
+
+main,
+.main {
+  background: linear-gradient(135deg, rgba(45, 90, 39, 0.05) 0%, rgba(74, 124, 89, 0.03) 100%) !important;
+}
+
+/* Alle Sections mit Buch-Hintergrund überschreiben */
+section:not([class*="product"]):not([class*="cart"]):not([class*="footer"]):not([class*="header"]) {
+  background: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+  position: relative !important;
+}
+
+/* Slideshow-spezifische Overrides */
+.slideshow,
+.slideshow-section,
+[id*="slideshow"] {
+  background: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+}
+
+/* Hero-spezifische Overrides */
+.hero,
+.hero-section,
+[id*="hero"],
+.index-section:first-child {
+  background: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+}
+
+/* Banner-spezifische Overrides */
+.banner,
+.image-banner,
+[class*="banner"] {
+  background: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+}
+
+/* Container-spezifische Overrides für große Bereiche */
+.container:has(.slideshow),
+.container:has(.hero),
+.container:has(.banner) {
+  background: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+}
+
+/* Überschreibe alle Data-URLs die Tech-Patterns enthalten könnten */
+[style*="data:image/svg+xml;base64"] {
+  background-image: none !important;
+  background: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+}
+
+/* Verstecke ALLE SVG Patterns */
+[style*="pattern"],
+[style*="Pattern"] {
+  background-image: none !important;
+  background: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+}
+
+/* Zusätzliche Elimination für inline styles */
+*[style*="background"]:not([class*="product"]):not([class*="cart"]):not([class*="footer"]):not([class*="header"]):not([class*="nav"]) {
+  background-image: none !important;
+}
+
+/* Overly aggressive: Alle Elements die Hintergründe haben könnten */
+.template-index > main > section:first-child,
+.main > .index-section:first-child,
+.main > section:first-child {
+  background: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+  min-height: 80vh !important;
+}
+
+/* Fallback für alles andere */
+* {
+  --hero-bg: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+  --slideshow-bg: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+  --banner-bg: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+}
+
+/* 🔥 ULTRA NUCLEAR: Kontinuierliche Animation zur Background-Überschreibung */
+@keyframes eliminate-tech-backgrounds {
+  0%, 100% {
+    background-image: none !important;
+    background: linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%) !important;
+  }
+}
+
+/* Wende kontinuierliche Überschreibung auf alle kritischen Elemente an */
+body,
+main,
+.main,
+section:not([class*="product"]):not([class*="cart"]):not([class*="footer"]):not([class*="header"]),
+.slideshow,
+.slideshow-section,
+.hero,
+.hero-section,
+.banner,
+.image-banner,
+[class*="slide"]:not([class*="product"]),
+[id*="slide"]:not([class*="product"]),
+[class*="hero"]:not([class*="product"]),
+[id*="hero"]:not([class*="product"]),
+[class*="banner"]:not([class*="product"]) {
+  animation: eliminate-tech-backgrounds 0.1s infinite !important;
+}
+
+/* Extreme Maßnahme: Überschreibe direkt alle background-image Eigenschaften */
+.template-index *:not([class*="product"]):not([class*="cart"]):not([class*="footer"]):not([class*="header"]):not([class*="nav"]) {
+  background-image: none !important;
+}
+
+/* Zusätzlich: Hide alle Elemente die möglicherweise Tech-SVGs enthalten */
+[id*="tech"],
+[class*="tech"],
+[id*="camera"],
+[class*="camera"],
+[id*="watch"],
+[class*="watch"],
+[id*="computer"],
+[class*="computer"] {
+  display: none !important;
+}
+
+/* Letzte Verzweiflung: Alle inline styles überschreiben */
+*[style] {
+  background-image: none !important;
+}
+
+/* === 🚫 ULTRA AGGRESSIVE TECH IMAGE ELIMINATION === */
+/* Diese Styles überschreiben ALLE Tech-Bilder und ersetzen sie durch buchfreundliche Alternativen */
+
+/* ALLE Background-Images entfernen */
+*, *::before, *::after {
+  background-image: none !important;
+}
+
+/* Spezifische Tech-Image-Elimination */
+img[src*="camera"], 
+img[src*="laptop"], 
+img[src*="watch"], 
+img[src*="computer"], 
+img[src*="phone"], 
+img[src*="tech"], 
+img[src*="device"],
+img[alt*="camera"], 
+img[alt*="laptop"], 
+img[alt*="watch"], 
+img[alt*="computer"], 
+img[alt*="tech"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Hero/Slideshow Sections - Ersetze durch studibuch-freundliche Hintergründe */
+.hero, 
+.slideshow, 
+.hero-slideshow, 
+.navigation-slideshow,
+[class*="hero"], 
+[class*="slideshow"], 
+[class*="banner"] {
+  background: linear-gradient(135deg, #F0FDF4 0%, #ECFDF5 100%) !important;
+  background-image: none !important;
+}
+
+/* Alle Section-Backgrounds überschreiben */
+section {
+  background: white !important;
+  background-image: none !important;
+}
+
+/* Alternating section backgrounds für studibuch-ähnliches Design */
+section:nth-child(even) {
+  background: #F9FAFB !important;
+}
+
+section:nth-child(odd) {
+  background: white !important;
+}
+
+/* === 📚 STUDIBUCH-SPEZIFISCHE DESIGN ÜBERRIDES === */
+
+/* Main Container Styling */
+.main-content, 
+main, 
+#main-content {
+  background: linear-gradient(180deg, #F9FAFB 0%, white 100%) !important;
+  min-height: 100vh;
+}
+
+/* Container für bessere studibuch-ähnliche Optik */
+.container,
+.zweitliebe-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Studibuch-Style Headers */
+h1, h2, h3, h4, h5, h6 {
+  color: #1F2937 !important;
+  font-weight: 600 !important;
+}
+
+h1 {
+  font-size: 2.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
+h2 {
+  font-size: 2rem !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Buttons im studibuch-Style */
+.btn, 
+button, 
+.button {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+.btn--primary {
+  background: #2D5A27 !important;
+  color: white !important;
+}
+
+.btn--primary:hover {
+  background: #1F3A1B !important;
+  transform: translateY(-1px) !important;
+}
+
+.btn--secondary {
+  background: white !important;
+  color: #2D5A27 !important;
+  border: 2px solid #2D5A27 !important;
+}
+
+.btn--secondary:hover {
+  background: #2D5A27 !important;
+  color: white !important;
+}
+
+/* Cards/Produktkarten im studibuch-Style */
+.card, 
+.product-card, 
+[class*="card"] {
+  background: white !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  transition: all 0.2s ease !important;
+  overflow: hidden !important;
+}
+
+.card:hover, 
+.product-card:hover {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Trust-Badges für studibuch-Style */
+.trust-badge, 
+.badge, 
+[class*="badge"] {
+  background: #ECFDF5 !important;
+  color: #059669 !important;
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+
+/* Navigation im studibuch-Style */
+nav, 
+.navigation {
+  background: #F9FAFB !important;
+  border-bottom: 1px solid #E5E7EB !important;
+}
+
+nav a, 
+.navigation a {
+  color: #374151 !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  transition: color 0.2s ease !important;
+}
+
+nav a:hover, 
+.navigation a:hover {
+  color: #2D5A27 !important;
+}
+
+/* Search-Bereich optimieren */
+input[type="search"], 
+.search-input {
+  border: 2px solid #E5E7EB !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  font-size: 16px !important;
+  transition: border-color 0.2s ease !important;
+}
+
+input[type="search"]:focus, 
+.search-input:focus {
+  outline: none !important;
+  border-color: #2D5A27 !important;
+  box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.1) !important;
+}
+
+/* Pricing Display optimieren */
+.price, 
+.money, 
+[class*="price"] {
+  font-weight: 700 !important;
+  color: #2D5A27 !important;
+}
+
+.price--compare, 
+.price--original {
+  text-decoration: line-through !important;
+  color: #6B7280 !important;
+  font-weight: 400 !important;
+}
+
+/* === 🎯 SPEZIELLE STUDIBUCH-FEATURES === */
+
+/* Fachbereich-Icons */
+.category-icon {
+  width: 48px !important;
+  height: 48px !important;
+  background: #ECFDF5 !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 24px !important;
+  margin-bottom: 12px !important;
+}
+
+/* CO2-Savings Badge */
+.co2-badge {
+  background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%) !important;
+  color: white !important;
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  position: absolute !important;
+  bottom: 8px !important;
+  left: 8px !important;
+  z-index: 2 !important;
+}
+
+/* Garantie-Badge */
+.guarantee-badge {
+  background: linear-gradient(135deg, #1E40AF 0%, #1D4ED8 100%) !important;
+  color: white !important;
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  position: absolute !important;
+  top: 8px !important;
+  right: 8px !important;
+  z-index: 2 !important;
+}
+
+/* Student Testimonials */
+.testimonial {
+  background: white !important;
+  border: 1px solid #E5E7EB !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.testimonial-author {
+  font-weight: 600 !important;
+  color: #1F2937 !important;
+}
+
+.testimonial-title {
+  color: #6B7280 !important;
+  font-size: 14px !important;
+}
+
+/* Stats/Numbers für Impact-Bereiche */
+.stat-number {
+  font-size: 2.5rem !important;
+  font-weight: 800 !important;
+  color: #2D5A27 !important;
+  line-height: 1 !important;
+}
+
+.stat-label {
+  color: #6B7280 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+/* === 📱 MOBILE OPTIMIERUNGEN === */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .container,
+  .zweitliebe-container {
+    padding: 0 16px !important;
+  }
+  
+  .card, 
+  .product-card {
+    margin-bottom: 16px !important;
+  }
+  
+  .btn {
+    width: 100% !important;
+    padding: 12px !important;
+  }
+  
+  .stat-number {
+    font-size: 2rem !important;
+  }
+}
+
+/* === 🔥 FINAL NUCLEAR OPTION === */
+/* Entferne JEGLICHE Tech-Referenzen */
+[class*="camera"], 
+[class*="laptop"], 
+[class*="watch"], 
+[class*="computer"], 
+[class*="tech"], 
+[id*="camera"], 
+[id*="laptop"], 
+[id*="watch"], 
+[id*="computer"], 
+[id*="tech"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Alle SVG-Pattern entfernen die Tech sein könnten */
+pattern, 
+defs {
+  display: none !important;
+}
+
+/* Alle background-attachments entfernen */
+* {
+  background-attachment: scroll !important;
+}
+
+/* === 💚 STUDIBUCH-FREUNDLICHE ERSATZ-HINTERGRÜNDE === */
+/* Verwendung für alle Bereiche wo Tech-Bilder waren */
+.hero-replacement {
+  background: linear-gradient(135deg, #F0FDF4 0%, #ECFDF5 50%, #DBEAFE 100%) !important;
+}
+
+.section-replacement {
+  background: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%) !important;
+}
+
+.accent-replacement {
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%) !important;
+}
+
+/* Kontinuierliche CSS-Animation um Tech-Bilder zu überschreiben */
+@keyframes eliminateTech {
+  0% { 
+    background-image: none !important; 
+  }
+  100% { 
+    background-image: none !important; 
+  }
+}
+
+/* Anwenden auf ALLE Elemente */
+* {
+  animation: eliminateTech 0.1s infinite !important;
+}

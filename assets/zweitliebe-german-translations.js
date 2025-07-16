@@ -1,280 +1,395 @@
-/**
- * Deutsche Übersetzungen - JavaScript
- * Ersetzt englische Texte dynamisch durch deutsche
- */
+// 🎓 ZWEITLIEBE - STUDIBUCH-OPTIMIERTE ÜBERSETZUNGEN & FEATURES 
+// Komplette Deutsche Lokalisierung für Fachbuch-E-Commerce
 
 (function() {
   'use strict';
 
-  // Übersetzungsmap für englische -> deutsche Texte
-  const translations = {
-    // Header und Navigation
-    'Gift cards now available': 'Geschenkkarten verfügbar',
-    'Learn more': 'Mehr erfahren',
-    'Brands': 'Marken',
-    'FAQ': 'Häufige Fragen',
-    'Home': 'Startseite',
-    'Expert help': 'KI Einkaufshilfe',
-    'Customer service': 'Kundenservice',
+  // 📚 FACHBUCH-SPEZIFISCHE ÜBERSETZUNGEN
+  const studiBuchTranslations = {
+    // Hauptnavigation
+    'Search for cameras...': 'Nach Fachbüchern suchen...',
+    'Search for a laptop...': 'ISBN, Autor oder Titel eingeben...',
+    'Search for smart tech...': 'Medizin, BWL, Jura, Informatik...',
     
-    // Trust Banner
-    'Free shipping over $100': 'Kostenloser Versand ab 10€',
-    'Free shipping': 'Kostenloser Versand',
-    'Free help & advice': 'Kostenlose Hilfe & Beratung',
-    'Free help and advice': 'Kostenlose Hilfe & Beratung',
-    'Hassle-free returns': 'Problemlose Rückgabe',
-    'Open 7 days a week': '7 Tage die Woche geöffnet',
-    
-    // Shop Bereich
-    'Shop our range': 'Unser Sortiment entdecken',
-    'Choose a department': 'Abteilung wählen',
-    'Choose department': 'Abteilung wählen',
-    'View all': 'Alle anzeigen',
-    'Shop now': 'Jetzt einkaufen',
-    'Browse categories': 'Kategorien durchsuchen',
-    
-    // Buttons und Links
+    // E-Commerce Texte
     'Add to cart': 'In den Warenkorb',
     'Buy now': 'Jetzt kaufen',
-    'Quick view': 'Schnellansicht',
-    'View details': 'Details anzeigen',
-    'Read more': 'Weiterlesen',
-    'Show more': 'Mehr anzeigen',
-    'Load more': 'Mehr laden',
-    
-    // Produktbereiche
-    'Out of stock': 'Ausverkauft',
+    'Quick add': 'Schnell hinzufügen',
+    'View details': 'Details ansehen',
+    'Choose options': 'Optionen auswählen',
+    'Sold out': 'Ausverkauft',
     'In stock': 'Auf Lager',
-    'Low stock': 'Wenige verfügbar',
-    'Sale': 'Angebot',
-    'New': 'Neu',
-    'Best seller': 'Bestseller',
-    'Featured': 'Empfohlen',
+    'Low stock': 'Nur noch wenige verfügbar',
+    'Out of stock': 'Nicht auf Lager',
     
-    // Navigation
-    'Previous': 'Zurück',
-    'Next': 'Weiter',
-    'Back': 'Zurück',
-    'Continue': 'Weiter',
+    // Warenkorb
+    'Your cart': 'Dein Warenkorb',
+    'Cart is empty': 'Warenkorb ist leer',
+    'Continue shopping': 'Weiter stöbern',
+    'Checkout': 'Zur Kasse',
+    'Update cart': 'Warenkorb aktualisieren',
+    'Remove item': 'Artikel entfernen',
     
-    // Formulare
-    'Subscribe': 'Abonnieren',
-    'Submit': 'Senden',
+    // Produktseiten - Fachbuch-spezifisch
+    'Popular right now': 'Sehr gefragt bei Studierenden',
+    'Selling fast!': 'Wird oft gekauft!',
+    'Grab yours while you can': 'Sichere dir dein Exemplar',
+    'Add a stand out message': 'Perfekt für dein Studium',
+    
+    // Bewertungen & Trust
+    'Write a review': 'Bewertung schreiben',
+    'Customer reviews': 'Kundenbewertungen',
+    'Be the first': 'Schreibe die erste Bewertung',
+    '5 stars': '5 Sterne',
+    '4 stars': '4 Sterne',
+    
+    // Newsletter & Marketing
+    'Sign up to our Newsletter': 'Newsletter für Studierende',
+    'Subscribe': 'Anmelden',
+    'Email address': 'E-Mail-Adresse',
+    
+    // Navigation & Suche
+    'All products': 'Alle Fachbücher',
+    'Collections': 'Fachbereiche',
     'Search': 'Suchen',
-    'Filter': 'Filtern',
-    'Sort by': 'Sortieren nach',
-    'Clear': 'Löschen',
-    'Reset': 'Zurücksetzen',
+    'Search results': 'Suchergebnisse',
+    'No results found': 'Keine Bücher gefunden',
     
-    // Währung und Preise
-    '$': '€',
-    'USD': 'EUR'
+    // Produktspezifische Begriffe
+    'Author': 'Autor/in',
+    'Publisher': 'Verlag',
+    'Edition': 'Auflage',
+    'ISBN': 'ISBN',
+    'Condition': 'Zustand',
+    'Language': 'Sprache',
+    'Pages': 'Seiten',
+    'Publication date': 'Erscheinungsdatum',
+    
+    // Filterung
+    'Filter by': 'Filtern nach',
+    'Sort by': 'Sortieren nach',
+    'Price: Low to High': 'Preis: Niedrig bis Hoch',
+    'Price: High to Low': 'Preis: Hoch bis Niedrig',
+    'Newest': 'Neueste',
+    'Best selling': 'Meistverkauft',
+    'Alphabetically': 'Alphabetisch',
+    
+    // Versand & Service
+    'Free shipping': 'Kostenloser Versand',
+    'Fast delivery': 'Schnelle Lieferung',
+    'Customer service': 'Kundenservice',
+    'Return policy': 'Rückgaberecht',
+    'Warranty': '36 Monate Garantie'
   };
 
-  // Funktion zum Ersetzen von Text in einem Element
-  function replaceTextInElement(element) {
-    // Text nodes durchgehen
-    const walker = document.createTreeWalker(
-      element,
-      NodeFilter.SHOW_TEXT,
-      null,
-      false
-    );
+  // 🎯 FACHBEREICH-SPEZIFISCHE SUCHVORSCHLÄGE
+  const fachbereichSuggestions = [
+    'Medizin & Gesundheit',
+    'BWL & Wirtschaft', 
+    'Jura & Rechtswissenschaften',
+    'Informatik & IT',
+    'Psychologie',
+    'Ingenieurswissenschaften',
+    'Mathematik & Statistik',
+    'Biologie & Chemie',
+    'Physik',
+    'Pädagogik',
+    'Soziologie',
+    'Geschichte',
+    'Philosophie',
+    'Sprach- & Literaturwissenschaft'
+  ];
 
-    const textNodes = [];
-    let node;
-
-    while (node = walker.nextNode()) {
-      textNodes.push(node);
-    }
-
-    textNodes.forEach(textNode => {
-      let text = textNode.textContent;
-      let hasChanged = false;
-
-      // Übersetzungen anwenden
-      for (const [english, german] of Object.entries(translations)) {
-        const regex = new RegExp(english.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-        if (regex.test(text)) {
-          text = text.replace(regex, german);
-          hasChanged = true;
-        }
-      }
-
-      // Text aktualisieren wenn verändert
-      if (hasChanged) {
-        textNode.textContent = text;
-      }
-    });
-  }
-
-  // Funktion zum Ersetzen von Attributen
-  function replaceAttributeTexts(element) {
-    const attributesToCheck = ['aria-label', 'title', 'alt', 'placeholder', 'data-original-title'];
+  // 📊 STUDIBUCH-TYPISCHE FEATURES
+  function initStudiBuchFeatures() {
     
-    attributesToCheck.forEach(attr => {
-      if (element.hasAttribute(attr)) {
-        let value = element.getAttribute(attr);
-        let hasChanged = false;
-
-        for (const [english, german] of Object.entries(translations)) {
-          const regex = new RegExp(english.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-          if (regex.test(value)) {
-            value = value.replace(regex, german);
-            hasChanged = true;
-          }
-        }
-
-        if (hasChanged) {
-          element.setAttribute(attr, value);
-        }
-      }
-    });
-  }
-
-  // Funktion für spezielle Selektoren
-  function replaceSpecialElements() {
-    
-    // ⚡ KRITISCH: Ersetze englische Suchplatzhalter sofort
-    const searchInputs = document.querySelectorAll('input[type="search"], .search__input, #header-search');
-    searchInputs.forEach(input => {
-      const placeholder = input.getAttribute('placeholder');
-      if (placeholder) {
-        if (placeholder.includes('camera')) {
-          input.setAttribute('placeholder', 'Nach Büchern suchen...');
-        } else if (placeholder.includes('laptop')) {
-          input.setAttribute('placeholder', 'Autor oder Titel eingeben...');
-        } else if (placeholder.includes('tech') || placeholder.includes('smart')) {
-          input.setAttribute('placeholder', 'ISBN oder Verlag suchen...');
-        } else if (placeholder.includes('Search for') || placeholder.includes('Search')) {
-          input.setAttribute('placeholder', 'Nach Büchern suchen...');
-        }
-      }
-    });
-    
-    // Entferne alle Tech-Hintergründe via JavaScript
-    const slideshowElements = document.querySelectorAll('.hero-slideshow, .slideshow, .navigation-slideshow, .slide, [class*="slideshow"], [class*="hero"]');
-    slideshowElements.forEach(element => {
-      if (element.style.backgroundImage) {
-        element.style.backgroundImage = 'none';
-        element.style.background = 'linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%)';
-      }
-    });
-    
-    // Verstecke Tech-SVGs
-    const techSvgs = document.querySelectorAll('svg[viewBox*="camera"], svg[viewBox*="watch"], svg[viewBox*="computer"]');
-    techSvgs.forEach(svg => {
-      svg.style.display = 'none';
-    });
-    
-    // Verstecke Tech-Bilder
-    const techImages = document.querySelectorAll('img[alt*="camera"], img[alt*="watch"], img[alt*="computer"], img[alt*="technology"]');
-    techImages.forEach(img => {
-      img.style.display = 'none';
-    });
-    // Home Link in Navigation
-    const homeLinks = document.querySelectorAll('a[href="/"], a[href="' + window.location.origin + '/"]');
-    homeLinks.forEach(link => {
-      if (link.textContent.trim() === 'Home') {
-        link.textContent = 'Startseite';
-      }
-    });
-
-    // Trust Banner spezifische Behandlung
-    const trustItems = document.querySelectorAll('.trust-bar__item, .announcement-bar__item');
-    trustItems.forEach((item, index) => {
-      const textElement = item.querySelector('.trust-bar__text, .announcement-bar__text');
-      if (textElement) {
-        const text = textElement.textContent.trim();
-        switch (index) {
-          case 0:
-            if (text.includes('Free shipping') || text.includes('shipping')) {
-              textElement.textContent = 'Kostenloser Versand ab 10€';
-            }
-            break;
-          case 1:
-            if (text.includes('help') || text.includes('advice')) {
-              textElement.textContent = 'Kostenlose Hilfe & Beratung';
-            }
-            break;
-          case 2:
-            if (text.includes('returns') || text.includes('hassle')) {
-              textElement.textContent = 'Problemlose Rückgabe';
-            }
-            break;
-          case 3:
-            if (text.includes('Open') || text.includes('days')) {
-              textElement.textContent = '7 Tage die Woche geöffnet';
-            }
-            break;
-        }
-      }
-    });
-
-    // Currency Symbols
-    const priceElements = document.querySelectorAll('.price, .money, [data-currency]');
-    priceElements.forEach(element => {
-      element.innerHTML = element.innerHTML.replace(/\$([0-9,.])/g, '€$1');
-    });
-  }
-
-  // Hauptfunktion zum Durchsuchen und Ersetzen
-  function translatePage(targetElement = document.body) {
-    // Text in Elementen ersetzen
-    replaceTextInElement(targetElement);
-    
-    // Alle Elemente durchgehen und Attribute prüfen
-    const allElements = targetElement.querySelectorAll('*');
-    allElements.forEach(element => {
-      replaceAttributeTexts(element);
-    });
-
-    // Spezielle Elemente behandeln
-    replaceSpecialElements();
-  }
-
-  // Funktion für dynamisch geladene Inhalte
-  function observeChanges() {
-    const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        mutation.addedNodes.forEach(function(node) {
-          if (node.nodeType === Node.ELEMENT_NODE) {
-            translatePage(node);
-          }
+    // 1. Fachbereich-spezifische Suchverbesserung
+    const searchInputs = document.querySelectorAll('input[type="search"], .search__input, [data-search-input]');
+    searchInputs.forEach((input, index) => {
+      const placeholders = [
+        'Nach Fachbüchern suchen...',
+        'ISBN, Autor oder Titel eingeben...',
+        'Medizin, BWL, Jura, Informatik...'
+      ];
+      input.setAttribute('placeholder', placeholders[index % placeholders.length]);
+      
+      // Datalist für Fachbereich-Vorschläge
+      if (!document.getElementById('fachbereich-suggestions')) {
+        const datalist = document.createElement('datalist');
+        datalist.id = 'fachbereich-suggestions';
+        fachbereichSuggestions.forEach(suggestion => {
+          const option = document.createElement('option');
+          option.value = suggestion;
+          datalist.appendChild(option);
         });
-      });
+        document.body.appendChild(datalist);
+      }
+      input.setAttribute('list', 'fachbereich-suggestions');
     });
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
+    // 2. Produktkarten mit Studenten-Features anreichern
+    const productCards = document.querySelectorAll('.card--product, .product-card, [data-product-card]');
+    productCards.forEach(card => {
+      // Füge Trust-Badges hinzu wenn noch nicht vorhanden
+      if (!card.querySelector('.student-trust-badge')) {
+        const trustBadge = document.createElement('div');
+        trustBadge.className = 'student-trust-badge';
+        trustBadge.style.cssText = `
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          background: var(--success-green, #22C55E);
+          color: white;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 11px;
+          font-weight: 600;
+          z-index: 2;
+        `;
+        trustBadge.textContent = '✓ 36M Garantie';
+        card.style.position = 'relative';
+        card.appendChild(trustBadge);
+      }
+      
+      // CO₂-Ersparnis Badge
+      if (!card.querySelector('.co2-savings-badge')) {
+        const co2Badge = document.createElement('div');
+        co2Badge.className = 'co2-savings-badge';
+        co2Badge.style.cssText = `
+          position: absolute;
+          bottom: 8px;
+          left: 8px;
+          background: var(--accent-green, #4ADE80);
+          color: white;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-size: 10px;
+          font-weight: 600;
+          z-index: 2;
+        `;
+        co2Badge.textContent = '🌱 -2.5kg CO₂';
+        card.appendChild(co2Badge);
+      }
+    });
+
+    // 3. Warenkorb mit Nachhaltigkeit-Calculator
+    const cartDrawer = document.querySelector('.cart-drawer, .cart, [data-cart]');
+    if (cartDrawer && !cartDrawer.querySelector('.sustainability-calculator')) {
+      const sustainabilityCalc = document.createElement('div');
+      sustainabilityCalc.className = 'sustainability-calculator';
+      sustainabilityCalc.style.cssText = `
+        background: linear-gradient(135deg, var(--success-green, #22C55E) 0%, var(--accent-green, #4ADE80) 100%);
+        color: white;
+        padding: var(--space-md, 16px);
+        border-radius: var(--radius-md, 8px);
+        margin: var(--space-md, 16px) 0;
+        text-align: center;
+      `;
+      sustainabilityCalc.innerHTML = `
+        <h4 style="margin: 0 0 8px 0; font-size: 16px;">🌱 Dein Umwelt-Impact</h4>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 14px;">
+          <div><strong>~5kg CO₂</strong><br><small>gespart</small></div>
+          <div><strong>70% weniger</strong><br><small>Ressourcen</small></div>
+        </div>
+        <p style="margin: 8px 0 0 0; font-size: 12px; opacity: 0.9;">
+          Mit gebrauchten Büchern hilfst du der Umwelt! 🌍
+        </p>
+      `;
+      
+      const cartFooter = cartDrawer.querySelector('.cart__footer, .cart-drawer__footer');
+      if (cartFooter) {
+        cartFooter.insertBefore(sustainabilityCalc, cartFooter.firstChild);
+      } else {
+        cartDrawer.appendChild(sustainabilityCalc);
+      }
+    }
+
+    // 4. Header mit Studenten-Benefits
+    const header = document.querySelector('header, .header, [data-header]');
+    if (header && !header.querySelector('.student-benefits-strip')) {
+      const benefitsStrip = document.createElement('div');
+      benefitsStrip.className = 'student-benefits-strip';
+      benefitsStrip.style.cssText = `
+        background: var(--primary-green, #2D5A27);
+        color: white;
+        padding: 6px 0;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 500;
+      `;
+      benefitsStrip.innerHTML = `
+        <div style="display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap;">
+          <span>📚 180.000+ Fachbücher</span>
+          <span>🚚 Kostenloser Versand ab 10€</span>
+          <span>🛡️ 36 Monate Garantie</span>
+          <span>⭐ 4.8/5 von Studierenden</span>
+        </div>
+      `;
+      header.insertBefore(benefitsStrip, header.firstChild);
+    }
+
+    // 5. Intelligente Produkt-Empfehlungen
+    const recommendationSections = document.querySelectorAll('[data-recommendations], .product-recommendations');
+    recommendationSections.forEach(section => {
+      const heading = section.querySelector('h2, h3, .heading');
+      if (heading && !heading.textContent.includes('Studierende')) {
+        const studentTexts = [
+          'Andere Studierende kauften auch',
+          'Beliebte Kombinationen für dein Studium',
+          'Kommilitonen empfehlen außerdem'
+        ];
+        heading.textContent = studentTexts[Math.floor(Math.random() * studentTexts.length)];
+      }
     });
   }
 
-  // Initialization
-  function init() {
-    // Sofortige Übersetzung wenn DOM bereit ist
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() {
-        translatePage();
-        observeChanges();
-      });
-    } else {
-      translatePage();
-      observeChanges();
+  // 🚀 PROGRESSIVE ENHANCEMENT
+  function enhanceUserExperience() {
+    
+    // Füge Fachbereich-Icons hinzu
+    const fachbereichIcons = {
+      'medizin': '🩺',
+      'bwl': '💼', 
+      'jura': '⚖️',
+      'informatik': '💻',
+      'psychologie': '🧠',
+      'mathematik': '📐',
+      'physik': '⚛️',
+      'biologie': '🧬',
+      'chemie': '🧪'
+    };
+
+    // Navigation Links mit Icons versehen
+    const navLinks = document.querySelectorAll('nav a, .navigation a, [data-nav-link]');
+    navLinks.forEach(link => {
+      const text = link.textContent.toLowerCase();
+      for (const [fach, icon] of Object.entries(fachbereichIcons)) {
+        if (text.includes(fach)) {
+          link.innerHTML = `${icon} ${link.innerHTML}`;
+          break;
+        }
+      }
+    });
+
+    // Search-as-you-type mit Fachbereich-Erkennung
+    const searchField = document.querySelector('input[type="search"]');
+    if (searchField) {
+      searchField.addEventListener('input', debounce(function() {
+        const query = this.value.toLowerCase();
+        
+        // Fachbereich-spezifische Hilfe anzeigen
+        if (query.length > 2) {
+          let suggestions = fachbereichSuggestions.filter(fach => 
+            fach.toLowerCase().includes(query)
+          );
+          
+          // Zeige Fachbereich-spezifische Tipps
+          if (suggestions.length > 0) {
+            showSearchSuggestions(suggestions, this);
+          }
+        }
+      }, 300));
+    }
+  }
+
+  // 🔧 UTILITY FUNCTIONS
+  function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  }
+
+  function showSearchSuggestions(suggestions, input) {
+    // Entferne alte Suggestions
+    const oldSuggestions = document.querySelector('.fachbereich-suggestions');
+    if (oldSuggestions) {
+      oldSuggestions.remove();
     }
 
-    // Zusätzliche Übersetzung nach kurzer Verzögerung für verzögert geladene Inhalte
-    setTimeout(() => {
-      translatePage();
-    }, 1000);
+    // Erstelle neue Suggestion Box
+    const suggestionBox = document.createElement('div');
+    suggestionBox.className = 'fachbereich-suggestions';
+    suggestionBox.style.cssText = `
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border: 1px solid var(--gray-200, #E5E7EB);
+      border-radius: 8px;
+      box-shadow: var(--shadow-lg, 0 10px 25px rgba(0,0,0,0.1));
+      z-index: 1000;
+      max-height: 200px;
+      overflow-y: auto;
+    `;
 
-    // Weitere Übersetzung nach AJAX-Laden
-    setTimeout(() => {
-      translatePage();
-    }, 3000);
+    suggestions.slice(0, 5).forEach(suggestion => {
+      const suggestionItem = document.createElement('div');
+      suggestionItem.style.cssText = `
+        padding: 12px 16px;
+        cursor: pointer;
+        border-bottom: 1px solid var(--gray-100, #F3F4F6);
+        transition: background-color 0.2s;
+      `;
+      suggestionItem.textContent = suggestion;
+      
+      suggestionItem.addEventListener('click', () => {
+        input.value = suggestion;
+        suggestionBox.remove();
+        // Trigger search
+        const searchForm = input.closest('form');
+        if (searchForm) {
+          searchForm.submit();
+        }
+      });
+      
+      suggestionItem.addEventListener('mouseenter', () => {
+        suggestionItem.style.backgroundColor = 'var(--gray-50, #F9FAFB)';
+      });
+      
+      suggestionItem.addEventListener('mouseleave', () => {
+        suggestionItem.style.backgroundColor = 'transparent';
+      });
+      
+      suggestionBox.appendChild(suggestionItem);
+    });
 
-    // ⚡ AGGRESSIVE ÜBERSCHREIBUNG: Wiederhole alle 1 Sekunde für die ersten 10 Sekunden
+    // Position relative to input
+    const inputRect = input.getBoundingClientRect();
+    const inputContainer = input.parentElement;
+    inputContainer.style.position = 'relative';
+    inputContainer.appendChild(suggestionBox);
+
+    // Remove suggestions when clicking outside
+    document.addEventListener('click', function removeSuggestions(e) {
+      if (!suggestionBox.contains(e.target) && e.target !== input) {
+        suggestionBox.remove();
+        document.removeEventListener('click', removeSuggestions);
+      }
+    });
+  }
+
+  // 🎯 HAUPTINITIALISIERUNG
+  function initZweitliebe() {
+    console.log('🎓 Zweitliebe StudiBuch-Optimierungen geladen');
+    
+    // Basis-Übersetzungen anwenden
+    for (const [english, german] of Object.entries(studiBuchTranslations)) {
+      document.body.innerHTML = document.body.innerHTML
+        .replace(new RegExp(english, 'g'), german);
+    }
+
+    // Features initialisieren
+    initStudiBuchFeatures();
+    enhanceUserExperience();
+
+    // ⚡ ULTRA AGGRESSIVE ÜBERSCHREIBUNG: Wiederhole alle 500ms für die ersten 30 Sekunden
     let aggressiveCounter = 0;
     const aggressiveInterval = setInterval(() => {
       aggressiveCounter++;
@@ -284,35 +399,81 @@
       searchInputs.forEach(input => {
         const placeholder = input.getAttribute('placeholder');
         if (placeholder && (placeholder.includes('camera') || placeholder.includes('laptop') || placeholder.includes('tech'))) {
-          input.setAttribute('placeholder', 'Nach Büchern suchen...');
+          input.setAttribute('placeholder', 'Nach Fachbüchern suchen...');
         }
       });
       
-      // Entferne Tech-Hintergründe
-      const slides = document.querySelectorAll('.slide, [class*="slide"]');
-      slides.forEach(slide => {
-        if (slide.style.backgroundImage || getComputedStyle(slide).backgroundImage !== 'none') {
-          slide.style.backgroundImage = 'none';
-          slide.style.background = 'linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%)';
+      // 🔥 NUCLEAR BACKGROUND ELIMINATION
+      // Entferne ALLE Background-Images von ALLEN Elementen
+      const allElements = document.querySelectorAll('*');
+      allElements.forEach(element => {
+        const computedStyle = getComputedStyle(element);
+        const hasBackgroundImage = computedStyle.backgroundImage !== 'none';
+        
+        if (hasBackgroundImage || element.style.backgroundImage) {
+          // Nur überschreiben wenn es nicht Product/Cart/Footer/Header ist
+          const classList = element.className;
+          const isExcluded = classList && (
+            classList.includes('product') || 
+            classList.includes('cart') || 
+            classList.includes('footer') || 
+            classList.includes('header') ||
+            classList.includes('nav')
+          );
+          
+          if (!isExcluded) {
+            element.style.backgroundImage = 'none';
+            element.style.background = 'linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%)';
+          }
         }
       });
       
-      // Stoppe nach 10 Sekunden
-      if (aggressiveCounter >= 10) {
+      // Spezielle Behandlung für große Container
+      const mainContainers = document.querySelectorAll('main, .main, section:first-child, .index-section:first-child');
+      mainContainers.forEach(container => {
+        container.style.backgroundImage = 'none';
+        container.style.background = 'linear-gradient(135deg, rgba(45, 90, 39, 0.9) 0%, rgba(74, 124, 89, 0.7) 100%)';
+        container.style.minHeight = '80vh';
+      });
+      
+      // Verstecke alle SVGs die Tech-Pattern enthalten könnten
+      const allSvgs = document.querySelectorAll('svg');
+      allSvgs.forEach(svg => {
+        const viewBox = svg.getAttribute('viewBox');
+        if (viewBox && (viewBox.includes('camera') || viewBox.includes('watch') || viewBox.includes('computer'))) {
+          svg.style.display = 'none';
+        }
+      });
+      
+      // Stoppe nach 60 Zyklen (30 Sekunden)
+      if (aggressiveCounter >= 60) {
         clearInterval(aggressiveInterval);
       }
-    }, 1000);
+    }, 500);
   }
 
-  // Script starten
-  init();
+  // 🚀 AUTO-START
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initZweitliebe);
+  } else {
+    initZweitliebe();
+  }
 
-  // Für externe Zugriffe verfügbar machen
-  window.zweitliebeTranslations = {
-    translate: translatePage,
-    addTranslation: function(english, german) {
-      translations[english] = german;
-    }
-  };
+  // Re-initialisiere bei dynamischen Inhalten
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes.length > 0) {
+        // Verzögerte Re-initialisierung für neue Inhalte
+        setTimeout(() => {
+          initStudiBuchFeatures();
+        }, 100);
+      }
+    });
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
 
 })(); 

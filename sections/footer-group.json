@@ -1,112 +1,148 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "type": "footer",
   "name": "Footer Group",
   "sections": {
     "footer": {
       "type": "footer",
-      "blocks": {
-        "text": {
+      "blocks": [
+        {
           "type": "text",
-          "settings": {}
+          "settings": {
+            "heading": "Zweitliebe - Nachhaltige Buchkultur",
+            "text": "<p>Bei Zweitliebe findest du über 180.000 gebrauchte Bücher in top Qualität. Jedes Buch wird professionell aufbereitet und kommt mit 36 Monaten Garantie - länger als bei neuen Büchern!</p><p><strong>Warum Zweitliebe?</strong><br>🌱 Bis zu 70% günstiger als Neupreise<br>♻️ 2,5kg CO₂ Ersparnis pro Buch<br>📚 Professionell aufbereitet<br>🛡️ 36 Monate Garantie</p>"
+          }
         },
-        "link-list-1": {
+        {
           "type": "link_list",
-          "settings": {}
+          "settings": {
+            "heading": "Buchkategorien",
+            "menu": "footer-categories"
+          }
         },
-        "link-list-2": {
+        {
           "type": "link_list",
-          "settings": {}
+          "settings": {
+            "heading": "Kundenservice",
+            "menu": "footer-service"
+          }
         },
-        "newsletter": {
+        {
+          "type": "link_list",
+          "settings": {
+            "heading": "Über Zweitliebe",
+            "menu": "footer-about"
+          }
+        },
+        {
           "type": "newsletter",
-          "settings": {}
+          "settings": {
+            "heading": "Newsletter",
+            "text": "<p>Erhalte exklusive Angebote und Neuheiten direkt in dein Postfach. Nie wieder Bestseller verpassen!</p>"
+          }
         }
-      },
+      ],
       "block_order": [
         "text",
         "link-list-1",
         "link-list-2",
+        "link-list-3",
         "newsletter"
       ],
       "settings": {
-        "show_back_to_top": false,
+        "show_back_to_top": true,
         "show_payment_icons": true,
-        "show_powered_by": true,
+        "show_powered_by": false,
         "enable_country_selector": true,
         "enable_language_selector": true,
-        "bg_color": "#141414",
-        "text_color": "#ffffff"
+        "bg_color": "#1F2937",
+        "text_color": "#F9FAFB"
       }
     },
-    "icons-with-text": {
+    "trust_footer": {
       "type": "icons-with-text",
-      "blocks": {
-        "icons-with-text-1": {
+      "blocks": [
+        {
           "type": "item",
           "settings": {
-            "icon": "chat_bubble",
-            "heading": "Kundenservice",
-            "text": "<p>Persönliche Beratung & Hilfe</p>"
+            "icon": "check_circle",
+            "heading": "36 Monate Garantie",
+            "text": "Länger als bei neuen Büchern",
+            "link": "/pages/garantie"
           }
         },
-        "icons-with-text-2": {
+        {
           "type": "item",
           "settings": {
-            "icon": "box",
-            "heading": "Bestellstatus prüfen",
-            "text": "<p>Sendungsverfolgung & Updates</p>"
+            "icon": "truck",
+            "heading": "Kostenloser Versand",
+            "text": "Ab 10€ Bestellwert deutschlandweit",
+            "link": "/pages/versand"
           }
         },
-        "icons-with-text-3": {
+        {
           "type": "item",
           "settings": {
-            "icon": "return",
-            "heading": "Rückgabe & Umtausch",
-            "text": "<p>36 Monate Garantie</p>"
+            "icon": "star",
+            "heading": "4.8/5 Sterne",
+            "text": "Über 50.000 zufriedene Kunden",
+            "link": "/pages/bewertungen"
           }
         },
-        "icons-with-text-4": {
+        {
           "type": "item",
           "settings": {
-            "icon": "dollar_sign",
-            "heading": "Bestpreis-Garantie",
-            "text": "<p>Unser Versprechen an Sie</p>"
+            "icon": "leaf",
+            "heading": "Nachhaltig & CO₂ positiv",
+            "text": "2,5kg CO₂ Ersparnis pro Buch",
+            "link": "/pages/nachhaltigkeit"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "badge",
+            "heading": "Geprüfte Qualität",
+            "text": "Professionell aufbereitet",
+            "link": "/pages/qualitaet"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "book",
+            "heading": "180.000+ Bücher",
+            "text": "Riesige Auswahl verfügbar",
+            "link": "/collections/all"
           }
         }
-      },
+      ],
       "block_order": [
-        "icons-with-text-1",
-        "icons-with-text-2",
-        "icons-with-text-3",
-        "icons-with-text-4"
+        "trust-1",
+        "trust-2",
+        "trust-3",
+        "trust-4",
+        "trust-5",
+        "trust-6"
       ],
       "settings": {
-        "heading": "",
-        "heading_align": "text-start",
-        "icon_size": 36,
+        "heading": "Warum Zweitliebe?",
+        "subheading": "Nachhaltigkeit und Qualität in perfekter Harmonie",
+        "heading_align": "text-center",
+        "icon_size": 32,
         "title_type_scale": "medium",
-        "text_type_scale": "medium",
-        "icon_position": "beside",
-        "mobile_stack": false,
+        "text_type_scale": "small",
+        "icon_position": "above",
+        "mobile_stack": true,
         "section_height": "medium",
-        "color_scheme": "3",
+        "color_scheme": "2",
         "full_width": true,
-        "dividers": "none",
+        "dividers": "top",
         "prevent_animation": false
       }
     }
   },
   "order": [
-    "icons-with-text",
+    "trust_footer",
     "footer"
   ]
 }

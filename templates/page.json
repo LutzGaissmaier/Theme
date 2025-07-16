@@ -1,1 +1,138 @@
-{"sections":{"main":{"type":"main-page","settings":{}}},"order":["main"]}
+{
+  "sections": {
+    "page_content": {
+      "type": "main-page",
+      "settings": {
+        "show_page_title": true,
+        "page_content_width": "standard",
+        "spacing_above": false,
+        "spacing_below": true
+      }
+    },
+    "page_trust": {
+      "type": "icons-with-text",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon": "check_circle",
+            "heading": "36 Monate Garantie",
+            "text": "Auf alle gebrauchten Bücher",
+            "link": "/pages/garantie"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "heading": "Kostenloser Versand",
+            "text": "Ab 10€ deutschlandweit",
+            "link": "/pages/versand"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "heading": "Nachhaltig & CO₂ positiv",
+            "text": "2,5kg CO₂ Ersparnis pro Buch",
+            "link": "/pages/nachhaltigkeit"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "star",
+            "heading": "4.8/5 Sterne",
+            "text": "Von über 50.000 Studierenden",
+            "link": "/pages/bewertungen"
+          }
+        }
+      ],
+      "block_order": [
+        "trust-1",
+        "trust-2",
+        "trust-3",
+        "trust-4"
+      ],
+      "settings": {
+        "heading": "Deine Vorteile bei Zweitliebe",
+        "subheading": "Nachhaltig studieren mit gebrauchten Fachbüchern",
+        "heading_align": "text-center",
+        "icon_size": 32,
+        "title_type_scale": "medium",
+        "text_type_scale": "small",
+        "icon_position": "above",
+        "mobile_stack": true,
+        "section_height": "medium",
+        "color_scheme": "2",
+        "full_width": false,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    },
+    "contact_cta": {
+      "type": "rich-text",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "Fragen? Wir helfen gerne!",
+            "heading_size": "h3"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<p>Unser Student*innen-Support-Team steht dir bei allen Fragen rund um Fachbücher, Bestellungen und Nachhaltigkeit zur Seite.</p><div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md); margin-top: var(--space-lg);'><div style='text-align: center; padding: var(--space-md); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);'><h4>📧 E-Mail</h4><p>support@zweitliebe.de</p><small>Antwort binnen 24h</small></div><div style='text-align: center; padding: var(--space-md); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);'><h4>💬 Live-Chat</h4><p>Sofort-Hilfe verfügbar</p><small>Mo-Fr 9-18 Uhr</small></div><div style='text-align: center; padding: var(--space-md); background: white; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm);'><h4>📱 WhatsApp</h4><p>+49 123 456 789</p><small>Schnelle Antworten</small></div></div>"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "button_label": "Kontakt aufnehmen",
+            "button_link": "/pages/kontakt",
+            "button_style": "btn btn--primary"
+          }
+        }
+      ],
+      "block_order": [
+        "heading-1",
+        "text-1",
+        "button-1"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "narrow_column": false,
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#F9FAFB"
+      }
+    },
+    "featured_products": {
+      "type": "zweitliebe-featured-collection",
+      "settings": {
+        "collection": "all",
+        "heading": "Beliebte Fachbücher",
+        "subheading": "Entdecke die meistgekauften Bücher",
+        "text_alignment": "center",
+        "product_limit": 4,
+        "products_per_row": 4,
+        "mobile_products_per_row": "2",
+        "enable_filtering": false,
+        "enable_sorting": false,
+        "show_view_all": true,
+        "view_all_text": "Alle Bücher ansehen",
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": ""
+      }
+    }
+  },
+  "order": [
+    "page_content",
+    "page_trust",
+    "contact_cta",
+    "featured_products"
+  ]
+}

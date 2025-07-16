@@ -1,1 +1,112 @@
-{"sections":{"main":{"type":"main-article","settings":{"pagination":"bar-reading"}},"article-comments":{"type":"article-comments","settings":{}}},"order":["main","article-comments"]}
+{
+  "sections": {
+    "article_content": {
+      "type": "main-article",
+      "settings": {
+        "pagination": "bar-reading",
+        "show_author": true,
+        "show_date": true,
+        "show_tags": true,
+        "show_share_buttons": true,
+        "show_reading_time": true,
+        "article_content_width": "narrow",
+        "spacing_above": false,
+        "spacing_below": true
+      }
+    },
+    "article_trust": {
+      "type": "rich-text",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "💡 Mehr Studientipps gefällig?",
+            "heading_size": "h4"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<div style='background: var(--bg-secondary); padding: var(--space-lg); border-radius: var(--radius-lg); text-align: center;'><p style='margin-bottom: var(--space-md);'>Entdecke weitere hilfreiche Artikel rund ums Studium, Geld sparen und nachhaltiges Lernen.</p><div style='display: flex; flex-wrap: wrap; gap: var(--space-sm); justify-content: center;'><a href='/blogs/magazin/tagged/studientipps' style='background: var(--primary-green); color: white; padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; font-size: var(--text-sm);'>#studientipps</a><a href='/blogs/magazin/tagged/geld-sparen' style='background: var(--trust-blue); color: white; padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; font-size: var(--text-sm);'>#geld-sparen</a><a href='/blogs/magazin/tagged/nachhaltigkeit' style='background: var(--success-green); color: white; padding: var(--space-xs) var(--space-sm); border-radius: var(--radius-sm); text-decoration: none; font-size: var(--text-sm);'>#nachhaltigkeit</a></div></div>"
+          }
+        }
+      ],
+      "block_order": [
+        "heading-1",
+        "text-1"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "narrow_column": false,
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#F9FAFB"
+      }
+    },
+    "related_books": {
+      "type": "zweitliebe-featured-collection",
+      "settings": {
+        "collection": "all",
+        "heading": "Passende Fachbücher zum Artikel",
+        "subheading": "Vertiefe dein Wissen mit den richtigen Büchern",
+        "text_alignment": "center",
+        "product_limit": 4,
+        "products_per_row": 4,
+        "mobile_products_per_row": "2",
+        "enable_filtering": false,
+        "enable_sorting": false,
+        "show_view_all": true,
+        "view_all_text": "Alle Bücher ansehen",
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": ""
+      }
+    },
+    "newsletter_signup": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Nie wieder wichtige Tipps verpassen",
+        "subheading": "Erhalte wöchentlich neue Studientipps und exklusive Buchempfehlungen",
+        "text_alignment": "center",
+        "newsletter_bg": "#ECFDF5",
+        "spacing_above": true,
+        "spacing_below": true
+      }
+    },
+    "article_comments": {
+      "type": "article-comments",
+      "settings": {
+        "show_comment_form": true,
+        "comment_moderation": true,
+        "spacing_above": true,
+        "spacing_below": false
+      }
+    },
+    "related_articles": {
+      "type": "featured-blog",
+      "settings": {
+        "blog": "magazin",
+        "heading": "Ähnliche Artikel",
+        "subheading": "Diese könnten dich auch interessieren",
+        "article_limit": 3,
+        "articles_per_row": 3,
+        "mobile_articles_per_row": "1",
+        "show_author": true,
+        "show_date": true,
+        "show_excerpt": true,
+        "text_alignment": "center",
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#F9FAFB"
+      }
+    }
+  },
+  "order": [
+    "article_content",
+    "article_trust",
+    "related_books",
+    "newsletter_signup",
+    "article_comments",
+    "related_articles"
+  ]
+}

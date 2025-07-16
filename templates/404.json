@@ -1,1 +1,158 @@
-{"sections":{"main":{"type":"main-404","settings":{}}},"order":["main"]}
+{
+  "sections": {
+    "error_404": {
+      "type": "rich-text",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "📚 Oops! Diese Seite wurde nicht gefunden",
+            "heading_size": "h1"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<p style='font-size: var(--text-lg); margin-bottom: var(--space-lg);'>Keine Sorge - auch die besten Studierenden verirren sich mal! Die gesuchte Seite scheint verlegt worden zu sein.</p><div style='background: var(--bg-secondary); padding: var(--space-lg); border-radius: var(--radius-lg); margin: var(--space-lg) 0;'><h3 style='margin-bottom: var(--space-md); color: var(--primary-green);'>🔍 Hier findest du was du suchst:</h3><div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-md);'><a href='/collections/all' style='padding: var(--space-md); background: white; border-radius: var(--radius-md); text-decoration: none; color: inherit; box-shadow: var(--shadow-sm); display: block; transition: transform 0.2s;'><h4 style='color: var(--primary-green); margin-bottom: var(--space-xs);'>📖 Alle Fachbücher</h4><p style='font-size: var(--text-sm); color: var(--gray-600);'>Über 180.000 Bücher durchstöbern</p></a><a href='/search' style='padding: var(--space-md); background: white; border-radius: var(--radius-md); text-decoration: none; color: inherit; box-shadow: var(--shadow-sm); display: block; transition: transform 0.2s;'><h4 style='color: var(--primary-green); margin-bottom: var(--space-xs);'>🔍 Suchfunktion</h4><p style='font-size: var(--text-sm); color: var(--gray-600);'>Gezielt nach Büchern suchen</p></a><a href='/' style='padding: var(--space-md); background: white; border-radius: var(--radius-md); text-decoration: none; color: inherit; box-shadow: var(--shadow-sm); display: block; transition: transform 0.2s;'><h4 style='color: var(--primary-green); margin-bottom: var(--space-xs);'>🏠 Startseite</h4><p style='font-size: var(--text-sm); color: var(--gray-600);'>Zurück zur Hauptseite</p></a><a href='/pages/kontakt' style='padding: var(--space-md); background: white; border-radius: var(--radius-md); text-decoration: none; color: inherit; box-shadow: var(--shadow-sm); display: block; transition: transform 0.2s;'><h4 style='color: var(--primary-green); margin-bottom: var(--space-xs);'>💬 Hilfe & Support</h4><p style='font-size: var(--text-sm); color: var(--gray-600);'>Wir helfen dir gerne weiter</p></a></div></div>"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "button_label": "Zurück zur Startseite",
+            "button_link": "/",
+            "button_style": "btn btn--primary"
+          }
+        }
+      ],
+      "block_order": [
+        "heading-1",
+        "text-1",
+        "button-1"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "narrow_column": false,
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": ""
+      }
+    },
+    "popular_categories": {
+      "type": "rich-text",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "Beliebte Fachbereiche",
+            "heading_size": "h3"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<div style='display: flex; flex-wrap: wrap; gap: var(--space-sm); justify-content: center; margin-top: var(--space-md);'><a href='/search?q=medizin' style='background: var(--primary-green); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); text-decoration: none; font-weight: var(--font-medium); transition: transform 0.2s;'>🩺 Medizin</a><a href='/search?q=bwl' style='background: var(--trust-blue); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); text-decoration: none; font-weight: var(--font-medium); transition: transform 0.2s;'>💼 BWL</a><a href='/search?q=jura' style='background: var(--accent-green); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); text-decoration: none; font-weight: var(--font-medium); transition: transform 0.2s;'>⚖️ Jura</a><a href='/search?q=psychologie' style='background: var(--warning-amber); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); text-decoration: none; font-weight: var(--font-medium); transition: transform 0.2s;'>🧠 Psychologie</a><a href='/search?q=informatik' style='background: var(--success-green); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); text-decoration: none; font-weight: var(--font-medium); transition: transform 0.2s;'>💻 Informatik</a><a href='/search?q=mathematik' style='background: var(--primary-green); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); text-decoration: none; font-weight: var(--font-medium); transition: transform 0.2s;'>📐 Mathematik</a></div>"
+          }
+        }
+      ],
+      "block_order": [
+        "heading-1",
+        "text-1"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "narrow_column": false,
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#F9FAFB"
+      }
+    },
+    "recommended_products": {
+      "type": "zweitliebe-featured-collection",
+      "settings": {
+        "collection": "all",
+        "heading": "Trotzdem stöbern?",
+        "subheading": "Entdecke beliebte Fachbücher",
+        "text_alignment": "center",
+        "product_limit": 8,
+        "products_per_row": 4,
+        "mobile_products_per_row": "2",
+        "enable_filtering": false,
+        "enable_sorting": false,
+        "show_view_all": true,
+        "view_all_text": "Alle Bücher ansehen",
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": ""
+      }
+    },
+    "help_section": {
+      "type": "icons-with-text",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon": "search",
+            "heading": "Gezielt suchen",
+            "text": "Nutze unsere erweiterte Suchfunktion",
+            "link": "/search"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "book",
+            "heading": "Fachbereiche",
+            "text": "Stöbere nach Studienrichtung",
+            "link": "/collections/all"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "chat_bubble",
+            "heading": "Hilfe & Support",
+            "text": "Unser Team hilft dir gerne",
+            "link": "/pages/kontakt"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "home",
+            "heading": "Zur Startseite",
+            "text": "Alle wichtigen Links findest du hier",
+            "link": "/"
+          }
+        }
+      ],
+      "block_order": [
+        "help-1",
+        "help-2",
+        "help-3",
+        "help-4"
+      ],
+      "settings": {
+        "heading": "Wir helfen dir weiter",
+        "subheading": "So findest du schnell was du suchst",
+        "heading_align": "text-center",
+        "icon_size": 32,
+        "title_type_scale": "medium",
+        "text_type_scale": "small",
+        "icon_position": "above",
+        "mobile_stack": true,
+        "section_height": "medium",
+        "color_scheme": "1",
+        "full_width": false,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    }
+  },
+  "order": [
+    "error_404",
+    "popular_categories",
+    "recommended_products",
+    "help_section"
+  ]
+}

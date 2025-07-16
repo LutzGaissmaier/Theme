@@ -1,1 +1,159 @@
-{"sections":{"main":{"type":"main-blog","settings":{}}},"order":["main"]}
+{
+  "sections": {
+    "blog_banner": {
+      "type": "main-blog",
+      "settings": {
+        "heading": "Zweitliebe Magazin",
+        "subheading": "Wissen, Tipps und Inspiration rund ums Studium",
+        "show_rss": true,
+        "blog_show_author": true,
+        "blog_show_date": true,
+        "blog_show_summary": true,
+        "blog_show_image": true,
+        "articles_per_row": 3,
+        "mobile_articles_per_row": "1",
+        "text_alignment": "center",
+        "spacing_above": false,
+        "spacing_below": true
+      }
+    },
+    "featured_article": {
+      "type": "rich-text",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "📚 Aktuell im Magazin",
+            "heading_size": "h3"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<div style='display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-lg); margin-top: var(--space-lg);'><div style='padding: var(--space-lg); background: var(--bg-secondary); border-radius: var(--radius-lg); border-left: 4px solid var(--primary-green);'><h4>🎓 Studientipps</h4><p>Erfolgreich durch das Studium: Von der ersten Vorlesung bis zur Abschlussarbeit</p><a href='#' style='color: var(--primary-green); font-weight: var(--font-medium);'>Mehr lesen →</a></div><div style='padding: var(--space-lg); background: var(--bg-secondary); border-radius: var(--radius-lg); border-left: 4px solid var(--success-green);'><h4>🌱 Nachhaltigkeit</h4><p>Wie gebrauchte Bücher die Umwelt schonen und deinen Geldbeutel entlasten</p><a href='#' style='color: var(--success-green); font-weight: var(--font-medium);'>Mehr lesen →</a></div><div style='padding: var(--space-lg); background: var(--bg-secondary); border-radius: var(--radius-lg); border-left: 4px solid var(--trust-blue);'><h4>💰 Geld sparen</h4><p>Mit diesen Tricks sparst du bis zu 70% bei deinen Studienbüchern</p><a href='#' style='color: var(--trust-blue); font-weight: var(--font-medium);'>Mehr lesen →</a></div></div>"
+          }
+        }
+      ],
+      "block_order": [
+        "heading-1",
+        "text-1"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "narrow_column": false,
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#F9FAFB"
+      }
+    },
+    "categories": {
+      "type": "rich-text",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "Magazin-Kategorien",
+            "heading_size": "h3"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<div style='display: flex; flex-wrap: wrap; gap: var(--space-sm); justify-content: center; margin-top: var(--space-md);'><a href='/blogs/magazin/tagged/studientipps' style='background: var(--primary-green); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); text-decoration: none; font-weight: var(--font-medium);'>#studientipps</a><a href='/blogs/magazin/tagged/nachhaltigkeit' style='background: var(--success-green); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); text-decoration: none; font-weight: var(--font-medium);'>#nachhaltigkeit</a><a href='/blogs/magazin/tagged/geld-sparen' style='background: var(--trust-blue); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); text-decoration: none; font-weight: var(--font-medium);'>#geld-sparen</a><a href='/blogs/magazin/tagged/buchtipps' style='background: var(--warning-amber); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); text-decoration: none; font-weight: var(--font-medium);'>#buchtipps</a><a href='/blogs/magazin/tagged/karriere' style='background: var(--accent-green); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); text-decoration: none; font-weight: var(--font-medium);'>#karriere</a><a href='/blogs/magazin/tagged/lerntipps' style='background: var(--primary-green); color: white; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); text-decoration: none; font-weight: var(--font-medium);'>#lerntipps</a></div>"
+          }
+        }
+      ],
+      "block_order": [
+        "heading-1",
+        "text-1"
+      ],
+      "settings": {
+        "text_alignment": "center",
+        "narrow_column": false,
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": ""
+      }
+    },
+    "newsletter_cta": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Verpasse keine Magazin-Artikel",
+        "subheading": "Erhalte die neuesten Studientipps und Buchempfehlungen direkt in dein Postfach",
+        "text_alignment": "center",
+        "newsletter_bg": "#ECFDF5",
+        "spacing_above": true,
+        "spacing_below": true
+      }
+    },
+    "trust_banner": {
+      "type": "icons-with-text",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon": "book",
+            "heading": "Expertenwissen",
+            "text": "Von Studierenden für Studierende",
+            "link": ""
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "lightbulb",
+            "heading": "Praktische Tipps",
+            "text": "Erprobte Strategien für den Studienalltag",
+            "link": ""
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "heading": "Nachhaltig leben",
+            "text": "Umweltbewusst durch das Studium",
+            "link": ""
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "graduation_cap",
+            "heading": "Karriere-Boost",
+            "text": "Erfolgreich ins Berufsleben starten",
+            "link": ""
+          }
+        }
+      ],
+      "block_order": [
+        "trust-1",
+        "trust-2",
+        "trust-3",
+        "trust-4"
+      ],
+      "settings": {
+        "heading": "Was dich im Magazin erwartet",
+        "subheading": "Wertvolle Inhalte für dein Studium und darüber hinaus",
+        "heading_align": "text-center",
+        "icon_size": 32,
+        "title_type_scale": "medium",
+        "text_type_scale": "small",
+        "icon_position": "above",
+        "mobile_stack": true,
+        "section_height": "medium",
+        "color_scheme": "1",
+        "full_width": false,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    }
+  },
+  "order": [
+    "blog_banner",
+    "featured_article",
+    "categories",
+    "trust_banner",
+    "newsletter_cta"
+  ]
+}

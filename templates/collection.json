@@ -1,1 +1,204 @@
-{"sections":{"collection-banner":{"type":"main-collection-banner","settings":{}},"collection-products":{"type":"main-collection-products","settings":{}}},"order":["collection-banner","collection-products"]}
+{
+  "sections": {
+    "collection_banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_product_count": true,
+        "text_alignment": "center",
+        "color_scheme": "1",
+        "spacing_below": true
+      }
+    },
+    "trust_strip": {
+      "type": "icons-with-text",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon": "check_circle",
+            "heading": "36 Monate Garantie",
+            "text": "Auf alle gebrauchten Bücher",
+            "link": ""
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "heading": "Kostenloser Versand",
+            "text": "Ab 10€ Bestellwert",
+            "link": ""
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "star",
+            "heading": "4.8/5 Sterne",
+            "text": "Von über 50.000 Kunden",
+            "link": ""
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "heading": "CO₂ positiv",
+            "text": "Umweltfreundlich & nachhaltig",
+            "link": ""
+          }
+        }
+      ],
+      "block_order": [
+        "trust-1",
+        "trust-2",
+        "trust-3",
+        "trust-4"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_align": "text-center",
+        "icon_size": 24,
+        "title_type_scale": "small",
+        "text_type_scale": "xsmall",
+        "icon_position": "beside",
+        "mobile_stack": false,
+        "section_height": "xsmall",
+        "color_scheme": "2",
+        "full_width": true,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    },
+    "collection_products": {
+      "type": "main-collection-products",
+      "settings": {
+        "products_per_row": 4,
+        "mobile_products_per_row": "2",
+        "product_limit": 24,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "filter_type": "horizontal",
+        "enable_product_count": true,
+        "enable_view_switching": true,
+        "default_view": "grid",
+        "pagination_type": "pagination"
+      }
+    },
+    "sustainability_banner": {
+      "type": "media-with-text",
+      "blocks": [
+        {
+          "type": "heading",
+          "settings": {
+            "heading": "Nachhaltig lesen mit Zweitliebe",
+            "heading_size": "h3"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<p>Jedes gebrauchte Buch in dieser Kategorie spart durchschnittlich <strong>2,5kg CO₂</strong> ein und schont wertvolle Ressourcen. Gemeinsam schaffen wir eine nachhaltigere Buchkultur.</p>"
+          }
+        },
+        {
+          "type": "text",
+          "settings": {
+            "text": "<ul><li>🌱 Bis zu 70% Ersparnis gegenüber Neupreisen</li><li>♻️ Aktiver Umweltschutz</li><li>📚 Professionell aufbereitete Qualität</li><li>🛡️ 36 Monate Garantie</li></ul>"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "button_label": "Mehr über Nachhaltigkeit",
+            "button_link": "/pages/nachhaltigkeit",
+            "button_style": "btn btn--secondary"
+          }
+        }
+      ],
+      "block_order": [
+        "heading-1",
+        "text-1",
+        "text-2",
+        "button-1"
+      ],
+      "settings": {
+        "image_position": "left",
+        "image_size": "medium",
+        "vertical_alignment": "center",
+        "text_alignment": "left",
+        "color_scheme": "1",
+        "spacing_above": true,
+        "spacing_below": true
+      }
+    },
+    "recommended_categories": {
+      "type": "collection-list",
+      "blocks": [
+        {
+          "type": "collection",
+          "settings": {
+            "collection": "romance",
+            "show_collection_description": false,
+            "enable_grid_borders": false,
+            "enable_collection_link": true
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "collection": "thriller",
+            "show_collection_description": false,
+            "enable_grid_borders": false,
+            "enable_collection_link": true
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "collection": "fantasy",
+            "show_collection_description": false,
+            "enable_grid_borders": false,
+            "enable_collection_link": true
+          }
+        },
+        {
+          "type": "collection",
+          "settings": {
+            "collection": "sachbuecher",
+            "show_collection_description": false,
+            "enable_grid_borders": false,
+            "enable_collection_link": true
+          }
+        }
+      ],
+      "block_order": [
+        "cat-1",
+        "cat-2",
+        "cat-3",
+        "cat-4"
+      ],
+      "settings": {
+        "heading": "Weitere Kategorien entdecken",
+        "subheading": "Stöbere in unserer großen Auswahl",
+        "text_alignment": "center",
+        "collection_navigation": false,
+        "collections_per_row": 4,
+        "card_size": "medium",
+        "layout": "grid",
+        "full_width": false,
+        "spacing_above": true,
+        "spacing_below": true,
+        "bg_color": "#f9fafb"
+      }
+    }
+  },
+  "order": [
+    "collection_banner",
+    "trust_strip",
+    "collection_products",
+    "sustainability_banner",
+    "recommended_categories"
+  ]
+}
