@@ -1,6 +1,6 @@
 {% comment %}
   ZWEITLIEBE HERO SLIDESHOW - REBUY.DE INSPIRED
-  Mit Hintergrundbildern und Conversion-optimierten Slides
+  Mit buchspezifischen Hintergrundbildern und Conversion-optimierten Slides
 {% endcomment %}
 
 <section class="hero-slideshow" style="position: relative; overflow: hidden;">
@@ -10,17 +10,89 @@
     
     {% for block in section.blocks %}
       {% if block.type == 'slide' %}
+        {% assign slide_index = forloop.index %}
         <div class="slide" 
              style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-                    background: linear-gradient(135deg, rgba(45, 90, 39, 0.8) 0%, rgba(107, 155, 106, 0.6) 100%), 
-                                url('{{ block.settings.background_image | img_url: '1800x1200' }}') center/cover;
+                    background: {% if block.settings.background_image %}
+                                  linear-gradient(135deg, rgba(45, 90, 39, 0.7) 0%, rgba(107, 155, 106, 0.5) 100%), 
+                                  url('{{ block.settings.background_image | img_url: '1800x1200' }}') center/cover;
+                                {% else %}
+                                  {% case slide_index %}
+                                    {% when 1 %}
+                                      linear-gradient(135deg, rgba(45, 90, 39, 0.8) 0%, rgba(74, 124, 89, 0.6) 100%),
+                                      linear-gradient(45deg, #2D5A27 0%, #4A7C59 50%, #6B9B6A 100%),
+                                      url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImJvb2tzIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxyZWN0IHg9IjUiIHk9IjUiIHdpZHRoPSIzMCIgaGVpZ2h0PSI0IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiLz48cmVjdCB4PSI1IiB5PSIxMCIgd2lkdGg9IjI1IiBoZWlnaHQ9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wOCkiLz48cmVjdCB4PSI1IiB5PSIxNSIgd2lkdGg9IjI4IiBoZWlnaHQ9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNikiLz48cmVjdCB4PSI1IiB5PSIyNSIgd2lkdGg9IjMwIiBoZWlnaHQ9IjQiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPjxyZWN0IHg9IjUiIHk9IjMwIiB3aWR0aD0iMjIiIGhlaWdodD0iNCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA4KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9InVybCgjYm9va3MpIi8+PC9zdmc+') repeat;
+                                    {% when 2 %}
+                                      linear-gradient(135deg, rgba(30, 64, 175, 0.8) 0%, rgba(45, 90, 39, 0.6) 100%),
+                                      linear-gradient(45deg, #1E40AF 0%, #2D5A27 50%, #4A7C59 100%),
+                                      url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9InN0YXJzIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwb2x5Z29uIHBvaW50cz0iMjAsNSAyMi41LDE1IDE3LjUsMTUiIGZpbGw9InJnYmEoMjU1LDIxNSw3NywwLjMpIi8+PHBvbHlnb24gcG9pbnRzPSIzNSwyNSAzNy41LDM1IDMyLjUsMzUiIGZpbGw9InJnYmEoMjU1LDIxNSw3NywwLjIpIi8+PHBvbHlnb24gcG9pbnRzPSIxMCwzMCAxMi41LDQwIDcuNSw0MCIgZmlsbD0icmdiYSgyNTUsMjE1LDc3LDAuMjUpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0idXJsKCNzdGFycykiLz48L3N2Zz4=') repeat;
+                                    {% when 3 %}
+                                      linear-gradient(135deg, rgba(34, 197, 94, 0.8) 0%, rgba(45, 90, 39, 0.6) 100%),
+                                      linear-gradient(45deg, #22C55E 0%, #2D5A27 50%, #16A34A 100%),
+                                      url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9InNoaWVsZCIgeD0iMCIgeT0iMCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNMjAgNUwyNSAxMEwyMCAyMEwxNSAxMFoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4yKSIvPjxjaXJjbGUgY3g9IjMwIiBjeT0iMzAiIHI9IjMiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xNSkiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiBmaWxsPSJ1cmwoI3NoaWVsZCkiLz48L3N2Zz4=') repeat;
+                                    {% else %}
+                                      linear-gradient(135deg, rgba(45, 90, 39, 0.8) 0%, rgba(107, 155, 106, 0.6) 100%);
+                                  {% endcase %}
+                                {% endif %}
                     display: {{ forloop.first | default: false | ternary: 'flex', 'none' }}; 
                     align-items: center; justify-content: center;
                     animation: slideIn 0.8s ease-in-out;"
              data-slide="{{ forloop.index }}">
           
-          <!-- Overlay für bessere Lesbarkeit -->
+          <!-- Buchspezifische Overlay-Elemente -->
           <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3);"></div>
+          
+          <!-- Schwebende Buchseiten (nur auf Slide 1) -->
+          {% if forloop.index == 1 %}
+            <div class="floating-books" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; opacity: 0.1;">
+              {% for i in (1..8) %}
+                <div class="book-page" 
+                     style="position: absolute; 
+                            width: 80px; height: 100px; 
+                            background: white; 
+                            border-radius: 4px; 
+                            top: {{ i | times: 12 | plus: 10 }}%; 
+                            left: {{ i | times: 11 | plus: 5 }}%;
+                            animation: float {{ i | plus: 3 }}s infinite ease-in-out;
+                            transform: rotate({{ i | times: 15 | minus: 30 }}deg);">
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          
+          <!-- Bestseller-Sterne (nur auf Slide 2) -->
+          {% if forloop.index == 2 %}
+            <div class="floating-stars" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; opacity: 0.2;">
+              {% for i in (1..6) %}
+                <div class="star" 
+                     style="position: absolute; 
+                            color: #FCD34D; 
+                            font-size: {{ i | times: 8 | plus: 20 }}px;
+                            top: {{ i | times: 15 | plus: 5 }}%; 
+                            left: {{ i | times: 12 | plus: 10 }}%;
+                            animation: sparkle {{ i | plus: 2 }}s infinite ease-in-out;">
+                  ⭐
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          
+          <!-- Garantie-Schilde (nur auf Slide 3) -->
+          {% if forloop.index == 3 %}
+            <div class="floating-shields" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; opacity: 0.15;">
+              {% for i in (1..5) %}
+                <div class="shield" 
+                     style="position: absolute; 
+                            color: white; 
+                            font-size: {{ i | times: 6 | plus: 24 }}px;
+                            top: {{ i | times: 18 | plus: 10 }}%; 
+                            left: {{ i | times: 15 | plus: 5 }}%;
+                            animation: glow {{ i | plus: 4 }}s infinite ease-in-out;">
+                  🛡️
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
           
           <!-- Content Container -->
           <div class="zweitliebe-container" style="position: relative; z-index: 2;">
@@ -46,7 +118,7 @@
               {% endif %}
 
               <!-- Hauptheadline -->
-              <h1 style="font-size: 56px; line-height: 1.1; margin-bottom: var(--space-lg); font-weight: var(--font-bold); text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+              <h1 style="font-size: 56px; line-height: 1.1; margin-bottom: var(--space-lg); font-weight: var(--font-bold); text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
                 {% if block.settings.headline_highlight %}
                   <span style="color: #86EFAC;">{{ block.settings.headline_highlight }}</span><br>
                 {% endif %}
@@ -55,7 +127,7 @@
 
               <!-- Subheadline/Text -->
               {% if block.settings.text %}
-                <div style="font-size: var(--text-xl); line-height: 1.6; margin-bottom: var(--space-2xl); opacity: 0.95;">
+                <div style="font-size: var(--text-xl); line-height: 1.6; margin-bottom: var(--space-2xl); opacity: 0.95; text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
                   {{ block.settings.text }}
                 </div>
               {% endif %}
@@ -65,7 +137,7 @@
                 {% if block.settings.button_1_label %}
                   <a href="{{ block.settings.button_1_link | default: '#' }}" 
                      class="btn-primary" 
-                     style="padding: var(--space-lg) var(--space-2xl); font-size: var(--text-lg); font-weight: var(--font-bold); box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                     style="padding: var(--space-lg) var(--space-2xl); font-size: var(--text-lg); font-weight: var(--font-bold); box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
                     {{ block.settings.button_1_label }}
                   </a>
                 {% endif %}
@@ -73,7 +145,7 @@
                 {% if block.settings.button_2_label %}
                   <a href="{{ block.settings.button_2_link | default: '#' }}" 
                      class="btn-secondary" 
-                     style="padding: var(--space-lg) var(--space-2xl); font-size: var(--text-lg); font-weight: var(--font-bold); background: rgba(255,255,255,0.1); border: 2px solid white; color: white; backdrop-filter: blur(10px);">
+                     style="padding: var(--space-lg) var(--space-2xl); font-size: var(--text-lg); font-weight: var(--font-bold); background: rgba(255,255,255,0.15); border: 2px solid white; color: white; backdrop-filter: blur(10px);">
                     {{ block.settings.button_2_label }}
                   </a>
                 {% endif %}
@@ -169,7 +241,7 @@ setInterval(() => {
 {% endif %}
 </script>
 
-<!-- Mobile Styles -->
+<!-- Enhanced Styles -->
 <style>
 .hero-slideshow h1 {
   font-size: 56px;
@@ -178,6 +250,46 @@ setInterval(() => {
 .slide-arrow:hover {
   background: rgba(255,255,255,0.3) !important;
   transform: translateY(-50%) scale(1.1);
+}
+
+/* Buchspezifische Animationen */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(2deg); }
+  50% { transform: translateY(-5px) rotate(-1deg); }
+  75% { transform: translateY(-8px) rotate(1deg); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.15; filter: drop-shadow(0 0 5px rgba(255,255,255,0.3)); }
+  50% { opacity: 0.4; filter: drop-shadow(0 0 15px rgba(255,255,255,0.6)); }
+}
+
+/* Slide-spezifische Hintergründe */
+.slide:nth-child(1) {
+  background-image: 
+    linear-gradient(135deg, rgba(45, 90, 39, 0.8) 0%, rgba(74, 124, 89, 0.6) 100%),
+    radial-gradient(circle at 20% 80%, rgba(107, 155, 106, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(134, 239, 172, 0.2) 0%, transparent 50%);
+}
+
+.slide:nth-child(2) {
+  background-image: 
+    linear-gradient(135deg, rgba(30, 64, 175, 0.8) 0%, rgba(45, 90, 39, 0.6) 100%),
+    radial-gradient(circle at 30% 70%, rgba(255, 215, 77, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, rgba(147, 197, 253, 0.3) 0%, transparent 50%);
+}
+
+.slide:nth-child(3) {
+  background-image: 
+    linear-gradient(135deg, rgba(34, 197, 94, 0.8) 0%, rgba(45, 90, 39, 0.6) 100%),
+    radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(167, 243, 208, 0.2) 0%, transparent 50%);
 }
 
 @media (max-width: 768px) {
@@ -217,6 +329,12 @@ setInterval(() => {
     width: 100%;
     text-align: center;
     justify-content: center;
+  }
+  
+  .floating-books .book-page,
+  .floating-stars .star,
+  .floating-shields .shield {
+    display: none;
   }
 }
 
@@ -283,7 +401,8 @@ setInterval(() => {
         {
           "type": "image_picker",
           "id": "background_image",
-          "label": "Background Image"
+          "label": "Background Image",
+          "info": "Empfohlen: Buchbezogene Bilder (Bibliothek, Leseszenen, etc.)"
         },
         {
           "type": "text",
