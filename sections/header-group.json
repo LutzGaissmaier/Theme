@@ -1,13 +1,4 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
-      {
+{
   "type": "header",
   "name": "Header Group",
   "sections": {
@@ -17,13 +8,13 @@
         "8501117e-b017-47b9-8a6e-c0c9b40cb858": {
           "type": "announcement",
           "settings": {
-            "text": "<p><strong>Free help & advice<\/strong> <a href=\"#\">Learn more<\/a><\/p>"
+            "text": "<p><strong>Kostenlose Hilfe & Beratung<\/strong> <a href=\"#\">Mehr erfahren<\/a><\/p>"
           }
         },
         "3288704d-ae55-4097-ad1d-de5a6201a999": {
           "type": "announcement",
           "settings": {
-            "text": "<p><strong>Gift cards now available<\/strong> <a href=\"#\">Learn more<\/a><\/p>"
+            "text": "<p><strong>Geschenkkarten verfügbar<\/strong> <a href=\"#\">Mehr erfahren<\/a><\/p>"
           }
         }
       },
@@ -33,12 +24,12 @@
       ],
       "settings": {
         "link1": "#",
-        "link1_label": "Brands",
+        "link1_label": "Marken",
         "link2": "#",
         "link2_label": "FAQ",
         "enable_country_selector": true,
         "enable_language_selector": true,
-        "bg_color": "#141414",
+        "bg_color": "#2D5A27",
         "text_color": "#ffffff",
         "text_type_scale": "small",
         "read_time": 8
@@ -84,7 +75,7 @@
         "menu_featured_link": "Sale",
         "cta_show": true,
         "cta_icon": "phone",
-        "cta_label": "Expert help",
+        "cta_label": "KI Einkaufshilfe",
         "cta_border_color": "rgba(0,0,0,0)",
         "cta_bg_color": "#6f7376",
         "cta_text_color": "#ffffff",
@@ -100,7 +91,7 @@
           "type": "item",
           "settings": {
             "icon": "truck",
-            "heading": "Free shipping over $100",
+            "heading": "Kostenloser Versand ab 10€",
             "text": "",
             "link": ""
           }
@@ -109,7 +100,7 @@
           "type": "item",
           "settings": {
             "icon": "chat_bubble",
-            "heading": "Free help & advice",
+            "heading": "Kostenlose Hilfe & Beratung",
             "text": "",
             "link": ""
           }
@@ -118,7 +109,7 @@
           "type": "item",
           "settings": {
             "icon": "return",
-            "heading": "Hassle-free returns",
+            "heading": "Problemlose Rückgabe",
             "text": "",
             "link": ""
           }
@@ -127,7 +118,7 @@
           "type": "item",
           "settings": {
             "icon": "map_pin",
-            "heading": "Open 7 days a week",
+            "heading": "7 Tage die Woche geöffnet",
             "text": "",
             "link": ""
           }

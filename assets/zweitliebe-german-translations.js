@@ -14,7 +14,7 @@
     'Brands': 'Marken',
     'FAQ': 'Häufige Fragen',
     'Home': 'Startseite',
-    'Expert help': 'Expertenberatung',
+    'Expert help': 'KI Einkaufshilfe',
     'Customer service': 'Kundenservice',
     
     // Trust Banner
