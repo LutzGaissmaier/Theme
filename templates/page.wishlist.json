@@ -1,90 +1,225 @@
 {
   "sections": {
-    "breadcrumbs": {
+    "wishlist_header": {
       "type": "rich-text",
       "blocks": {
-        "breadcrumb-text": {
+        "title": {
+          "type": "heading",
+          "settings": {
+            "heading": "Meine Wunschliste",
+            "heading_size": "h1"
+          }
+        },
+        "subtitle": {
           "type": "text",
           "settings": {
-            "text": "<p><a href=\"/collections/all\">Shop</a> / Wishlist</p>",
-            "enlarge_text": false
+            "text": "<p>Hier findest du alle Bücher, die du dir gemerkt hast. Sichere dir deine Favoriten, bevor sie vergriffen sind!</p>"
           }
         }
       },
       "block_order": [
-        "breadcrumb-text"
+        "title",
+        "subtitle"
       ],
       "settings": {
-        "text_alignment": "left",
-        "narrow_column": false,
-        "spacing_above": false,
-        "spacing_below": false,
-        "bg_color": ""
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 32
+      }
+    },
+    "wishlist_stats": {
+      "type": "icons-with-text",
+      "blocks": {
+        "saved_items": {
+          "type": "column",
+          "settings": {
+            "title": "Gespeicherte Bücher",
+            "text": "<p>Deine persönliche Sammlung</p>",
+            "icon": "icon-heart"
+          }
+        },
+        "savings": {
+          "type": "column",
+          "settings": {
+            "title": "Mögliche Ersparnis",
+            "text": "<p>Bis zu 70% gegenüber Neupreisen</p>",
+            "icon": "icon-savings"
+          }
+        },
+        "notifications": {
+          "type": "column", 
+          "settings": {
+            "title": "Preisbenachrichtigung",
+            "text": "<p>Wir informieren dich bei Preissenkungen</p>",
+            "icon": "icon-notification"
+          }
+        },
+        "quick_buy": {
+          "type": "column",
+          "settings": {
+            "title": "Schnell kaufen",
+            "text": "<p>Direkt in den Warenkorb legen</p>",
+            "icon": "icon-cart"
+          }
+        }
+      },
+      "block_order": [
+        "saved_items",
+        "savings",
+        "notifications",
+        "quick_buy"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "layout": "grid",
+        "columns_desktop": 4,
+        "color_scheme": "accent-1",
+        "columns_mobile": "2",
+        "padding_top": 0,
+        "padding_bottom": 32
       }
     },
     "wishlist_main": {
       "type": "zweitliebe-wishlist",
       "settings": {
-        "title": "My Wishlist",
-        "empty_message": "Your Wishlist is Empty",
-        "empty_description": "Start adding books you love to your wishlist!"
+        "title": "",
+        "empty_message": "Deine Wunschliste ist noch leer",
+        "empty_description": "Stöbere durch unser Sortiment und füge Bücher hinzu, die dir gefallen!",
+        "show_product_count": true,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "image_ratio": "portrait",
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": true,
+        "padding_top": 0,
+        "padding_bottom": 48
+      }
+    },
+    "empty_wishlist_cta": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Entdecke unsere Bestseller",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Falls deine Wunschliste noch leer ist, schau dir unsere beliebtesten Bücher an und finde deine nächste große Lektüre!</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Bestseller entdecken",
+            "button_link": "/collections/bestsellers",
+            "button_style_secondary": false,
+            "button_label_2": "Alle Kategorien",
+            "button_link_2": "/collections/all",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-2",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
     "recommended_books": {
       "type": "featured-collection",
       "settings": {
-        "title": "You might also like",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
+        "title": "Empfehlungen für dich",
+        "heading_size": "h2",
+        "description": "Basierend auf deinen Interessen",
+        "show_description": true,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 4,
+        "collection": "recommended",
+        "products_to_show": 8,
         "columns_desktop": 4,
         "full_width": false,
         "show_view_all": true,
         "view_all_style": "solid",
         "enable_desktop_slider": false,
-        "color_scheme": "none",
-        "image_ratio": "adapt",
+        "color_scheme": "background-1",
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": false,
         "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
+        "show_rating": true,
+        "enable_quick_add": true,
         "columns_mobile": "2",
         "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
-    "footer_info": {
+    "wishlist_benefits": {
       "type": "rich-text",
       "blocks": {
-        "footer-text": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Vorteile deiner Wunschliste",
+            "heading_size": "h3"
+          }
+        },
+        "benefits_list": {
           "type": "text",
           "settings": {
-            "text": "<p><a href=\"/pages/about\">About Us</a> | <a href=\"/pages/privacy-policy\">Privacy Policy</a> | <a href=\"/pages/terms-of-service\">Terms of Service</a></p><p>© 2024 Zweitliebe. All rights reserved.</p>",
-            "enlarge_text": false
+            "text": "<ul><li>💝 Sammle alle Bücher, die dich interessieren</li><li>🔔 Erhalte Benachrichtigungen bei Preissenkungen</li><li>⚡ Schneller Zugriff auf deine Favoriten</li><li>📱 Synchronisiert auf allen Geräten</li><li>🎁 Perfekt für Geschenkelisten</li></ul>"
           }
         }
       },
       "block_order": [
-        "footer-text"
+        "heading",
+        "benefits_list"
       ],
       "settings": {
-        "text_alignment": "center",
-        "narrow_column": false,
-        "spacing_above": true,
-        "spacing_below": false,
-        "bg_color": ""
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "accent-1",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "newsletter_signup": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Verpasse keine Neuheiten",
+        "subtext": "Erhalte exklusive Angebote und Neuankömmlinge direkt in dein Postfach",
+        "newsletter_heading": "Newsletter abonnieren",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     }
   },
   "order": [
-    "breadcrumbs",
+    "wishlist_header",
+    "wishlist_stats",
     "wishlist_main",
+    "empty_wishlist_cta",
     "recommended_books",
-    "footer_info"
+    "wishlist_benefits",
+    "newsletter_signup"
   ]
 } 

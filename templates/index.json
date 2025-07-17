@@ -1,119 +1,93 @@
 {
   "sections": {
-    "hero_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Discover Your Next Great Read",
-            "heading_size": "h0"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Explore our curated collection of used books, from timeless classics to contemporary bestsellers. Find your next literary adventure at Zweitliebe.</p>",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label_1": "Shop Now",
-            "button_link_1": "/collections/all",
-            "button_style_secondary_1": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
+    "zweitliebe_hero": {
+      "type": "zweitliebe-hero",
       "settings": {
-        "image": "",
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-left",
-        "show_text_box": false,
-        "desktop_content_alignment": "left",
-        "color_scheme": "white",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true,
-        "bg_color": "#c5dac2"
+        "title": "Entdecke deine nächste große Lektüre",
+        "subtitle": "Durchstöbere unsere kuratierte Sammlung gebrauchter Bücher – von zeitlosen Klassikern bis zu zeitgenössischen Bestsellern. Finde dein nächstes literarisches Abenteuer bei Zweitliebe.",
+        "button_text": "Jetzt stöbern",
+        "button_link": "/collections/all",
+        "background_color": "#F9FAFB",
+        "text_color": "#111827",
+        "button_color": "#2D5A27"
       }
     },
     "popular_categories": {
       "type": "multi-column",
       "blocks": {
-        "column_1": {
+        "category_fiction": {
           "type": "column",
           "settings": {
-            "image": "",
-            "title": "Fiction",
-            "text": "<p>Immerse yourself in captivating stories and unforgettable characters.</p>",
-            "link_label": "Shop Fiction",
-            "link": "/collections/fiction"
+            "title": "Romane & Belletristik",
+            "text": "<p>Tauche ein in fesselnde Geschichten und unvergessliche Charaktere aus der Welt der Literatur.</p>",
+            "link_label": "Romane entdecken",
+            "link": "/collections/fiction",
+            "image": ""
           }
         },
-        "column_2": {
+        "category_nonfiction": {
           "type": "column",
           "settings": {
-            "image": "",
-            "title": "Non-Fiction",
-            "text": "<p>Expand your knowledge with biographies, history, and educational content.</p>",
-            "link_label": "Shop Non-Fiction",
-            "link": "/collections/non-fiction"
+            "title": "Sachbücher",
+            "text": "<p>Erweitere dein Wissen mit Biografien, Geschichte und lehrreichen Inhalten aus allen Lebensbereichen.</p>",
+            "link_label": "Sachbücher entdecken", 
+            "link": "/collections/non-fiction",
+            "image": ""
           }
         },
-        "column_3": {
+        "category_children": {
           "type": "column",
           "settings": {
-            "image": "",
-            "title": "Children's Books",
-            "text": "<p>Spark imagination and foster a love of reading in young minds.</p>",
-            "link_label": "Shop Children's",
-            "link": "/collections/children"
+            "title": "Kinderbücher",
+            "text": "<p>Wecke die Fantasie und fördere die Lesefreude bei jungen Entdeckern mit unseren Kinderbüchern.</p>",
+            "link_label": "Kinderbücher entdecken",
+            "link": "/collections/children",
+            "image": ""
+          }
+        },
+        "category_textbooks": {
+          "type": "column",
+          "settings": {
+            "title": "Studienbücher",
+            "text": "<p>Günstige Lehrbücher und Studienratgeber für deine Ausbildung – nachhaltig und preiswert.</p>",
+            "link_label": "Studienbücher entdecken",
+            "link": "/collections/textbooks",
+            "image": ""
           }
         }
       },
       "block_order": [
-        "column_1",
-        "column_2",
-        "column_3"
+        "category_fiction",
+        "category_nonfiction", 
+        "category_children",
+        "category_textbooks"
       ],
       "settings": {
-        "title": "Popular Categories",
+        "title": "Beliebte Kategorien",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "square",
-        "columns_desktop": 3,
+        "columns_desktop": 4,
         "column_alignment": "left",
-        "background_style": "primary",
-        "button_label": "View All",
+        "background_style": "none",
+        "button_label": "Alle Kategorien",
         "button_link": "/collections/all",
         "color_scheme": "none",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 48,
+        "padding_bottom": 32
       }
     },
     "new_arrivals": {
       "type": "featured-collection",
       "settings": {
-        "title": "New Arrivals",
+        "title": "Neuankömmlinge",
         "heading_size": "h1",
-        "description": "",
-        "show_description": false,
+        "description": "Frisch eingetroffen – entdecke die neuesten Bücher in unserem Sortiment",
+        "show_description": true,
         "description_style": "body",
-        "collection": "all",
+        "collection": "new-arrivals",
         "products_to_show": 8,
         "columns_desktop": 4,
         "full_width": false,
@@ -121,77 +95,118 @@
         "view_all_style": "solid",
         "enable_desktop_slider": true,
         "color_scheme": "none",
-        "image_ratio": "adapt",
+        "image_ratio": "portrait",
         "image_shape": "default",
-        "show_secondary_image": true,
+        "show_secondary_image": false,
         "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
+        "show_rating": true,
+        "enable_quick_add": true,
         "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "swipe_on_mobile": true,
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
-    "testimonials": {
-      "type": "testimonials",
+    "trust_indicators": {
+      "type": "icons-with-text",
       "blocks": {
-        "testimonial_1": {
-          "type": "testimonial",
+        "guarantee": {
+          "type": "column",
           "settings": {
-            "testimonial": "<p>\"Zweitliebe has an amazing collection of books at unbeatable prices. I found classics I've been searching for everywhere!\"</p>",
-            "author": "Sarah M.",
-            "location": "Book Lover"
+            "title": "36 Monate Garantie",
+            "text": "<p>Auf alle Bücher – für deine Sicherheit und Zufriedenheit</p>",
+            "icon": "icon-check"
           }
         },
-        "testimonial_2": {
-          "type": "testimonial",
+        "shipping": {
+          "type": "column", 
           "settings": {
-            "testimonial": "<p>\"The quality of the used books is excellent, and the shipping was fast. Highly recommended for any reader.\"</p>",
-            "author": "Michael K.",
-            "location": "Frequent Reader"
+            "title": "Kostenloser Versand",
+            "text": "<p>Ab 10€ Bestellwert – schnell und klimaneutral</p>",
+            "icon": "icon-delivery"
           }
         },
-        "testimonial_3": {
-          "type": "testimonial",
+        "environment": {
+          "type": "column",
           "settings": {
-            "testimonial": "<p>\"Great prices, great selection, and I love that I'm helping the environment by buying second-hand books.\"</p>",
-            "author": "Emma L.",
-            "location": "Environmental Enthusiast"
+            "title": "Umweltfreundlich",
+            "text": "<p>Gebrauchte Bücher sind 85% umweltfreundlicher</p>",
+            "icon": "icon-leaf"
+          }
+        },
+        "quality": {
+          "type": "column",
+          "settings": {
+            "title": "Geprüfte Qualität",
+            "text": "<p>Jedes Buch wird sorgfältig auf Zustand und Qualität geprüft</p>",
+            "icon": "icon-star"
           }
         }
       },
       "block_order": [
-        "testimonial_1",
-        "testimonial_2",
-        "testimonial_3"
+        "guarantee",
+        "shipping", 
+        "environment",
+        "quality"
       ],
       "settings": {
-        "title": "What Our Readers Say",
-        "heading_size": "h1",
-        "text_alignment": "center",
-        "color_scheme": "2",
-        "columns_desktop": 3,
-        "columns_mobile": "1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "title": "Warum Zweitliebe?",
+        "heading_size": "h2",
+        "layout": "grid",
+        "columns_desktop": 4,
+        "color_scheme": "accent-1",
+        "columns_mobile": "2",
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
-    "newsletter": {
+    "featured_bestsellers": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Bestseller & Empfehlungen",
+        "heading_size": "h1", 
+        "description": "Die beliebtesten Bücher unserer Community",
+        "show_description": true,
+        "description_style": "body",
+        "collection": "bestsellers",
+        "products_to_show": 6,
+        "columns_desktop": 3,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "none",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "newsletter_signup": {
       "type": "newsletter",
       "settings": {
-        "color_scheme": "1",
+        "heading": "Bleib auf dem Laufenden",
+        "subtext": "Erhalte exklusive Angebote, Neuankömmlinge und Lesetipps direkt in dein Postfach",
+        "newsletter_heading": "Newsletter abonnieren",
+        "color_scheme": "background-1",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     }
   },
   "order": [
-    "hero_banner",
-    "popular_categories", 
-    "new_arrivals",
-    "testimonials",
-    "newsletter"
+    "zweitliebe_hero",
+    "popular_categories",
+    "new_arrivals", 
+    "trust_indicators",
+    "featured_bestsellers",
+    "newsletter_signup"
   ]
 } 

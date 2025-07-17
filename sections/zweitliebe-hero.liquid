@@ -1,152 +1,189 @@
-{% comment %} ZWEITLIEBE MODERN HERO - Based on HTML Design 1 {% endcomment %}
+{% comment %} ZWEITLIEBE HERO SECTION {% endcomment %}
 
 <style>
-/* === ZWEITLIEBE MODERN HERO === */
 .zweitliebe-hero {
-  font-family: var(--zweitliebe-font-family);
-  min-height: 480px;
-  display: flex;
-  flex-direction: column;
-  gap: var(--zweitliebe-space-6);
-  background: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), 
-              linear-gradient(135deg, #c5dac2 0%, #a8c9a3 50%, #8bb892 100%);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  align-items: flex-start;
-  justify-content: flex-end;
-  padding: var(--zweitliebe-space-4) var(--zweitliebe-space-10);
-  border-radius: 0;
+  background: linear-gradient(135deg, {{ section.settings.background_color | default: '#F9FAFB' }} 0%, #FFFFFF 100%);
+  padding: 80px 0 120px;
   position: relative;
+  overflow: hidden;
 }
 
-.zweitliebe-hero-container {
+.zweitliebe-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: url("{{ 'zweitliebe_logo.png' | asset_url }}") no-repeat center;
+  background-size: contain;
+  opacity: 0.05;
+  z-index: 1;
+}
+
+.zweitliebe-hero__container {
   max-width: 1400px;
   margin: 0 auto;
-  width: 100%;
+  padding: 0 var(--space-xl);
+  position: relative;
+  z-index: 2;
 }
 
-.zweitliebe-hero-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--zweitliebe-space-2);
-  text-align: left;
+.zweitliebe-hero__content {
   max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.zweitliebe-hero-title {
-  color: var(--zweitliebe-white);
-  font-size: var(--zweitliebe-text-4xl);
-  font-weight: 900;
-  line-height: 1.2;
-  letter-spacing: -0.033em;
-  margin: 0;
+.zweitliebe-hero__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  color: {{ section.settings.text_color | default: '#111827' }};
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.02em;
 }
 
-.zweitliebe-hero-subtitle {
-  color: var(--zweitliebe-white);
-  font-size: var(--zweitliebe-text-sm);
-  font-weight: 400;
-  line-height: 1.4;
-  margin: 0;
+.zweitliebe-hero__subtitle {
+  font-size: var(--text-lg);
+  font-weight: var(--font-normal);
+  line-height: var(--leading-relaxed);
+  color: var(--gray-600);
+  margin-bottom: var(--space-2xl);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.zweitliebe-hero-button {
-  display: flex;
-  min-width: 84px;
-  max-width: 480px;
-  cursor: pointer;
+.zweitliebe-hero__button {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: var(--zweitliebe-radius-full);
-  height: 40px;
-  padding: 0 var(--zweitliebe-space-4);
-  background: var(--zweitliebe-accent);
-  color: var(--zweitliebe-dark);
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-2xl);
+  background: linear-gradient(135deg, {{ section.settings.button_color | default: '#2D5A27' }} 0%, var(--primary-green-light) 100%);
+  color: white;
   text-decoration: none;
-  font-size: var(--zweitliebe-text-sm);
-  font-weight: 700;
-  line-height: 1.4;
-  letter-spacing: 0.015em;
+  border-radius: var(--radius-lg);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s ease;
   border: none;
-  transition: all 0.2s ease;
-  margin-top: var(--zweitliebe-space-4);
-  width: fit-content;
+  cursor: pointer;
 }
 
-.zweitliebe-hero-button:hover {
-  background: #2dd408;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(56, 236, 28, 0.3);
+.zweitliebe-hero__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  background: linear-gradient(135deg, var(--primary-green-light) 0%, {{ section.settings.button_color | default: '#2D5A27' }} 100%);
+  color: white;
 }
 
-/* Container adjustments for larger screens */
-@media (min-width: 480px) {
-  .zweitliebe-hero {
-    gap: var(--zweitliebe-space-8);
-    padding: var(--zweitliebe-space-4) var(--zweitliebe-space-10);
-  }
-  
-  .zweitliebe-hero-title {
-    font-size: 48px;
-    font-weight: 900;
-    line-height: 1.2;
-    letter-spacing: -0.033em;
-  }
-  
-  .zweitliebe-hero-subtitle {
-    font-size: var(--zweitliebe-text-base);
-    font-weight: 400;
-    line-height: 1.4;
-  }
-  
-  .zweitliebe-hero-button {
-    height: 48px;
-    padding: 0 var(--zweitliebe-space-5);
-    font-size: var(--zweitliebe-text-base);
-    font-weight: 700;
-    line-height: 1.4;
-    letter-spacing: 0.015em;
-  }
+.zweitliebe-hero__button svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease;
 }
 
-/* Mobile responsive */
+.zweitliebe-hero__button:hover svg {
+  transform: translateX(4px);
+}
+
+.zweitliebe-hero__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-xl);
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--gray-200);
+}
+
+.zweitliebe-hero__stat {
+  text-align: center;
+}
+
+.zweitliebe-hero__stat-number {
+  display: block;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--primary-green);
+  margin-bottom: var(--space-xs);
+}
+
+.zweitliebe-hero__stat-label {
+  font-size: var(--text-sm);
+  color: var(--gray-600);
+  font-weight: var(--font-medium);
+}
+
 @media (max-width: 768px) {
   .zweitliebe-hero {
-    min-height: 400px;
-    padding: var(--zweitliebe-space-4);
+    padding: 60px 0 80px;
   }
   
-  .zweitliebe-hero-title {
-    font-size: var(--zweitliebe-text-3xl);
+  .zweitliebe-hero__container {
+    padding: 0 var(--space-lg);
   }
   
-  .zweitliebe-hero-subtitle {
-    font-size: var(--zweitliebe-text-sm);
+  .zweitliebe-hero__title {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
   }
   
-  .zweitliebe-hero-button {
-    width: 100%;
-    justify-content: center;
+  .zweitliebe-hero__subtitle {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-xl);
+  }
+  
+  .zweitliebe-hero__button {
+    padding: var(--space-sm) var(--space-xl);
+    font-size: var(--text-base);
+  }
+  
+  .zweitliebe-hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-2xl);
   }
 }
 </style>
 
 <section class="zweitliebe-hero">
-  <div class="zweitliebe-hero-container">
-    <div class="zweitliebe-hero-content">
-      <h1 class="zweitliebe-hero-title">
-        {{ section.settings.title | default: "Discover Your Next Great Read" }}
+  <div class="zweitliebe-hero__container">
+    <div class="zweitliebe-hero__content">
+      <h1 class="zweitliebe-hero__title">
+        {{ section.settings.title | default: 'Entdecke deine nächste große Lektüre' }}
       </h1>
-      <h2 class="zweitliebe-hero-subtitle">
-        {{ section.settings.subtitle | default: "Explore our curated collection of used books, from timeless classics to contemporary bestsellers. Find your next literary adventure at Zweitliebe." }}
-      </h2>
-      {% if section.settings.button_text != blank %}
-        <a href="{{ section.settings.button_link | default: '/collections/all' }}" class="zweitliebe-hero-button">
-          <span>{{ section.settings.button_text | default: "Shop Now" }}</span>
+      
+      {% if section.settings.subtitle != blank %}
+        <p class="zweitliebe-hero__subtitle">
+          {{ section.settings.subtitle }}
+        </p>
+      {% endif %}
+      
+      {% if section.settings.button_text != blank and section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="zweitliebe-hero__button">
+          {{ section.settings.button_text }}
+          <svg viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
         </a>
       {% endif %}
+      
+      <div class="zweitliebe-hero__stats">
+        <div class="zweitliebe-hero__stat">
+          <span class="zweitliebe-hero__stat-number">50.000+</span>
+          <span class="zweitliebe-hero__stat-label">Bücher im Sortiment</span>
+        </div>
+        <div class="zweitliebe-hero__stat">
+          <span class="zweitliebe-hero__stat-number">36</span>
+          <span class="zweitliebe-hero__stat-label">Monate Garantie</span>
+        </div>
+        <div class="zweitliebe-hero__stat">
+          <span class="zweitliebe-hero__stat-number">85%</span>
+          <span class="zweitliebe-hero__stat-label">Umweltfreundlicher</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -157,56 +194,57 @@
   "settings": [
     {
       "type": "header",
-      "content": "Content"
+      "content": "Inhalt"
     },
     {
       "type": "text",
       "id": "title",
-      "label": "Title",
-      "default": "Discover Your Next Great Read"
+      "label": "Hauptüberschrift",
+      "default": "Entdecke deine nächste große Lektüre"
     },
     {
       "type": "textarea",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Explore our curated collection of used books, from timeless classics to contemporary bestsellers. Find your next literary adventure at Zweitliebe."
+      "id": "subtitle", 
+      "label": "Untertitel",
+      "default": "Durchstöbere unsere kuratierte Sammlung gebrauchter Bücher – von zeitlosen Klassikern bis zu zeitgenössischen Bestsellern. Finde dein nächstes literarisches Abenteuer bei Zweitliebe."
+    },
+    {
+      "type": "header",
+      "content": "Button"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Button text",
-      "default": "Shop Now"
+      "label": "Button Text",
+      "default": "Jetzt stöbern"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Button link",
+      "label": "Button Link",
       "default": "/collections/all"
     },
     {
       "type": "header",
-      "content": "Background"
-    },
-    {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background image"
+      "content": "Design"
     },
     {
       "type": "color",
-      "id": "overlay_color",
-      "label": "Overlay color",
-      "default": "#000000"
+      "id": "background_color",
+      "label": "Hintergrundfarbe",
+      "default": "#F9FAFB"
     },
     {
-      "type": "range",
-      "id": "overlay_opacity",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "unit": "%",
-      "label": "Overlay opacity",
-      "default": 40
+      "type": "color",
+      "id": "text_color",
+      "label": "Textfarbe",
+      "default": "#111827"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Farbe",
+      "default": "#2D5A27"
     }
   ],
   "presets": [

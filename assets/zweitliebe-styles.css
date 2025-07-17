@@ -1,1 +1,113 @@
-/==========================================   ZWEITLIEBE SHOPIFY THEME - CUSTOM STYLES   Grünes Herz Design mit nachhaltigen Farben   ============================================= *//* === ROOT VARIABLEN === */:root {  --zweitliebe-primary: #2D5016;     /* Dunkles Grün */  --zweitliebe-secondary: #4A7C59;   /* Mittleres Grün */  --zweitliebe-accent: #7FB069;      /* Helles Grün */  --zweitliebe-light: #F8FFF4;       /* Sehr helles Grün */  --zweitliebe-heart: #D2691E;       /* Herzfarbe Orange/Braun */  --zweitliebe-text: #1A1A1A;        /* Dunkler Text */  --zweitliebe-gray: #666666;        /* Grauer Text */  --border-radius: 12px;  --transition: all 0.3s ease;}/* === GLOBAL STYLES === */body {  font-family: 'Arial', 'Helvetica', sans-serif;  background-color: var(--zweitliebe-light);  color: var(--zweitliebe-text);}/* === HEADER STYLES === */.header {  background-color: var(--zweitliebe-primary);  border-bottom: 3px solid var(--zweitliebe-accent);  box-shadow: 0 2px 10px rgba(45, 80, 22, 0.1);}.header .logo {  max-height: 60px;  transition: var(--transition);}.header .logo:hover {  transform: scale(1.05);}/* Navigation */.header nav a {  color: white;  text-decoration: none;  font-weight: 500;  padding: 8px 16px;  border-radius: var(--border-radius);  transition: var(--transition);}.header nav a:hover {  background-color: var(--zweitliebe-accent);  color: var(--zweitliebe-primary);}/* === HERO SECTION === */.hero-section {  background: linear-gradient(135deg, var(--zweitliebe-primary) 0%, var(--zweitliebe-secondary) 100%);  background-image: url('zweitliebe_hero_background.png');  background-size: cover;  background-position: center;  background-blend-mode: overlay;  min-height: 500px;  display: flex;  align-items: center;  justify-content: center;  color: white;  text-align: center;  position: relative;}.hero-content {  max-width: 800px;  padding: 40px 20px;  background-color: rgba(45, 80, 22, 0.8);  border-radius: var(--border-radius);  backdrop-filter: blur(10px);}.hero-title {  font-size: 3.5rem;  font-weight: bold;  margin-bottom: 20px;  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);}.hero-subtitle {  font-size: 1.5rem;  margin-bottom: 30px;  opacity: 0.9;}.hero-cta {  background-color: var(--zweitliebe-heart);  color: white;  padding: 15px 30px;  border: none;  border-radius: var(--border-radius);  font-size: 1.2rem;  font-weight: bold;  cursor: pointer;  transition: var(--transition);  display: inline-flex;  align-items: center;  gap: 10px;}.hero-cta:hover {  background-color: #B8501A;  transform: translateY(-2px);  box-shadow: 0 5px 15px rgba(210, 105, 30, 0.3);}/* Herz-Icon */.heart-icon {  color: var(--zweitliebe-heart);  font-size: 1.2em;  animation: heartbeat 2s ease-in-out infinite;}@keyframes heartbeat {  0%, 100% { transform: scale(1); }  50% { transform: scale(1.1); }}/* === PRODUKTKARTEN === */.product-card {  background: white;  border-radius: var(--border-radius);  overflow: hidden;  box-shadow: 0 4px 15px rgba(45, 80, 22, 0.1);  transition: var(--transition);  border: 2px solid transparent;}.product-card:hover {  transform: translateY(-5px);  box-shadow: 0 8px 25px rgba(45, 80, 22, 0.2);  border-color: var(--zweitliebe-accent);}.product-image {  position: relative;  overflow: hidden;}.product-image img {  width: 100%;  height: 250px;  object-fit: cover;  transition: var(--transition);}.product-card:hover .product-image img {  transform: scale(1.05);}.product-badge {  position: absolute;  top: 10px;  right: 10px;  background-color: var(--zweitliebe-heart);  color: white;  padding: 5px 10px;  border-radius: 20px;  font-size: 0.8rem;  font-weight: bold;}.product-info {  padding: 20px;}.product-title {  font-size: 1.3rem;  font-weight: bold;  color: var(--zweitliebe-primary);  margin-bottom: 10px;}.product-price {  font-size: 1.5rem;  font-weight: bold;  color: var(--zweitliebe-heart);  margin-bottom: 15px;}.product-description {  color: var(--zweitliebe-gray);  line-height: 1.6;  margin-bottom: 20px;}.product-btn {  width: 100%;  background-color: var(--zweitliebe-accent);  color: var(--zweitliebe-primary);  border: none;  padding: 12px;  border-radius: var(--border-radius);  font-weight: bold;  cursor: pointer;  transition: var(--transition);}.product-btn:hover {  background-color: var(--zweitliebe-primary);  color: white;}/* === FOOTER === */.footer {  background-color: var(--zweitliebe-primary);  color: white;  padding: 40px 0 20px;  margin-top: 50px;}.footercontent {  max-width: 1200px;  margin: 0 auto;  padding: 0 20px;  display: grid;  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  gap: 30px;}.footer-section h3 {  color: var(--zweitliebe-accent);  margin-bottom: 15px;  font-size: 1.2rem;}.footer-section a {  color: white;  text-decoration: none;  line-height: 2;  transition: var(--transition);}.footer-section a:hover {  color: var(--zweitliebe-accent);  padding-left: 5px;}.footer-bottom {  text-align: center;  margin-top: 30px;  padding-top: 20px;  border-top: 1px solid var(--zweitliebe-accent);  color: var(--zweitliebe-accent);}/* === SOCIAL MEDIA === */.social-icons {  display: flex;  gap: 15px;  justify-content: center;  margin: 20px 0;}.social-icon {  width: 40px;  height: 40px;  background-color: var(--zweitliebe-accent);  border-radius: 50%;  display: flex;  align-items: center;  justify-content: center;  color: var(--zweitliebe-primary);  text-decoration: none;  transition: var(--transition);}.social-icon:hover {  background-color: var(--zweitliebe-heart);  color: white;  transform: scale(1.1);}/* === NACHHALTIGKEIT BADGES === */.sustainability-badge {  background: linear-gradient(135deg, var(--zweitliebe-accent), var(--zweitliebe-secondary));  color: white;  padding: 8px 16px;  border-radius: 25px;  font-size: 0.9rem;  font-weight: bold;  display: inline-flex;  align-items: center;  gap: 8px;  margin: 5px;}.sustainability-badge::before {  content: "🌱";  font-size: 1.1em;}/* === RESPONSIVE DESIGN === */@media (max-width: 768px) {  .hero-title {    font-size: 2.5rem;  }    .hero-subtitle {    font-size: 1.2rem;  }    .footer-content {    grid-template-columns: 1fr;    text-align: center;  }    .product-card {    margin-bottom: 20px;  }}@media (max-width: 480px) {  .hero-title {    font-size: 2rem;  }    .hero-content {    padding: 20px 15px;  }    .header .logo {    max-height: 45px;  }}/* === ANIMATIONEN === */.fade-in {  animation: fadeIn 0.8s ease-in;}@keyframes fadeIn {  from { opacity: 0; transform: translateY(20px); }  to { opacity: 1; transform: translateY(0); }}.slide-up {  animation: slideUp 0.6s ease-out;}@keyframes slideUp {  from { transform: translateY(30px); opacity: 0; }  to { transform: translateY(0); opacity: 1; }}/* === SPEZIELLE ZWEITLIEBE ELEMENTE === */.zweitliebe-highlight {  background: linear-gradient(120deg, var(--zweitliebe-accent) 0%, var(--zweitliebe-secondary) 100%);  color: white;  padding: 3px 8px;  border-radius: 5px;  font-weight: bold;}.eco-label {  background-color: var(--zweitliebe-accent);  color: var(--zweitliebe-primary);  padding: 4px 12px;  border-radius: 15px;  font-size: 0.8rem;  font-weight: bold;  text-transform: uppercase;  letter-spacing: 1px;}/* === CART & CHECKOUT === */.cart-drawer {  background-color: white;  border-left: 3px solid var(--zweitliebe-accent);}.checkout-btn {  background: linear-gradient(135deg, var(--zweitliebe-heart), #B8501A);  color: white;  border: none;  padding: 15px 30px;  border-radius: var(--border-radius);  font-weight: bold;  width: 100%;  transition: var(--transition);}.checkout-btn:hover {  transform: translateY(-2px);  box-shadow: 0 5px 15px rgba(210, 105, 30, 0.3);}/* === NEWSLETTER === */.newsletter-section {  background: linear-gradient(135deg, var(--zweitliebe-secondary), var(--zweitliebe-primary));  color: white;  padding: 40px 20px;  text-align: center;  border-radius: var(--border-radius);  margin: 40px 0;}.newsletter-input {  padding: 12px 20px;  border: none;  border-radius: var(--border-radius);  margin-right: 10px;  min-width: 250px;}.newsletter-btn {  background-color: var(--zweitliebe-heart);  color: white;  border: none;  padding: 12px 25px;  border-radius: var(--border-radius);  font-weight: bold;  cursor: pointer;  transition: var(--transition);}.newsletter-btn:hover {  background-color: #B8501A;}/* === ACCESSIBILITY === */.sr-only {  position: absolute;  width: 1px;  height: 1px;  padding: 0;  margin: -1px;  overflow: hidden;  clip: rect(0, 0, 0, 0);  white-space: nowrap;  border: 0;}/* Focus states */*:focus {  outline: 2px solid var(--zweitliebe-accent);  outline-offset: 2px;}/* === UTILITY CLASSES === */.text-center { text-align: center; }.text-green { color: var(--zweitliebe-primary); }.bg-light { background-color: var(--zweitliebe-light); }.mb-20 { margin-bottom: 20px; }.mt-20 { margin-top: 20px; }.p-20 { padding: 20px; }/* === ENDE ZWEITLIEBE STYLES === */
+/* ==========================================
+   ZWEITLIEBE SHOPIFY THEME - ENHANCED STYLES
+   Moderne Funktionen für bessere UX
+   ============================================ */
+
+/* === PRODUCT CONDITION STYLING === */
+.product-condition {
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  margin: var(--space-md) 0;
+}
+
+.product-condition h4 {
+  color: var(--primary-green);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.condition-description {
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+  margin: 0;
+  line-height: var(--leading-relaxed);
+}
+
+/* === PRODUCT GUARANTEE BANNER === */
+.product-guarantee {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  background: linear-gradient(135deg, var(--success-green) 0%, var(--accent-green) 100%);
+  color: white;
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  margin: var(--space-lg) 0;
+}
+
+.guarantee-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+}
+
+.guarantee-icon {
+  font-size: var(--text-base);
+  opacity: 0.9;
+}
+
+/* === HERO SECTION ENHANCEMENTS === */
+.zweitliebe-hero__stats {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === WISHLIST ENHANCEMENTS === */
+.wishlist-stats {
+  background: var(--gray-50);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  margin: var(--space-lg) 0;
+}
+
+.wishlist-empty-state {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+/* === ACCOUNT DASHBOARD ENHANCEMENTS === */
+.sustainability-impact {
+  background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+  border: 1px solid #BBF7D0;
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  margin: var(--space-xl) 0;
+  text-align: center;
+}
+
+/* === RESPONSIVE IMPROVEMENTS === */
+@media (max-width: 768px) {
+  .product-guarantee {
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+  }
+  
+  .guarantee-item {
+    justify-content: center;
+    font-size: var(--text-xs);
+  }
+}
+
+/* === ACCESSIBILITY IMPROVEMENTS === */
+.zweitliebe-hero__button:focus,
+.btn-primary:focus {
+  outline: 3px solid var(--accent-green);
+  outline-offset: 2px;
+}

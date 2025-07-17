@@ -1,315 +1,240 @@
 {
   "sections": {
     "contact_hero": {
-      "type": "image-banner",
-      "blocks": [
-        {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Hilfe & Support für Studierende",
-            "heading_size": "h1",
-            "heading_h1": true
+            "heading": "Kontakt & Support",
+            "heading_size": "h1"
           }
         },
-        {
+        "subtitle": {
           "type": "text",
           "settings": {
-            "text": "<p><strong>Unser Student*innen-Support-Team hilft dir gerne!</strong><br>Fragen zu Fachbüchern, Bestellungen oder Nachhaltigkeit? Wir sind da für dich.</p>",
-            "enlarge_text": true
-          }
-        },
-        {
-          "type": "button",
-          "settings": {
-            "button_label": "Direkt zum Kontaktformular",
-            "button_link": "#contact-form",
-            "button_style": "btn btn--primary"
+            "text": "<p>Wir sind hier, um dir zu helfen! Egal ob Fragen zu Bestellungen, Buchzustand oder allgemeine Anliegen – unser Team steht dir gerne zur Verfügung.</p>"
           }
         }
-      ],
+      },
       "block_order": [
         "heading",
-        "text",
-        "button"
+        "subtitle"
       ],
       "settings": {
-        "height_mode": "fixed",
-        "fixed_height_desktop": 400,
-        "fixed_height_mobile": 300,
-        "overlay_position": "justify-center items-center",
-        "overlay_text_align": "text-center",
-        "mob_center_text": true,
-        "mobile_stacked": false,
-        "color_scheme": "1",
-        "full_width": true
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 32
       }
     },
     "contact_options": {
       "type": "icons-with-text",
-      "blocks": [
-        {
-          "type": "item",
+      "blocks": {
+        "email": {
+          "type": "column",
           "settings": {
-            "icon": "chat_bubble",
-            "heading": "Live-Chat",
-            "text": "Sofort-Hilfe für dringende Fragen • Mo-Fr 9-18 Uhr",
-            "link": ""
+            "title": "E-Mail Support",
+            "text": "<p><strong>support@zweitliebe.de</strong></p><p>Antwort innerhalb von 24h</p>",
+            "icon": "icon-email"
           }
         },
-        {
-          "type": "item",
+        "phone": {
+          "type": "column",
           "settings": {
-            "icon": "email",
-            "heading": "E-Mail Support",
-            "text": "support@zweitliebe.de • Antwort binnen 24 Stunden",
-            "link": "mailto:support@zweitliebe.de"
+            "title": "Telefon Support",
+            "text": "<p><strong>+49 (0) 30 12345678</strong></p><p>Mo-Fr: 9:00 - 18:00 Uhr</p>",
+            "icon": "icon-phone"
           }
         },
-        {
-          "type": "item",
+        "chat": {
+          "type": "column",
           "settings": {
-            "icon": "phone",
-            "heading": "WhatsApp",
-            "text": "+49 123 456 789 • Schnelle Hilfe per Messenger",
-            "link": "https://wa.me/49123456789"
+            "title": "Live Chat",
+            "text": "<p><strong>Sofortige Hilfe</strong></p><p>Mo-Fr: 9:00 - 17:00 Uhr</p>",
+            "icon": "icon-chat"
           }
         },
-        {
-          "type": "item",
+        "faq": {
+          "type": "column",
           "settings": {
-            "icon": "help",
-            "heading": "FAQ & Hilfe",
-            "text": "Antworten auf häufige Fragen • Sofort verfügbar",
-            "link": "/pages/faq"
+            "title": "FAQ & Hilfe",
+            "text": "<p><strong>Selbsthilfe-Center</strong></p><p>Antworten auf häufige Fragen</p>",
+            "icon": "icon-help"
           }
         }
-      ],
+      },
       "block_order": [
-        "contact-1",
-        "contact-2",
-        "contact-3",
-        "contact-4"
+        "email",
+        "phone",
+        "chat",
+        "faq"
       ],
       "settings": {
-        "heading": "So erreichst du uns",
-        "subheading": "Wähle den für dich besten Weg",
-        "heading_align": "text-center",
-        "icon_size": 40,
-        "title_type_scale": "medium",
-        "text_type_scale": "small",
-        "icon_position": "above",
-        "mobile_stack": true,
-        "section_height": "medium",
-        "color_scheme": "2",
-        "full_width": false,
-        "dividers": "none",
-        "prevent_animation": false
+        "title": "Wie können wir dir helfen?",
+        "heading_size": "h2",
+        "layout": "grid",
+        "columns_desktop": 4,
+        "color_scheme": "accent-1",
+        "columns_mobile": "2",
+        "padding_top": 32,
+        "padding_bottom": 48
       }
     },
     "contact_form": {
       "type": "contact-form",
-      "blocks": [
-        {
-          "type": "name",
-          "settings": {
-            "required": true,
-            "half_width": true
-          }
-        },
-        {
-          "type": "email",
-          "settings": {
-            "required": true,
-            "half_width": true
-          }
-        },
-        {
-          "type": "dropdown",
-          "settings": {
-            "title": "Womit können wir dir helfen?",
-            "options": "Fragen zu Büchern und Bestellung\nVersand und Lieferung\nGarantie und Rückgabe\nTechnische Probleme\nNachhaltigkeit\nPartnerschaft und Kooperation\nSonstiges",
-            "half_width": false
-          }
-        },
-        {
-          "type": "body",
-          "settings": {
-            "required": true,
-            "half_width": false,
-            "placeholder": "Beschreibe dein Anliegen. Bei Buchfragen nenne gerne ISBN oder Titel..."
-          }
-        }
-      ],
-      "block_order": [
-        "contact-name-2",
-        "contact-email-3",
-        "contact-dropdown-4",
-        "contact-body-5"
-      ],
       "settings": {
         "heading": "Schreib uns eine Nachricht",
-        "subheading": "Wir antworten meist binnen weniger Stunden",
-        "heading_align": "text-center",
-        "image_position": "top",
-        "color_scheme": "1",
-        "full_width": false,
-        "button_style": "btn btn--primary",
-        "button_text": "Nachricht senden",
-        "spacing_above": true,
-        "spacing_below": true
+        "heading_size": "h2",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "student_faq": {
-      "type": "faq",
-      "blocks": [
-        {
-          "type": "question",
+    "support_topics": {
+      "type": "collapsible-content",
+      "blocks": {
+        "orders": {
+          "type": "collapsible_tab",
           "settings": {
-            "question": "Wie schnell erhalte ich meine Bücher?",
-            "answer": "<p>Bei Bestellungen bis 16 Uhr versenden wir noch am gleichen Tag. Die Lieferung dauert dann 1-3 Werktage. Ab 10€ Bestellwert ist der Versand kostenlos.</p>"
+            "heading": "Fragen zu Bestellungen",
+            "icon": "box",
+            "content": "<p><strong>Häufige Fragen zu Bestellungen:</strong></p><ul><li>🔍 <strong>Bestellstatus prüfen:</strong> In deinem Account unter \"Bestellhistorie\"</li><li>📦 <strong>Lieferzeit:</strong> 1-3 Werktage nach Bestelleingang</li><li>🚚 <strong>Sendungsverfolgung:</strong> Tracking-Link per E-Mail</li><li>💳 <strong>Zahlungsmethoden:</strong> Kreditkarte, PayPal, Rechnung</li></ul>",
+            "page": ""
           }
         },
-        {
-          "type": "question",
+        "returns": {
+          "type": "collapsible_tab",
           "settings": {
-            "question": "Was bedeutet die 36 Monate Garantie?",
-            "answer": "<p>Wir garantieren dir 36 Monate lang, dass deine Bücher in dem beworbenen Zustand sind. Falls nicht, tauschen wir sie kostenlos um oder erstatten den Kaufpreis.</p>"
+            "heading": "Rückgabe & Umtausch",
+            "icon": "return",
+            "content": "<p><strong>Einfache Rückgabe innerhalb von 30 Tagen:</strong></p><ul><li>📋 <strong>Rückgabegrund:</strong> Nicht zufrieden? Kein Problem!</li><li>📦 <strong>Kostenlose Rücksendung:</strong> Retourenschein per E-Mail</li><li>💰 <strong>Rückerstattung:</strong> Innerhalb von 5-7 Werktagen</li><li>🔄 <strong>Umtausch:</strong> Gerne gegen ein anderes Buch</li></ul>",
+            "page": ""
           }
         },
-        {
-          "type": "question",
+        "quality": {
+          "type": "collapsible_tab",
           "settings": {
-            "question": "Wie nachhaltig sind gebrauchte Bücher wirklich?",
-            "answer": "<p>Jedes gebrauchte Buch spart ca. 2,5kg CO₂, 90% Wasserverbrauch und schont wertvolle Rohstoffe. Du sparst bis zu 70% gegenüber Neupreisen und hilfst der Umwelt!</p>"
+            "heading": "Buchqualität & Zustand",
+            "icon": "star",
+            "content": "<p><strong>Unsere Qualitätsstandards:</strong></p><ul><li>✅ <strong>Wie neu:</strong> Keine sichtbaren Gebrauchsspuren</li><li>✅ <strong>Sehr gut:</strong> Minimale Gebrauchsspuren, vollständig lesbar</li><li>✅ <strong>Gut:</strong> Deutliche Gebrauchsspuren, aber vollständig</li><li>🛡️ <strong>36 Monate Garantie:</strong> Auf alle Bücher</li></ul>",
+            "page": ""
           }
         },
-        {
-          "type": "question",
+        "sustainability": {
+          "type": "collapsible_tab",
           "settings": {
-            "question": "Kann ich auch Bücher verkaufen?",
-            "answer": "<p>Ja! Wir kaufen gebrauchte Fachbücher zu fairen Preisen an. Einfach ISBN eingeben, Zustand bewerten und kostenlos zu uns senden. Du erhältst schnell dein Geld.</p>"
-          }
-        },
-        {
-          "type": "question",
-          "settings": {
-            "question": "Gibt es Studentenrabatte?",
-            "answer": "<p>Unsere gebrauchten Bücher sind bereits bis zu 70% günstiger als Neupreise. Zusätzlich gibt es regelmäßige Aktionen und Sonderangebote für Studierende.</p>"
+            "heading": "Nachhaltigkeit & Umwelt",
+            "icon": "leaf",
+            "content": "<p><strong>Dein Beitrag zur Umwelt:</strong></p><ul><li>🌱 <strong>CO₂ Ersparnis:</strong> 2,5kg pro gebrauchtem Buch</li><li>💧 <strong>Wassereinsparung:</strong> 90% weniger Verbrauch</li><li>🌳 <strong>Ressourcenschonung:</strong> Weniger Abholzung</li><li>♻️ <strong>Kreislaufwirtschaft:</strong> Aktiver Beitrag zur Nachhaltigkeit</li></ul>",
+            "page": ""
           }
         }
-      ],
+      },
       "block_order": [
-        "faq-1",
-        "faq-2", 
-        "faq-3",
-        "faq-4",
-        "faq-5"
+        "orders",
+        "returns",
+        "quality",
+        "sustainability"
       ],
       "settings": {
-        "heading": "Häufige Fragen von Studierenden",
-        "subheading": "Schnelle Antworten auf die wichtigsten Fragen",
-        "text_alignment": "center",
-        "spacing_above": true,
-        "spacing_below": true,
-        "bg_color": "#F9FAFB"
+        "caption": "",
+        "heading": "Häufig gestellte Fragen",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-2",
+        "container_color_scheme": "background-1",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "business_hours": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Unsere Öffnungszeiten",
+            "heading_size": "h3"
+          }
+        },
+        "hours": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Kundenservice:</strong></p><ul><li>📞 <strong>Telefon:</strong> Mo-Fr 9:00 - 18:00 Uhr</li><li>💬 <strong>Live Chat:</strong> Mo-Fr 9:00 - 17:00 Uhr</li><li>📧 <strong>E-Mail:</strong> 24/7 (Antwort binnen 24h)</li><li>🎯 <strong>Bestellungen:</strong> 24/7 online möglich</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "hours"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 32
       }
     },
     "trust_section": {
       "type": "icons-with-text",
-      "blocks": [
-        {
-          "type": "item",
+      "blocks": {
+        "guarantee": {
+          "type": "column",
           "settings": {
-            "icon": "clock",
-            "heading": "Schnelle Antworten",
-            "text": "Meist binnen weniger Stunden",
-            "link": ""
+            "title": "36 Monate Garantie",
+            "text": "<p>Länger als bei neuen Büchern</p>",
+            "icon": "icon-shield"
           }
         },
-        {
-          "type": "item",
+        "secure": {
+          "type": "column",
           "settings": {
-            "icon": "graduation_cap",
-            "heading": "Student*innen-Team",
-            "text": "Wir verstehen deine Bedürfnisse",
-            "link": ""
+            "title": "Sicher & SSL-verschlüsselt",
+            "text": "<p>Deine Daten sind bei uns geschützt</p>",
+            "icon": "icon-lock"
           }
         },
-        {
-          "type": "item",
+        "fast_shipping": {
+          "type": "column",
           "settings": {
-            "icon": "heart",
-            "heading": "Persönlicher Service",
-            "text": "Kein Bot, echte Menschen",
-            "link": ""
+            "title": "Schneller Versand",
+            "text": "<p>1-3 Werktage Lieferzeit</p>",
+            "icon": "icon-delivery"
           }
         },
-        {
-          "type": "item",
+        "support": {
+          "type": "column",
           "settings": {
-            "icon": "shield",
-            "heading": "Datenschutz",
-            "text": "DSGVO-konform und sicher",
-            "link": "/pages/datenschutz"
+            "title": "Persönlicher Support",
+            "text": "<p>Echte Menschen helfen dir weiter</p>",
+            "icon": "icon-support"
           }
         }
-      ],
+      },
       "block_order": [
-        "trust-1",
-        "trust-2",
-        "trust-3",
-        "trust-4"
+        "guarantee",
+        "secure",
+        "fast_shipping",
+        "support"
       ],
       "settings": {
-        "heading": "Warum du uns vertrauen kannst",
-        "subheading": "Transparenz und Service stehen bei uns an erster Stelle",
-        "heading_align": "text-center",
-        "icon_size": 32,
-        "title_type_scale": "medium",
-        "text_type_scale": "small",
-        "icon_position": "above",
-        "mobile_stack": true,
-        "section_height": "medium",
-        "color_scheme": "1",
-        "full_width": false,
-        "dividers": "none",
-        "prevent_animation": false
-      }
-    },
-    "newsletter": {
-      "type": "newsletter",
-      "blocks": [
-        {
-          "type": "heading",
-          "settings": {
-            "heading": "Bleib auf dem Laufenden",
-            "heading_size": "h4"
-          }
-        },
-        {
-          "type": "text",
-          "settings": {
-            "text": "<p>Erhalte Studientipps, Sonderangebote und Neuigkeiten direkt in dein Postfach.</p>",
-            "enlarge_text": false
-          }
-        },
-        {
-          "type": "form",
-          "settings": {}
-        }
-      ],
-      "block_order": [
-        "newsletter-heading-0",
-        "newsletter-text-1", 
-        "newsletter-form-2"
-      ],
-      "settings": {
-        "overlay_position": "justify-center",
-        "text_align": "text-center",
-        "color_scheme": "2",
-        "full_width": true,
-        "spacing_above": true,
-        "spacing_below": false
+        "title": "Warum Zweitliebe?",
+        "heading_size": "h2",
+        "layout": "grid",
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "columns_mobile": "2",
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     }
   },
@@ -317,8 +242,8 @@
     "contact_hero",
     "contact_options",
     "contact_form",
-    "student_faq",
-    "trust_section",
-    "newsletter"
+    "support_topics",
+    "business_hours",
+    "trust_section"
   ]
 }
