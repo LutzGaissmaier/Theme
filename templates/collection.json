@@ -1,28 +1,17 @@
 {
   "sections": {
-    "collection_hero": {
+    "collection_header": {
       "type": "main-collection-banner",
       "settings": {
-        "show_collection_description": true,
-        "show_product_count": true,
-        "text_alignment": "left",
-        "color_scheme": "background-1",
-        "spacing_below": true,
-        "enable_search": true,
-        "search_placeholder": "Suche in dieser Kollektion...",
-        "banner_height": "medium"
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "color_scheme": "background-1"
       }
     },
-    "advanced_filters": {
-      "type": "facet-filters",
+    "collection_filter_nav": {
+      "type": "custom-liquid",
       "settings": {
-        "enable_filtering": true,
-        "enable_sorting": true,
-        "filter_type": "vertical",
-        "collapse_on_larger_devices": false,
-        "show_product_count": true,
-        "show_clear_filters": true,
-        "color_scheme": "none"
+        "custom_liquid": "<div class=\"collection-filter-nav\">\n  <div class=\"page-width\">\n    <div class=\"collection-filter-nav__container\">\n      <h1 class=\"collection-filter-nav__title\">{{ collection.title | default: 'Gebrauchte Bücher' }}</h1>\n      \n      <div class=\"collection-filter-nav__filters\">\n        <a href=\"/collections/all\" class=\"collection-filter-nav__filter{% if collection.handle == 'all' %} active{% endif %}\">Alle Fachbücher</a>\n        <a href=\"/collections/fiction\" class=\"collection-filter-nav__filter{% if collection.handle == 'fiction' %} active{% endif %}\">Belletristik</a>\n        <a href=\"/collections/non-fiction\" class=\"collection-filter-nav__filter{% if collection.handle == 'non-fiction' %} active{% endif %}\">Sachbücher</a>\n        <a href=\"/collections/science-fiction\" class=\"collection-filter-nav__filter{% if collection.handle == 'science-fiction' %} active{% endif %}\">Science Fiction</a>\n        <a href=\"/collections/mystery\" class=\"collection-filter-nav__filter{% if collection.handle == 'mystery' %} active{% endif %}\">Krimi</a>\n        <a href=\"/collections/romance\" class=\"collection-filter-nav__filter{% if collection.handle == 'romance' %} active{% endif %}\">Romane</a>\n      </div>\n      \n      <div class=\"collection-filter-nav__search\">\n        <form action=\"/search\" method=\"get\" class=\"search-form\">\n          <input type=\"search\" name=\"q\" placeholder=\"Nach Büchern suchen...\" class=\"search-form__input\" value=\"{{ search.terms | escape }}\">\n          <button type=\"submit\" class=\"search-form__button\">\n            <svg viewBox=\"0 0 20 20\" fill=\"currentColor\">\n              <path fill-rule=\"evenodd\" d=\"M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z\" clip-rule=\"evenodd\" />\n            </svg>\n          </button>\n        </form>\n      </div>\n    </div>\n  </div>\n</div>\n\n<style>\n.collection-filter-nav {\n  background: white;\n  border-bottom: 1px solid #E5E7EB;\n  padding: 2rem 0;\n}\n\n.collection-filter-nav__container {\n  display: flex;\n  flex-direction: column;\n  gap: 1.5rem;\n}\n\n.collection-filter-nav__title {\n  font-size: 2rem;\n  font-weight: 700;\n  color: #111827;\n  margin: 0;\n}\n\n.collection-filter-nav__filters {\n  display: flex;\n  gap: 0.5rem;\n  flex-wrap: wrap;\n}\n\n.collection-filter-nav__filter {\n  padding: 0.5rem 1rem;\n  background: #F3F4F6;\n  color: #4B5563;\n  text-decoration: none;\n  border-radius: 1.5rem;\n  font-size: 0.875rem;\n  font-weight: 500;\n  transition: all 0.2s ease;\n}\n\n.collection-filter-nav__filter:hover,\n.collection-filter-nav__filter.active {\n  background: #2D5A27;\n  color: white;\n}\n\n.collection-filter-nav__search {\n  max-width: 400px;\n}\n\n.search-form {\n  position: relative;\n  width: 100%;\n}\n\n.search-form__input {\n  width: 100%;\n  padding: 0.75rem 1rem;\n  padding-right: 3rem;\n  border: 1px solid #D1D5DB;\n  border-radius: 0.5rem;\n  font-size: 1rem;\n  background: white;\n}\n\n.search-form__input:focus {\n  outline: none;\n  border-color: #2D5A27;\n  box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.1);\n}\n\n.search-form__button {\n  position: absolute;\n  right: 0.5rem;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  color: #6B7280;\n  cursor: pointer;\n  padding: 0.5rem;\n}\n\n.search-form__button svg {\n  width: 1.25rem;\n  height: 1.25rem;\n}\n\n@media (max-width: 768px) {\n  .collection-filter-nav__container {\n    gap: 1rem;\n  }\n  \n  .collection-filter-nav__title {\n    font-size: 1.5rem;\n  }\n  \n  .collection-filter-nav__filters {\n    gap: 0.25rem;\n  }\n  \n  .collection-filter-nav__filter {\n    padding: 0.375rem 0.75rem;\n    font-size: 0.8125rem;\n  }\n}\n</style>"
       }
     },
     "product_grid": {
@@ -32,168 +21,43 @@
         "columns_desktop": 4,
         "image_ratio": "portrait",
         "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": true,
-        "enable_quick_add": true,
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": false,
         "enable_filtering": true,
         "filter_type": "horizontal",
         "enable_sorting": true,
         "columns_mobile": "2",
-        "padding_top": 0,
-        "padding_bottom": 48
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     },
-    "trust_indicators": {
-      "type": "icons-with-text",
-      "blocks": {
-        "guarantee": {
-          "type": "column",
-          "settings": {
-            "title": "36 Monate Garantie",
-            "text": "<p>Auf alle gebrauchten Bücher für deine Sicherheit</p>",
-            "icon": "icon-check"
-          }
-        },
-        "shipping": {
-          "type": "column",
-          "settings": {
-            "title": "Kostenloser Versand",
-            "text": "<p>Ab 10€ Bestellwert – schnell und klimaneutral</p>",
-            "icon": "icon-delivery"
-          }
-        },
-        "rating": {
-          "type": "column",
-          "settings": {
-            "title": "4.8/5 Sterne",
-            "text": "<p>Von über 50.000 zufriedenen Kunden</p>",
-            "icon": "icon-star"
-          }
-        },
-        "environment": {
-          "type": "column",
-          "settings": {
-            "title": "CO₂ positiv",
-            "text": "<p>Umweltfreundlich & nachhaltig einkaufen</p>",
-            "icon": "icon-leaf"
-          }
-        }
-      },
-      "block_order": [
-        "guarantee",
-        "shipping", 
-        "rating",
-        "environment"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "layout": "grid",
-        "columns_desktop": 4,
-        "color_scheme": "accent-1",
-        "columns_mobile": "2",
-        "padding_top": 48,
-        "padding_bottom": 32
-      }
-    },
-    "recently_viewed": {
-      "type": "recently-viewed",
-      "settings": {
-        "title": "Zuletzt angesehen",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "image_ratio": "portrait",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": true,
-        "enable_quick_add": true,
-        "columns_mobile": "2",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
-    "collection_recommendations": {
-      "type": "product-recommendations",
-      "settings": {
-        "heading": "Ähnliche Bücher",
-        "heading_size": "h2",
-        "products_to_show": 6,
-        "columns_desktop": 3,
-        "color_scheme": "none",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": true,
-        "columns_mobile": "2",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
-    "collection_benefits": {
+    "featured_section": {
       "type": "rich-text",
       "settings": {
         "desktop_content_position": "center",
         "content_alignment": "center",
-        "color_scheme": "background-2",
+        "color_scheme": "background-1",
         "full_width": true,
-        "padding_top": 64,
-        "padding_bottom": 64
+        "padding_top": 48,
+        "padding_bottom": 48
       },
       "blocks": {
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Warum gebrauchte Bücher von Zweitliebe?",
-            "heading_size": "h2"
-          }
-        },
-        "text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Unsere gebrauchten Bücher bieten dir nicht nur fantastische Geschichten zu unschlagbaren Preisen, sondern helfen auch der Umwelt. Jedes Buch wird sorgfältig geprüft und kommt mit unserer 36-monatigen Garantie.</p>"
-          }
-        },
-        "button": {
-          "type": "button",
-          "settings": {
-            "button_label": "Mehr über Nachhaltigkeit erfahren",
-            "button_link": "/pages/sustainability",
-            "button_style_secondary": false,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "heading": "Empfohlene Bücher",
+            "heading_size": "h1"
           }
         }
       },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ]
-    },
-    "newsletter_cta": {
-      "type": "newsletter",
-      "settings": {
-        "heading": "Nie wieder ein gutes Buch verpassen",
-        "subtext": "Abonniere unseren Newsletter und erhalte exklusive Angebote und Neuheiten direkt in dein Postfach",
-        "newsletter_heading": "Newsletter abonnieren",
-        "color_scheme": "background-1",
-        "full_width": true,
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
+      "block_order": ["heading"]
     }
   },
   "order": [
-    "collection_hero",
-    "advanced_filters",
+    "collection_header",
+    "collection_filter_nav", 
     "product_grid",
-    "trust_indicators",
-    "recently_viewed",
-    "collection_recommendations", 
-    "collection_benefits",
-    "newsletter_cta"
+    "featured_section"
   ]
 }

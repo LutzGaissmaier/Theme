@@ -1,45 +1,37 @@
-{% comment %} ZWEITLIEBE HERO SECTION {% endcomment %}
+{% comment %} ZWEITLIEBE HERO SECTION - Modern Book Stack Design {% endcomment %}
 
 <style>
 .zweitliebe-hero {
-  background: linear-gradient(135deg, {{ section.settings.background_color | default: '#F9FAFB' }} 0%, #FFFFFF 100%);
-  padding: 80px 0 120px;
+  background: linear-gradient(135deg, #2D5A27 0%, #4A7C59 100%);
+  padding: 80px 0;
   position: relative;
   overflow: hidden;
-}
-
-.zweitliebe-hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 50%;
-  height: 100%;
-  background: url("{{ 'zweitliebe_logo.png' | asset_url }}") no-repeat center;
-  background-size: contain;
-  opacity: 0.05;
-  z-index: 1;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
 }
 
 .zweitliebe-hero__container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--space-xl);
   position: relative;
   z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
 }
 
 .zweitliebe-hero__content {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
+  max-width: 500px;
 }
 
 .zweitliebe-hero__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
-  color: {{ section.settings.text_color | default: '#111827' }};
+  color: white;
   margin-bottom: var(--space-lg);
   letter-spacing: -0.02em;
 }
@@ -48,11 +40,8 @@
   font-size: var(--text-lg);
   font-weight: var(--font-normal);
   line-height: var(--leading-relaxed);
-  color: var(--gray-600);
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: var(--space-2xl);
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .zweitliebe-hero__button {
@@ -60,90 +49,60 @@
   align-items: center;
   gap: var(--space-sm);
   padding: var(--space-md) var(--space-2xl);
-  background: linear-gradient(135deg, {{ section.settings.button_color | default: '#2D5A27' }} 0%, var(--primary-green-light) 100%);
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
   color: white;
   text-decoration: none;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-full);
   font-size: var(--text-lg);
   font-weight: var(--font-semibold);
-  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
-  border: none;
   cursor: pointer;
 }
 
 .zweitliebe-hero__button:hover {
+  background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  background: linear-gradient(135deg, var(--primary-green-light) 0%, {{ section.settings.button_color | default: '#2D5A27' }} 100%);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   color: white;
 }
 
-.zweitliebe-hero__button svg {
-  width: 18px;
-  height: 18px;
-  transition: transform 0.3s ease;
+.zweitliebe-hero__image {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.zweitliebe-hero__button:hover svg {
-  transform: translateX(4px);
-}
-
-.zweitliebe-hero__stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--space-xl);
-  margin-top: var(--space-3xl);
-  padding-top: var(--space-2xl);
-  border-top: 1px solid var(--gray-200);
-}
-
-.zweitliebe-hero__stat {
-  text-align: center;
-}
-
-.zweitliebe-hero__stat-number {
-  display: block;
-  font-size: var(--text-3xl);
-  font-weight: var(--font-bold);
-  color: var(--primary-green);
-  margin-bottom: var(--space-xs);
-}
-
-.zweitliebe-hero__stat-label {
-  font-size: var(--text-sm);
-  color: var(--gray-600);
-  font-weight: var(--font-medium);
+.zweitliebe-hero__book-stack {
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="book1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%23D4A574;stop-opacity:1" /><stop offset="100%" style="stop-color:%23B8956A;stop-opacity:1" /></linearGradient><linearGradient id="book2" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%235B7C5A;stop-opacity:1" /><stop offset="100%" style="stop-color:%234A6B49;stop-opacity:1" /></linearGradient><linearGradient id="book3" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%23C7A882;stop-opacity:1" /><stop offset="100%" style="stop-color:%23B29977;stop-opacity:1" /></linearGradient><linearGradient id="book4" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:%236B8E6B;stop-opacity:1" /><stop offset="100%" style="stop-color:%235A7D5A;stop-opacity:1" /></linearGradient></defs><g transform="translate(50,50)"><rect x="20" y="200" width="120" height="18" fill="url(%23book1)" rx="2"/><rect x="25" y="182" width="110" height="18" fill="url(%23book2)" rx="2"/><rect x="15" y="164" width="130" height="18" fill="url(%23book3)" rx="2"/><rect x="30" y="146" width="100" height="18" fill="url(%23book4)" rx="2"/><rect x="22" y="128" width="116" height="18" fill="url(%23book1)" rx="2"/><rect x="180" y="190" width="100" height="20" fill="url(%23book2)" rx="2"/><rect x="185" y="170" width="90" height="20" fill="url(%23book3)" rx="2"/><rect x="175" y="150" width="110" height="20" fill="url(%23book4)" rx="2"/><rect x="190" y="130" width="80" height="20" fill="url(%23book1)" rx="2"/></g></svg>') no-repeat center;
+  background-size: contain;
+  opacity: 0.9;
 }
 
 @media (max-width: 768px) {
-  .zweitliebe-hero {
-    padding: 60px 0 80px;
+  .zweitliebe-hero__container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: var(--space-2xl);
   }
   
-  .zweitliebe-hero__container {
-    padding: 0 var(--space-lg);
+  .zweitliebe-hero__image {
+    height: 250px;
+    order: -1;
   }
   
   .zweitliebe-hero__title {
     font-size: 2.5rem;
-    margin-bottom: var(--space-md);
   }
   
   .zweitliebe-hero__subtitle {
     font-size: var(--text-base);
-    margin-bottom: var(--space-xl);
-  }
-  
-  .zweitliebe-hero__button {
-    padding: var(--space-sm) var(--space-xl);
-    font-size: var(--text-base);
-  }
-  
-  .zweitliebe-hero__stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-lg);
-    margin-top: var(--space-2xl);
   }
 }
 </style>
@@ -164,26 +123,12 @@
       {% if section.settings.button_text != blank and section.settings.button_link != blank %}
         <a href="{{ section.settings.button_link }}" class="zweitliebe-hero__button">
           {{ section.settings.button_text }}
-          <svg viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-          </svg>
         </a>
       {% endif %}
-      
-      <div class="zweitliebe-hero__stats">
-        <div class="zweitliebe-hero__stat">
-          <span class="zweitliebe-hero__stat-number">50.000+</span>
-          <span class="zweitliebe-hero__stat-label">Bücher im Sortiment</span>
-        </div>
-        <div class="zweitliebe-hero__stat">
-          <span class="zweitliebe-hero__stat-number">36</span>
-          <span class="zweitliebe-hero__stat-label">Monate Garantie</span>
-        </div>
-        <div class="zweitliebe-hero__stat">
-          <span class="zweitliebe-hero__stat-number">85%</span>
-          <span class="zweitliebe-hero__stat-label">Umweltfreundlicher</span>
-        </div>
-      </div>
+    </div>
+    
+    <div class="zweitliebe-hero__image">
+      <div class="zweitliebe-hero__book-stack"></div>
     </div>
   </div>
 </section>
@@ -206,7 +151,7 @@
       "type": "textarea",
       "id": "subtitle", 
       "label": "Untertitel",
-      "default": "Durchstöbere unsere kuratierte Sammlung gebrauchter Bücher – von zeitlosen Klassikern bis zu zeitgenössischen Bestsellern. Finde dein nächstes literarisches Abenteuer bei Zweitliebe."
+      "default": "Entdecke unsere kuratierte Sammlung gebrauchter Bücher – von zeitlosen Klassikern bis zu zeitgenössischen Bestsellern. Finde dein nächstes literarisches Abenteuer bei Zweitliebe."
     },
     {
       "type": "header",
@@ -223,28 +168,6 @@
       "id": "button_link",
       "label": "Button Link",
       "default": "/collections/all"
-    },
-    {
-      "type": "header",
-      "content": "Design"
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Hintergrundfarbe",
-      "default": "#F9FAFB"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Textfarbe",
-      "default": "#111827"
-    },
-    {
-      "type": "color",
-      "id": "button_color",
-      "label": "Button Farbe",
-      "default": "#2D5A27"
     }
   ],
   "presets": [
