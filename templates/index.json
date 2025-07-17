@@ -13,12 +13,12 @@
         "text": {
           "type": "text",
           "settings": {
-            "text": "Explore our curated collection of used books, from timeless classics to contemporary bestsellers. Find your next literary adventure at Zweitliebe.",
+            "text": "<p>Explore our curated collection of used books, from timeless classics to contemporary bestsellers. Find your next literary adventure at Zweitliebe.</p>",
             "text_style": "body"
           }
         },
         "button": {
-          "type": "buttons",
+          "type": "button",
           "settings": {
             "button_label_1": "Shop Now",
             "button_link_1": "/collections/all",
@@ -139,7 +139,7 @@
         "testimonial_1": {
           "type": "testimonial",
           "settings": {
-            "testimonial": "\"Zweitliebe has an amazing collection of books at unbeatable prices. I found classics I've been searching for everywhere!\"",
+            "testimonial": "<p>\"Zweitliebe has an amazing collection of books at unbeatable prices. I found classics I've been searching for everywhere!\"</p>",
             "author": "Sarah M.",
             "location": "Book Lover"
           }
@@ -147,7 +147,7 @@
         "testimonial_2": {
           "type": "testimonial",
           "settings": {
-            "testimonial": "\"The quality of the used books is excellent, and the shipping was fast. Highly recommended for any reader.\"",
+            "testimonial": "<p>\"The quality of the used books is excellent, and the shipping was fast. Highly recommended for any reader.\"</p>",
             "author": "Michael K.",
             "location": "Frequent Reader"
           }
@@ -155,7 +155,7 @@
         "testimonial_3": {
           "type": "testimonial",
           "settings": {
-            "testimonial": "\"Great prices, great selection, and I love that I'm helping the environment by buying second-hand books.\"",
+            "testimonial": "<p>\"Great prices, great selection, and I love that I'm helping the environment by buying second-hand books.\"</p>",
             "author": "Emma L.",
             "location": "Environmental Enthusiast"
           }

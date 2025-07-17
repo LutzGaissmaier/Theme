@@ -2,15 +2,15 @@
   "sections": {
     "account_header": {
       "type": "rich-text",
-      "blocks": [
-        {
+      "blocks": {
+        "header-text": {
           "type": "text",
           "settings": {
             "text": "<div style=\"font-family: var(--zweitliebe-font-family); max-width: 1400px; margin: 0 auto; padding: 0 var(--zweitliebe-space-10); padding-top: var(--zweitliebe-space-5);\"><div style=\"display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--zweitliebe-space-3); padding: var(--zweitliebe-space-4); margin-bottom: var(--zweitliebe-space-6);\"><div style=\"display: flex; min-width: 288px; flex-direction: column; gap: var(--zweitliebe-space-3);\"><p style=\"color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-4xl); font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; margin: 0;\">Account Dashboard</p><p style=\"color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; margin: 0;\">Manage your account settings and view your order history.</p></div></div></div>",
             "enlarge_text": false
           }
         }
-      ],
+      },
       "block_order": [
         "header-text"
       ],
@@ -24,15 +24,15 @@
     },
     "quick_actions": {
       "type": "rich-text",
-      "blocks": [
-        {
+      "blocks": {
+        "actions-text": {
           "type": "text",
           "settings": {
             "text": "<div style=\"font-family: var(--zweitliebe-font-family); max-width: 1400px; margin: 0 auto; padding: 0 var(--zweitliebe-space-10);\"><h3 style=\"color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-lg); font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; padding: 0 var(--zweitliebe-space-4); padding-bottom: var(--zweitliebe-space-2); padding-top: var(--zweitliebe-space-4); margin: 0;\">Quick Actions</h3><div style=\"display: flex; justify-content: stretch;\"><div style=\"display: flex; flex: 1; gap: var(--zweitliebe-space-3); flex-wrap: wrap; padding: 0 var(--zweitliebe-space-4) var(--zweitliebe-space-3); justify-content: space-between;\"><a href=\"/account/orders\" style=\"display: flex; min-width: 84px; max-width: 480px; cursor: pointer; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--zweitliebe-radius-full); height: 40px; padding: 0 var(--zweitliebe-space-4); background: #186e0b; color: white; text-decoration: none; font-size: var(--zweitliebe-text-sm); font-weight: 700; line-height: 1.4; letter-spacing: 0.015em; border: none; transition: all 0.2s ease;\"><span>Order History</span></a><a href=\"/account/addresses\" style=\"display: flex; min-width: 84px; max-width: 480px; cursor: pointer; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--zweitliebe-radius-full); height: 40px; padding: 0 var(--zweitliebe-space-4); background: var(--zweitliebe-light); color: var(--zweitliebe-dark); text-decoration: none; font-size: var(--zweitliebe-text-sm); font-weight: 700; line-height: 1.4; letter-spacing: 0.015em; border: none; transition: all 0.2s ease;\"><span>Profile Management</span></a></div></div></div>",
             "enlarge_text": false
           }
         }
-      ],
+      },
       "block_order": [
         "actions-text"
       ],
@@ -46,15 +46,15 @@
     },
     "account_overview": {
       "type": "rich-text",
-      "blocks": [
-        {
+      "blocks": {
+        "overview-text": {
           "type": "text",
           "settings": {
             "text": "<div style=\"font-family: var(--zweitliebe-font-family); max-width: 1400px; margin: 0 auto; padding: 0 var(--zweitliebe-space-10);\"><h3 style=\"color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-lg); font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; padding: 0 var(--zweitliebe-space-4); padding-bottom: var(--zweitliebe-space-2); padding-top: var(--zweitliebe-space-4); margin: 0;\">Account Overview</h3><div style=\"padding: var(--zweitliebe-space-4); display: grid; grid-template-columns: 20% 1fr; gap: 0 var(--zweitliebe-space-6);\"><div style=\"grid-column: span 2; display: grid; grid-template-columns: subgrid; border-top: 1px solid #dde5dc; padding: var(--zweitliebe-space-5) 0;\"><p style=\"color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; margin: 0;\">Account Status</p><p style=\"color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; margin: 0;\">Active</p></div><div style=\"grid-column: span 2; display: grid; grid-template-columns: subgrid; border-top: 1px solid #dde5dc; padding: var(--zweitliebe-space-5) 0;\"><p style=\"color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; margin: 0;\">Email Address</p><p style=\"color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; margin: 0;\">{{ customer.email | default: 'user@example.com' }}</p></div><div style=\"grid-column: span 2; display: grid; grid-template-columns: subgrid; border-top: 1px solid #dde5dc; padding: var(--zweitliebe-space-5) 0;\"><p style=\"color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; margin: 0;\">Phone Number</p><p style=\"color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; margin: 0;\">{{ customer.phone | default: '+1 (555) 123-4567' }}</p></div><div style=\"grid-column: span 2; display: grid; grid-template-columns: subgrid; border-top: 1px solid #dde5dc; padding: var(--zweitliebe-space-5) 0;\"><p style=\"color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; margin: 0;\">Payment Methods</p><p style=\"color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; margin: 0;\">Mastercard ending in 4567</p></div></div></div>",
             "enlarge_text": false
           }
         }
-      ],
+      },
       "block_order": [
         "overview-text"
       ],
@@ -68,15 +68,15 @@
     },
     "recent_orders": {
       "type": "rich-text",
-      "blocks": [
-        {
+      "blocks": {
+        "orders-text": {
           "type": "text",
           "settings": {
             "text": "<div style=\"font-family: var(--zweitliebe-font-family); max-width: 1400px; margin: 0 auto; padding: 0 var(--zweitliebe-space-10);\"><h3 style=\"color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-lg); font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; padding: 0 var(--zweitliebe-space-4); padding-bottom: var(--zweitliebe-space-2); padding-top: var(--zweitliebe-space-4); margin: 0;\">Recent Orders</h3><div style=\"padding: 0 var(--zweitliebe-space-4) var(--zweitliebe-space-3);\"><div style=\"display: flex; overflow: hidden; border-radius: var(--zweitliebe-radius-xl); border: 1px solid #dde5dc; background: white;\"><table style=\"flex: 1; border-collapse: collapse; width: 100%;\"><thead><tr style=\"background: white;\"><th style=\"padding: var(--zweitliebe-space-3) var(--zweitliebe-space-4); text-align: left; color: var(--zweitliebe-dark); width: 400px; font-size: var(--zweitliebe-text-sm); font-weight: 500; line-height: 1.4; border: none;\">Order ID</th><th style=\"padding: var(--zweitliebe-space-3) var(--zweitliebe-space-4); text-align: left; color: var(--zweitliebe-dark); width: 400px; font-size: var(--zweitliebe-text-sm); font-weight: 500; line-height: 1.4; border: none;\">Date</th><th style=\"padding: var(--zweitliebe-space-3) var(--zweitliebe-space-4); text-align: left; color: var(--zweitliebe-dark); width: 240px; font-size: var(--zweitliebe-text-sm); font-weight: 500; line-height: 1.4; border: none;\">Status</th><th style=\"padding: var(--zweitliebe-space-3) var(--zweitliebe-space-4); text-align: left; color: var(--zweitliebe-dark); width: 400px; font-size: var(--zweitliebe-text-sm); font-weight: 500; line-height: 1.4; border: none;\">Total</th></tr></thead><tbody><tr style=\"border-top: 1px solid #dde5dc;\"><td style=\"height: 72px; padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4); width: 400px; color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; border: none;\">#12345</td><td style=\"height: 72px; padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4); width: 400px; color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; border: none;\">July 15, 2024</td><td style=\"height: 72px; padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4); width: 240px; font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; border: none;\"><span style=\"display: flex; min-width: 84px; max-width: 480px; cursor: pointer; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--zweitliebe-radius-full); height: 32px; padding: 0 var(--zweitliebe-space-4); background: var(--zweitliebe-light); color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-sm); font-weight: 500; line-height: 1.4; width: 100%; border: none;\">Shipped</span></td><td style=\"height: 72px; padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4); width: 400px; color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; border: none;\">$45.99</td></tr><tr style=\"border-top: 1px solid #dde5dc;\"><td style=\"height: 72px; padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4); width: 400px; color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; border: none;\">#12346</td><td style=\"height: 72px; padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4); width: 400px; color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; border: none;\">June 20, 2024</td><td style=\"height: 72px; padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4); width: 240px; font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; border: none;\"><span style=\"display: flex; min-width: 84px; max-width: 480px; cursor: pointer; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--zweitliebe-radius-full); height: 32px; padding: 0 var(--zweitliebe-space-4); background: var(--zweitliebe-light); color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-sm); font-weight: 500; line-height: 1.4; width: 100%; border: none;\">Delivered</span></td><td style=\"height: 72px; padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4); width: 400px; color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; border: none;\">$29.50</td></tr><tr style=\"border-top: 1px solid #dde5dc;\"><td style=\"height: 72px; padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4); width: 400px; color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; border: none;\">#12347</td><td style=\"height: 72px; padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4); width: 400px; color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; border: none;\">May 5, 2024</td><td style=\"height: 72px; padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4); width: 240px; font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; border: none;\"><span style=\"display: flex; min-width: 84px; max-width: 480px; cursor: pointer; align-items: center; justify-content: center; overflow: hidden; border-radius: var(--zweitliebe-radius-full); height: 32px; padding: 0 var(--zweitliebe-space-4); background: var(--zweitliebe-light); color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-sm); font-weight: 500; line-height: 1.4; width: 100%; border: none;\">Cancelled</span></td><td style=\"height: 72px; padding: var(--zweitliebe-space-2) var(--zweitliebe-space-4); width: 400px; color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-sm); font-weight: 400; line-height: 1.4; border: none;\">$15.75</td></tr></tbody></table></div></div></div>",
             "enlarge_text": false
           }
         }
-      ],
+      },
       "block_order": [
         "orders-text"
       ],

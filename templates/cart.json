@@ -2,15 +2,15 @@
   "sections": {
     "breadcrumbs": {
       "type": "rich-text",
-      "blocks": [
-        {
+      "blocks": {
+        "breadcrumb-text": {
           "type": "text",
           "settings": {
             "text": "<nav aria-label=\"Breadcrumb\" style=\"font-family: var(--zweitliebe-font-family); padding: var(--zweitliebe-space-4) 0; max-width: 1400px; margin: 0 auto; padding-left: var(--zweitliebe-space-10); padding-right: var(--zweitliebe-space-10);\"><div style=\"display: flex; flex-wrap: wrap; gap: var(--zweitliebe-space-2);\"><a href=\"/collections/all\" style=\"color: var(--zweitliebe-green); text-decoration: none; font-size: var(--zweitliebe-text-base); font-weight: 500;\">Shop</a><span style=\"color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-base); font-weight: 500;\">/</span><span style=\"color: var(--zweitliebe-dark); font-size: var(--zweitliebe-text-base); font-weight: 500;\">Cart</span></div></nav>",
             "enlarge_text": false
           }
         }
-      ],
+      },
       "block_order": [
         "breadcrumb-text"
       ],
@@ -39,15 +39,15 @@
     },
     "trust_strip": {
       "type": "rich-text",
-      "blocks": [
-        {
+      "blocks": {
+        "trust-text": {
           "type": "text",
           "settings": {
             "text": "<div style=\"background: rgba(34, 197, 94, 0.05); border: 1px solid rgba(34, 197, 94, 0.2); border-radius: var(--zweitliebe-radius-lg); padding: var(--zweitliebe-space-6); margin: var(--zweitliebe-space-8) 0; font-family: var(--zweitliebe-font-family);\"><div style=\"display: flex; align-items: center; gap: var(--zweitliebe-space-2); color: #059669; font-size: var(--zweitliebe-text-sm); font-weight: 600; margin-bottom: var(--zweitliebe-space-3);\"><span>✓</span><span>36 Month Guarantee on all Books</span><span style=\"margin-left: var(--zweitliebe-space-6);\">✓</span><span>Free Shipping over $10</span><span style=\"margin-left: var(--zweitliebe-space-6);\">✓</span><span>Carbon Neutral Shipping</span></div></div>",
             "enlarge_text": false
           }
         }
-      ],
+      },
       "block_order": [
         "trust-text"
       ],
@@ -61,15 +61,15 @@
     },
     "environmental_impact": {
       "type": "rich-text",
-      "blocks": [
-        {
+      "blocks": {
+        "impact-text": {
           "type": "text",
           "settings": {
             "text": "<div style=\"background: rgba(30, 64, 175, 0.05); border: 1px solid rgba(30, 64, 175, 0.2); border-radius: var(--zweitliebe-radius-lg); padding: var(--zweitliebe-space-6); margin: var(--zweitliebe-space-8) 0; text-align: center; font-family: var(--zweitliebe-font-family);\"><p style=\"color: #1E40AF; font-size: var(--zweitliebe-text-sm); font-weight: 600; margin: 0;\">🌱 You save 2.3kg CO2 with this purchase!</p><p style=\"color: #3B82F6; font-size: var(--zweitliebe-text-xs); margin: var(--zweitliebe-space-2) 0 0 0;\">Used books are 85% more environmentally friendly</p></div>",
             "enlarge_text": false
           }
         }
-      ],
+      },
       "block_order": [
         "impact-text"
       ],
@@ -111,15 +111,15 @@
     },
     "footer_info": {
       "type": "rich-text",
-      "blocks": [
-        {
+      "blocks": {
+        "footer-text": {
           "type": "text",
           "settings": {
             "text": "<div style=\"text-align: center; font-family: var(--zweitliebe-font-family); padding: var(--zweitliebe-space-8) 0;\"><div style=\"display: flex; flex-wrap: wrap; justify-content: center; gap: var(--zweitliebe-space-6);\"><a href=\"/pages/about\" style=\"color: var(--zweitliebe-green); text-decoration: none; font-size: var(--zweitliebe-text-base); font-weight: 400;\">About Us</a><a href=\"/pages/privacy-policy\" style=\"color: var(--zweitliebe-green); text-decoration: none; font-size: var(--zweitliebe-text-base); font-weight: 400;\">Privacy Policy</a><a href=\"/pages/terms-of-service\" style=\"color: var(--zweitliebe-green); text-decoration: none; font-size: var(--zweitliebe-text-base); font-weight: 400;\">Terms of Service</a></div><p style=\"color: var(--zweitliebe-green); font-size: var(--zweitliebe-text-base); font-weight: 400; margin: var(--zweitliebe-space-6) 0 0 0;\">© 2024 Zweitliebe. All rights reserved.</p></div>",
             "enlarge_text": false
           }
         }
-      ],
+      },
       "block_order": [
         "footer-text"
       ],
